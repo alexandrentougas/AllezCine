@@ -1,0 +1,104 @@
+[
+  {
+    "ID": 1,
+    "Title": "Star Wars - A New Hope",
+    "Year": "1977",
+    "Released": "25 May 1977",
+    "Duration": "121 min",
+    "Genre": "SciFi",
+    "Director": [
+      "George Lucas",
+    ],
+    "Writers": [
+      "George Lucas"
+    ],
+    "Actors": [
+      "Mark Hamill",
+      "Harrison Ford",
+      "Carrie Fisher",
+    ],
+    "Summary": "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle-station while also attempting to rescue Princess Leia from the evil Darth Vader.",
+    "Country": "USA",
+    "Poster": "StarWars-TheLastJedi.jpg",
+    "Slider": false,
+    "Trailer": "https://www.youtube.com/watch?v=vZ734NWnAHA",
+  },
+  {
+    "ID": 2,
+    "Title": "Star Wars: Episode V - The Empire Strikes Back",
+    "Year": "1980",
+    "Released": "20 June 1980",
+    "Duration": "124 min",
+    "Genre": "SciFi",
+    "Director": [
+      "Irvin Kershner",
+    ],
+    "Writers": [
+      "Leigh Brackett",
+      "Lawrence Kasdan",
+      "George Lucas",
+    ],
+    "Actors": [
+      "Mark Hamill",
+      "Harrison Ford",
+      "Carrie Fisher",
+      "Billy Dee Williams",
+    ],
+    "Summary": "After the rebels are overpowered by the Empire on the ice planet Hoth, Luke Skywalker begins Jedi training with Yoda. His friends accept shelter from a questionable ally as Darth Vader hunts them in a plan to capture Luke.",
+    "Country": "USA",
+    "Poster": "StarWars-TheEmpireStrikesBack.jpg",
+    "Slider": false,
+    "Trailer": "https://www.youtube.com/watch?v=JNwNXF9Y6kY",
+  },
+  {
+    "ID": 3,
+    "Title": "Star Wars: Episode VI - Return of the Jedi",
+    "Year": "1983",
+    "Released": "25 May 1983",
+    "Duration": "131 min",
+    "Genre": "SciFi",
+    "Director": [
+      "Richard Marquand",
+    ],
+    "Writers": [
+      "Lawrence Kasdan",
+      "George Lucas",
+    ],
+    "Actors": [
+      "Mark Hamill",
+      "Harrison Ford",
+      "Carrie Fisher",
+      "Billy Dee Williams",
+    ],
+    "Summary": "After a daring mission to rescue Han Solo from Jabba the Hutt, the rebels dispatch to Endor to destroy a more powerful Death Star. Meanwhile, Luke struggles to help Vader back from the dark side without falling into the Emperor's trap.",
+    "Country": "USA",
+    "Poster": "StarWars-ReturnOfTheJedi.jpg",
+    "Slider": false,
+    "Trailer": "https://www.youtube.com/watch?v=5UnjrG_N8hU",
+  }
+  {
+    "ID": 4,
+    "Title": "Star Wars: Episode I - The Phantom Menace",
+    "Year": "1999",
+    "Released": "13 October 1999",
+    "Duration": "136 min",
+    "Genre": "SciFi",
+    "Director": [
+      "George Lucas",
+    ],
+    "Writers": [
+      "George Lucas",
+    ],
+    "Actors": [
+      "Ewan McGregor",
+      "Liam Neeson",
+      "Natalie Portman",
+    ],
+    "Summary": "Two Jedi Knights escape a hostile blockade to find allies and come across a young boy who may bring balance to the Force, but the long dormant Sith resurface to claim their old glory.",
+    "Country": "USA",
+    "Poster": "StarWars-PhantomMenace.jpg",
+    "Slider": false,
+    "Trailer": "https://www.youtube.com/watch?v=bD7bpG-zDJQ",
+  }
+
+]
