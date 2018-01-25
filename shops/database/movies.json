@@ -4,7 +4,7 @@
     "Title": "Star Wars - A New Hope",
     "Year": "1977",
     "Released": "25 May 1977",
-    "Duration": "121 min",
+    "Duration": 121,
     "Genre": [
       "Sci-Fi",
       "Action",
@@ -33,7 +33,7 @@
     "Title": "Star Wars: Episode V - The Empire Strikes Back",
     "Year": "1980",
     "Released": "20 June 1980",
-    "Duration": "124 min",
+    "Duration": 124,
     "Genre": [
       "Sci-Fi",
       "Action",
@@ -65,7 +65,7 @@
     "Title": "Star Wars: Episode VI - Return of the Jedi",
     "Year": "1983",
     "Released": "25 May 1983",
-    "Duration": "131 min",
+    "Duration": 131,
     "Genre": [
       "Sci-Fi",
       "Action",
@@ -96,7 +96,7 @@
     "Title": "Star Wars: Episode I - The Phantom Menace",
     "Year": "1999",
     "Released": "13 October 1999",
-    "Duration": "136 min",
+    "Duration": 136,
     "Genre": [
       "Sci-Fi",
       "Action",
@@ -125,7 +125,7 @@
     "Title": "Star Wars: Episode II - Attack Of The Clones",
     "Year": "2002",
     "Released": "17 May 2002",
-    "Duration": "142 min",
+    "Duration": 142,
     "Genre": [
       "Sci-Fi",
       "Action",
@@ -157,7 +157,7 @@
     "Title": "Star wars: Episode III - Revenge of The Sith",
     "Year": "2005",
     "Released": "18 May 2005",
-    "Duration": "140 min",
+    "Duration": 140,
     "Genre": [
       "Sci-Fi",
       "Action",
@@ -188,7 +188,7 @@
     "Title": "Star Wars: Episode VII - The Force Awakens",
     "Year": "2015",
     "Released": "16 December 2015",
-    "Duration": "136 min",
+    "Duration": 136,
     "Genre": [
       "Sci-Fi",
       "Action",
@@ -223,7 +223,7 @@
     "Title": "Star Wars: Episode VIII - The Last Jedi",
     "Year": "2017",
     "Released": "13 December 2017",
-    "Duration": "152 min",
+    "Duration": 152,
     "Genre": [
       "Sci-Fi",
       "Action",
@@ -255,7 +255,7 @@
     "Title": "Rogue One - A Star Wars Story",
     "Year": "2016",
     "Released": "14 December 2016",
-    "Duration": "133 min",
+    "Duration": 133,
     "Genre": [
       "Sci-Fi",
       "Action",
@@ -289,7 +289,7 @@
     "Title": "Captain America - Civil War",
     "Year": "2016",
     "Released": "27 April 2016",
-    "Duration": "147 min",
+    "Duration": 147,
     "Genre": [
       "Sci-Fi",
       "Action",
@@ -330,7 +330,7 @@
     "Title": "Black Panther",
     "Year": "2018",
     "Released": "14 February 2018",
-    "Duration": "120 min",
+    "Duration": 120,
     "Genre": [
       "Sci-Fi",
       "Action",
