@@ -9,10 +9,10 @@
       "Sci-Fi",
       "Action",
       "Fantasy",
-      "Adventure",
+      "Adventure"
     ],
     "Director": [
-      "George Lucas",
+      "George Lucas"
     ],
     "Writers": [
       "George Lucas"
@@ -20,13 +20,13 @@
     "Actors": [
       "Mark Hamill",
       "Harrison Ford",
-      "Carrie Fisher",
+      "Carrie Fisher"
     ],
     "Summary": "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle-station while also attempting to rescue Princess Leia from the evil Darth Vader.",
     "Country": "USA",
     "Poster": "StarWars-TheLastJedi.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=vZ734NWnAHA",
+    "Trailer": "https://www.youtube.com/watch?v=vZ734NWnAHA"
   },
   {
     "ID": 2,
@@ -38,27 +38,27 @@
       "Sci-Fi",
       "Action",
       "Fantasy",
-      "Adventure",
+      "Adventure"
     ],
     "Director": [
-      "Irvin Kershner",
+      "Irvin Kershner"
     ],
     "Writers": [
       "Leigh Brackett",
       "Lawrence Kasdan",
-      "George Lucas",
+      "George Lucas"
     ],
     "Actors": [
       "Mark Hamill",
       "Harrison Ford",
       "Carrie Fisher",
-      "Billy Dee Williams",
+      "Billy Dee Williams"
     ],
     "Summary": "After the rebels are overpowered by the Empire on the ice planet Hoth, Luke Skywalker begins Jedi training with Yoda. His friends accept shelter from a questionable ally as Darth Vader hunts them in a plan to capture Luke.",
     "Country": "USA",
     "Poster": "StarWars-TheEmpireStrikesBack.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=JNwNXF9Y6kY",
+    "Trailer": "https://www.youtube.com/watch?v=JNwNXF9Y6kY"
   },
   {
     "ID": 3,
@@ -70,26 +70,26 @@
       "Sci-Fi",
       "Action",
       "Fantasy",
-      "Adventure",
+      "Adventure"
     ],
     "Director": [
-      "Richard Marquand",
+      "Richard Marquand"
     ],
     "Writers": [
       "Lawrence Kasdan",
-      "George Lucas",
+      "George Lucas"
     ],
     "Actors": [
       "Mark Hamill",
       "Harrison Ford",
       "Carrie Fisher",
-      "Billy Dee Williams",
+      "Billy Dee Williams"
     ],
     "Summary": "After a daring mission to rescue Han Solo from Jabba the Hutt, the rebels dispatch to Endor to destroy a more powerful Death Star. Meanwhile, Luke struggles to help Vader back from the dark side without falling into the Emperor's trap.",
     "Country": "USA",
     "Poster": "StarWars-ReturnOfTheJedi.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=5UnjrG_N8hU",
+    "Trailer": "https://www.youtube.com/watch?v=5UnjrG_N8hU"
   },
   {
     "ID": 4,
@@ -101,24 +101,24 @@
       "Sci-Fi",
       "Action",
       "Fantasy",
-      "Adventure",
+      "Adventure"
     ],
     "Director": [
-      "George Lucas",
+      "George Lucas"
     ],
     "Writers": [
-      "George Lucas",
+      "George Lucas"
     ],
     "Actors": [
       "Ewan McGregor",
       "Liam Neeson",
-      "Natalie Portman",
+      "Natalie Portman"
     ],
     "Summary": "Two Jedi Knights escape a hostile blockade to find allies and come across a young boy who may bring balance to the Force, but the long dormant Sith resurface to claim their old glory.",
     "Country": "USA",
     "Poster": "StarWars-PhantomMenace.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=bD7bpG-zDJQ",
+    "Trailer": "https://www.youtube.com/watch?v=bD7bpG-zDJQ"
   },
   {
     "ID": 5,
@@ -130,27 +130,27 @@
       "Sci-Fi",
       "Action",
       "Fantasy",
-      "Adventure",
+      "Adventure"
     ],
     "Director": [
-      "George Lucas",
+      "George Lucas"
     ],
     "Writers": [
       "George Lucas",
-      "Jonathan Hales",
+      "Jonathan Hales"
     ],
     "Actors": [
       "Ewan McGregor",
       "Hayden Christensen",
       "Natalie Portman",
       "Christopher Lee",
-      "Samuel L. Jackson",
+      "Samuel L. Jackson"
     ],
     "Summary": "Ten years after initially meeting, Anakin Skywalker shares a forbidden romance with Padme Amidala, while Obi-Wan investigates an assassination attempt on the senator and discovers a secret clone army crafted for the Jedi.",
     "Country": "USA",
     "Poster": "StarWars-AttackOfTheClones.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=gYbW1F_c9eM",
+    "Trailer": "https://www.youtube.com/watch?v=gYbW1F_c9eM"
   },
   {
     "ID": 6,
@@ -162,26 +162,26 @@
       "Sci-Fi",
       "Action",
       "Fantasy",
-      "Adventure",
+      "Adventure"
     ],
     "Director": [
-      "George Lucas",
+      "George Lucas"
     ],
     "Writers": [
-      "George Lucas",
+      "George Lucas"
     ],
     "Actors": [
       "Ewan McGregor",
       "Hayden Christensen",
       "Natalie Portman",
       "Christopher Lee",
-      "Samuel L. Jackson",
+      "Samuel L. Jackson"
     ],
     "Summary": "Three years into the Clone Wars, the Jedi rescue Palpatine from Count Dooku. As Obi-Wan pursues a new threat, Anakin acts as a double agent between the Jedi Council and Palpatine and is lured into a sinister plan to rule the galaxy.",
     "Country": "USA",
     "Poster": "StarWars-RevengeOfTheSith.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=5UnjrG_N8hU",
+    "Trailer": "https://www.youtube.com/watch?v=5UnjrG_N8hU"
   },
   {
     "ID": 7,
@@ -193,15 +193,15 @@
       "Sci-Fi",
       "Action",
       "Fantasy",
-      "Adventure",
+      "Adventure"
     ],
     "Director": [
-      "J.J. Abrams",
+      "J.J. Abrams"
     ],
     "Writers": [
       "Lawrence Kasdan",
       "J.J. Abrams",
-      "Michael Arndt",
+      "Michael Arndt"
     ],
     "Actors": [
       "Daisy Ridley",
@@ -210,13 +210,13 @@
       "Harrison Ford",
       "Mark Hamill",
       "Carrie Fisher",
-      "Adam Driver",
+      "Adam Driver"
     ],
     "Summary": "Three decades after the Empire's defeat, a new threat arises in the militant First Order. Stormtrooper defector Finn and the scavenger Rey are caught up in the Resistance's search for the missing Luke Skywalker.",
     "Country": "USA",
     "Poster": "StarWars-TheForceAwakens.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=sGbxmsDFVnE",
+    "Trailer": "https://www.youtube.com/watch?v=sGbxmsDFVnE"
   },
   {
     "ID": 8,
@@ -228,13 +228,13 @@
       "Sci-Fi",
       "Action",
       "Fantasy",
-      "Adventure",
+      "Adventure"
     ],
     "Director": [
-      "Rian Johnson",
+      "Rian Johnson"
     ],
     "Writers": [
-      "Rian Johnson",
+      "Rian Johnson"
     ],
     "Actors": [
       "Daisy Ridley",
@@ -242,13 +242,13 @@
       "Oscar Isaac",
       "Mark Hamill",
       "Carrie Fisher",
-      "Adam Driver",
+      "Adam Driver"
     ],
     "Summary": "Rey develops her newly discovered abilities with the guidance of Luke Skywalker, who is unsettled by the strength of her powers. Meanwhile, the Resistance prepares for battle with the First Order.",
     "Country": "USA",
     "Poster": "StarWars-TheLastJedi.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=Q0CbN8sfihY",
+    "Trailer": "https://www.youtube.com/watch?v=Q0CbN8sfihY"
   },
   {
     "ID": 9,
@@ -259,16 +259,16 @@
     "Genre": [
       "Sci-Fi",
       "Action",
-      "Adventure",
+      "Adventure"
     ],
     "Director": [
-      "Gareth Edwards",
+      "Gareth Edwards"
     ],
     "Writers": [
       "Chris Weitz",
       "Tony Gilroy",
       "John Knoll",
-      "Gary Whitta",
+      "Gary Whitta"
     ],
     "Actors": [
       "Felicity Jones",
@@ -276,13 +276,13 @@
       "Donnie Yen",
       "Wen Jiang",
       "Forest Whitaker",
-      "Mads Mikkelsen",
+      "Mads Mikkelsen"
     ],
     "Summary": "The daughter of an Imperial scientist joins the Rebel Alliance in a risky move to steal the Death Star plans.",
     "Country": "USA",
     "Poster": "StarWarsStory-RogueOne.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=frdj1zb9sMY",
+    "Trailer": "https://www.youtube.com/watch?v=frdj1zb9sMY"
   },
   {
     "ID": 10,
@@ -293,17 +293,17 @@
     "Genre": [
       "Sci-Fi",
       "Action",
-      "Adventure",
+      "Adventure"
     ],
     "Director": [
       "Anthony Russo",
-      "Joe Russo",
+      "Joe Russo"
     ],
     "Writers": [
       "Christopher Markus",
       "Stephen McFeely",
       "Joe Simon",
-      "Jack Kirby",
+      "Jack Kirby"
     ],
     "Actors": [
       "Chris Evans",
@@ -317,13 +317,13 @@
       "Paul Bettany",
       "Elizabeth Olsen",
       "Paul Rudd",
-      "Tom Holland",
+      "Tom Holland"
     ],
     "Summary": "Political involvement in the Avengers' activities causes a rift between Captain America and Iron Man.",
     "Country": "USA",
     "Poster": "CaptainAmerica-CivilWar.jpg",
     "Slider": "CaptainAmerica-CivilWar-slider.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=dKrVegVI0Us",
+    "Trailer": "https://www.youtube.com/watch?v=dKrVegVI0Us"
   },
   {
     "ID": 11,
@@ -334,14 +334,14 @@
     "Genre": [
       "Sci-Fi",
       "Action",
-      "Adventure",
+      "Adventure"
     ],
     "Director": [
-      "Ryan Coogler",
+      "Ryan Coogler"
     ],
     "Writers": [
       "Ryan Coogler",
-      "Joe Robert Cole",
+      "Joe Robert Cole"
     ],
     "Actors": [
       "Chadwick Boseman",
@@ -350,13 +350,13 @@
       "Danai Gurira",
       "Martin Freeman",
       "Andy Serkis",
-      "Forest Whitaker",
+      "Forest Whitaker"
     ],
     "Summary": "T'Challa, after the death of his father, the King of Wakanda, returns home to the isolated, technologically advanced African nation to succeed to the throne and take his rightful place as king.",
     "Country": "USA",
     "Poster": "BlackPanther.jpg",
     "Slider": "BlackPanther-slider.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=xjDjIWPwcPU",
+    "Trailer": "https://www.youtube.com/watch?v=xjDjIWPwcPU"
   },
   {
     "ID": 12,
@@ -365,26 +365,630 @@
     "Released": "23 August 2017",
     "Duration": 140,
     "Genre": [
-      "Drama",
+      "Drama"
     ],
     "Director": [
-      "Robin Campillo",
+      "Robin Campillo"
     ],
     "Writers": [
       "Robin Campillo",
-      "Philippe Mangeot",
+      "Philippe Mangeot"
     ],
     "Actors": [
       "Nahuel Pérez Biscayart",
       "Arnaud Valois",
-      "Adèle Haene",
+      "Adèle Haene"
     ],
     "Summary": "Members of the advocacy group ACT UP Paris demand action by the government and pharmaceutical companies to combat the AIDS epidemic in the early 1990s.",
     "Country": "France",
     "Poster": "120BPMPerMinutes.jpg",
     "Slider": "120BPMPerMinutes-slider.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=2fhO2A4SL24",
+    "Trailer": "https://www.youtube.com/watch?v=2fhO2A4SL24"
   },
-
-
+  {
+    "ID": 13,
+    "Title": "Darkest Hour",
+    "Year": 2017,
+    "Released": "22 December 2017",
+    "Duration": 125,
+    "Genre": [
+      "Drama",
+      "Biography",
+      "History"
+    ],
+    "Director": [
+      "Joe Wright"
+    ],
+    "Writers": [
+      "Anthony McCarten"
+    ],
+    "Actors": [
+      "Gary Oldman",
+      "Lily James",
+      "Kristin Scott Thomas"
+    ],
+    "Summary": "During the early days of World War II, the fate of Western Europe hangs on the newly-appointed British Prime Minister Winston Churchill, who must decide whether to negotiate with Hitler, or fight on against incredible odds.",
+    "Country": "United Kingdom",
+    "Poster": "DarkestHour.jpg",
+    "Slider": "DarkestHour-slider.jpg",
+    "Trailer": "https://www.youtube.com/watch?v=LtJ60u7SUSw"
+  },
+  {
+    "ID": 14,
+    "Title": "Get Out",
+    "Year": 2017,
+    "Released": "24 February 2017",
+    "Duration": 104,
+    "Genre": [
+      "Horror",
+      "Thriller"
+    ],
+    "Director": [
+      "Jordan Peele"
+    ],
+    "Writers": [
+      "Jordan Peele"
+    ],
+    "Actors": [
+      "Daniel Kaluuya",
+      "Allison Williams",
+      "Bradley Whitford"
+    ],
+    "Summary": "It's time for a young African-American to meet with his white girlfriend's parents for a weekend in their secluded estate in the woods, but before long, the friendly and polite ambience will give way to a nightmare.",
+    "Country": "USA",
+    "Poster": "GetOut.jpg",
+    "Slider": "GetOut-slider.jpg",
+    "Trailer": "https://www.youtube.com/watch?v=DzfpyUB60YY"
+  },
+  {
+    "ID": 15,
+    "Title": "Guardians of the Galaxy",
+    "Year": 2014,
+    "Released": "13 August 2014",
+    "Duration": 121,
+    "Genre": [
+      "Sci-Fi",
+      "Action",
+      "Adventure"
+    ],
+    "Director": [
+      "James Gunn"
+    ],
+    "Writers": [
+      "James Gunn",
+      "Nicole Perlman"
+    ],
+    "Actors": [
+      "Chris Pratt",
+      "Vin Diesel",
+      "Bradley Cooper",
+      "Zoe Saldana",
+      "Dave Bautista",
+      "Lee Pace",
+      "Michael Rooker"
+    ],
+    "Summary": "A group of intergalactic criminals are forced to work together to stop a fanatical warrior from taking control of the universe.",
+    "Country": "USA",
+    "Poster": "GuardiansOfTheGalaxy.jpg",
+    "Slider": "GuardiansOfTheGalaxy-slider.jpg",
+    "Trailer": "https://www.youtube.com/watch?v=d96cjJhvlMA"
+  },
+  {
+    "ID": 16,
+    "Title": "The Imitation Game",
+    "Year": 2015,
+    "Released": "14 January 2015",
+    "Duration": 114,
+    "Genre": [
+      "Biography",
+      "Drama",
+      "History"
+    ],
+    "Director": [
+      "Morten Tyldum"
+    ],
+    "Writers": [
+      "Graham Moore"
+    ],
+    "Actors": [
+      "Benedict Cumberbatch",
+      "Keira Knightley",
+      "Matthew Goode"
+    ],
+    "Summary": "During World War II, the English mathematical genius Alan Turing tries to crack the German Enigma code with help from fellow mathematicians.",
+    "Country": "United Kingdom",
+    "Poster": "ImitationGame.jpg",
+    "Slider": false,
+    "Trailer": "https://www.youtube.com/watch?v=S5CjKEFb-sM"
+  },
+  {
+    "ID": 17,
+    "Title": "La La Land",
+    "Year": 2017,
+    "Released": "25 January 2017",
+    "Duration": 128,
+    "Genre": [
+      "Comedy",
+      "Drama",
+      "Music"
+    ],
+    "Director": [
+      "Damien Chazelle"
+    ],
+    "Writers": [
+      "Damien Chazelle"
+    ],
+    "Actors": [
+      "Ryan Gosling",
+      "Emma Stone",
+      "Rosemarie DeWitt"
+    ],
+    "Summary": "While navigating their careers in Los Angeles, a pianist and an actress fall in love while attempting to reconcile their aspirations for the future.",
+    "Country": "USA",
+    "Poster": "LaLaLand.jpg",
+    "Slider": false,
+    "Trailer": "https://www.youtube.com/watch?v=0pdqf4P9MB8"
+  },
+  {
+    "ID": 18,
+    "Title": "Brimestone",
+    "Year": 2017,
+    "Released": "19 January 2017",
+    "Duration": 148,
+    "Genre": [
+      "Horror",
+      "Thriller",
+      "Western"
+    ],
+    "Director": [
+      "Martin Koolhoven"
+    ],
+    "Writers": [
+      "Martin Koolhoven"
+    ],
+    "Actors": [
+      "Dakota Fanning",
+      "Paul Anderson",
+      "Kit Harington"
+    ],
+    "Summary": "From the moment the new reverend climbs the pulpit, Liz knows she and her family are in great danger",
+    "Country": "Netherlands, Belgium, United Kingdom",
+    "Poster": "Brimestone.jpg",
+    "Slider": false,
+    "Trailer": "https://www.youtube.com/watch?v=AFk32lA8eqs"
+  },
+  {
+    "ID": 18,
+    "Title": "Au Revoir Là-Haut",
+    "Year": 2017,
+    "Released": "25 October 2017",
+    "Duration": 117,
+    "Genre": [
+      "Drama"
+    ],
+    "Director": [
+      "Albert Dupontel"
+    ],
+    "Writers": [
+      "Albert Dupontel",
+      "Pierre Lemaitre"
+    ],
+    "Actors": [
+      "Nahuel Pérez Biscayart",
+      "Albert Dupontel",
+      "Laurent Lafitte",
+      "Niels Arestrup",
+      "Émilie Dequenne",
+      "Mélanie Thierry"
+    ],
+    "Summary": "November 1918. A few days before the Armistice, Édouard Péricourt saves Albert Maillard's life. These two men have nothing in common but the war. Lieutenant Pradelle, by ordering a senseless assault, destroys their lives while binding them as companions in misfortune. On the ruins of the carnage of WWI, condemned to live, the two attempt to survive. Thus, as Pradelle is about to make a fortune with the war victims' corpses, Albert and Édouard mount a monumental scam with the bereaved families' commemoration and with a nation's hero worship.",
+    "Country": "France",
+    "Poster": "AuRevoirLaHaut.jpg",
+    "Slider": "AuRevoirLaHaut-slider.jpg",
+    "Trailer": "https://www.youtube.com/watch?v=vWN7f5IaF98"
+  },
+  {
+    "ID": 19,
+    "Title": "Pride",
+    "Year": 2014,
+    "Released": "5 November 2014",
+    "Duration": 119,
+    "Genre": [
+      "Drama",
+      "Comedy",
+      "History"
+    ],
+    "Director": [
+      "Matthew Warchus"
+    ],
+    "Writers": [
+      "Stephen Beresford"
+    ],
+    "Actors": [
+      "Bill Nighy",
+      "Imelda Staunton",
+      "Dominic West"
+    ],
+    "Summary": "U.K. gay activists work to help miners during their lengthy strike of the National Union of Mineworkers in the summer of 1984.",
+    "Country": "United Kingdom",
+    "Poster": "Pride.jpg",
+    "Slider": false,
+    "Trailer": "https://www.youtube.com/watch?v=kZfFvsKDuUU"
+  },
+  {
+    "ID": 20,
+    "Title": "The Best Exotic Marigold Hotel",
+    "Year": 2011,
+    "Released": "28 March 2012",
+    "Duration": 124,
+    "Genre": [
+      "Drama",
+      "Comedy",
+      "Romance"
+    ],
+    "Director": [
+      "John Madden"
+    ],
+    "Writers": [
+      "Ol Parker",
+      "Deborah Moggach"
+    ],
+    "Actors": [
+      "Bill Nighy",
+      "Judi Dench",
+      "Maggie Smith",
+      "Tom Wilkinson",
+      "Penelope Wilton"
+    ],
+    "Summary": "British retirees travel to India to take up residence in what they believe is a newly restored hotel. Less luxurious than advertised, the Marigold Hotel nevertheless slowly begins to charm in unexpected ways.",
+    "Country": "United Kingdom",
+    "Poster": "TheBestExoticMarigoldHotel.jpg",
+    "Slider": false,
+    "Trailer": "https://www.youtube.com/watch?v=dDY89LYxK0w"
+  },
+  {
+    "ID": 21,
+    "Title": "Alien: Covenant",
+    "Year": 2017,
+    "Released": "17 May 2017",
+    "Duration": 122,
+    "Genre": [
+      "Horror",
+      "Thriller",
+      "Sci-Fi"
+    ],
+    "Director": [
+      "Ridley Scott"
+    ],
+    "Writers": [
+      "John Logan",
+      "Dante Harper"
+    ],
+    "Actors": [
+      "Michael Fassbender",
+      "Katherine Waterston",
+      "Billy Crudup",
+      "Danny McBride",
+      "Demián Bichir"
+    ],
+    "Summary": "The crew of a colony ship, bound for a remote planet, discover an uncharted paradise with a threat beyond their imagination, and must attempt a harrowing escape.",
+    "Country": "USA",
+    "Poster": "AlienCovenant.jpg",
+    "Slider": false,
+    "Trailer": "https://www.youtube.com/watch?v=svnAD0TApb8"
+  },
+  {
+    "ID": 22,
+    "Title": "The Son of Bigfoot",
+    "Year": 2017,
+    "Released": "16 August 2017",
+    "Duration": 92,
+    "Genre": [
+      "Animation",
+      "Comedy"
+    ],
+    "Director": [
+      "Jérémie Degruson",
+      "Ben Stassen"
+    ],
+    "Writers": [
+      "Bob Barlen",
+      "Cal Brunker"
+    ],
+    "Actors": [
+      "Cinda Adams",
+      "Mari Devon",
+      "Kirk Thornton"
+    ],
+    "Summary": "A teenage boy journeys to find his missing father only to discover that he's actually Bigfoot.",
+    "Country": "Belgium",
+    "Poster": "BigfootJunior.jpg",
+    "Slider": false,
+    "Trailer": "https://www.youtube.com/watch?v=TKNYU_M6O5Y"
+  },
+  {
+    "ID": 23,
+    "Title": "Dunkirk",
+    "Year": 2017,
+    "Released": "19 July 2017",
+    "Duration": 106,
+    "Genre": [
+      "Action",
+      "Drama",
+      "History"
+    ],
+    "Director": [
+      "Christopher Nolan"
+    ],
+    "Writers": [
+      "Christopher Nolan"
+    ],
+    "Actors": [
+      "Fionn Whitehead",
+      "Barry Keoghan",
+      "Mark Rylance",
+      "Tom Hardy",
+      "Harry Styles"
+    ],
+    "Summary": "Allied soldiers from Belgium, the British Empire and France are surrounded by the German Army, and evacuated during a fierce battle in World War II.",
+    "Country": "USA",
+    "Poster": "Dunkirk.jpg",
+    "Slider": false,
+    "Trailer": "https://www.youtube.com/watch?v=F-eMt3SrfFU"
+  },
+  {
+    "ID": 24,
+    "Title": "Nerve",
+    "Year": 2016,
+    "Released": "5 October 2016",
+    "Duration": 96,
+    "Genre": [
+      "Adventure",
+      "Drama",
+      "Crime"
+    ],
+    "Director": [
+      "Henry Joost",
+      "Ariel Schulman"
+    ],
+    "Writers": [
+      "Jessica Sharzer",
+      "Jeanne Ryan"
+    ],
+    "Actors": [
+      "Emma Roberts",
+      "Dave Franco",
+      "Emily Meade"
+    ],
+    "Summary": "A high school senior finds herself immersed in an online game of truth or dare, where her every move starts to become manipulated by an anonymous community of watchers.",
+    "Country": "USA",
+    "Poster": "Nerve.jpg",
+    "Slider": "Nerve-slider.jpg",
+    "Trailer": "https://www.youtube.com/watch?v=AX1BTiHzq-I"
+  },
+  {
+    "ID": 25,
+    "Title": "Call Me by Your Name",
+    "Year": 2017,
+    "Released": "24 November 2017",
+    "Duration": 132,
+    "Genre": [
+      "Romance",
+      "Drama"
+    ],
+    "Director": [
+      "Luca Guadagnino"
+    ],
+    "Writers": [
+      "James Ivory",
+      "André Aciman"
+    ],
+    "Actors": [
+      "Armie Hammer",
+      "Timothée Chalamet",
+      "Michael Stuhlbarg"
+    ],
+    "Summary": "In Northern Italy in 1983, seventeen year-old Elio begins a relationship with visiting Oliver, his father's research assistant, with whom he bonds over his emerging sexuality, their Jewish heritage, and the beguiling Italian landscape.",
+    "Country": "USA, France, Italy, Brazil",
+    "Poster": "CallMeByYourName.jpg",
+    "Slider": false,
+    "Trailer": "https://www.youtube.com/watch?v=Z9AYPxH5NTM"
+  },
+  {
+    "ID": 26,
+    "Title": "The Dark Tower",
+    "Year": 2017,
+    "Released": "16 August 2017",
+    "Duration": 95,
+    "Genre": [
+      "Action",
+      "Adventure",
+      "Fantasy"
+    ],
+    "Director": [
+      "Nikolaj Arcel"
+    ],
+    "Writers": [
+      "Akiva Goldsman",
+      "Jeff Pinkner",
+      "Anders Thomas Jensen",
+      "Nikolaj Arcel",
+      "Stephen King"
+    ],
+    "Actors": [
+      "Matthew McConaughey",
+      "Idris Elba",
+      "Tom Taylor",
+      "Dennis Haysbert",
+      "Ben Gavin"
+    ],
+    "Summary": "The last Gunslinger, Roland Deschain, has been locked in an eternal battle with Walter O'Dim, also known as the Man in Black, determined to prevent him from toppling the Dark Tower, which holds the universe together. With the fate of the worlds at stake, good and evil will collide in the ultimate battle as only Roland can defend the Tower from the Man in Black.",
+    "Country": "USA",
+    "Poster": "TheDarkTower.jpg",
+    "Slider": "TheDarkTower-slider.jpg",
+    "Trailer": "https://www.youtube.com/watch?v=GjwfqXTebIY"
+  },
+  {
+    "ID": 27,
+    "Title": "First They Killed My Father",
+    "Year": 2017,
+    "Released": "15 September 2017",
+    "Duration": 136,
+    "Genre": [
+      "Drama",
+      "Biography",
+      "History"
+    ],
+    "Director": [
+      "Angelina Jolie"
+    ],
+    "Writers": [
+      "Angelina Jolie",
+      "Loung Ung",
+      "Anders Thomas Jensen",
+      "Nikolaj Arcel",
+      "Stephen King"
+    ],
+    "Actors": [
+      "Sareum Srey Moch",
+      "Phoeung Kompheak",
+      "Sveng Socheata",
+      "Mun Kimhak",
+      "Heng Dara"
+    ],
+    "Summary": "Cambodian author and human rights activist Loung Ung recounts the horrors she suffered as a child under the rule of the deadly Khmer Rouge.",
+    "Country": "USA, Cambodia",
+    "Poster": "FirstTheyKilledMyFather.jpg",
+    "Slider": false,
+    "Trailer": "https://www.youtube.com/watch?v=5K_SpNqLwzI"
+  },
+  {
+    "ID": 28,
+    "Title": "Battle of the Sexes",
+    "Year": 2017,
+    "Released": "29 September 2017",
+    "Duration": 121,
+    "Genre": [
+      "Drama",
+      "Biography",
+      "Comedy"
+    ],
+    "Director": [
+      "Jonathan Dayton",
+      "Valerie Faris"
+    ],
+    "Writers": [
+      "Simon Beaufoy"
+    ],
+    "Actors": [
+      "Emma Stone",
+      "Steve Carell",
+      "Andrea Riseborough",
+      "Natalie Morales",
+      "Sarah Silverman",
+      "Bill Pullman",
+      "Alan Cumming",
+      "Elisabeth Shue"
+    ],
+    "Summary": "The true story of the 1973 tennis match between World number one Billie Jean King and ex-champ and serial hustler Bobby Riggs.",
+    "Country": "USA",
+    "Poster": "BattleOfTheSexes.jpg",
+    "Slider": false,
+    "Trailer": "https://www.youtube.com/watch?v=5AWP1K7FaFI"
+  },
+  {
+    "ID": 29,
+    "Title": "Dallas Buyers Club",
+    "Year": 2013,
+    "Released": "5 February 2014",
+    "Duration": 117,
+    "Genre": [
+      "Drama",
+      "Biography"
+    ],
+    "Director": [
+      "Jean-Marc Vallée"
+    ],
+    "Writers": [
+      "Craig Borten",
+      "Melisa Wallack"
+    ],
+    "Actors": [
+      "Matthew McConaughey",
+      "Jennifer Garner",
+      "Jared Leto"
+    ],
+    "Summary": "In 1985 Dallas, electrician and hustler Ron Woodroof works around the system to help AIDS patients get the medication they need after he is diagnosed with the disease.",
+    "Country": "USA",
+    "Poster": "DallasBuyersClub.jpg",
+    "Slider": false,
+    "Trailer": "https://www.youtube.com/watch?v=KDvPcBeOn8E"
+  },
+  {
+    "ID": 30,
+    "Title": "Logan",
+    "Year": 2017,
+    "Released": "1 March 2017",
+    "Duration": 137,
+    "Genre": [
+      "Drama",
+      "Action",
+      "Sci-Fi"
+    ],
+    "Director": [
+      "James Mangold"
+    ],
+    "Writers": [
+      "James Mangold",
+      "Scott Frank",
+      "Michael Green"
+    ],
+    "Actors": [
+      "Hugh Jackman",
+      "Patrick Stewart",
+      "Dafne Keen",
+      "Boyd Holbrook",
+      "Stephen Merchant",
+      "Elizabeth Rodriguez"
+    ],
+    "Summary": "In the near future, a weary Logan cares for an ailing Professor X, somewhere on the Mexican border. However, Logan's attempts to hide from the world, and his legacy, are upended when a young mutant arrives, pursued by dark forces.",
+    "Country": "USA",
+    "Poster": "Logan.jpg",
+    "Slider": "Logan-slider.jpg",
+    "Trailer": "https://www.youtube.com/watch?v=Div0iP65aZo"
+  },
+  {
+    "ID": 31,
+    "Title": "Jurrassic World",
+    "Year": 2015,
+    "Released": "10 June 2015",
+    "Duration": 124,
+    "Genre": [
+      "Adventure",
+      "Action",
+      "Sci-Fi"
+    ],
+    "Director": [
+      "Colin Trevorrow"
+    ],
+    "Writers": [
+      "Colin Trevorrow",
+      "Rick Jaffa",
+      "Amanda Silver",
+      "Derek Connolly"
+    ],
+    "Actors": [
+      "Chris Pratt",
+      "Bryce Dallas Howard",
+      "Irrfan Khan",
+      "Ty Simpkins",
+      "Nick Robinson",
+      "Omar Sy"
+    ],
+    "Summary": "A new theme park, built on the original site of Jurassic Park, creates a genetically modified hybrid dinosaur, which escapes containment and goes on a killing spree.",
+    "Country": "USA",
+    "Poster": "JurassicWorld.jpg",
+    "Slider": false,
+    "Trailer": "https://www.youtube.com/watch?v=RFinNxS5KN4"
+  }
 ]
