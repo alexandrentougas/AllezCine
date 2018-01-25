@@ -1,20 +1,329 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>AllezCine - Movies Shop</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>AllezCine - Movies Shop</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#">ALLEZCINE!</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#shopMenu" aria-controls="shopMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="shopMenu">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Featured Movies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Featured TV Series</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Shop Movies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <header class="jumbotron jumbotron-fluid">
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="first-slide" src="img/cptnAmerica-slider.jpg" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>LATEST ONLINE MOVIES</h1>
+              <p>IN SPACE NO ONE CAN HEAR YOU SCREAM</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Watch Trailer</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="second-slide" src="img/glxyGuardians-slider.jpg" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>LATEST ONLINE SERIES</h1>
+              <p>IN SPACE NO ONE CAN HEAR YOU SCREAM</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Watch Trailer</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="third-slide" src="img/black-panther-hero_2-slider.jpg" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>LATEST ONLINE MOVIES</h1>
+              <p>IN SPACE NO ONE CAN HEAR YOU SCREAM</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Watch Trailer</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="fourth-slide" src="img/Céline Nieszawer-slider.jpg" alt="Fourth slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>LATEST ONLINE SERIES</h1>
+              <p>IN SPACE NO ONE CAN HEAR YOU SCREAM</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Watch Trailer</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+      <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div>
+      <span><i class="fa fa-phone" aria-hidden="true"></i>(+000) 009 455 4088</span>
+      <button type="button">LOGIN</button>
+      <button type="button">REGISTER</button>
+    </div>
+
+  </header>
+
+  <main>
+
+    <section id="top-movie">
+      <div class="container movie-list">
+        <div class="row">
+          <div class="col-6 col-md-2 movie-item">
+            1
+          </div>
+          <div class="col-6 col-md-2 movie-item">
+            2
+          </div>
+          <div class="col-6 col-md-2 movie-item">
+            3
+          </div>
+          <div class="col-6 col-md-2 movie-item">
+            4
+          </div>
+          <div class="col-6 col-md-2 movie-item">
+            5
+          </div>
+          <div class="col-6 col-md-2 movie-item">
+            6
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="featured-movies">
+      <h2>Featured movies</h2>
+      <div class="container movie-list">
+        <aside role="navigation">
+          <a href="#" data-genre="action">Action</a>
+          <a href="#" data-genre="thriller">Thriller</a>
+          <a href="#" data-genre="scifi">SciFi</a>
+          <a href="#" data-genre="romance">Romance</a>
+        </aside>
+        <div class="row">
+          ici on met les films
+        </div>
+        <div class="load-more">
+          <a class="btn btn-primary">More movies</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="featured-movies">
+      <h2>Featured TV Series</h2>
+      <div class="container movie-list">
+        <aside role="navigation">
+          <a href="#" data-genre="action">Action</a>
+          <a href="#" data-genre="thriller">Thriller</a>
+          <a href="#" data-genre="scifi">SciFi</a>
+          <a href="#" data-genre="romance">Romance</a>
+        </aside>
+        <div class="row">
+          ici on met les films
+        </div>
+        <div class="load-more">
+          <a class="btn btn-primary">More movies</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="shop-movies">
+      <h2>Shops</h2>
+      <div class="container movie-list">
+        <aside role="navigation">
+          left / right
+        </aside>
+        <div class="row">
+          <div class="col-8">
+            ici on met les films
+          </div>
+          <div class="col-4">
+            ici on met les bandes annoncnes
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact-us">
+      <h2>Contact us</h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-6">Ici on met le form</div>
+          <div class="col-12 col-md-6">Ici on met la map</div>
+        </div>
+      </div>
+
+    </section>
+
+
+  </main>
+
+  <footer>
+    <div>
+      <h3>SUBSCRIBE TO US</h3>
+      <form method="post">
+        <input type="email">
+        <button type="button">SUBSCRIBE</button>
+      </form>
+      <div class="row">
+        <div class="col-12 col-md-2">
+          <h4>RELEASE</h4>
+          <hr>
+          <ul>
+            <li><a href="">2016</a></li>
+            <li><a href="">2015</a></li>
+            <li><a href="">2014</a></li>
+            <li><a href="">2013</a></li>
+            <li><a href="">2012</a></li>
+            <li><a href="">2011</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-2">
+          <h4>MOVIES</h4>
+          <hr>
+          <ul>
+            <li><a href="">ADVENTURE</a></li>
+            <li><a href="">COMEDY</a></li>
+            <li><a href="">FANTASY</a></li>
+            <li><a href="">ACTION</a></li>
+            <li><a href="">MOVIES</a></li>
+            <li><a href="">HORROR</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-2">
+          <h4>REVIEW MOVIES</h4>
+          <hr>
+          <span>Comedy</span>
+          <span>Horror</span>
+          <span>Historical</span>
+          <span>Romantic</span>
+          <span>Love</span>
+          <span>Action</span>
+          <span>Crime</span>
+          <span>Fantasy</span>
+          <span>Mystery</span>
+          <span>Sci-Fi</span>
+          <span>Social</span>
+          <span>Thriller</span>
+          <span>Western</span>
+          <span>Drama</span>
+          <span>Reviews</span>
+        </div>
+        <div class="col-12 col-md-2">
+          <h4>LATEST MOVIES</h4>
+          <hr>
+          <div class="row">
+            <div class="col-5">
+              <iframe src="" width="120px" height="80px"></iframe>
+            </div>
+            <div class="col-7">
+              Blabla
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-5">
+              <iframe src="" width="120px" height="80px"></iframe>
+            </div>
+            <div class="col-7">
+              Blabla
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-5">
+              <iframe src="" width="120px" height="80px"></iframe>
+            </div>
+            <div class="col-7">
+              Blabla
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-5">
+              <iframe src="" width="120px" height="80px"></iframe>
+            </div>
+            <div class="col-7">
+              Blabla
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <h4>ALLEZCINE!</h4>
+          <hr>
+          <div class="row">
+            <img class="col-4" src="">
+            <img class="col-4" src="">
+            <img class="col-4" src="">
+            <img class="col-4" src="">
+            <img class="col-4" src="">
+            <img class="col-4" src="">
+          </div>
+        </div>
+      </div>
+      <hr>
+      <hr>
+      <h5>CONNECT US</h5>
+      <i class="fa fa-facebook" aria-hidden="true"></i>
+      <i class="fa fa-twitter" aria-hidden="true"></i>
+      <i class="fa fa-linkedin" aria-hidden="true"></i>
+      <i class="fa fa-youtube" aria-hidden="true"></i>
+      <i class="fa fa-google-plus" aria-hidden="true"></i>
+    </div>
+  </footer>
 
 
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
-    <script src="js/main.js" type="text/javascript"></script>
-  </body>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+  <script src="js/main.js" type="text/javascript"></script>
+</body>
+
 </html>
