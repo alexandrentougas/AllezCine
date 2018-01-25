@@ -2,9 +2,9 @@
   {
     "ID": 1,
     "Title": "Star Wars - A New Hope",
-    "Year": "1977",
+    "Year": 1977,
     "Released": "25 May 1977",
-    "Duration": "121 min",
+    "Duration": 121,
     "Genre": [
       "Sci-Fi",
       "Action",
@@ -31,9 +31,9 @@
   {
     "ID": 2,
     "Title": "Star Wars: Episode V - The Empire Strikes Back",
-    "Year": "1980",
+    "Year": 1980,
     "Released": "20 June 1980",
-    "Duration": "124 min",
+    "Duration": 124,
     "Genre": [
       "Sci-Fi",
       "Action",
@@ -63,9 +63,9 @@
   {
     "ID": 3,
     "Title": "Star Wars: Episode VI - Return of the Jedi",
-    "Year": "1983",
+    "Year": 1983,
     "Released": "25 May 1983",
-    "Duration": "131 min",
+    "Duration": 131,
     "Genre": [
       "Sci-Fi",
       "Action",
@@ -94,9 +94,9 @@
   {
     "ID": 4,
     "Title": "Star Wars: Episode I - The Phantom Menace",
-    "Year": "1999",
+    "Year": 1999,
     "Released": "13 October 1999",
-    "Duration": "136 min",
+    "Duration": 136,
     "Genre": [
       "Sci-Fi",
       "Action",
@@ -123,9 +123,9 @@
   {
     "ID": 5,
     "Title": "Star Wars: Episode II - Attack Of The Clones",
-    "Year": "2002",
+    "Year": 2002,
     "Released": "17 May 2002",
-    "Duration": "142 min",
+    "Duration": 142,
     "Genre": [
       "Sci-Fi",
       "Action",
@@ -155,9 +155,9 @@
   {
     "ID": 6,
     "Title": "Star wars: Episode III - Revenge of The Sith",
-    "Year": "2005",
+    "Year": 2005,
     "Released": "18 May 2005",
-    "Duration": "140 min",
+    "Duration": 140,
     "Genre": [
       "Sci-Fi",
       "Action",
@@ -186,9 +186,9 @@
   {
     "ID": 7,
     "Title": "Star Wars: Episode VII - The Force Awakens",
-    "Year": "2015",
+    "Year": 2015,
     "Released": "16 December 2015",
-    "Duration": "136 min",
+    "Duration": 136,
     "Genre": [
       "Sci-Fi",
       "Action",
@@ -221,9 +221,9 @@
   {
     "ID": 8,
     "Title": "Star Wars: Episode VIII - The Last Jedi",
-    "Year": "2017",
+    "Year": 2017,
     "Released": "13 December 2017",
-    "Duration": "152 min",
+    "Duration": 152,
     "Genre": [
       "Sci-Fi",
       "Action",
@@ -253,9 +253,9 @@
   {
     "ID": 9,
     "Title": "Rogue One - A Star Wars Story",
-    "Year": "2016",
+    "Year": 2016,
     "Released": "14 December 2016",
-    "Duration": "133 min",
+    "Duration": 133,
     "Genre": [
       "Sci-Fi",
       "Action",
@@ -283,6 +283,80 @@
     "Poster": "StarWarsStory-RogueOne.jpg",
     "Slider": false,
     "Trailer": "https://www.youtube.com/watch?v=frdj1zb9sMY",
+  },
+  {
+    "ID": 10,
+    "Title": "Captain America - Civil War",
+    "Year": 2016,
+    "Released": "27 April 2016",
+    "Duration": 147,
+    "Genre": [
+      "Sci-Fi",
+      "Action",
+      "Adventure",
+    ],
+    "Director": [
+      "Anthony Russo",
+      "Joe Russo",
+    ],
+    "Writers": [
+      "Christopher Markus",
+      "Stephen McFeely",
+      "Joe Simon",
+      "Jack Kirby",
+    ],
+    "Actors": [
+      "Chris Evans",
+      "Robert Downey Jr.",
+      "Scarlett Johansson",
+      "Sebastian Stan",
+      "Anthony Mackie",
+      "Don Cheadle",
+      "Jeremy Renner",
+      "Chadwick Boseman",
+      "Paul Bettany",
+      "Elizabeth Olsen",
+      "Paul Rudd",
+      "Tom Holland",
+    ],
+    "Summary": "Political involvement in the Avengers' activities causes a rift between Captain America and Iron Man.",
+    "Country": "USA",
+    "Poster": "CaptainAmerica-CivilWar.jpg",
+    "Slider": "CaptainAmerica-CivilWar-slider.jpg",
+    "Trailer": "https://www.youtube.com/watch?v=dKrVegVI0Us",
+  },
+  {
+    "ID": 11,
+    "Title": "Black Panther",
+    "Year": 2018,
+    "Released": "14 February 2018",
+    "Duration": 120,
+    "Genre": [
+      "Sci-Fi",
+      "Action",
+      "Adventure",
+    ],
+    "Director": [
+      "Ryan Coogler",
+    ],
+    "Writers": [
+      "Ryan Coogler",
+      "Joe Robert Cole",
+    ],
+    "Actors": [
+      "Chadwick Boseman",
+      "Michael B. Jordan",
+      "Lupita Nyong'o",
+      "Danai Gurira",
+      "Martin Freeman",
+      "Andy Serkis",
+      "Forest Whitaker",
+    ],
+    "Summary": "T'Challa, after the death of his father, the King of Wakanda, returns home to the isolated, technologically advanced African nation to succeed to the throne and take his rightful place as king.",
+    "Country": "USA",
+    "Poster": "BlackPanther.jpg",
+    "Slider": "BlackPanther-slider.jpg",
+    "Trailer": "https://www.youtube.com/watch?v=xjDjIWPwcPU",
   },
 
 
