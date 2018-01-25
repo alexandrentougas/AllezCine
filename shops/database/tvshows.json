@@ -1,0 +1,30 @@
+[
+  {
+    "ID": 1,
+    "Title": "Stranger Things",
+    "Beginning": 2016,
+    "Ending": false,
+    "Seasons": 2,
+    "Episodes": 25,
+    "Duration": 51,
+    "Genre": [
+      "Drama",
+      "Fantasy",
+      "Horror",
+    ],
+    "Creators": [
+      "Matt Duffer",
+      "Ross Duffer",
+    ],
+    "Actors": [
+      "Millie Bobby Brown",
+      "Finn Wolfhard",
+      "Winona Ryder",
+      "David Harbour",
+      "Natalia Dyer",
+    ],
+    "Summary": "When a young boy disappears, his mother, a police chief, and his friends, must confront terrifying forces in order to get him back.",
+    "Image": "img/StrangerThings.jpg",
+    "Trailer": "",
+  }
+]
