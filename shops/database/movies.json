@@ -322,7 +322,7 @@
     "Summary": "Political involvement in the Avengers' activities causes a rift between Captain America and Iron Man.",
     "Country": "USA",
     "Poster": "CaptainAmerica-CivilWar.jpg",
-    "Slider": false,
+    "Slider": "CaptainAmerica-CivilWar-slider.jpg",
     "Trailer": "https://www.youtube.com/watch?v=dKrVegVI0Us",
   },
   {
@@ -355,7 +355,7 @@
     "Summary": "T'Challa, after the death of his father, the King of Wakanda, returns home to the isolated, technologically advanced African nation to succeed to the throne and take his rightful place as king.",
     "Country": "USA",
     "Poster": "BlackPanther.jpg",
-    "Slider": false,
+    "Slider": "BlackPanther-slider.jpg",
     "Trailer": "https://www.youtube.com/watch?v=xjDjIWPwcPU",
   },
 
