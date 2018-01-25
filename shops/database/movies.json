@@ -358,6 +358,33 @@
     "Slider": "BlackPanther-slider.jpg",
     "Trailer": "https://www.youtube.com/watch?v=xjDjIWPwcPU",
   },
+  {
+    "ID": 12,
+    "Title": "120 Battements par minute",
+    "Year": 2017,
+    "Released": "23 August 2017",
+    "Duration": 140,
+    "Genre": [
+      "Drama",
+    ],
+    "Director": [
+      "Robin Campillo",
+    ],
+    "Writers": [
+      "Robin Campillo",
+      "Philippe Mangeot",
+    ],
+    "Actors": [
+      "Nahuel Pérez Biscayart",
+      "Arnaud Valois",
+      "Adèle Haene",
+    ],
+    "Summary": "Members of the advocacy group ACT UP Paris demand action by the government and pharmaceutical companies to combat the AIDS epidemic in the early 1990s.",
+    "Country": "France",
+    "Poster": "120BPMPerMinutes.jpg",
+    "Slider": "120BPMPerMinutes-slider.jpg",
+    "Trailer": "https://www.youtube.com/watch?v=2fhO2A4SL24",
+  },
 
 
 ]
