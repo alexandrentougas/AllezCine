@@ -2,6 +2,7 @@ let moviesFeed = 'https://laurenthu.github.io/AllezCine/shops/database/movies.js
 let tvShowsFeed = 'https://laurenthu.github.io/AllezCine/shops/database/tvshows.json';
 
 let dataRequest = new XMLHttpRequest();
+let dataRequest2 = new XMLHttpRequest();
 
 let whenDataLoaded = function() { // callback function
   let dataText = dataRequest.responseText; // we store the text of the response
@@ -14,6 +15,14 @@ let whenDataLoaded = function() { // callback function
     createHTMLMovieItem(dataObject[i],'#top-movie .movie-list .row','top-movie');
   }
 }
+
+let whenDataLoaded2 = function() {
+  let dataText = dataRequest2.responseText;
+  let dataObject = JSON.parse(dataText);
+  for(let i = 0; i < 6; i++) {
+    createHTMLTvShowItem(dataObject[i], '#featured-tvshow .series-list .row','featured-tvshow');
+  };
+};
 
 function sortObjectbySpecificKey(data,key,order = 'ASC') {
   // data: object to sort
@@ -107,7 +116,35 @@ function createHTMLMovieItem(data,parent,idPrefix) {
 
 }
 
+function createHTMLTvShowItem(data,parent,idPrefix) {
+  let HTMLcontent = '<div class="col-6 col-md-2 card tvshow-item" id="' + idPrefix + '-' + data['ID'] + '"></div>';
+  $( HTMLcontent ).appendTo( $( parent ) ); // we add our HTML content to the parent
+  $( '#' + idPrefix + '-' + data['ID'] ).attr({
+                                      'data-id': data['ID'],
+                                      'data-begin': data['Beginning'],
+                                      'data-end': data['Ending'],
+                                      'data-seasons': data['Seasons'],
+                                      'data-episodes': data['Episodes'],
+                                      'data-duration': data['Duration'],
+                                      'data-genre': data['Genre'].join(', ').toLowerCase(),
+                                      'data-creators': data['Creators'].join(', ').toLowerCase(),
+                                      'data-actors': data['Actors'].join(', ').toLowerCase(),
+                                    });
+  $( '<img src="img/' + data['Poster'] + '" class="poster card-img-top" title="' + data['Title'] + '(' + data['Beginning'] + '-' + data['Ending'] + ')" >' ).appendTo( $( '#' + idPrefix + '-' + data['ID']) );
+  $( '<div class="card-body"></div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID']) );
+  $( '<h5 class="card-title">' + data['Title'] + '</h5>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-body') );
+  $( '<h6 class="card-subtitle">' + data['Beginning'] + '-' + data['Ending'] + '</h6>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-body') );
+  $( '<div class="card-text">' + data['Genre'].join(', ') + '</div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-body') );
+  $( '<div class="card-footer"></div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-body') );
+  $( '<div class="btn-group btn-group-sm" role="group" aria-label="More function"></div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-footer') );
+  $( '<button type="button" class="btn btn-secondary"><i class="fa fa-info"></i></button>').appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .btn-group') );
+  $( '<button type="button" class="btn btn-secondary"><i class="fa fa-youtube-play"></i></button>').appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .btn-group') );
+}
+
 // We load the data
 dataRequest.onload = whenDataLoaded; // we assign the function to excecute when the data are loading
+dataRequest2.onload = whenDataLoaded2;
 dataRequest.open("GET", moviesFeed, true); // the type, the url, asynchronous ?
+dataRequest2.open("GET", tvShowsFeed, true);
 dataRequest.send(null); // we send the request
+dataRequest2.send(null);
