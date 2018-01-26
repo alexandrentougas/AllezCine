@@ -10,8 +10,9 @@ let whenDataLoaded = function() { // callback function
   console.log(dataObject);
   //console.log(dataWithoutFalseValueOnSpecificKey(dataObject,'Slider'));
   //console.log(xLastElementsAccordingSpecificKey(dataObject,'Year',6));
-
-  //createHTMLMovieItem(dataObject[0],'#top-movie .movie-list .row');
+  for(let i = 0; i < 6; i++) {
+    createHTMLMovieItem(dataObject[i],'#top-movie .movie-list .row','top-movie');
+  }
 }
 
 function sortObjectbySpecificKey(data,key,order = 'ASC') {
@@ -80,12 +81,30 @@ function copyObject(data) { // function to copy an object without any reference
   return data.slice(0); // we return the copy
 }
 
-function createHTMLMovieItem(data,parent) {
-  let HTMLcontent = '<div class="col-6 col-md-2 movie-item" ';
-  HTMLcontent += 'data-id="' + data['ID'] + '"';
-  HTMLcontent += '>';
-  HTMLcontent += '</div>';
+function createHTMLMovieItem(data,parent,idPrefix) {
+  let HTMLcontent = '<div class="col-6 col-md-2 card movie-item" id="' + idPrefix + '-' + data['ID'] + '"></div>'; // we open the div, insert class and ID
   $( HTMLcontent ).appendTo( $( parent ) ); // we add our HTML content to the parent
+  $( '#' + idPrefix + '-' + data['ID'] ).attr({
+                                      'data-id': data['ID'],
+                                      'data-year': data['Year'],
+                                      'data-duration': data['Duration'],
+                                      'data-genre': data['Genre'].join(', ').toLowerCase(),
+                                      'data-director': data['Director'].join(', ').toLowerCase(),
+                                      'data-writers': data['Writers'].join(', ').toLowerCase(),
+                                      'data-actors': data['Actors'].join(', ').toLowerCase(),
+                                      'data-country': data['Country'].toLowerCase(),
+                                    });
+  $( '<img src="img/' + data['Poster'] + '" class="poster card-img-top" title="' + data['Title'] + '(' + data['Year'] + ')" >' ).appendTo( $( '#' + idPrefix + '-' + data['ID']) );
+  $( '<div class="card-body"></div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID']) );
+  $( '<h5 class="card-title">' + data['Title'] + '</h5>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-body') );
+  $( '<h6 class="card-subtitle">' + data['Year'] + '</h6>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-body') );
+  $( '<div class="card-text">' + data['Genre'].join(', ') + '</div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-body') );
+  $( '<div class="card-footer"></div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-body') );
+  $( '<div class="btn-group btn-group-sm" role="group" aria-label="More function"></div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-footer') );
+  $( '<button type="button" class="btn btn-secondary"><i class="fa fa-info"></i></button>').appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .btn-group') );
+  $( '<button type="button" class="btn btn-secondary"><i class="fa fa-youtube-play"></i></button>').appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .btn-group') );
+
+
 }
 
 // We load the data
