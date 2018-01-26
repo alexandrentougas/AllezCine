@@ -8,7 +8,8 @@ let whenDataLoaded = function() { // callback function
   let dataObject = JSON.parse(dataText); // we convert the text into an object
   sortObjectbySpecificKey(dataObject,'Title');
   //console.log(dataObject);
-  console.log(dataWithoutFalseValueOnSpecificKey(dataObject,'Slider'));
+  //console.log(dataWithoutFalseValueOnSpecificKey(dataObject,'Slider'));
+  console.log(xLastElementsAccordingSpecificKey(dataObject,'Year',6));
 }
 
 function sortObjectbySpecificKey(data,key,order = 'ASC') {
@@ -49,6 +50,23 @@ function dataWithoutFalseValueOnSpecificKey(dataObject,keyToTest) {
     }
   }
   return arrayData; // we return an array of object
+}
+
+function xFirstElementsAccordingSpecificKey(data,key,numberElement) {
+  let arrayData = []; // we initialize the array
+  sortObjectbySpecificKey(data,key,'ASC'); // we sort the object
+  for (let i = 0; i < numberElement && i < data.length; i++) {
+    console.log(data[i]);
+    arrayData.push(data[i]);
+  }
+}
+function xLastElementsAccordingSpecificKey(data,key,numberElement) {
+  let arrayData = []; // we initialize the array
+  sortObjectbySpecificKey(data,key,'DESC'); // we sort the object
+  for (let i = 0; i < numberElement && i < data.length; i++) {
+    console.log(data[i]);
+    arrayData.push(data[i]);
+  }
 }
 
 function copyDataObject(dataObject) { // function to copy an object without any reference
