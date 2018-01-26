@@ -53,27 +53,33 @@ function dataWithoutFalseValueOnSpecificKey(dataObject,keyToTest) {
 }
 
 function xFirstElementsAccordingSpecificKey(data,key,numberElement) {
+  // return an array with X first elements of the object
+  // sort according a specific key
   let arrayData = []; // we initialize the array
   sortObjectbySpecificKey(data,key,'ASC'); // we sort the object
-  for (let i = 0; i < numberElement && i < data.length; i++) {
-    console.log(data[i]);
-    arrayData.push(data[i]);
+  for (let i = 0; i < numberElement && i < data.length; i++) { // we loop
+    arrayData.push(data[i]); // we insert the value in the array
   }
+  return arrayData; // we return the array
 }
+
 function xLastElementsAccordingSpecificKey(data,key,numberElement) {
+  // return an array with X last elements of the object
+  // sort according a specific key
   let arrayData = []; // we initialize the array
   sortObjectbySpecificKey(data,key,'DESC'); // we sort the object
-  for (let i = 0; i < numberElement && i < data.length; i++) {
-    console.log(data[i]);
-    arrayData.push(data[i]);
+  for (let i = 0; i < numberElement && i < data.length; i++) { // we loop
+    arrayData.push(data[i]); // we insert the value in the array
   }
+  return arrayData; // we return the array
 }
 
 function copyDataObject(dataObject) { // function to copy an object without any reference
-  return dataObject.slice(0);
+  return dataObject.slice(0); // we return the copy
 }
 
 
+// We load the data
 dataRequest.onload = whenDataLoaded; // we assign the function to excecute when the data are loading
 dataRequest.open("GET", moviesFeed, true); // the type, the url, asynchronous ?
 dataRequest.send(null); // we send the request
