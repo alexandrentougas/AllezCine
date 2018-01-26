@@ -6,10 +6,9 @@ let dataRequest = new XMLHttpRequest();
 let whenDataLoaded = function() { // callback function
   let dataText = dataRequest.responseText; // we store the text of the response
   let dataObject = JSON.parse(dataText); // we convert the text into an object
-  //let dataObjectCopy = copyDataObject(dataObject); // we copy the object before sorting it
   sortObjectbySpecificKey(dataObject,'Year');
-  console.log(dataObject);
-  //console.log(dataObjectCopy);
+  //console.log(dataObject);
+  console.log(dataWithoutFalseValueOnSpecificKey(dataObject,'Slider'));
 }
 
 function sortObjectbySpecificKey(data,key) {
@@ -32,6 +31,16 @@ function sortObjectbySpecificKey(data,key) {
       }
     */
   });
+}
+
+function dataWithoutFalseValueOnSpecificKey(dataObject,keyToTest) {
+  let arrayData = []; // we initialize the array
+  for (let key in dataObject) { // we loop our object
+    if (dataObject[key][keyToTest] != false) { // if the value is not false
+      arrayData.push(dataObject[key]); // we add the value to the array
+    }
+  }
+  return arrayData; // we return an array of object
 }
 
 function copyDataObject(dataObject) { // function to copy an object without any reference
