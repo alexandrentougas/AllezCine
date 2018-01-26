@@ -6,19 +6,27 @@ let dataRequest = new XMLHttpRequest();
 let whenDataLoaded = function() { // callback function
   let dataText = dataRequest.responseText; // we store the text of the response
   let dataObject = JSON.parse(dataText); // we convert the text into an object
-  sortObjectbySpecificKey(dataObject,'Year');
+  sortObjectbySpecificKey(dataObject,'Title');
   //console.log(dataObject);
   console.log(dataWithoutFalseValueOnSpecificKey(dataObject,'Slider'));
 }
 
-function sortObjectbySpecificKey(data,key) {
+function sortObjectbySpecificKey(data,key,order = 'ASC') {
   // data: object to sort
   // key: the key on with which the sort will be done
   data.sort( function (a, b) { // we compare the value
-    if (typeof a[key] === 'string') {
-      return (a[key].toLowerCase() < b[key].toLowerCase()) ? -1 : (a[key].toLowerCase() > b[key].toLowerCase()) ? 1 : 0;
-    } else {
-      return a[key] - b[key];
+    if (order === 'ASC') {
+      if (typeof a[key] === 'string') {
+        return (a[key].toLowerCase() < b[key].toLowerCase()) ? -1 : (a[key].toLowerCase() > b[key].toLowerCase()) ? 1 : 0;
+      } else {
+        return a[key] - b[key];
+      }
+    } else { // if order is 'DESC'
+      if (typeof a[key] === 'string') {
+        return (b[key].toLowerCase() < a[key].toLowerCase()) ? -1 : (b[key].toLowerCase() > a[key].toLowerCase()) ? 1 : 0;
+      } else {
+        return b[key] - a[key];
+      }
     }
     /*
       Transcription of the line: return (a[key].toLowerCase() < b[key].toLowerCase()) ? -1 : (a[key].toLowerCase() > b[key].toLowerCase()) ? 1 : 0;
