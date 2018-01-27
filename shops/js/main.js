@@ -107,7 +107,7 @@ function createHTMLMovieItem(data,parent,idPrefix) {
   $( '<div class="card-body"></div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID']) );
   $( '<h5 class="card-title">' + data['Title'] + '</h5>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-body') );
   $( '<h6 class="card-subtitle">' + data['Year'] + '</h6>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-body') );
-  $( '<div class="card-text">' + data['Genre'].join(', ') + '</div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-body') );
+  $( '<div class="card-text">' + data['Genre'][0] + '</div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-body') );
   $( '<div class="card-footer"></div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-body') );
   $( '<div class="btn-group btn-group-sm" role="group" aria-label="More function"></div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-footer') );
   $( '<button type="button" class="btn btn-secondary"><i class="fa fa-info"></i></button>').appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .btn-group') );
