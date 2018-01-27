@@ -7,7 +7,7 @@ let dataRequest2 = new XMLHttpRequest();
 let whenDataLoadedMovies = function() { // callback function
   let dataText = dataRequest.responseText; // we store the text of the response
   let dataObject = JSON.parse(dataText); // we convert the text into an object
-  //sortObjectbySpecificKey(dataObject,'Title');
+  sortObjectbySpecificKey(dataObject,'Year','DESC');
   console.log(dataObject);
   //console.log(dataWithoutFalseValueOnSpecificKey(dataObject,'Slider'));
   //console.log(xLastElementsAccordingSpecificKey(dataObject,'Year',6));
