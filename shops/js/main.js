@@ -4,7 +4,7 @@ let tvShowsFeed = 'https://laurenthu.github.io/AllezCine/shops/database/tvshows.
 let dataRequest = new XMLHttpRequest();
 let dataRequest2 = new XMLHttpRequest();
 
-let whenDataLoaded = function() { // callback function
+let whenDataLoadedMovies = function() { // callback function
   let dataText = dataRequest.responseText; // we store the text of the response
   let dataObject = JSON.parse(dataText); // we convert the text into an object
   //sortObjectbySpecificKey(dataObject,'Title');
@@ -142,9 +142,9 @@ function createHTMLTvShowItem(data,parent,idPrefix) {
 }
 
 // We load the data
-dataRequest.onload = whenDataLoaded; // we assign the function to excecute when the data are loading
+dataRequest.onload = whenDataLoadedMovies; // we assign the function to excecute when the data are loading
 dataRequest2.onload = whenDataLoaded2;
-dataRequest.open("GET", moviesFeed, true); // the type, the url, asynchronous ?
+dataRequest.open("GET", moviesFeed, true); // the type, the url, asynchronous true/false
 dataRequest2.open("GET", tvShowsFeed, true);
 dataRequest.send(null); // we send the request
 dataRequest2.send(null);
