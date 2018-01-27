@@ -111,7 +111,7 @@ function createHTMLMovieItem(data,parent,idPrefix) {
   $( '<div class="card-footer"></div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-body') );
   $( '<div class="btn-group btn-group-sm" role="group" aria-label="More function"></div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-footer') );
   $( '<button type="button" class="btn btn-secondary"><i class="fa fa-info"></i></button>').appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .btn-group') );
-  $( '<button type="button" class="btn btn-secondary"><i class="fa fa-youtube-play"></i></button>').appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .btn-group') );
+  $( '<button type="button" class="btn btn-secondary trailer-lightbox" data-trailer="' + data['Trailer'] + '"><i class="fa fa-youtube-play"></i></button>').appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .btn-group') );
 
 
 }
@@ -143,7 +143,7 @@ function createHTMLTvShowItem(data,parent,idPrefix) {
 
 // We load the data
 dataRequest.onload = whenDataLoadedMovies; // we assign the function to excecute when the data are loading
-dataRequest2.onload = whenDataLoaded2;
+//dataRequest2.onload = whenDataLoaded2;
 dataRequest.open("GET", moviesFeed, true); // the type, the url, asynchronous true/false
 dataRequest2.open("GET", tvShowsFeed, true);
 dataRequest.send(null); // we send the request
