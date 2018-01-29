@@ -129,7 +129,7 @@ function createHTMLMovieItem(data,parent,idPrefix) {
     'data-id': data['ID'],
     'data-year': data['Year'],
     'data-duration': data['Duration'],
-    'data-genre': data['Genre'].join(', ').toLowerCase(),
+    'data-genre': data['Genre'].join(' ').toLowerCase(),
     'data-director': data['Director'].join(', ').toLowerCase(),
     'data-writers': data['Writers'].join(', ').toLowerCase(),
     'data-actors': data['Actors'].join(', ').toLowerCase(),
