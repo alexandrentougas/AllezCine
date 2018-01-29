@@ -51,6 +51,10 @@ let whenDataLoadedTvShows = function() {
   };
 };
 
+function getFilenameForSpecificSize(imgFilename,size = 350) {
+  return imgFilename.split('.')[0] + '_' + size + '.' + imgFilename.split('.')[1];
+}
+
 function displayTopMovie(data,parent,idPrefix,numberElement) {
   let xElements = xLastElementsAccordingSpecificKey(data,'Year',numberElement);
   for(let i = 0; i < xElements.length; i++) {
@@ -147,7 +151,7 @@ function createHTMLMovieItem(data,parent,idPrefix) {
     'data-actors': data['Actors'].join(', ').toLowerCase(),
     'data-country': data['Country'].toLowerCase(),
   });
-  $( '<img src="img/' + data['Poster'] + '" class="poster card-img-top img-fluid" title="' + data['Title'] + ' (' + data['Year'] + ')" >' ).appendTo( $( '#' + HTMLId) );
+  $( '<img src="img/movies/' + getFilenameForSpecificSize(data['Poster'],350) + '" class="poster card-img-top img-fluid" title="' + data['Title'] + ' (' + data['Year'] + ')" >' ).appendTo( $( '#' + HTMLId) );
   $( '<div class="card-body"></div>' ).appendTo( $( '#' + HTMLId) );
   $( '<h5 class="card-title">' + data['Title'] + '</h5>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
   $( '<h6 class="card-subtitle">' + data['Year'] + '</h6>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
