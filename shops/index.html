@@ -23,16 +23,16 @@
           <a class="nav-link" href="#">HOME</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Featured Movies</a>
+          <a class="nav-link" href="#featured-movies">Featured Movies</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Featured TV Series</a>
+          <a class="nav-link" href="#featured-tvshows">Featured TV Series</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Shop Movies</a>
+          <a class="nav-link" href="#shop-movies">Shop Movies</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" href="#contact-us">Contact</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
@@ -105,11 +105,92 @@
 
     <div>
       <span><i class="fa fa-phone" aria-hidden="true"></i>(+000) 009 455 4088</span>
-      <button type="button">LOGIN</button>
-      <button type="button">REGISTER</button>
+      <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#loginModal" id="login">LOGIN</button>
+      <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#registerModal" id="register">REGISTER</button>
     </div>
 
   </header>
+
+  <div class="modal fade" id="ageWarning" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ageTitle">Age verification.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <input type="date" id="birthInput">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="ageVerif">Check</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="connectTitle">Connection</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+          <form id="connectForm">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username">
+            <label for="password">Password</label>
+            <input type="text" name="password" id="password">
+            <br>
+            <input type="radio"><span>Stay logged in.</span> <a href="#">Forgot your password?</a>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Login</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal"id="newAccount">New Account</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registerTitle">New Account</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+          <form id="registerForm">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name">
+            <label for="e-mail">E-mail</label>
+            <input type="email" name="e-mail" id="e-mail">
+            <label for="password">Password</label>
+            <input type="password" name="setPassword" id="setPassword">
+            <label for="confirmPass">Confirm Password</label>
+            <input type="password" name="confirmPass" id="confirmPass">
+            <br>
+            <input type="radio"><span>Accept the terms of use.</span>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <main>
 
@@ -132,9 +213,9 @@
           <a href="#" data-genre="scifi">SciFi</a>
           <a href="#" data-genre="romance">Romance</a>
         </aside>
-          <div class="row">
-            ici on met les films
-          </div>
+        <div class="row">
+          ici on met les films
+        </div>
         <div class="load-more">
           <a class="btn btn-primary">More movies</a>
         </div>
@@ -151,7 +232,7 @@
           <a href="#" data-genre="romance">Romance</a>
         </aside>
         <div class="row">
-          ici on met les films
+
         </div>
         <div class="load-more">
           <a class="btn btn-primary">More movies</a>
