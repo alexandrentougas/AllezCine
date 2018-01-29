@@ -1,31 +1,4 @@
-$(window).on('load', function() { // age check modal on page load
-  $('#ageWarning').modal('show');
-});
-
-let isItOlderThan18 = function(year, month, day) { // checks if user is older than 18 years old and returns true/false
-  return new Date(year + 18, month - 1, day) <= new Date();
-};
-
-$('#ageVerif').click(function() { //
-  if (isItOlderThan18(Number($('#birthInput').val().split('-')[0]), Number($('#birthInput').val().split('-')[1]), Number($('#birthInput').val().split('-')[2])) === true) {
-    $('#ageWarning').modal('hide');
-  } else {
-    location.href='http://www.imdb.com/?ref_=nv_home';
-  };
-});
-
-$('#loginModal').on('shown.bs.modal', function() {
-  $('#username').trigger('focus')
-});
-
-$('#registerModal').on('shown.bs.modal', function() {
-  $('#name').trigger('focus')
-});
-
-$('#newAccount').click(function() {
-  $('#registerModal').modal('show');
-});
-
+// Variables
 let moviesFeed = 'https://laurenthu.github.io/AllezCine/shops/database/movies.json';
 let tvShowsFeed = 'https://laurenthu.github.io/AllezCine/shops/database/tvshows.json';
 
@@ -183,8 +156,9 @@ function createHTMLMovieItemInformationModal(data,informationParent,informationI
   $( '#' + informationIdPrefix + informationParent + ' .modal-title' ).after('<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
   $( '<div class="modal-body"></div>').appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-content' ) );
   $( '<div class="container-fluid"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-body' ) );
-  $( '#' + informationIdPrefix + informationParent + ' .modal-body .container-fluid' ).html('<h6>Main information</h6>')
-  $( '#' + informationIdPrefix + informationParent + ' .modal-body .container-fluid h6' ).after('<div class="row main-information"></div>')
+  //$( '#' + informationIdPrefix + informationParent + ' .modal-body .container-fluid' ).html('<h6>Main information</h6>')
+  //$( '#' + informationIdPrefix + informationParent + ' .modal-body .container-fluid h6' ).after('<div class="row main-information"></div>')
+  $( '#' + informationIdPrefix + informationParent + ' .modal-body .container-fluid' ).html('<div class="row main-information"></div>')
   $( '<div class="col-12 col-sm-4 poster-modal"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .row' ) );
   $( '#' + informationIdPrefix + informationParent + ' .poster-modal' ).html('<img src="img/' + data['Poster'] + '" class="img-fluid">');
   $( '#' + informationIdPrefix + informationParent + ' .poster-modal' ).after('<div class="col-12 col-sm-8 main-data-modal"></div>');
@@ -197,10 +171,9 @@ function createHTMLMovieItemInformationModal(data,informationParent,informationI
   $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Director</td><td>' + data['Director'].join(', ') + '</td></tr>');
   $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Writer</td><td>' + data['Writers'].join(', ') + '</td></tr>');
   $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Actor</td><td>' + data['Actors'].join(', ') + '</td></tr>');
-  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Actor</td><td>' + data['Actors'].join(', ') + '</td></tr>');
-  $( '#' + informationIdPrefix + informationParent + ' .main-information' ).after('<h6>Trailer</h6>');
-  $( '#' + informationIdPrefix + informationParent + ' h6:last-of-type' ).after('<div class="embed-responsive embed-responsive-16by9"></div>');
-  $( '#' + informationIdPrefix + informationParent + ' .embed-responsive' ).html('<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' + getYoutubeID(data['Trailer']) + '" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+  //$( '#' + informationIdPrefix + informationParent + ' .main-information' ).after('<h6>Trailer</h6>');
+  //$( '#' + informationIdPrefix + informationParent + ' h6:last-of-type' ).after('<div class="embed-responsive embed-responsive-16by9"></div>');
+  //$( '#' + informationIdPrefix + informationParent + ' .embed-responsive' ).html('<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' + getYoutubeID(data['Trailer']) + '" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
 }
 
 function createHTMLTvShowItem(data, parent, idPrefix) {
@@ -256,3 +229,33 @@ dataRequest.open("GET", moviesFeed, true); // the type, the url, asynchronous tr
 dataRequest2.open("GET", tvShowsFeed, true);
 dataRequest.send(null); // we send the request
 dataRequest2.send(null);
+
+
+// Application
+$(window).on('load', function() { // age check modal on page load
+  $('#ageWarning').modal('show');
+});
+
+let isItOlderThan18 = function(year, month, day) { // checks if user is older than 18 years old and returns true/false
+  return new Date(year + 18, month - 1, day) <= new Date();
+};
+
+$('#ageVerif').click(function() { //
+  if (isItOlderThan18(Number($('#birthInput').val().split('-')[0]), Number($('#birthInput').val().split('-')[1]), Number($('#birthInput').val().split('-')[2])) === true) {
+    $('#ageWarning').modal('hide');
+  } else {
+    location.href='http://www.imdb.com/?ref_=nv_home';
+  };
+});
+
+$('#loginModal').on('shown.bs.modal', function() {
+  $('#username').trigger('focus')
+});
+
+$('#registerModal').on('shown.bs.modal', function() {
+  $('#name').trigger('focus')
+});
+
+$('#newAccount').click(function() {
+  $('#registerModal').modal('show');
+});
