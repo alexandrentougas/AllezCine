@@ -10,22 +10,22 @@
     "Genre": [
       "Drama",
       "Fantasy",
-      "Horror",
+      "Horror"
     ],
     "Creators": [
       "Matt Duffer",
-      "Ross Duffer",
+      "Ross Duffer"
     ],
     "Actors": [
       "Millie Bobby Brown",
       "Finn Wolfhard",
       "Winona Ryder",
       "David Harbour",
-      "Natalia Dyer",
+      "Natalia Dyer"
     ],
     "Summary": "When a young boy disappears, his mother, a police chief, and his friends, must confront terrifying forces in order to get him back.",
     "Poster": "img/StrangerThings.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=XWxyRG_tckY",
+    "Trailer": "https://www.youtube.com/watch?v=XWxyRG_tckY"
   },
   {
     "ID": 2,
@@ -38,20 +38,20 @@
     "Genre": [
       "Drama",
       "Sci-Fi",
-      "Thriller",
+      "Thriller"
     ],
     "Creators": [
-      "Charlie Brooker",
+      "Charlie Brooker"
     ],
     "Actors": [
       "Daniel Lapaine",
       "Hannah John-Kamen",
       "Michaela Coel",
-      "Beatrice Robertson-Jones",
+      "Beatrice Robertson-Jones"
     ],
     "Summary": "An anthology series exploring a twisted, high-tech world where humanity's greatest innovations and darkest instincts collide.",
     "Poster": "img/BlackMirror.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=jROLrhQkK78",
+    "Trailer": "https://www.youtube.com/watch?v=jROLrhQkK78"
   },
   {
     "ID": 3,
@@ -64,10 +64,10 @@
     "Genre": [
       "Action",
       "Drama",
-      "History",
+      "History"
     ],
     "Creators": [
-      "Michael Hirst",
+      "Michael Hirst"
     ],
     "Actors": [
       "Gustaf Skarsgård",
@@ -75,11 +75,11 @@
       "Alexander Ludwig",
       "Travis Fimmel",
       "Clive Standen",
-      "Maude Hirst",
+      "Maude Hirst"
     ],
     "Summary": "The world of the Vikings is brought to life through the journey of Ragnar Lothbrok, the first Viking to emerge from Norse legend and onto the pages of history - a man on the edge of myth.",
     "Poster": "img/Vikings.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=mAl60ykBm4A",
+    "Trailer": "https://www.youtube.com/watch?v=mAl60ykBm4A"
   },
   {
     "ID": 4,
@@ -91,11 +91,11 @@
     "Duration": 46,
     "Genre": [
       "Comedy",
-      "Drama",
+      "Drama"
     ],
     "Creators": [
       "John Wells",
-      "Paul Abbott",
+      "Paul Abbott"
     ],
     "Actors": [
       "William H. Macy",
@@ -103,11 +103,11 @@
       "Ethan Cutkosky",
       "Shanola Hampton",
       "Jeremy Allen White",
-      "Emma Kenney",
+      "Emma Kenney"
     ],
     "Summary": "An alcoholic man lives in a perpetual stupor while his six children with whom he lives with cope as best they can.",
     "Poster": "img/Shameless.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=9tvkYS5cA58",
+    "Trailer": "https://www.youtube.com/watch?v=9tvkYS5cA58"
   },
   {
     "ID": 5,
@@ -119,20 +119,20 @@
     "Duration": 25,
     "Genre": [
       "Comedy",
-      "Drama",
+      "Drama"
     ],
     "Creators": [
       "Jonathan Entwistle",
-      "Lucy Tcherniak",
+      "Lucy Tcherniak"
     ],
     "Actors": [
       "Jessica Barden",
       "Alex Lawther",
-      "Steve Oram",
+      "Steve Oram"
     ],
     "Summary": "James is 17 and is pretty sure he is a psychopath. Alyssa, also 17, is the cool and moody new girl at school. The pair make a connection and she persuades him to embark on a road trip in search of her real father.",
     "Poster": "img/EndWorld.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=vbiiik_T3Bo",
+    "Trailer": "https://www.youtube.com/watch?v=vbiiik_T3Bo"
   },
   {
     "ID": 6,
@@ -145,11 +145,11 @@
     "Genre": [
       "Action",
       "Adventure",
-      "Drama",
+      "Drama"
     ],
     "Creators": [
       "David Benioff",
-      "D.B. Weiss",
+      "D.B. Weiss"
     ],
     "Actors": [
       "Peter Dinklage",
@@ -157,11 +157,11 @@
       "Kit Harington",
       "Maisie Williams",
       "Lena Headey",
-      "Sophie Turner",
+      "Sophie Turner"
     ],
     "Summary": "Nine noble families fight for control over the mythical lands of Westeros, while a forgotten race returns after being dormant for thousands of years.",
     "Poster": "img/GameOfThrones.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=BpJYNVhGf1s",
+    "Trailer": "https://www.youtube.com/watch?v=BpJYNVhGf1s"
   },
   {
     "ID": 7,
@@ -173,21 +173,21 @@
     "Duration": 41,
     "Genre": [
       "Drama",
-      "Romance",
+      "Romance"
     ],
     "Creators": [
-      "Shonda Rhimes",
+      "Shonda Rhimes"
     ],
     "Actors": [
       "Ellen Pompeo",
       "Justin Chambers",
       "Chandra Wilson",
       "James Pickens Jr.",
-      "Patrick Dempsey",
+      "Patrick Dempsey"
     ],
     "Summary": "A drama centered on the personal and professional lives of five surgical interns and their supervisors.",
     "Poster": "img/GreysAnatomy.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=4FC8krII948",
+    "Trailer": "https://www.youtube.com/watch?v=4FC8krII948"
   },
   {
     "ID": 8,
@@ -200,12 +200,12 @@
     "Genre": [
       "Action",
       "Adventure",
-      "Drama",
+      "Drama"
     ],
     "Creators": [
       "Greg Berlanti",
       "Geoff Johns",
-      "Andrew Kreisberg",
+      "Andrew Kreisberg"
     ],
     "Actors": [
       "Grant Gustin",
@@ -213,11 +213,11 @@
       "Danielle Panabaker",
       "Carlos Valdes",
       "Tom Cavanagh",
-      "Jesse L. Martin",
+      "Jesse L. Martin"
     ],
     "Summary": "After being struck by lightning, Barry Allen wakes up from his coma to discover he's been given the power of super speed, becoming the Flash, fighting crime in Central City.",
     "Poster": "img/TheFlash.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=Yj0l7iGKh8g",
+    "Trailer": "https://www.youtube.com/watch?v=Yj0l7iGKh8g"
   },
   {
     "ID": 9,
@@ -229,20 +229,20 @@
     "Duration": 60,
     "Genre": [
       "Crime",
-      "Drama",
+      "Drama"
     ],
     "Creators": [
-      "Steven Knight",
+      "Steven Knight"
     ],
     "Actors": [
       "Cillian Murphy",
       "Paul Anderson",
       "Helen McCrory",
-      "Sophie Rundle",
+      "Sophie Rundle"
     ],
     "Summary": "A gangster family epic set in 1919 Birmingham, England and centered on a gang who sew razor blades in the peaks of their caps, and their fierce boss Tommy Shelby, who means to move up in the world.",
     "Poster": "img/PeakyBlinders.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=JwXfVGjSz-4",
+    "Trailer": "https://www.youtube.com/watch?v=JwXfVGjSz-4"
   },
   {
     "ID": 10,
@@ -254,10 +254,10 @@
     "Duration": 45,
     "Genre": [
       "Comedy",
-      "Drama",
+      "Drama"
     ],
     "Creators": [
-      "Dan Fogelman",
+      "Dan Fogelman"
     ],
     "Actors": [
       "Milo Ventimiglia",
@@ -266,11 +266,11 @@
       "Chrissy Metz",
       "Justin Hartley",
       "Susan Kelechi Watson",
-      "Chris Sullivan",
+      "Chris Sullivan"
     ],
     "Summary": "Follows a unique ensemble, as their paths cross and their life stories interwine, from sharing the same birthday, to so much more than anyone would expect.",
     "Poster": "img/ThisIsUs.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=OkTEQwsE8l4",
+    "Trailer": "https://www.youtube.com/watch?v=OkTEQwsE8l4"
   },
   {
     "ID": 11,
@@ -283,20 +283,20 @@
     "Genre": [
       "Action",
       "Adventure",
-      "Drama",
+      "Drama"
     ],
     "Creators": [
       "Bryan Fuller",
-      "Alex Kurtzman",
+      "Alex Kurtzman"
     ],
     "Actors": [
       "Sonequa Martin-Green",
       "Doug Jones",
-      "Mary Wiseman",
+      "Mary Wiseman"
     ],
     "Summary": "Ten years before Kirk, Spock and the Enterprise, the USS Discovery discovers new worlds and lifeforms as one Starfleet officer learns to understand all things alien.",
     "Poster": "img/StarTrekDiscovery.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=oWnYtyNKPsA",
+    "Trailer": "https://www.youtube.com/watch?v=oWnYtyNKPsA"
   },
   {
     "ID": 12,
@@ -307,20 +307,20 @@
     "Episodes": 12,
     "Duration": 41,
     "Genre": [
-      "Drama",
+      "Drama"
     ],
     "Creators": [
-      "David Shore",
+      "David Shore"
     ],
     "Actors": [
       "Freddie Highmore",
       "Nicholas Gonzalez",
       "Antonia Thomas",
-      "Beau Garrett",
+      "Beau Garrett"
     ],
     "Summary": "Shaun Murphy, a young surgeon with autism and Savant syndrome, is recruited into the surgical unit of a prestigious hospital.",
     "Poster": "img/theGoodDoctor.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=fYlZDTru55g",
+    "Trailer": "https://www.youtube.com/watch?v=fYlZDTru55g"
   },
   {
     "ID": 13,
@@ -333,10 +333,10 @@
     "Genre": [
       "Action",
       "Drama",
-      "Fantasy",
+      "Fantasy"
     ],
     "Creators": [
-      "Matt Nix",
+      "Matt Nix"
     ],
     "Actors": [
       "Stephen Moyer",
@@ -344,11 +344,11 @@
       "Sean Teale",
       "Natalie Alyn Lind",
       "Percy Hynes White",
-      "Jamie Chung",
+      "Jamie Chung"
     ],
     "Summary": "In a world where mutated humans are treated with distrust and fear, an institute for mutants battles to achieve peaceful co-existence with humanity.",
     "Poster": "img/theGifted.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=3pDdXYf3nfc",
+    "Trailer": "https://www.youtube.com/watch?v=3pDdXYf3nfc"
   },
   {
     "ID": 14,
@@ -360,21 +360,21 @@
     "Duration": 60,
     "Genre": [
       "Drama",
-      "Sci-Fi",
+      "Sci-Fi"
     ],
     "Creators": [
-      "Bruce Miller",
+      "Bruce Miller"
     ],
     "Actors": [
       "Elisabeth Moss",
       "Yvonne Strahovski",
       "Joseph Fiennes",
       "Max Minghella",
-      "Amanda Brugel",
+      "Amanda Brugel"
     ],
     "Summary": "Set in a dystopian future, a woman is forced to live as a concubine under a fundamentalist theocratic dictatorship.",
     "Poster": "img/HandmaidsTale.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=PJTonrzXTJs",
+    "Trailer": "https://www.youtube.com/watch?v=PJTonrzXTJs"
   },
   {
     "ID": 15,
@@ -387,23 +387,23 @@
     "Genre": [
       "Action",
       "Adventure",
-      "Drama",
+      "Drama"
     ],
     "Creators": [
       "Maurissa Tancharoen",
       "Jed Whedon",
-      "Joss Whedon",
+      "Joss Whedon"
     ],
     "Actors": [
       "Clark Gregg",
       "Ming-Na Wen",
       "Chloe Bennet",
       "Iain De Caestecker",
-      "Elizabeth Henstridge",
+      "Elizabeth Henstridge"
     ],
     "Summary": "The missions of the Strategic Homeland Intervention, Enforcement and Logistics Division.",
     "Poster": "img/SHIELD.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=T3T-evQZiQo",
+    "Trailer": "https://www.youtube.com/watch?v=T3T-evQZiQo"
   },
   {
     "ID": 16,
@@ -416,21 +416,21 @@
     "Genre": [
       "Crime",
       "Drama",
-      "Mystery",
+      "Mystery"
     ],
     "Creators": [
-      "James Manos Jr.",
+      "James Manos Jr."
     ],
     "Actors": [
       "Michael C. Hall",
       "Jennifer Carpenter",
       "David Zayas",
       "James Remar",
-      "C.S. Lee",
+      "C.S. Lee"
     ],
     "Summary": "By day, mild-mannered Dexter is a blood-spatter analyst for the Miami police. But at night, he is a serial killer who only targets other murderers.",
     "Poster": "img/Dexter.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=YQeUmSD1c3g",
+    "Trailer": "https://www.youtube.com/watch?v=YQeUmSD1c3g"
   },
   {
     "ID": 17,
@@ -442,10 +442,10 @@
     "Duration": 55,
     "Genre": [
       "Comedy",
-      "Drama",
+      "Drama"
     ],
     "Creators": [
-      "Alan Ball",
+      "Alan Ball"
     ],
     "Actors": [
       "Peter Krause",
@@ -454,11 +454,11 @@
       "Lauren Ambrose",
       "Freddy Rodríguez",
       "Mathew St. Patrick",
-      "Rachel Griffiths",
+      "Rachel Griffiths"
     ],
     "Summary": "A drama series that takes a darkly comical look at members of a dysfunctional California family that runs an independent funeral home.",
     "Poster": "img/SixFeetUnder.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=E3gYi-KvKug",
+    "Trailer": "https://www.youtube.com/watch?v=E3gYi-KvKug"
   },
   {
     "ID": 18,
@@ -471,10 +471,10 @@
     "Genre": [
       "Crime",
       "Drama",
-      "Thriller",
+      "Thriller"
     ],
     "Creators": [
-      "Vince Gilligan",
+      "Vince Gilligan"
     ],
     "Actors": [
       "Bryan Cranston",
@@ -482,11 +482,11 @@
       "Aaron Paul",
       "Dean Norris",
       "Betsy Brandt",
-      "RJ Mitte",
+      "RJ Mitte"
     ],
     "Summary": "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future.",
     "Poster": "img/BreakingBad.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=BVyMjIEVaBU",
+    "Trailer": "https://www.youtube.com/watch?v=BVyMjIEVaBU"
   },
   {
     "ID": 19,
@@ -499,10 +499,10 @@
     "Genre": [
       "Crime",
       "Drama",
-      "Thriller",
+      "Thriller"
     ],
     "Creators": [
-      "David Simon",
+      "David Simon"
     ],
     "Actors": [
       "Dominic West",
@@ -510,11 +510,11 @@
       "Deirdre Lovejoy",
       "Wendell Pierce",
       "Lance Reddick",
-      "Sonja Sohn",
+      "Sonja Sohn"
     ],
     "Summary": "Baltimore drug scene, seen through the eyes of drug dealers and law enforcement.",
     "Poster": "img/TheWire.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=uDcQbk78CSw",
+    "Trailer": "https://www.youtube.com/watch?v=uDcQbk78CSw"
   },
   {
     "ID": 20,
@@ -526,10 +526,10 @@
     "Duration": 55,
     "Genre": [
       "Crime",
-      "Drama",
+      "Drama"
     ],
     "Creators": [
-      "David Chase",
+      "David Chase"
     ],
     "Actors": [
       "James Gandolfini",
@@ -537,11 +537,11 @@
       "Edie Falco",
       "Michael Imperioli",
       "Robert Iler",
-      "Jamie-Lynn Sigler",
+      "Jamie-Lynn Sigler"
     ],
     "Summary": "A New Jersey mob boss, Tony Soprano, deals with personal and professional issues in his home and business life, which affects his mental state and leads him to seek professional psychiatric counseling.",
     "Poster": "img/TheSopranos.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=2X4UhSPA5d4",
+    "Trailer": "https://www.youtube.com/watch?v=2X4UhSPA5d4"
   },
   {
     "ID": 21,
@@ -554,20 +554,20 @@
     "Genre": [
       "Adventure",
       "Drama",
-      "Sci-Fi",
+      "Sci-Fi"
     ],
     "Creators": [
-      "Joss Whedon",
+      "Joss Whedon"
     ],
     "Actors": [
       "Nathan Fillion",
       "Gina Torres",
       "Alan Tudyk",
-      "Adam Baldwin",
+      "Adam Baldwin"
     ],
     "Summary": "Five hundred years in the future, a renegade crew aboard a small spacecraft tries to survive as they travel the unknown parts of the galaxy and evade warring factions as well as authority agents out to get them.",
     "Poster": "img/Firefly.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=mEx6UpiIKM4",
+    "Trailer": "https://www.youtube.com/watch?v=mEx6UpiIKM4"
   },
   {
     "ID": 22,
@@ -579,11 +579,11 @@
     "Duration": 22,
     "Genre": [
       "Comedy",
-      "Romance",
+      "Romance"
     ],
     "Creators": [
       "David Crane",
-      "Marta Kauffman",
+      "Marta Kauffman"
     ],
     "Actors": [
       "Jennifer Aniston",
@@ -591,11 +591,11 @@
       "Lisa Kudrow",
       "Matt LeBlanc",
       "Matthew Perry",
-      "David Schwimmer",
+      "David Schwimmer"
     ],
     "Summary": "Follows the personal and professional lives of six 20 to 30-something-year-old friends living in Manhattan.",
     "Poster": "img/Friends.jpg",
-    "Trailer": false,
+    "Trailer": false
   },
   {
     "ID": 23,
@@ -608,21 +608,21 @@
     "Genre": [
       "Crime",
       "Drama",
-      "Mystery",
+      "Mystery"
     ],
     "Creators": [
       "Mark Frost",
-      "David Lynch",
+      "David Lynch"
     ],
     "Actors": [
       "Kyle MacLachlan",
       "Michael Ontkean",
       "Mädchen Amick",
-      "Lara Flynn Boyle",
+      "Lara Flynn Boyle"
     ],
     "Summary": "An idiosyncratic FBI agent investigates the murder of a young woman in the even more idiosyncratic town of Twin Peaks.",
     "Poster": "img/TwinPeaks.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=BDt__3fhvM0",
+    "Trailer": "https://www.youtube.com/watch?v=BDt__3fhvM0"
   },
   {
     "ID": 24,
@@ -634,48 +634,48 @@
     "Duration": 44,
     "Genre": [
       "Comedy",
-      "Drama",
+      "Drama"
     ],
     "Creators": [
-      "Paul Feig",
+      "Paul Feig"
     ],
     "Actors": [
       "Linda Cardellini",
       "John Francis Daley",
       "James Franco",
-      "Samm Levine",
+      "Samm Levine"
     ],
     "Summary": "A high school mathlete starts hanging out with a group of burnouts while her younger brother navigates his freshman year.",
     "Poster": "img/FreakGeeks.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=J8WrLHZQPBY",
+    "Trailer": "https://www.youtube.com/watch?v=J8WrLHZQPBY"
   },
   {
     "ID": 25,
     "Title": "Rome",
     "Beginning": 2005,
     "Ending": 2007,
-    "Seasons": ,
+    "Seasons": 2,
     "Episodes": 22,
     "Duration": 90,
     "Genre": [
       "Action",
       "Drama",
-      "History",
+      "History"
     ],
     "Creators": [
       "Bruno Heller",
       "William J. MacDonald",
-      "John Milius",
+      "John Milius"
     ],
     "Actors": [
       "Kevin McKidd",
       "Ray Stevenson",
       "Polly Walker",
       "Kerry Condon",
-      "James Purefoy",
+      "James Purefoy"
     ],
     "Summary": "A down-to-earth account of the lives of both illustrious and ordinary Romans set in the last days of the Roman Republic.",
     "Poster": "img/Rome.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=rtUQqiIa0oI",
-  },
+    "Trailer": "https://www.youtube.com/watch?v=rtUQqiIa0oI"
+  }
 ]

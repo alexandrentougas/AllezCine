@@ -16,7 +16,7 @@ let whenDataLoadedMovies = function() { // callback function
   }
 }
 
-let whenDataLoaded2 = function() {
+let whenDataLoadedTvShows = function() {
   let dataText = dataRequest2.responseText;
   let dataObject = JSON.parse(dataText);
   for(let i = 0; i < 6; i++) {
@@ -143,7 +143,7 @@ function createHTMLTvShowItem(data,parent,idPrefix) {
 
 // We load the data
 dataRequest.onload = whenDataLoadedMovies; // we assign the function to excecute when the data are loading
-//dataRequest2.onload = whenDataLoaded2;
+//dataRequest2.onload = whenDataLoadedTvShows;
 dataRequest.open("GET", moviesFeed, true); // the type, the url, asynchronous true/false
 dataRequest2.open("GET", tvShowsFeed, true);
 dataRequest.send(null); // we send the request
