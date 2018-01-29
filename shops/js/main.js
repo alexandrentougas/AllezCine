@@ -21,7 +21,7 @@ let whenDataLoadedTvShows = function() {
   let dataObject = JSON.parse(dataText);
   console.log(dataObject);
   for(let i = 0; i < 6; i++) {
-    createHTMLTvShowItem(dataObject[i], '#featured-tvshow .tvshow-list .row','featured-tvshow');
+    createHTMLTvShowItem(dataObject[i], '#featured-tvshows .tvshow-list .row','featured-tvshow');
   };
 };
 
