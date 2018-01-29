@@ -240,13 +240,13 @@ let isItOlderThan18 = function(year, month, day) { // checks if user is older th
   return new Date(year + 18, month - 1, day) <= new Date();
 };
 
-$('#ageVerif').click(function() { //
+/*$('#ageVerif').click(function() { //
   if (isItOlderThan18(Number($('#birthInput').val().split('-')[0]), Number($('#birthInput').val().split('-')[1]), Number($('#birthInput').val().split('-')[2])) === true) {
     $('#ageWarning').modal('hide');
   } else {
     location.href='http://www.imdb.com/?ref_=nv_home';
   };
-});
+});*/
 
 $('#loginModal').on('shown.bs.modal', function() {
   $('#username').trigger('focus')
