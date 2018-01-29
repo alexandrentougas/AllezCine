@@ -26,7 +26,8 @@
     "Country": "USA",
     "Poster": "StarWars-TheLastJedi.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=vZ734NWnAHA"
+    "Trailer": "https://www.youtube.com/watch?v=vZ734NWnAHA",
+    "Price": 20
   },
   {
     "ID": 2,
@@ -58,7 +59,8 @@
     "Country": "USA",
     "Poster": "StarWars-TheEmpireStrikesBack.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=JNwNXF9Y6kY"
+    "Trailer": "https://www.youtube.com/watch?v=JNwNXF9Y6kY",
+    "Price": 20
   },
   {
     "ID": 3,
@@ -89,7 +91,8 @@
     "Country": "USA",
     "Poster": "StarWars-ReturnOfTheJedi.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=5UnjrG_N8hU"
+    "Trailer": "https://www.youtube.com/watch?v=5UnjrG_N8hU",
+    "Price": 20
   },
   {
     "ID": 4,
@@ -118,7 +121,8 @@
     "Country": "USA",
     "Poster": "StarWars-PhantomMenace.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=bD7bpG-zDJQ"
+    "Trailer": "https://www.youtube.com/watch?v=bD7bpG-zDJQ",
+    "Price": 20
   },
   {
     "ID": 5,
@@ -150,7 +154,8 @@
     "Country": "USA",
     "Poster": "StarWars-AttackOfTheClones.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=gYbW1F_c9eM"
+    "Trailer": "https://www.youtube.com/watch?v=gYbW1F_c9eM",
+    "Price": 20
   },
   {
     "ID": 6,
@@ -181,7 +186,8 @@
     "Country": "USA",
     "Poster": "StarWars-RevengeOfTheSith.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=5UnjrG_N8hU"
+    "Trailer": "https://www.youtube.com/watch?v=5UnjrG_N8hU",
+    "Price": 20
   },
   {
     "ID": 7,
@@ -216,7 +222,8 @@
     "Country": "USA",
     "Poster": "StarWars-TheForceAwakens.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=sGbxmsDFVnE"
+    "Trailer": "https://www.youtube.com/watch?v=sGbxmsDFVnE",
+    "Price": 20
   },
   {
     "ID": 8,
@@ -248,7 +255,8 @@
     "Country": "USA",
     "Poster": "StarWars-TheLastJedi.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=Q0CbN8sfihY"
+    "Trailer": "https://www.youtube.com/watch?v=Q0CbN8sfihY",
+    "Price": 20
   },
   {
     "ID": 9,
@@ -282,7 +290,8 @@
     "Country": "USA",
     "Poster": "StarWarsStory-RogueOne.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=frdj1zb9sMY"
+    "Trailer": "https://www.youtube.com/watch?v=frdj1zb9sMY",
+    "Price": 20
   },
   {
     "ID": 10,
@@ -323,7 +332,8 @@
     "Country": "USA",
     "Poster": "CaptainAmerica-CivilWar.jpg",
     "Slider": "CaptainAmerica-CivilWar-slider.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=dKrVegVI0Us"
+    "Trailer": "https://www.youtube.com/watch?v=dKrVegVI0Us",
+    "Price": 15
   },
   {
     "ID": 11,
@@ -356,7 +366,8 @@
     "Country": "USA",
     "Poster": "BlackPanther.jpg",
     "Slider": "BlackPanther-slider.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=xjDjIWPwcPU"
+    "Trailer": "https://www.youtube.com/watch?v=xjDjIWPwcPU",
+    "Price": 15
   },
   {
     "ID": 12,
@@ -383,7 +394,8 @@
     "Country": "France",
     "Poster": "120BPMPerMinutes.jpg",
     "Slider": "120BPMPerMinutes-slider.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=2fhO2A4SL24"
+    "Trailer": "https://www.youtube.com/watch?v=2fhO2A4SL24",
+    "Price": 15
   },
   {
     "ID": 13,
@@ -411,7 +423,8 @@
     "Country": "United Kingdom",
     "Poster": "DarkestHour.jpg",
     "Slider": "DarkestHour-slider.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=LtJ60u7SUSw"
+    "Trailer": "https://www.youtube.com/watch?v=LtJ60u7SUSw",
+    "Price": 17
   },
   {
     "ID": 14,
@@ -438,7 +451,8 @@
     "Country": "USA",
     "Poster": "GetOut.jpg",
     "Slider": "GetOut-slider.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=DzfpyUB60YY"
+    "Trailer": "https://www.youtube.com/watch?v=DzfpyUB60YY",
+    "Price": 16
   },
   {
     "ID": 15,
@@ -471,7 +485,8 @@
     "Country": "USA",
     "Poster": "GuardiansOfTheGalaxy.jpg",
     "Slider": "GuardiansOfTheGalaxy-slider.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=d96cjJhvlMA"
+    "Trailer": "https://www.youtube.com/watch?v=d96cjJhvlMA",
+    "Price": 25
   },
   {
     "ID": 16,
@@ -499,7 +514,8 @@
     "Country": "United Kingdom",
     "Poster": "ImitationGame.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=S5CjKEFb-sM"
+    "Trailer": "https://www.youtube.com/watch?v=S5CjKEFb-sM",
+    "Price": 23
   },
   {
     "ID": 17,
@@ -527,7 +543,8 @@
     "Country": "USA",
     "Poster": "LaLaLand.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=0pdqf4P9MB8"
+    "Trailer": "https://www.youtube.com/watch?v=0pdqf4P9MB8",
+    "Price": 14
   },
   {
     "ID": 18,
@@ -555,7 +572,8 @@
     "Country": "Netherlands, Belgium, United Kingdom",
     "Poster": "Brimestone.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=AFk32lA8eqs"
+    "Trailer": "https://www.youtube.com/watch?v=AFk32lA8eqs",
+    "Price": 19
   },
   {
     "ID": 19,
@@ -585,7 +603,8 @@
     "Country": "France",
     "Poster": "AuRevoirLaHaut.jpg",
     "Slider": "AuRevoirLaHaut-slider.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=vWN7f5IaF98"
+    "Trailer": "https://www.youtube.com/watch?v=vWN7f5IaF98",
+    "Price": 21
   },
   {
     "ID": 20,
@@ -613,7 +632,8 @@
     "Country": "United Kingdom",
     "Poster": "Pride.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=kZfFvsKDuUU"
+    "Trailer": "https://www.youtube.com/watch?v=kZfFvsKDuUU",
+    "Price": 14.5
   },
   {
     "ID": 21,
@@ -644,7 +664,8 @@
     "Country": "United Kingdom",
     "Poster": "TheBestExoticMarigoldHotel.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=dDY89LYxK0w"
+    "Trailer": "https://www.youtube.com/watch?v=dDY89LYxK0w",
+    "Price": 22
   },
   {
     "ID": 22,
@@ -675,7 +696,8 @@
     "Country": "USA",
     "Poster": "AlienCovenant.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=svnAD0TApb8"
+    "Trailer": "https://www.youtube.com/watch?v=svnAD0TApb8",
+    "Price": 18
   },
   {
     "ID": 23,
@@ -704,7 +726,8 @@
     "Country": "Belgium",
     "Poster": "BigfootJunior.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=TKNYU_M6O5Y"
+    "Trailer": "https://www.youtube.com/watch?v=TKNYU_M6O5Y",
+    "Price": 25
   },
   {
     "ID": 24,
@@ -734,7 +757,8 @@
     "Country": "USA",
     "Poster": "Dunkirk.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=F-eMt3SrfFU"
+    "Trailer": "https://www.youtube.com/watch?v=F-eMt3SrfFU",
+    "Price": 21
   },
   {
     "ID": 25,
@@ -764,7 +788,8 @@
     "Country": "USA",
     "Poster": "Nerve.jpg",
     "Slider": "Nerve-slider.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=AX1BTiHzq-I"
+    "Trailer": "https://www.youtube.com/watch?v=AX1BTiHzq-I",
+    "Price": 20
   },
   {
     "ID": 26,
@@ -792,7 +817,8 @@
     "Country": "USA, France, Italy, Brazil",
     "Poster": "CallMeByYourName.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=Z9AYPxH5NTM"
+    "Trailer": "https://www.youtube.com/watch?v=Z9AYPxH5NTM",
+    "Price": 22
   },
   {
     "ID": 27,
@@ -826,7 +852,8 @@
     "Country": "USA",
     "Poster": "TheDarkTower.jpg",
     "Slider": "TheDarkTower-slider.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=GjwfqXTebIY"
+    "Trailer": "https://www.youtube.com/watch?v=GjwfqXTebIY",
+    "Price": 23
   },
   {
     "ID": 28,
@@ -860,7 +887,8 @@
     "Country": "USA, Cambodia",
     "Poster": "FirstTheyKilledMyFather.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=5K_SpNqLwzI"
+    "Trailer": "https://www.youtube.com/watch?v=5K_SpNqLwzI",
+    "Price": 15
   },
   {
     "ID": 29,
@@ -894,7 +922,8 @@
     "Country": "USA",
     "Poster": "BattleOfTheSexes.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=5AWP1K7FaFI"
+    "Trailer": "https://www.youtube.com/watch?v=5AWP1K7FaFI",
+    "Price": 18
   },
   {
     "ID": 30,
@@ -922,7 +951,8 @@
     "Country": "USA",
     "Poster": "DallasBuyersClub.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=KDvPcBeOn8E"
+    "Trailer": "https://www.youtube.com/watch?v=KDvPcBeOn8E",
+    "Price": 22
   },
   {
     "ID": 31,
@@ -955,7 +985,8 @@
     "Country": "USA",
     "Poster": "Logan.jpg",
     "Slider": "Logan-slider.jpg",
-    "Trailer": "https://www.youtube.com/watch?v=Div0iP65aZo"
+    "Trailer": "https://www.youtube.com/watch?v=Div0iP65aZo",
+    "Price": 19
   },
   {
     "ID": 32,
@@ -989,6 +1020,39 @@
     "Country": "USA",
     "Poster": "JurassicWorld.jpg",
     "Slider": false,
-    "Trailer": "https://www.youtube.com/watch?v=RFinNxS5KN4"
+    "Trailer": "https://www.youtube.com/watch?v=RFinNxS5KN4",
+    "Price": 17
+  },
+  {
+    "ID": 33,
+    "Title": "The Greatest Showman",
+    "Year": 2017,
+    "Released": "24 January 2018",
+    "Duration": 104,
+    "Genre": [
+      "Biography",
+      "Drama",
+      "Musical"
+    ],
+    "Director": [
+      "Michael Gracey"
+    ],
+    "Writers": [
+      "Jenny Bicks",
+      "Bill Condon"
+    ],
+    "Actors": [
+      "Hugh Jackman",
+      "Michelle Williams",
+      "Zac Efron",
+      "Zendaya",
+      "Rebecca Ferguson"
+    ],
+    "Summary": "Celebrates the birth of show business, and tells of a visionary who rose from nothing to create a spectacle that became a worldwide sensation.",
+    "Country": "USA",
+    "Poster": "TheGreatestShowman.jpg",
+    "Slider": "TheGreatestShowman-slider.jpg",
+    "Trailer": "https://www.youtube.com/watch?v=AXCTMGYUg9A",
+    "Price": 24
   }
 ]
