@@ -103,7 +103,7 @@ function createHTMLMovieItem(data,parent,idPrefix) {
                                       'data-actors': data['Actors'].join(', ').toLowerCase(),
                                       'data-country': data['Country'].toLowerCase(),
                                     });
-  $( '<img src="img/' + data['Poster'] + '" class="poster card-img-top" title="' + data['Title'] + '(' + data['Year'] + ')" >' ).appendTo( $( '#' + idPrefix + '-' + data['ID']) );
+  $( '<img src="img/' + data['Poster'] + '" class="poster card-img-top img-fluid" title="' + data['Title'] + ' (' + data['Year'] + ')" >' ).appendTo( $( '#' + idPrefix + '-' + data['ID']) );
   $( '<div class="card-body"></div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID']) );
   $( '<h5 class="card-title">' + data['Title'] + '</h5>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-body') );
   $( '<h6 class="card-subtitle">' + data['Year'] + '</h6>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-body') );
