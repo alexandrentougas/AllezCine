@@ -21,7 +21,7 @@ let whenDataLoadedTvShows = function() {
   let dataObject = JSON.parse(dataText);
   console.log(dataObject);
   for(let i = 0; i < 6; i++) {
-    createHTMLTvShowItem(dataObject[i], '#featured-tvshow .series-list .row','featured-tvshow');
+    createHTMLTvShowItem(dataObject[i], '#featured-tvshow .tvshow-list .row','featured-tvshow');
   };
 };
 
@@ -120,6 +120,9 @@ function createHTMLMovieItem(data,parent,idPrefix) {
 function createHTMLTvShowItem(data,parent,idPrefix) {
   let HTMLcontent = '<div class="col-6 col-md-2 card tvshow-item" id="' + idPrefix + '-' + data['ID'] + '"></div>';
   $( HTMLcontent ).appendTo( $( parent ) ); // we add our HTML content to the parent
+  if (data['Ending'] === false) {
+    data['Ending'] = "Ongoing";
+  };
   $( '#' + idPrefix + '-' + data['ID'] ).attr({
                                       'data-id': data['ID'],
                                       'data-begin': data['Beginning'],
