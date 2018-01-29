@@ -46,6 +46,8 @@ let whenDataLoadedMovies = function() { // callback function
 
   });
 
+  console.log(sortObjectRamdonly(dataObject));
+
 }
 
 let whenDataLoadedTvShows = function() {
@@ -105,6 +107,26 @@ function sortObjectbySpecificKey(data, key, order = 'ASC') {
       }
     */
   });
+}
+
+function sortObjectRamdonly(data) {
+  // Fisher-Yates algorithm
+  // ES6 Notation
+  for (let i = data.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [data[i], data[j]] = [data[j], data[i]];
+  }
+  return data;
+  // Old Notation
+  /*
+  for (var i = data.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = data[i];
+      data[i] = data[j];
+      data[j] = temp;
+  }
+  return data;
+  */
 }
 
 function dataWithoutFalseValueOnSpecificKey(data, keyToTest) {
