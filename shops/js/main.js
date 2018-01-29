@@ -153,10 +153,16 @@ function createHTMLMovieItemInformationModal(data,informationParent,informationI
   $( '<div class="modal-header"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-content' ) );
   $( '<h5 class="modal-title">' + data['Title'] + ' (' + data['Year'] + ')</h5>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-header' ) );
   $( '#' + informationIdPrefix + informationParent + ' .modal-title' ).after('<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
-  $( '<div class="modal-body container-fluid"></div>').appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-content' ) );
-  //$( '<div class="container-fluid col-12"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-body' ) );
-  $( '<div class="row">' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-body' ) );
-  $( '<div class="col-12"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .row' ) );
+  $( '<div class="modal-body"></div>').appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-content' ) );
+  $( '<div class="container-fluid"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-body' ) );
+  $( '#' + informationIdPrefix + informationParent + ' .modal-body .container-fluid' ).html('<h6>Main information</h6>')
+  $( '#' + informationIdPrefix + informationParent + ' .modal-body .container-fluid h6' ).after('<div class="row main-information"></div>')
+  //$( '<div class="row">' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-body .container-fluid' ) );
+  $( '<div class="col-12 col-sm-4 poster-modal"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .row' ) );
+  $( '#' + informationIdPrefix + informationParent + ' .poster-modal' ).html('<img src="img/' + data['Poster'] + '" class="img-fluid">');
+  $( '#' + informationIdPrefix + informationParent + ' .poster-modal' ).after('<div class="col-12 col-sm-8 main-data-modal"></div>');
+  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal' ).html('<p>' + data['Summary'] + '</p>')
+  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > p' ).after('<table></table>');
 }
 
 function createHTMLTvShowItem(data,parent,idPrefix) {
