@@ -8,7 +8,7 @@ let whenDataLoadedMovies = function() { // callback function
   let dataText = dataRequest.responseText; // we store the text of the response
   let dataObject = JSON.parse(dataText); // we convert the text into an object
   sortObjectbySpecificKey(dataObject,'Year','DESC');
-  console.log(dataObject);
+  //console.log(dataObject);
   //console.log(dataWithoutFalseValueOnSpecificKey(dataObject,'Slider'));
   //console.log(xLastElementsAccordingSpecificKey(dataObject,'Year',6));
   for(let i = 0; i < 6; i++) {
@@ -91,29 +91,51 @@ function copyObject(data) { // function to copy an object without any reference
 }
 
 function createHTMLMovieItem(data,parent,idPrefix) {
-  let HTMLcontent = '<div class="col-6 col-md-2 card movie-item" id="' + idPrefix + '-' + data['ID'] + '"></div>'; // we open the div, insert class and ID
-  $( HTMLcontent ).appendTo( $( parent ) ); // we add our HTML content to the parent
-  $( '#' + idPrefix + '-' + data['ID'] ).attr({
-                                      'data-id': data['ID'],
-                                      'data-year': data['Year'],
-                                      'data-duration': data['Duration'],
-                                      'data-genre': data['Genre'].join(', ').toLowerCase(),
-                                      'data-director': data['Director'].join(', ').toLowerCase(),
-                                      'data-writers': data['Writers'].join(', ').toLowerCase(),
-                                      'data-actors': data['Actors'].join(', ').toLowerCase(),
-                                      'data-country': data['Country'].toLowerCase(),
-                                    });
+  let HTMLId = idPrefix + '-' + data['ID'];
+  let HTMLContent = '<div class="col-12 col-sm-6 col-md-4 col-lg-2 card movie-item" id="' + HTMLId + '"></div>'; // we open the div, insert class and ID
+  $( HTMLContent ).appendTo( $( parent ) ); // we add our HTML content to the parent
+  $( '#' + HTMLId ).attr({
+    'data-id': data['ID'],
+    'data-year': data['Year'],
+    'data-duration': data['Duration'],
+    'data-genre': data['Genre'].join(', ').toLowerCase(),
+    'data-director': data['Director'].join(', ').toLowerCase(),
+    'data-writers': data['Writers'].join(', ').toLowerCase(),
+    'data-actors': data['Actors'].join(', ').toLowerCase(),
+    'data-country': data['Country'].toLowerCase(),
+  });
   $( '<img src="img/' + data['Poster'] + '" class="poster card-img-top img-fluid" title="' + data['Title'] + ' (' + data['Year'] + ')" >' ).appendTo( $( '#' + idPrefix + '-' + data['ID']) );
   $( '<div class="card-body"></div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID']) );
-  $( '<h5 class="card-title">' + data['Title'] + '</h5>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-body') );
-  $( '<h6 class="card-subtitle">' + data['Year'] + '</h6>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-body') );
-  $( '<div class="card-text">' + data['Genre'][0] + '</div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-body') );
-  $( '<div class="card-footer"></div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-body') );
-  $( '<div class="btn-group btn-group-sm" role="group" aria-label="More function"></div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-footer') );
-  $( '<button type="button" class="btn btn-secondary"><i class="fa fa-info"></i></button>').appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .btn-group') );
-  $( '<button type="button" class="btn btn-secondary trailer-lightbox" data-trailer="' + data['Trailer'] + '"><i class="fa fa-youtube-play"></i></button>').appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .btn-group') );
+  $( '<h5 class="card-title">' + data['Title'] + '</h5>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
+  $( '<h6 class="card-subtitle">' + data['Year'] + '</h6>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
+  $( '<div class="card-text">' + data['Genre'][0] + '</div>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
+  $( '<div class="card-footer"></div>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
+  $( '<div class="btn-group btn-group-sm" role="group" aria-label="More function"></div>' ).appendTo( $( '#' + HTMLId + ' .card-footer') );
+  $( '<button type="button" class="btn btn-secondary"><i class="fa fa-info"></i></button>').appendTo( $( '#' + HTMLId + ' .btn-group') );
+  $( '<button type="button" class="btn btn-secondary btn-trailer-modal"></button>').appendTo( $( '#' + HTMLId + ' .btn-group') );
+  $( '#' + HTMLId + ' .btn-trailer-modal' ).attr({
+    'data-trailer': data['Trailer'],
+    'data-toggle': 'modal',
+    'data-target': '#trailer-' + HTMLId,
+  })
+  $( '#' + HTMLId + ' .btn-trailer-modal' ).html('<i class="fa fa-youtube-play"></i>');
+  createHTMLMovieItemTrailerModal(data, HTMLId,'trailer-');
+}
 
-
+function createHTMLMovieItemTrailerModal(data,trailerParent,trailerIdPrefix) {
+  //console.log(data,trailerParent);
+  let HMTLModalContent = '<div class="modal fade trailer-modal" id="' + trailerIdPrefix + trailerParent + '" tabindex="-1" role="dialog" aria-labelledby="Trailer from ' + data['Title'] + '" aria-hidden="true">';
+  $( HMTLModalContent ).appendTo( $( '#' + trailerParent ) ); // we add our HTML content to the parent
+  $( '<div class="modal-dialog modal-dialog-centered modal-lg" role="document"></div>' ).appendTo( $( '#' + trailerIdPrefix + trailerParent ) );
+  $( '<div class="modal-content"></div>' ).appendTo( $( '#' + trailerIdPrefix + trailerParent + ' .modal-dialog' ) );
+  $( '<div class="modal-body"></div>').appendTo( $( '#' + trailerIdPrefix + trailerParent + ' .modal-content' ) );
+  $( '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>').appendTo( $( '#' + trailerIdPrefix + trailerParent + ' .modal-body' ) );
+  $( '#' + trailerIdPrefix + trailerParent + ' .modal-body' ).after('<div class="embed-responsive embed-responsive-16by9"></div>');
+  if (YouTubeGetID(data['Trailer']).length == 11) {
+    $( '#' + trailerIdPrefix + trailerParent + ' .embed-responsive' ).html('<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' + YouTubeGetID(data['Trailer']) + '" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+  } else {
+    $( '#' + trailerIdPrefix + trailerParent + ' .embed-responsive' ).html('<div class="alert alert-secondary" role="alert"><p>Sorry we can\'t generate the preview video.</p><p>You could view it at the following address:<a href="' + data['Trailer'] + '" target="_blank">' + data['Trailer'] + '</a></p></div>');
+  }
 }
 
 function createHTMLTvShowItem(data,parent,idPrefix) {
@@ -139,6 +161,24 @@ function createHTMLTvShowItem(data,parent,idPrefix) {
   $( '<div class="btn-group btn-group-sm" role="group" aria-label="More function"></div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-footer') );
   $( '<button type="button" class="btn btn-secondary"><i class="fa fa-info"></i></button>').appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .btn-group') );
   $( '<button type="button" class="btn btn-secondary"><i class="fa fa-youtube-play"></i></button>').appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .btn-group') );
+}
+
+
+
+/**
+* Get YouTube ID from various YouTube URL
+* author: takien (http://takien.com)
+*/
+
+function YouTubeGetID(url){
+  let ID = '';
+  url = url.replace(/(>|<)/gi,'').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
+  if(url[2] !== undefined) {
+    ID = url[2].split(/[^0-9a-z_\-]/i);
+    return ID[0];
+  } else {
+    return url;
+  }
 }
 
 // We load the data
