@@ -16,12 +16,19 @@ let whenDataLoadedMovies = function() { // callback function
   //console.log(xLastElementsAccordingSpecificKey(dataObject,'Year',6));
   displayTopMovie(dataObject,'#top-movie .movie-list > .row','top-movie',numberElement);
   displayXFeaturedMovies(dataObject,'#featured-movies .movie-list > .row','featured-movie',0,numberElement);
+
+  $('#featured-movies .load-more').show();
+  $('#featured-movies .load-more').on('click',function(e) {
+    $startElement = $('#featured-movies .movie-list > .row .movie-item').length;
+    displayXFeaturedMovies(dataObject,'#featured-movies .movie-list > .row','featured-movie',$startElement,numberElement);
+    console.log($('#featured-movies .movie-list > .row .movie-item').length, dataObject.length)
+    if( $('#featured-movies .movie-list > .row .movie-item').length >= dataObject.length ) {
+      $('#featured-movies .load-more').hide();
+    }
+  });
+
 }
 
-$('#featured-movies .load-more').on('click',function(e) {
-  $startElement = $('#featured-movies .movie-list > .row .movie-item').length;
-  displayXFeaturedMovies(dataObject,'#featured-movies .movie-list > .row','featured-movie',$startElement,numberElement);
-});
 
 let whenDataLoadedTvShows = function() {
   let dataText = dataRequest2.responseText;
@@ -42,7 +49,7 @@ function displayTopMovie(data,parent,idPrefix,numberElement) {
 
 function displayXFeaturedMovies(data,parent,idPrefix,start = 0,numberElement = 6) {
   sortObjectbySpecificKey(data,'Title');
-  for(let i = start; i < (start + numberElement); i++) {
+  for(let i = start; i < (start + numberElement) && i < data.length; i++) {
     createHTMLMovieItem(data[i],parent,idPrefix);
   }
   return true;
@@ -286,6 +293,9 @@ function getYoutubeID(url){
   }
 }
 
+// We mask "load more" button until the data are loaded
+$('#featured-movies .load-more').hide();
+
 // We load the data
 dataRequest.onload = whenDataLoadedMovies; // we assign the function to excecute when the data are loading
 dataRequest2.onload = whenDataLoadedTvShows;
@@ -293,7 +303,6 @@ dataRequest.open("GET", moviesFeed, true); // the type, the url, asynchronous tr
 dataRequest2.open("GET", tvShowsFeed, true);
 dataRequest.send(null); // we send the request
 dataRequest2.send(null);
-
 
 /*$(window).on('load', function() { // age check modal on page load
   $('#ageWarning').modal('show');
