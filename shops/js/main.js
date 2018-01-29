@@ -28,7 +28,7 @@ let whenDataLoadedTvShows = function() {
   let dataObject = JSON.parse(dataText);
   //console.log(dataObject);
   for (let i = 0; i < 6; i++) {
-    createHTMLTvShowItem(dataObject[i], '#featured-tvshows .tvshow-list .row', 'featured-tvshow');
+    createHTMLTvShowItem(dataObject[i], '#featured-tvshows .tvshow-list > .row', 'featured-tvshow');
   };
 };
 
@@ -128,8 +128,8 @@ function createHTMLMovieItem(data,parent,idPrefix) {
     'data-actors': data['Actors'].join(', ').toLowerCase(),
     'data-country': data['Country'].toLowerCase(),
   });
-  $( '<img src="img/' + data['Poster'] + '" class="poster card-img-top img-fluid" title="' + data['Title'] + ' (' + data['Year'] + ')" >' ).appendTo( $( '#' + idPrefix + '-' + data['ID']) );
-  $( '<div class="card-body"></div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID']) );
+  $( '<img src="img/' + data['Poster'] + '" class="poster card-img-top img-fluid" title="' + data['Title'] + ' (' + data['Year'] + ')" >' ).appendTo( $( '#' + HTMLId) );
+  $( '<div class="card-body"></div>' ).appendTo( $( '#' + HTMLId) );
   $( '<h5 class="card-title">' + data['Title'] + '</h5>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
   $( '<h6 class="card-subtitle">' + data['Year'] + '</h6>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
   $( '<div class="card-text">' + data['Genre'][0] + '</div>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
@@ -199,12 +199,13 @@ function createHTMLMovieItemInformationModal(data,informationParent,informationI
 }
 
 function createHTMLTvShowItem(data, parent, idPrefix) {
-  let HTMLcontent = '<div class="col-6 col-md-2 card tvshow-item" id="' + idPrefix + '-' + data['ID'] + '"></div>';
+  let HTMLId = idPrefix + '-' + data['ID'];
+  let HTMLcontent = '<div class="col-12 col-sm-6 col-md-4 col-lg-2 card tvshow-item" id="' + HTMLId + '"></div>';
   $(HTMLcontent).appendTo($(parent)); // we add our HTML content to the parent
   if (data['Ending'] === false) {
     data['Ending'] = "Ongoing";
   };
-  $('#' + idPrefix + '-' + data['ID']).attr({
+  $('#' + HTMLId).attr({
     'data-id': data['ID'],
     'data-begin': data['Beginning'],
     'data-end': data['Ending'],
@@ -215,18 +216,59 @@ function createHTMLTvShowItem(data, parent, idPrefix) {
     'data-creators': data['Creators'].join(', ').toLowerCase(),
     'data-actors': data['Actors'].join(', ').toLowerCase(),
   });
-  $('<img src="' + data['Poster'] + '" class="poster card-img-top" title="' + data['Title'] + '(' + data['Beginning'] + '-' + data['Ending'] + ')" >').appendTo($('#' + idPrefix + '-' + data['ID']));
-  $('<div class="card-body"></div>').appendTo($('#' + idPrefix + '-' + data['ID']));
-  $('<h5 class="card-title">' + data['Title'] + '</h5>').appendTo($('#' + idPrefix + '-' + data['ID'] + ' .card-body'));
-  $('<h6 class="card-subtitle">' + data['Beginning'] + '-' + data['Ending'] + '</h6>').appendTo($('#' + idPrefix + '-' + data['ID'] + ' .card-body'));
-  $('<div class="card-text">' + data['Genre'].join(', ') + '</div>').appendTo($('#' + idPrefix + '-' + data['ID'] + ' .card-body'));
-  $('<div class="card-footer"></div>').appendTo($('#' + idPrefix + '-' + data['ID'] + ' .card-body'));
-  $('<div class="btn-group btn-group-sm" role="group" aria-label="More function"></div>').appendTo($('#' + idPrefix + '-' + data['ID'] + ' .card-footer'));
-  $('<button type="button" class="btn btn-secondary"><i class="fa fa-info"></i></button>').appendTo($('#' + idPrefix + '-' + data['ID'] + ' .btn-group'));
-  $('<button type="button" class="btn btn-secondary"><i class="fa fa-youtube-play"></i></button>').appendTo($('#' + idPrefix + '-' + data['ID'] + ' .btn-group'));
+  $('<img src="' + data['Poster'] + '" class="poster card-img-top img-fluid" title="' + data['Title'] + '(' + data['Beginning'] + '-' + data['Ending'] + ')" >').appendTo($('#' + HTMLId));
+  $('<div class="card-body"></div>').appendTo($('#' + HTMLId));
+  $('<h5 class="card-title">' + data['Title'] + '</h5>').appendTo($('#' + HTMLId + ' .card-body'));
+  $('<h6 class="card-subtitle">' + data['Beginning'] + '-' + data['Ending'] + '</h6>').appendTo($('#' + HTMLId + ' .card-body'));
+  $('<div class="card-text">' + data['Genre'][0] + '</div>').appendTo($('#' + HTMLId + ' .card-body'));
+  $('<div class="card-footer"></div>').appendTo($('#' + HTMLId + ' .card-body'));
+  $('<div class="btn-group btn-group-sm" role="group" aria-label="More function"></div>').appendTo($('#' + HTMLId + ' .card-footer'));
+  $('<button type="button" class="btn btn-secondary btn-information-modal"></button>').appendTo($('#' + HTMLId + ' .btn-group'));
+  $( '#' + HTMLId + ' .btn-information-modal' ).attr({
+    'data-toggle': 'modal',
+    'data-target': '#information-' + HTMLId,
+  });
+  $( '#' + HTMLId + ' .btn-information-modal' ).html('<i class="fa fa-info"></i>');
+  $('<button type="button" class="btn btn-secondary btn-trailer-modal"></button>').appendTo($('#' + HTMLId + ' .btn-group'));
+  $( '#' + HTMLId + ' .btn-trailer-modal' ).attr({
+    'data-trailer': data['Trailer'],
+    'data-toggle': 'modal',
+    'data-target': '#trailer-' + HTMLId,
+  })
+  $( '#' + HTMLId + ' .btn-trailer-modal' ).html('<i class="fa fa-youtube-play"></i>');
+  createHTMLItemTrailerModal(data, HTMLId,'trailer-');
+  createHTMLTvShowItemInformationModal(data,HTMLId,'information-');
 }
 
-
+function createHTMLTvShowItemInformationModal(data,informationParent,informationIdPrefix) {
+  let HMTLModalContent = '<div class="modal fade infomation-modal" id="' + informationIdPrefix + informationParent + '" tabindex="-1" role="dialog" aria-labelledby="Information about ' + data['Title'] + '" aria-hidden="true"></div>';
+  $( HMTLModalContent ).appendTo( $( '#' + informationParent ) ); // we add our HTML content to the parent
+  $( '<div class="modal-dialog modal-dialog-centered modal-lg" role="document"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent ) );
+  $( '<div class="modal-content"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-dialog' ) );
+  $( '<div class="modal-header"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-content' ) );
+  $( '<h5 class="modal-title">' + data['Title'] + ' (' + data['Beginning'] + '-' + data['Ending'] + ')</h5>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-header' ) );
+  $( '#' + informationIdPrefix + informationParent + ' .modal-title' ).after('<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
+  $( '<div class="modal-body"></div>').appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-content' ) );
+  $( '<div class="container-fluid"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-body' ) );
+  //$( '#' + informationIdPrefix + informationParent + ' .modal-body .container-fluid' ).html('<h6>Main information</h6>')
+  //$( '#' + informationIdPrefix + informationParent + ' .modal-body .container-fluid h6' ).after('<div class="row main-information"></div>')
+  $( '#' + informationIdPrefix + informationParent + ' .modal-body .container-fluid' ).html('<div class="row main-information"></div>')
+  $( '<div class="col-12 col-sm-4 poster-modal"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .row' ) );
+  $( '#' + informationIdPrefix + informationParent + ' .poster-modal' ).html('<img src="' + data['Poster'] + '" class="img-fluid">');
+  $( '#' + informationIdPrefix + informationParent + ' .poster-modal' ).after('<div class="col-12 col-sm-8 main-data-modal"></div>');
+  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal' ).html('<p>' + data['Summary'] + '</p>')
+  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > p' ).after('<table class="table table-hover table-sm"></table>');
+  $('<tr><td>Release date</td><td>' + data['Beginning'] + '</td></tr>').appendTo( $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table' ) );
+  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Seasons</td><td>' + data['Seasons'] + ' seasons.</td></tr>');
+  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Episodes</td><td>' + data['Episodes'] + ' episodes.</td></tr>');
+  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Duration</td><td>' + data['Duration'] + ' min.</td></tr>');
+  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Genre</td><td>' + data['Genre'].join(', ') + '</td></tr>');
+  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Director</td><td>' + data['Creators'].join(', ') + '</td></tr>');
+  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Actor</td><td>' + data['Actors'].join(', ') + '</td></tr>');
+  //$( '#' + informationIdPrefix + informationParent + ' .main-information' ).after('<h6>Trailer</h6>');
+  //$( '#' + informationIdPrefix + informationParent + ' h6:last-of-type' ).after('<div class="embed-responsive embed-responsive-16by9"></div>');
+  //$( '#' + informationIdPrefix + informationParent + ' .embed-responsive' ).html('<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' + getYoutubeID(data['Trailer']) + '" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+}
 
 /**
 * Get YouTube ID from various YouTube URL
