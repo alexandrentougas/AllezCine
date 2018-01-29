@@ -11,20 +11,32 @@ let dataObject;
 let whenDataLoadedMovies = function() { // callback function
   let dataText = dataRequest.responseText; // we store the text of the response
   dataObject = JSON.parse(dataText); // we convert the text into an object
-  //console.log(dataObject);
-  //console.log(dataWithoutFalseValueOnSpecificKey(dataObject,'Slider'));
-  //console.log(xLastElementsAccordingSpecificKey(dataObject,'Year',6));
-  displayTopMovie(dataObject,'#top-movie .movie-list > .row','top-movie',numberElement);
-  displayXFeaturedMovies(dataObject,'#featured-movies .movie-list > .row','featured-movie',0,numberElement);
 
+  displayTopMovie(dataObject,'#top-movie .movie-list > .row','top-movie',numberElement); // we write the Top Movies
+  displayXFeaturedMovies(dataObject,'#featured-movies .movie-list > .row','featured-movie',0,numberElement); // we display the first Feature movies
+
+  // data are loaded, so we could show "options"
   $('#featured-movies .load-more').show();
-  $('#featured-movies .load-more').on('click',function(e) {
-    $startElement = $('#featured-movies .movie-list > .row .movie-item').length;
-    displayXFeaturedMovies(dataObject,'#featured-movies .movie-list > .row','featured-movie',$startElement,numberElement);
-    console.log($('#featured-movies .movie-list > .row .movie-item').length, dataObject.length)
-    if( $('#featured-movies .movie-list > .row .movie-item').length >= dataObject.length ) {
+  $('#featured-movies aside').show();
+
+  // on click, we display the X next movies
+  $('#featured-movies .load-more').on('click', function(e) {
+    $startElement = $('#featured-movies .movie-list > .row .movie-item').length; // we check the number of alreay displayed movies
+    displayXFeaturedMovies(dataObject,'#featured-movies .movie-list > .row','featured-movie',$startElement,numberElement); // we display the X next movies
+    if( $('#featured-movies .movie-list > .row .movie-item').length >= dataObject.length ) { // if we have display all movies, we hide the button "load more"
       $('#featured-movies .load-more').hide();
     }
+  });
+
+  $('#featured-movies aside button').on('click', function(e) {
+
+    if ($(this).attr('data-genre') === 'all') {
+        $('#featured-movies .movie-item').show();
+    } else {
+      $('#featured-movies .movie-item').hide();
+      $('#featured-movies .movie-item[data-genre*="' + $(this).attr('data-genre') + '"]').show();
+    }
+
   });
 
 }
@@ -293,8 +305,9 @@ function getYoutubeID(url){
   }
 }
 
-// We mask "load more" button until the data are loaded
+// We mask these elements until all the data are loaded
 $('#featured-movies .load-more').hide();
+$('#featured-movies aside').hide();
 
 // We load the data
 dataRequest.onload = whenDataLoadedMovies; // we assign the function to excecute when the data are loading
