@@ -1,22 +1,27 @@
 // Variables
 let moviesFeed = 'https://laurenthu.github.io/AllezCine/shops/database/movies.json';
 let tvShowsFeed = 'https://laurenthu.github.io/AllezCine/shops/database/tvshows.json';
+let numberElement = 6;
 
 let dataRequest = new XMLHttpRequest();
 let dataRequest2 = new XMLHttpRequest();
 
+let dataObject;
+
 let whenDataLoadedMovies = function() { // callback function
   let dataText = dataRequest.responseText; // we store the text of the response
-  let dataObject = JSON.parse(dataText); // we convert the text into an object
+  dataObject = JSON.parse(dataText); // we convert the text into an object
   //console.log(dataObject);
   //console.log(dataWithoutFalseValueOnSpecificKey(dataObject,'Slider'));
   //console.log(xLastElementsAccordingSpecificKey(dataObject,'Year',6));
-  /*for(let i = 0; i < 6; i++) {
-    createHTMLMovieItem(dataObject[i],'#top-movie .movie-list > .row','top-movie');
-  }*/
-  displayTopMovie(dataObject,'#top-movie .movie-list > .row','top-movie',6);
-  displayXFeaturedMovies(dataObject,'#featured-movies .movie-list > .row','featured-movies',0,6);
+  displayTopMovie(dataObject,'#top-movie .movie-list > .row','top-movie',numberElement);
+  displayXFeaturedMovies(dataObject,'#featured-movies .movie-list > .row','featured-movie',0,numberElement);
 }
+
+$('#featured-movies .load-more').on('click',function(e) {
+  $startElement = $('#featured-movies .movie-list > .row .movie-item').length;
+  displayXFeaturedMovies(dataObject,'#featured-movies .movie-list > .row','featured-movie',$startElement,numberElement);
+});
 
 let whenDataLoadedTvShows = function() {
   let dataText = dataRequest2.responseText;
@@ -36,9 +41,9 @@ function displayTopMovie(data,parent,idPrefix,numberElement) {
 }
 
 function displayXFeaturedMovies(data,parent,idPrefix,start = 0,numberElement = 6) {
-  let xElements = xFirstElementsAccordingSpecificKey(data,'Title',numberElement);
-  for(start; start < xElements.length; start++) {
-    createHTMLMovieItem(xElements[start],parent,idPrefix);
+  sortObjectbySpecificKey(data,'Title');
+  for(let i = start; i < (start + numberElement); i++) {
+    createHTMLMovieItem(data[i],parent,idPrefix);
   }
   return true;
 }
@@ -247,11 +252,6 @@ dataRequest2.open("GET", tvShowsFeed, true);
 dataRequest.send(null); // we send the request
 dataRequest2.send(null);
 
-
-// Application
-$('#featured-movies .load-more').on('click',function(e) {
-  console.log( $('#featured-movies .movie-item').length )
-});
 
 /*$(window).on('load', function() { // age check modal on page load
   $('#ageWarning').modal('show');
