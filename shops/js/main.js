@@ -3,13 +3,13 @@ let moviesFeed = 'https://laurenthu.github.io/AllezCine/shops/database/movies.js
 let tvShowsFeed = 'https://laurenthu.github.io/AllezCine/shops/database/tvshows.json';
 let numberElement = 6;
 
-let dataRequest = new XMLHttpRequest();
-let dataRequest2 = new XMLHttpRequest();
+let dataRequestMovie = new XMLHttpRequest();
+let dataRequestTvShow = new XMLHttpRequest();
 
-let dataObject;
+let dataObject; // to be sure that object has a global scope
 
 let whenDataLoadedMovies = function() { // callback function
-  let dataText = dataRequest.responseText; // we store the text of the response
+  let dataText = dataRequestMovie.responseText; // we store the text of the response
   dataObject = JSON.parse(dataText); // we convert the text into an object
 
   displayTopMovie(dataObject,'#top-movie .movie-list > .row','top-movie',numberElement); // we write the Top Movies
@@ -45,13 +45,10 @@ let whenDataLoadedMovies = function() { // callback function
     }
 
   });
-
-  console.log(sortObjectRamdonly(dataObject));
-
 }
 
 let whenDataLoadedTvShows = function() {
-  let dataText = dataRequest2.responseText;
+  let dataText = dataRequestTvShow.responseText;
   let dataObject = JSON.parse(dataText);
   //console.log(dataObject);
   for (let i = 0; i < 6; i++) {
@@ -412,12 +409,12 @@ $('#featured-movies .load-more').hide();
 $('#featured-movies aside').hide();
 
 // We load the data
-dataRequest.onload = whenDataLoadedMovies; // we assign the function to excecute when the data are loading
-dataRequest2.onload = whenDataLoadedTvShows;
-dataRequest.open("GET", moviesFeed, true); // the type, the url, asynchronous true/false
-dataRequest2.open("GET", tvShowsFeed, true);
-dataRequest.send(null); // we send the request
-dataRequest2.send(null);
+dataRequestMovie.onload = whenDataLoadedMovies; // we assign the function to excecute when the data are loading
+dataRequestMovie.open("GET", moviesFeed, true); // the type, the url, asynchronous true/false
+dataRequestMovie.send(null); // we send the request
+dataRequestTvShow.onload = whenDataLoadedTvShows;
+dataRequestTvShow.open("GET", tvShowsFeed, true);
+dataRequestTvShow.send(null);
 
 /*$(window).on('load', function() { // age check modal on page load
   $('#ageWarning').modal('show');
