@@ -8,23 +8,40 @@ let dataRequest2 = new XMLHttpRequest();
 let whenDataLoadedMovies = function() { // callback function
   let dataText = dataRequest.responseText; // we store the text of the response
   let dataObject = JSON.parse(dataText); // we convert the text into an object
-  sortObjectbySpecificKey(dataObject,'Year','DESC');
   //console.log(dataObject);
   //console.log(dataWithoutFalseValueOnSpecificKey(dataObject,'Slider'));
   //console.log(xLastElementsAccordingSpecificKey(dataObject,'Year',6));
-  for(let i = 0; i < 6; i++) {
+  /*for(let i = 0; i < 6; i++) {
     createHTMLMovieItem(dataObject[i],'#top-movie .movie-list > .row','top-movie');
-  }
+  }*/
+  displayTopMovie(dataObject,'#top-movie .movie-list > .row','top-movie',6);
+  displayXFeaturedMovies(dataObject,'#featured-movies .movie-list > .row','featured-movies',0,6);
 }
 
 let whenDataLoadedTvShows = function() {
   let dataText = dataRequest2.responseText;
   let dataObject = JSON.parse(dataText);
-  sortObjectbySpecificKey(dataObject,'Year','DESC');
+  //console.log(dataObject);
   for (let i = 0; i < 6; i++) {
     createHTMLTvShowItem(dataObject[i], '#featured-tvshows .tvshow-list > .row', 'featured-tvshow');
   };
 };
+
+function displayTopMovie(data,parent,idPrefix,numberElement) {
+  let xElements = xLastElementsAccordingSpecificKey(data,'Year',numberElement);
+  for(let i = 0; i < xElements.length; i++) {
+    createHTMLMovieItem(xElements[i],parent,idPrefix);
+  }
+  return true;
+}
+
+function displayXFeaturedMovies(data,parent,idPrefix,start = 0,numberElement = 6) {
+  let xElements = xFirstElementsAccordingSpecificKey(data,'Title',numberElement);
+  for(start; start < xElements.length; start++) {
+    createHTMLMovieItem(xElements[start],parent,idPrefix);
+  }
+  return true;
+}
 
 function sortObjectbySpecificKey(data, key, order = 'ASC') {
   // data: object to sort
@@ -274,9 +291,13 @@ dataRequest2.send(null);
 
 
 // Application
-$(window).on('load', function() { // age check modal on page load
-  $('#ageWarning').modal('show');
+$('#featured-movies .load-more').on('click',function(e) {
+  console.log( $('#featured-movies .movie-item').length )
 });
+
+/*$(window).on('load', function() { // age check modal on page load
+  $('#ageWarning').modal('show');
+});*/
 
 let isItOlderThan18 = function(year, month, day) { // checks if user is older than 18 years old and returns true/false
   return new Date(year + 18, month - 1, day) <= new Date();
