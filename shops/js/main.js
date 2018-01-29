@@ -120,10 +120,10 @@ function createHTMLMovieItem(data,parent,idPrefix) {
     'data-target': '#trailer-' + HTMLId,
   })
   $( '#' + HTMLId + ' .btn-trailer-modal' ).html('<i class="fa fa-youtube-play"></i>');
-  createHTMLMovieItemTrailerModal(data, HTMLId,'trailer-');
+  createHTMLItemTrailerModal(data, HTMLId,'trailer-');
 }
 
-function createHTMLMovieItemTrailerModal(data,trailerParent,trailerIdPrefix) {
+function createHTMLItemTrailerModal(data,trailerParent,trailerIdPrefix) {
   //console.log(data,trailerParent);
   let HMTLModalContent = '<div class="modal fade trailer-modal" id="' + trailerIdPrefix + trailerParent + '" tabindex="-1" role="dialog" aria-labelledby="Trailer from ' + data['Title'] + '" aria-hidden="true">';
   $( HMTLModalContent ).appendTo( $( '#' + trailerParent ) ); // we add our HTML content to the parent
