@@ -19,6 +19,10 @@ let whenDataLoadedMovies = function() { // callback function
   $('#featured-movies .load-more').show();
   $('#featured-movies aside').show();
 
+  // add addEventListenerForTrailer for movie-list
+  addEventListenerForTrailer( '.movie-list .btn-trailer-modal' );
+  addEventListenerForInformation( '.movie-list .btn-information-modal' );
+
   // on click, we display the X next movies
   $('#featured-movies .load-more').on('click', function(e) {
     $startElement = $('#featured-movies .movie-list > .row .movie-item').length; // we check the number of alreay displayed movies
@@ -26,6 +30,8 @@ let whenDataLoadedMovies = function() { // callback function
     if( $('#featured-movies .movie-list > .row .movie-item').length >= dataObject.length ) { // if we have display all movies, we hide the button "load more"
       $('#featured-movies .load-more').hide();
     }
+    addEventListenerForTrailer( '.movie-list .btn-trailer-modal' ); // we had the new movies to the event listener
+    addEventListenerForInformation( '.movie-list .btn-information-modal' ); // we had the new movies to the event listener
   });
 
   // filter to select movies by genre
@@ -40,21 +46,7 @@ let whenDataLoadedMovies = function() { // callback function
 
   });
 
-  $('#featured-movies .movie-list .btn-trailer-modal').on('click', function(e){
-    let idMovie = Number($(this).attr('data-id'));
-    let objectMovie = dataObject.filter(function( obj ) {
-      return (obj.ID == idMovie) ? obj : false;
-    });
-    if ( $('#trailer-featured-movie-'+idMovie).length == 0 ) {
-      createHTMLItemTrailerModal(objectMovie[0], 'featured-movie-'+idMovie,'trailer-');
-      $('#trailer-featured-movie-'+idMovie).modal('show');
-    } else {
-      $('#trailer-featured-movie-'+idMovie).modal('show');
-    }
-  })
-
 }
-
 
 let whenDataLoadedTvShows = function() {
   let dataText = dataRequest2.responseText;
@@ -66,21 +58,21 @@ let whenDataLoadedTvShows = function() {
 };
 
 function getFilenameForSpecificSize(imgFilename,size = 350) {
-  return imgFilename.split('.')[0] + '_' + size + '.' + imgFilename.split('.')[1];
+  return imgFilename.split('.')[0] + '_' + size + '.' + imgFilename.split('.')[1]; // we construct the new image name
 }
 
-function displayTopMovie(data,parent,idPrefix,numberElement) {
-  let xElements = xLastElementsAccordingSpecificKey(data,'Year',numberElement);
+function displayTopMovie(data,parent,idPrefix,numberElement) { // we display X elements in TopMovie section
+  let xElements = xLastElementsAccordingSpecificKey(data,'Year',numberElement); // we select X latest elements sort by a specific key
   for(let i = 0; i < xElements.length; i++) {
-    createHTMLMovieItem(xElements[i],parent,idPrefix);
+    createHTMLMovieItem(xElements[i],parent,idPrefix); // we generate the HTML
   }
   return true;
 }
 
-function displayXFeaturedMovies(data,parent,idPrefix,start = 0,numberElement = 6) {
-  sortObjectbySpecificKey(data,'Title');
-  for(let i = start; i < (start + numberElement) && i < data.length; i++) {
-    createHTMLMovieItem(data[i],parent,idPrefix);
+function displayXFeaturedMovies(data,parent,idPrefix,start = 0,numberElement = 6) { // function to display X new movies in Featured sections
+  sortObjectbySpecificKey(data,'Title'); // we sort by 'Title'
+  for(let i = start; i < (start + numberElement) && i < data.length; i++) { // we select X elements from position 'start'
+    createHTMLMovieItem(data[i],parent,idPrefix); // we generate the HTML
   }
   return true;
 }
@@ -151,11 +143,11 @@ function copyObject(data) { // function to copy an object without any reference
   return data.slice(0); // we return the copy
 }
 
-function createHTMLMovieItem(data,parent,idPrefix) {
-  let HTMLId = idPrefix + '-' + data['ID'];
+function createHTMLMovieItem(data,parent,idPrefix) { // we create the item for one movie
+  let HTMLId = idPrefix + '-' + data['ID']; // we construct the HTML id of this movie
   let HTMLContent = '<div class="col-12 col-sm-6 col-md-4 col-lg-2 card movie-item" id="' + HTMLId + '"></div>'; // we open the div, insert class and ID
   $( HTMLContent ).appendTo( $( parent ) ); // we add our HTML content to the parent
-  $( '#' + HTMLId ).attr({
+  $( '#' + HTMLId ).attr({ // we insert some data-attribute
     'data-id': data['ID'],
     'data-year': data['Year'],
     'data-duration': data['Duration'],
@@ -165,33 +157,32 @@ function createHTMLMovieItem(data,parent,idPrefix) {
     'data-actors': data['Actors'].join(', ').toLowerCase(),
     'data-country': data['Country'].toLowerCase(),
   });
-  $( '<img src="img/movies/' + getFilenameForSpecificSize(data['Poster'],350) + '" class="poster card-img-top img-fluid" title="' + data['Title'] + ' (' + data['Year'] + ')" >' ).appendTo( $( '#' + HTMLId) );
-  $( '<div class="card-body"></div>' ).appendTo( $( '#' + HTMLId) );
+  $( '<img src="img/movies/' + getFilenameForSpecificSize(data['Poster'],350) + '" class="poster card-img-top img-fluid" title="' + data['Title'] + ' (' + data['Year'] + ')" >' ).appendTo( $( '#' + HTMLId) ); // we add the poster
+  $( '<div class="card-body"></div>' ).appendTo( $( '#' + HTMLId) ); // we construct the card
   $( '<h5 class="card-title">' + data['Title'] + '</h5>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
   $( '<h6 class="card-subtitle">' + data['Year'] + '</h6>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
   $( '<div class="card-text">' + data['Genre'][0] + '</div>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
   $( '<div class="card-footer"></div>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
-  $( '<div class="btn-group btn-group-sm" role="group" aria-label="More function"></div>' ).appendTo( $( '#' + HTMLId + ' .card-footer') );
-  $( '<button type="button" class="btn btn-secondary btn-information-modal"></button>').appendTo( $( '#' + HTMLId + ' .btn-group') );
-  $( '#' + HTMLId + ' .btn-information-modal' ).attr({
-    'data-toggle': 'modal',
-    'data-target': '#information-' + HTMLId,
-  });
-  $( '#' + HTMLId + ' .btn-information-modal' ).html('<i class="fa fa-info"></i>');
-  $( '<button type="button" class="btn btn-secondary btn-trailer-modal"></button>').appendTo( $( '#' + HTMLId + ' .btn-group') );
-  $( '#' + HTMLId + ' .btn-trailer-modal' ).attr({
-    'data-trailer': data['Trailer'],
+  $( '<div class="btn-group btn-group-sm" role="group" aria-label="More function"></div>' ).appendTo( $( '#' + HTMLId + ' .card-footer') ); // we generate the button group
+  $( '<button type="button" class="btn btn-secondary btn-information-modal"></button>').appendTo( $( '#' + HTMLId + ' .btn-group') ); // we generate the 1st button
+  $( '#' + HTMLId + ' .btn-information-modal' ).attr({ // we add some data-attribute
     'data-id': data['ID'],
-    //'data-toggle': 'modal',
-    //'data-target': '#trailer-' + HTMLId,
+    'data-type': 'movie',
+    /*'data-toggle': 'modal',
+    'data-target': '#information-' + HTMLId,*/
+  });
+  $( '#' + HTMLId + ' .btn-information-modal' ).html('<i class="fa fa-info"></i>'); // we add the icon
+  $( '<button type="button" class="btn btn-secondary btn-trailer-modal"></button>').appendTo( $( '#' + HTMLId + ' .btn-group') );  // we generate the 2nd button
+  $( '#' + HTMLId + ' .btn-trailer-modal' ).attr({ // we add some data-attribute
+    'data-trailer': data['Trailer'],
+    'data-type': 'movie',
+    'data-id': data['ID'],
   })
   $( '#' + HTMLId + ' .btn-trailer-modal' ).html('<i class="fa fa-youtube-play"></i>');
-  //createHTMLItemTrailerModal(data, HTMLId,'trailer-');
   createHTMLMovieItemInformationModal(data,HTMLId,'information-');
 }
 
 function createHTMLItemTrailerModal(data,trailerParent,trailerIdPrefix) {
-  //console.log(data,trailerParent);
   let HMTLModalContent = '<div class="modal fade trailer-modal" id="' + trailerIdPrefix + trailerParent + '" tabindex="-1" role="dialog" aria-labelledby="Trailer from ' + data['Title'] + '" aria-hidden="true"></div>';
   $( HMTLModalContent ).appendTo( $( '#' + trailerParent ) ); // we add our HTML content to the parent
   $( '<div class="modal-dialog modal-dialog-centered modal-lg" role="document"></div>' ).appendTo( $( '#' + trailerIdPrefix + trailerParent ) );
@@ -204,6 +195,38 @@ function createHTMLItemTrailerModal(data,trailerParent,trailerIdPrefix) {
   } else {
     $( '#' + trailerIdPrefix + trailerParent + ' .embed-responsive' ).html('<div class="alert alert-secondary" role="alert"><p>Sorry we can\'t generate the preview video.</p><p>You could view it at the following address:<a href="' + data['Trailer'] + '" target="_blank">' + data['Trailer'] + '</a></p></div>');
   }
+}
+
+function createHTMLItemTrailerModal_v2(data,trailerParent,idData) {
+  let currentHTMLID = trailerParent + '-item-' + idData; // construction of the html id of the modal
+  let HMTLModalContent = '<div class="modal fade trailer-modal" id="' + currentHTMLID + '" tabindex="-1" role="dialog" aria-labelledby="Trailer from ' + data['Title'] + '" aria-hidden="true"></div>'; // we create the main div of the modal
+  $( HMTLModalContent ).appendTo( $( '#' + trailerParent ) ); // we add our HTML content to the parent
+  $( '<div class="modal-dialog modal-dialog-centered modal-lg" role="document"></div>' ).appendTo( $( '#' + currentHTMLID ) );
+  $( '<div class="modal-content"></div>' ).appendTo( $( '#' + currentHTMLID + ' .modal-dialog' ) );
+  $( '<div class="modal-body"></div>').appendTo( $( '#' + currentHTMLID + ' .modal-content' ) );
+  $( '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>').appendTo( $( '#' + currentHTMLID + ' .modal-body' ) );
+  $( '#' + currentHTMLID + ' .modal-body button' ).after('<div class="embed-responsive embed-responsive-16by9"></div>');
+  if (getYoutubeID(data['Trailer']).length == 11) { // we retrieve the youtube ID video
+    $( '#' + currentHTMLID + ' .embed-responsive' ).html('<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' + getYoutubeID(data['Trailer']) + '" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+  } else { // if we can't have the youtube ID video, we construct a link to the video and an alert message
+    $( '#' + currentHTMLID + ' .embed-responsive' ).html('<div class="alert alert-secondary" role="alert"><p>Sorry we can\'t generate the preview video.</p><p>You could view it at the following address:<a href="' + data['Trailer'] + '" target="_blank">' + data['Trailer'] + '</a></p></div>');
+  }
+}
+
+function addEventListenerForTrailer(selector) { // we had the click on trailer button to the event listener
+  $(selector).on('click', function(e){ // we select the buttons
+    let idItem = Number($(this).attr('data-id')); // we save the ID movie thanks to the data-id attribute
+    let typeItem = $(this).attr('data-type');
+    let objectMovie = dataObject.filter(function( obj ) { // we select the right object in all our data
+      return (obj.ID == idItem) ? obj : false; // we return the object
+    });
+    if ( $('#' + typeItem + '-trailer-item-'+idItem).length == 0 ) { // we check if the trailer modal already exists or not
+      createHTMLItemTrailerModal_v2(objectMovie[0], typeItem + '-trailer',idItem); // if not we create it in the right section
+      $('#' + typeItem + '-trailer-item-'+idItem).modal('show'); // we show it
+    } else {
+      $('#' + typeItem + '-trailer-item-'+idItem).modal('show'); // if already existe we show it
+    }
+  });
 }
 
 function createHTMLMovieItemInformationModal(data,informationParent,informationIdPrefix) {
@@ -234,6 +257,48 @@ function createHTMLMovieItemInformationModal(data,informationParent,informationI
   //$( '#' + informationIdPrefix + informationParent + ' .main-information' ).after('<h6>Trailer</h6>');
   //$( '#' + informationIdPrefix + informationParent + ' h6:last-of-type' ).after('<div class="embed-responsive embed-responsive-16by9"></div>');
   //$( '#' + informationIdPrefix + informationParent + ' .embed-responsive' ).html('<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' + getYoutubeID(data['Trailer']) + '" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+}
+
+function createHTMLMovieItemInformationModal_v2(data,informationParent,idData) {
+  let currentHTMLID = informationParent + '-item-' + idData;
+  let HMTLModalContent = '<div class="modal fade infomation-modal" id="' + currentHTMLID + '" tabindex="-1" role="dialog" aria-labelledby="Information about ' + data['Title'] + '" aria-hidden="true"></div>';
+  $( HMTLModalContent ).appendTo( $( '#' + informationParent ) ); // we add our HTML content to the parent
+  $( '<div class="modal-dialog modal-dialog-centered modal-lg" role="document"></div>' ).appendTo( $( '#' + currentHTMLID ) );
+  $( '<div class="modal-content"></div>' ).appendTo( $( '#' + currentHTMLID + ' .modal-dialog' ) );
+  $( '<div class="modal-header"></div>' ).appendTo( $( '#' + currentHTMLID + ' .modal-content' ) );
+  $( '<h5 class="modal-title">' + data['Title'] + ' (' + data['Year'] + ')</h5>' ).appendTo( $( '#' + currentHTMLID + ' .modal-header' ) );
+  $( '#' + currentHTMLID + ' .modal-title' ).after('<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
+  $( '<div class="modal-body"></div>').appendTo( $( '#' + currentHTMLID + ' .modal-content' ) );
+  $( '<div class="container-fluid"></div>' ).appendTo( $( '#' + currentHTMLID + ' .modal-body' ) );
+  $( '#' + currentHTMLID + ' .modal-body .container-fluid' ).html('<div class="row main-information"></div>')
+  $( '<div class="col-12 col-sm-4 poster-modal"></div>' ).appendTo( $( '#' + currentHTMLID + ' .row' ) );
+  $( '#' + currentHTMLID + ' .poster-modal' ).html('<img src="img/movies/' + data['Poster'] + '" class="img-fluid">');
+  $( '#' + currentHTMLID + ' .poster-modal' ).after('<div class="col-12 col-sm-8 main-data-modal"></div>');
+  $( '#' + currentHTMLID + ' .main-data-modal' ).html('<p>' + data['Summary'] + '</p>')
+  $( '#' + currentHTMLID + ' .main-data-modal > p' ).after('<table class="table table-hover table-sm"></table>');
+  $('<tr><td>Release date</td><td>' + data['Released'] + '</td></tr>').appendTo( $( '#' + currentHTMLID + ' .main-data-modal > table' ) );
+  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Country</td><td>' + data['Country'] + ' min.</td></tr>');
+  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Duration</td><td>' + data['Duration'] + ' min.</td></tr>');
+  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Genre</td><td>' + data['Genre'].join(', ') + '</td></tr>');
+  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Director</td><td>' + data['Director'].join(', ') + '</td></tr>');
+  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Writer</td><td>' + data['Writers'].join(', ') + '</td></tr>');
+  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Actor</td><td>' + data['Actors'].join(', ') + '</td></tr>');
+}
+
+function addEventListenerForInformation(selector) { // we had the click on information button to the event listener
+  $(selector).on('click', function(e){ // we select the buttons
+    let idItem = Number($(this).attr('data-id')); // we save the ID movie thanks to the data-id attribute
+    let typeItem = $(this).attr('data-type');
+    let objectMovie = dataObject.filter(function( obj ) { // we select the right object in all our data
+      return (obj.ID == idItem) ? obj : false; // we return the object
+    });
+    if ( $('#' + typeItem + '-information-item-'+idItem).length == 0 ) { // we check if the information modal already exists or not
+      createHTMLMovieItemInformationModal_v2(objectMovie[0], typeItem + '-information',idItem); // if not we create it in the right section
+      $('#' + typeItem + '-information-item-'+idItem).modal('show'); // we show it
+    } else {
+      $('#' + typeItem + '-information-item-'+idItem).modal('show'); // if already existe we show it
+    }
+  });
 }
 
 function createHTMLTvShowItem(data, parent, idPrefix) {
@@ -312,7 +377,6 @@ function createHTMLTvShowItemInformationModal(data,informationParent,information
 * Get YouTube ID from various YouTube URL
 * author: takien (http://takien.com)
 */
-
 function getYoutubeID(url){
   let ID = '';
   url = url.replace(/(>|<)/gi,'').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
