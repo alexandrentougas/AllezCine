@@ -3,6 +3,15 @@
 ## Table of contents
 
 * [Briefing](#briefing)
+    - [Entrance](#entrance)
+    - [Menu](#menu)
+    - [On your mind](#on-your-mind)
+    - [Social networks buttons](#the-social-networks-buttons)
+    - [Movies section](#movies-section)
+    - [Featured movies section](#featured-movies-section)
+    - [Section shop movie](#section-shop-movie)
+    - [Section contact us](#section-contact-us)
+    - [Footer](#footer)
 * [Technologies](#technologies)
 * [Contributors](#contributors)
 * [Preview](#preview)
@@ -48,7 +57,7 @@ The **jumbotron** of the header must be 100% of the width of the screen in which
 ### The social networks buttons
 The **social network buttons** are in a fixed position. If you click on a button, it must lengthen with an animation (here just use CSS).
 
-### Movies Section
+### Movies section
 Each film must include:
 - a poster,
 - a title,
@@ -57,22 +66,22 @@ Each film must include:
 
 If you click on the image or title of the film, make appear in a modal (Bootstrap) the trailer youtube of the film, the description, the director, the year of release of the film, the genre, the actors ...
 
-### Featured Movies Section
+### Featured movies section
 Create buttons to filter movies by genre (Jquery or JS).
 If you click on the ACTION button for example, only show the action movies, etc.
 
 When you click on the "plus movies" button, show the other hidden movies. Remove the "more movies" button and replace it with the "Less movies" button if you click on "less movies", hide the movies and make the "more movies" button reappear (In jQuery it will be easier, with a toggle for example).
 
-### Section Shop Movie
+### Section shop movie
 Use the two small buttons on the right to scroll the movies from left to right and aim-versa (Jquery, bootstrap, JS choice)
 
-### Section Contact Us
+### Section contact us
 Create a form and display in a pop-up
 the entries of the form when clicking on "Send Message". (No treatment in php, soon promised)
 
 Bonus: put a map in the Contact us section.
 
-### Section Footer
+### Footer
 Make sure that when you click on the small red button with the white arrow, you go up to the header of the site, the little button disappears once the header appears.
 
 CONSTRAINT: create this button in pure JS with createElement (), createTextNode () and company (), display it on the DOM, position it then style it in CSS in the style sheet.
