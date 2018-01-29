@@ -28,6 +28,7 @@ let whenDataLoadedMovies = function() { // callback function
     }
   });
 
+  // filter to select movies by genre
   $('#featured-movies aside button').on('click', function(e) {
 
     if ($(this).attr('data-genre') === 'all') {
@@ -205,7 +206,7 @@ function createHTMLMovieItemInformationModal(data,informationParent,informationI
   //$( '#' + informationIdPrefix + informationParent + ' .modal-body .container-fluid h6' ).after('<div class="row main-information"></div>')
   $( '#' + informationIdPrefix + informationParent + ' .modal-body .container-fluid' ).html('<div class="row main-information"></div>')
   $( '<div class="col-12 col-sm-4 poster-modal"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .row' ) );
-  $( '#' + informationIdPrefix + informationParent + ' .poster-modal' ).html('<img src="img/' + data['Poster'] + '" class="img-fluid">');
+  $( '#' + informationIdPrefix + informationParent + ' .poster-modal' ).html('<img src="img/movies/' + data['Poster'] + '" class="img-fluid">');
   $( '#' + informationIdPrefix + informationParent + ' .poster-modal' ).after('<div class="col-12 col-sm-8 main-data-modal"></div>');
   $( '#' + informationIdPrefix + informationParent + ' .main-data-modal' ).html('<p>' + data['Summary'] + '</p>')
   $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > p' ).after('<table class="table table-hover table-sm"></table>');
