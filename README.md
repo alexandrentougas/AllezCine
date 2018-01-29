@@ -19,3 +19,7 @@
 
 * [Alexandre](https://github.com/alexandrentougas)
 * [Laurent](https://github.com/laurenthu)
+
+## Projects
+
+* [Movie shops](https://laurenthu.github.io/AllezCine/shops/)
