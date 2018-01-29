@@ -168,8 +168,6 @@ function createHTMLMovieItem(data,parent,idPrefix) { // we create the item for o
   $( '#' + HTMLId + ' .btn-information-modal' ).attr({ // we add some data-attribute
     'data-id': data['ID'],
     'data-type': 'movie',
-    /*'data-toggle': 'modal',
-    'data-target': '#information-' + HTMLId,*/
   });
   $( '#' + HTMLId + ' .btn-information-modal' ).html('<i class="fa fa-info"></i>'); // we add the icon
   $( '<button type="button" class="btn btn-secondary btn-trailer-modal"></button>').appendTo( $( '#' + HTMLId + ' .btn-group') );  // we generate the 2nd button
@@ -179,7 +177,6 @@ function createHTMLMovieItem(data,parent,idPrefix) { // we create the item for o
     'data-id': data['ID'],
   })
   $( '#' + HTMLId + ' .btn-trailer-modal' ).html('<i class="fa fa-youtube-play"></i>');
-  createHTMLMovieItemInformationModal(data,HTMLId,'information-');
 }
 
 function createHTMLItemTrailerModal(data,trailerParent,trailerIdPrefix) {
