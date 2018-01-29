@@ -132,8 +132,8 @@ function createHTMLMovieItemTrailerModal(data,trailerParent,trailerIdPrefix) {
   $( '<div class="modal-body"></div>').appendTo( $( '#' + trailerIdPrefix + trailerParent + ' .modal-content' ) );
   $( '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>').appendTo( $( '#' + trailerIdPrefix + trailerParent + ' .modal-body' ) );
   $( '#' + trailerIdPrefix + trailerParent + ' .modal-body' ).after('<div class="embed-responsive embed-responsive-16by9"></div>');
-  if (YouTubeGetID(data['Trailer']).length == 11) {
-    $( '#' + trailerIdPrefix + trailerParent + ' .embed-responsive' ).html('<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' + YouTubeGetID(data['Trailer']) + '" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+  if (getYoutubeID(data['Trailer']).length == 11) {
+    $( '#' + trailerIdPrefix + trailerParent + ' .embed-responsive' ).html('<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' + getYoutubeID(data['Trailer']) + '" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
   } else {
     $( '#' + trailerIdPrefix + trailerParent + ' .embed-responsive' ).html('<div class="alert alert-secondary" role="alert"><p>Sorry we can\'t generate the preview video.</p><p>You could view it at the following address:<a href="' + data['Trailer'] + '" target="_blank">' + data['Trailer'] + '</a></p></div>');
   }
@@ -174,7 +174,7 @@ function createHTMLTvShowItem(data,parent,idPrefix) {
 * author: takien (http://takien.com)
 */
 
-function YouTubeGetID(url){
+function getYoutubeID(url){
   let ID = '';
   url = url.replace(/(>|<)/gi,'').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
   if(url[2] !== undefined) {
