@@ -19,6 +19,7 @@ let whenDataLoadedMovies = function() { // callback function
 let whenDataLoadedTvShows = function() {
   let dataText = dataRequest2.responseText;
   let dataObject = JSON.parse(dataText);
+  console.log(dataObject);
   for(let i = 0; i < 6; i++) {
     createHTMLTvShowItem(dataObject[i], '#featured-tvshow .series-list .row','featured-tvshow');
   };
@@ -130,7 +131,7 @@ function createHTMLTvShowItem(data,parent,idPrefix) {
                                       'data-creators': data['Creators'].join(', ').toLowerCase(),
                                       'data-actors': data['Actors'].join(', ').toLowerCase(),
                                     });
-  $( '<img src="img/' + data['Poster'] + '" class="poster card-img-top" title="' + data['Title'] + '(' + data['Beginning'] + '-' + data['Ending'] + ')" >' ).appendTo( $( '#' + idPrefix + '-' + data['ID']) );
+  $( '<img src="' + data['Poster'] + '" class="poster card-img-top" title="' + data['Title'] + '(' + data['Beginning'] + '-' + data['Ending'] + ')" >' ).appendTo( $( '#' + idPrefix + '-' + data['ID']) );
   $( '<div class="card-body"></div>' ).appendTo( $( '#' + idPrefix + '-' + data['ID']) );
   $( '<h5 class="card-title">' + data['Title'] + '</h5>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-body') );
   $( '<h6 class="card-subtitle">' + data['Beginning'] + '-' + data['Ending'] + '</h6>' ).appendTo( $( '#' + idPrefix + '-' + data['ID'] + ' .card-body') );
@@ -143,7 +144,7 @@ function createHTMLTvShowItem(data,parent,idPrefix) {
 
 // We load the data
 dataRequest.onload = whenDataLoadedMovies; // we assign the function to excecute when the data are loading
-//dataRequest2.onload = whenDataLoadedTvShows;
+dataRequest2.onload = whenDataLoadedTvShows;
 dataRequest.open("GET", moviesFeed, true); // the type, the url, asynchronous true/false
 dataRequest2.open("GET", tvShowsFeed, true);
 dataRequest.send(null); // we send the request
