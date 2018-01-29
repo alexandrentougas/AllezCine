@@ -40,6 +40,19 @@ let whenDataLoadedMovies = function() { // callback function
 
   });
 
+  $('#featured-movies .movie-list .btn-trailer-modal').on('click', function(e){
+    let idMovie = Number($(this).attr('data-id'));
+    let objectMovie = dataObject.filter(function( obj ) {
+      return (obj.ID == idMovie) ? obj : false;
+    });
+    if ( $('#trailer-featured-movie-'+idMovie).length == 0 ) {
+      createHTMLItemTrailerModal(objectMovie[0], 'featured-movie-'+idMovie,'trailer-');
+      $('#trailer-featured-movie-'+idMovie).modal('show');
+    } else {
+      $('#trailer-featured-movie-'+idMovie).modal('show');
+    }
+  })
+
 }
 
 
@@ -168,11 +181,12 @@ function createHTMLMovieItem(data,parent,idPrefix) {
   $( '<button type="button" class="btn btn-secondary btn-trailer-modal"></button>').appendTo( $( '#' + HTMLId + ' .btn-group') );
   $( '#' + HTMLId + ' .btn-trailer-modal' ).attr({
     'data-trailer': data['Trailer'],
-    'data-toggle': 'modal',
-    'data-target': '#trailer-' + HTMLId,
+    'data-id': data['ID'],
+    //'data-toggle': 'modal',
+    //'data-target': '#trailer-' + HTMLId,
   })
   $( '#' + HTMLId + ' .btn-trailer-modal' ).html('<i class="fa fa-youtube-play"></i>');
-  createHTMLItemTrailerModal(data, HTMLId,'trailer-');
+  //createHTMLItemTrailerModal(data, HTMLId,'trailer-');
   createHTMLMovieItemInformationModal(data,HTMLId,'information-');
 }
 
