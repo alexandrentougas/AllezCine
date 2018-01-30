@@ -308,7 +308,7 @@ function createHTMLItemInformationInMovieShop(dataItem,parent) {
   $('<div class="row genre-row"></div>').appendTo( $(parent) );
   $('<div class="col-12 col-md-4">Genre(s)</div><div class="col-12 col-md-8"><p>' + dataItem['Genre'].join(', ') + '</p></div>').appendTo( $(parent + ' .genre-row') );
   $('<div class="row price-row"></div>').appendTo( $(parent) );
-  $('<div class="col-12 col-md-4">Price</div><div class="col-12 col-md-8"><p>' + dataItem['Price'] + '</p></div>').appendTo( $(parent + ' .price-row') );
+  $('<div class="col-12 col-md-4">Price</div><div class="col-12 col-md-8"><p>' + dataItem['Price'] + ' €</p></div>').appendTo( $(parent + ' .price-row') );
 }
 
 function addEventListenerForInformationInShop(selector){
