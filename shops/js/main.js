@@ -356,7 +356,6 @@ function addEventListenerForInformation(selector) { // we had the click on infor
       itemObject = tvShowObject.filter(function( obj ) { // we select the right object in all our data
         return (obj.ID == idItem) ? obj : false; // we return the object
       });
-      console.log(itemObject,'coucou je me la pète')
     }
     if ( $('#' + typeItem + '-information-item-'+idItem).length == 0 && typeItem == 'movie') { // we check if the information modal already exists or not
       createHTMLMovieItemInformationModal_v2(itemObject[0], typeItem + '-information',idItem); // if not we create it in the right section
@@ -423,7 +422,7 @@ function createHTMLTvShowItemInformationModal(data,informationParent,idData) {
   $( '<div class="container-fluid"></div>' ).appendTo( $( '#' + currentHTMLID + ' .modal-body' ) );
   $( '#' + currentHTMLID + ' .modal-body .container-fluid' ).html('<div class="row main-information"></div>')
   $( '<div class="col-12 col-sm-4 poster-modal"></div>' ).appendTo( $( '#' + currentHTMLID + ' .row' ) );
-  $( '#' + currentHTMLID + ' .poster-modal' ).html('<img src="' + data['Poster'] + '" class="img-fluid">');
+  $( '#' + currentHTMLID + ' .poster-modal' ).html('<img src="img/tvshows/' + data['Poster'] + '" class="img-fluid">');
   $( '#' + currentHTMLID + ' .poster-modal' ).after('<div class="col-12 col-sm-8 main-data-modal"></div>');
   $( '#' + currentHTMLID + ' .main-data-modal' ).html('<p>' + data['Summary'] + '</p>')
   $( '#' + currentHTMLID + ' .main-data-modal > p' ).after('<table class="table table-hover table-sm"></table>');
