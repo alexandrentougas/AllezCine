@@ -10,9 +10,9 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg" id="main-nav">
-    <a class="navbar-brand" href="#">AllezCine!</a>
+<body id="top-page">
+  <nav class="navbar fixed-top navbar-expand-lg" id="main-nav">
+    <a class="navbar-brand" href="#top-page">AllezCine!</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#shopMenu" aria-controls="shopMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -21,7 +21,7 @@
     <div class="collapse navbar-collapse" id="shopMenu">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
+          <a class="nav-link" href="#top-page">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#featured-movies">Featured Movies</a>
@@ -183,11 +183,11 @@
           left / right
         </aside>
         <div class="row">
-          <div class="col-8">
+          <div class="col-8 movie-list">
             ici on met les films
           </div>
-          <div class="col-4">
-            ici on met les bandes annoncnes
+          <div class="col-4 preview-trailer">
+            ici on met la bande annoncne
           </div>
         </div>
       </div>
@@ -197,8 +197,39 @@
       <h2>Contact us</h2>
       <div class="container">
         <div class="row">
-          <div class="col-12 col-md-6">Ici on met le form</div>
-          <div class="col-12 col-md-6">Ici on met la map</div>
+          <div class="col-12 col-md-6">
+
+            <div class="form-row">
+              <div class="col">
+                <input type="text" class="form-control" name="first-name" placeholder="First name">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" name="last-name" placeholder="Last name">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col">
+                <input type="email" class="form-control" name="email" placeholder="Email address">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" name="subject" placeholder="Subject">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col">
+                <textarea class="form-control" name="message" placeholder="Your message"></textarea>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col">
+                <button class="btn btn-primary" type="submit">Send Message</button>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-12 col-md-6">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2519.233765842255!2d4.355091250984198!3d50.845355279431374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3c47fce0ba71d%3A0x2f634768a374d3b0!2sCantersteen+10%2C+1000+Bruxelles!5e0!3m2!1sfr!2sbe!4v1517314227922" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
         </div>
       </div>
 
@@ -345,7 +376,7 @@
     </div>
 
     <div class="scroll-top" id="go-to-top">
-      <a href="#main-nav"><i class="fa fa-arrow-up"></i></a>
+      <a href="#top-page"><i class="fa fa-arrow-up"></i></a>
     </div>
 
     <div class="modal fade" id="ageWarning" tabindex="-1" role="dialog" aria-labelledby="Checking the age" aria-hidden="true">
