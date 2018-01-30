@@ -121,9 +121,12 @@
           </button>
         </div>
         <div class="modal-body">
-          <form>
-            <input type="date" id="birthInput">
-          </form>
+          <!--<form>-->
+            <div class="form-group">
+              <label for="birthInput">Birthdate</label>
+              <input type="date" id="birthInput">
+            </div>
+          <!--</form>-->
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -142,15 +145,23 @@
           <span aria-hidden="true">&times;</span>
         </button>
         </div>
-        <div class="modal-body">
-          <form id="connectForm">
+        <div class="modal-body" id="connectForm">
+          <!--<form>-->
+          <div class="form-group">
             <label for="username">Username</label>
             <input type="text" name="username" id="username">
+          </div>
+          <div class="form-group">
             <label for="password">Password</label>
             <input type="text" name="password" id="password">
-            <br>
-            <input type="checkbox"><span>Stay logged in.</span> <a href="#">Forgot your password?</a>
-          </form>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" name="staylogged" id="staylogged"> <label for="staylogged">Stay logged in.</label>
+          </div>
+          <!--</form>-->
+          <div>
+            <a href="#">Forgot your password?</a>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -170,19 +181,28 @@
           <span aria-hidden="true">&times;</span>
         </button>
         </div>
-        <div class="modal-body">
-          <form id="registerForm">
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name">
-            <label for="e-mail">E-mail</label>
-            <input type="email" name="e-mail" id="e-mail">
-            <label for="password">Password</label>
-            <input type="password" name="setPassword" id="setPassword">
-            <label for="confirmPass">Confirm Password</label>
-            <input type="password" name="confirmPass" id="confirmPass">
-            <br>
-            <input type="checkbox"><span>Accept the terms of use.</span>
-          </form>
+        <div class="modal-body" id="registerForm">
+          <!--<form>-->
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" name="name" id="name">
+            </div>
+            <div class="form-group">
+              <label for="e-mail">E-mail</label>
+              <input type="email" name="e-mail" id="e-mail">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="setPassword" id="setPassword">
+            </div>
+            <div class="form-group">
+              <label for="confirmPass">Confirm Password</label>
+              <input type="password" name="confirmPass" id="confirmPass">
+            </div>
+            <div class="form-group">
+              <input type="checkbox" name="termsofuse" id="termsofuse"> <label for="termsofuse">Accept the terms of use.</label>
+            </div>
+          <!-- </form> -->
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -277,8 +297,10 @@
       <div class="col-12">
         <h3>Subscribe to us</h3>
         <!--<form method="post">-->
+        <div class="form-group">
           <input type="email">
           <button type="button">Subscribe</button>
+        </div>
         <!--</form>-->
       </div>
     </div>
