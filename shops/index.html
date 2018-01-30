@@ -11,8 +11,9 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg" id="main-nav">
     <a class="navbar-brand" href="#">AllezCine!</a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#shopMenu" aria-controls="shopMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -35,9 +36,13 @@
           <a class="nav-link" href="#contact-us">Contact</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <form class="form-inline">
+        <div class="input-group">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </div>
+        </div>
       </form>
     </div>
   </nav>
@@ -111,6 +116,19 @@
 
   </header>
 
+  <div class="social-networks-links" id="social-networks">
+    <ul>
+      <li><a href="https://www.twitter.com/" target="_blank">Twitter <i class="fa fa-twitter"></i></a></li>
+      <li><a href="https://www.facebook.com/" target="_blank">Facebook <i class="fa fa-facebook"></i></a></li>
+      <li><a href="https://www.instagram.com/" target="_blank">Instagram <i class="fa fa-instagram"></i></a></li>
+      <li><a href="https://plus.google.com/" target="_blank">Google+ <i class="fa fa-google-plus"></i></a></li>
+    </ul>
+  </div>
+
+  <div class="scroll-top" id="go-to-top">
+    <a href="#main-nav"><i class="fa fa-arrow-up"></i></a>
+  </div>
+
   <div class="modal fade" id="ageWarning" tabindex="-1" role="dialog" aria-labelledby="Checking the age" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -121,9 +139,12 @@
           </button>
         </div>
         <div class="modal-body">
-          <form>
-            <input type="date" id="birthInput">
-          </form>
+          <!--<form>-->
+            <div class="form-group">
+              <label for="birthInput">Birthdate</label>
+              <input type="date" id="birthInput">
+            </div>
+          <!--</form>-->
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -142,15 +163,23 @@
           <span aria-hidden="true">&times;</span>
         </button>
         </div>
-        <div class="modal-body">
-          <form id="connectForm">
+        <div class="modal-body" id="connectForm">
+          <!--<form>-->
+          <div class="form-group">
             <label for="username">Username</label>
             <input type="text" name="username" id="username">
+          </div>
+          <div class="form-group">
             <label for="password">Password</label>
             <input type="text" name="password" id="password">
-            <br>
-            <input type="checkbox"><span>Stay logged in.</span> <a href="#">Forgot your password?</a>
-          </form>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" name="staylogged" id="staylogged"> <label for="staylogged">Stay logged in.</label>
+          </div>
+          <!--</form>-->
+          <div>
+            <a href="#">Forgot your password?</a>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -170,19 +199,28 @@
           <span aria-hidden="true">&times;</span>
         </button>
         </div>
-        <div class="modal-body">
-          <form id="registerForm">
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name">
-            <label for="e-mail">E-mail</label>
-            <input type="email" name="e-mail" id="e-mail">
-            <label for="password">Password</label>
-            <input type="password" name="setPassword" id="setPassword">
-            <label for="confirmPass">Confirm Password</label>
-            <input type="password" name="confirmPass" id="confirmPass">
-            <br>
-            <input type="checkbox"><span>Accept the terms of use.</span>
-          </form>
+        <div class="modal-body" id="registerForm">
+          <!--<form>-->
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" name="name" id="name">
+            </div>
+            <div class="form-group">
+              <label for="e-mail">E-mail</label>
+              <input type="email" name="e-mail" id="e-mail">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="setPassword" id="setPassword">
+            </div>
+            <div class="form-group">
+              <label for="confirmPass">Confirm Password</label>
+              <input type="password" name="confirmPass" id="confirmPass">
+            </div>
+            <div class="form-group">
+              <input type="checkbox" name="termsofuse" id="termsofuse"> <label for="termsofuse">Accept the terms of use.</label>
+            </div>
+          <!-- </form> -->
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -295,8 +333,10 @@
       <div class="col-12">
         <h3>Subscribe to us</h3>
         <!--<form method="post">-->
+        <div class="form-group">
           <input type="email">
           <button type="button">Subscribe</button>
+        </div>
         <!--</form>-->
       </div>
     </div>
@@ -397,11 +437,11 @@
     <div class="row">
       <div class="col-12">
         <h5>Connect Us</h5>
-        <i class="fa fa-facebook" aria-hidden="true"></i>
-        <i class="fa fa-twitter" aria-hidden="true"></i>
-        <i class="fa fa-linkedin" aria-hidden="true"></i>
-        <i class="fa fa-youtube" aria-hidden="true"></i>
-        <i class="fa fa-google-plus" aria-hidden="true"></i>
+        <a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        <a href="https://www.twitter.com" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+        <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+        <a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
       </div>
     </div>
   </footer>
@@ -409,7 +449,7 @@
 
 
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
