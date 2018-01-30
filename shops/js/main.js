@@ -447,6 +447,7 @@ $('#newAccount').click(function() {
 // Activation of "smooth scroll"
 // Select all links with hashes
 // Remove links that don't actually link to anything thanks to .not()
+// based on function availble here https://css-tricks.com/snippets/jquery/smooth-scrolling/
 $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').on('click',function(event) {
   // On-page links
   if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
