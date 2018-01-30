@@ -68,21 +68,20 @@ let whenDataLoadedTvShows = function() {
     }
     addEventListenerForTrailer( '.tvshow-list .btn-trailer-modal' ); // we had the new movies to the event listener
     addEventListenerForInformation( '.tvshow-list .btn-information-modal' ); // we had the new movies to the event listener
+  });
 
-    $('#featured-tvshows aside button').on('click', function(e) {
+  $('#featured-tvshows aside button').on('click', function(e) {
 
-      if ($(this).attr('data-genre') === 'all') {
-          $('#featured-tvshows .tvshow-item').show();
-      } else {
-        $('#featured-tvshows .tvshow-item').hide();
-        $('#featured-tvshows .tvshow-item[data-genre*="' + $(this).attr('data-genre') + '"]').show();
-      }
-
-    });
+    if ($(this).attr('data-genre') === 'all') {
+        $('#featured-tvshows .tvshow-item').show();
+    } else {
+      $('#featured-tvshows .tvshow-item').hide();
+      $('#featured-tvshows .tvshow-item[data-genre*="' + $(this).attr('data-genre') + '"]').show();
+    }
 
   });
 
-}
+};
 
 function getFilenameForSpecificSize(imgFilename,size = 350) {
   return imgFilename.split('.')[0] + '_' + size + '.' + imgFilename.split('.')[1]; // we construct the new image name
