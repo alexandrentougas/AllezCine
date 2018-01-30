@@ -10,13 +10,15 @@ let movieObject; // to be sure that object has a global scope
 let tvShowObject;
 
 // When date about movies are loaded
-
 let whenDataLoadedMovies = function() { // callback function
   let dataText = dataRequestMovie.responseText; // we store the text of the response
   movieObject = JSON.parse(dataText); // we convert the text into an object
 
   displayTopMovie(movieObject,'#top-movie .movie-list > .row','top-movie',numberElement); // we write the Top Movies
   displayXFeaturedMovies(movieObject,'#featured-movies .movie-list > .row','featured-movie',0,numberElement); // we display the first Feature movies
+  displayXItemsMovieInShop(movieObject,'#shop-movies .movie-list > .row:first-of-type','shop-movie',0,8);
+
+  createHTMLItemInformationInMovieShop( xLastElementsAccordingSpecificKey(movieObject, 'Year', 1), '#shop-movies .preview-trailer' );
 
   // data are loaded, so we could show "options"
   $('#featured-movies .load-more').show();
@@ -94,7 +96,6 @@ function displayTopMovie(data,parent,idPrefix,numberElement) { // we display X e
   for(let i = 0; i < xElements.length; i++) {
     createHTMLMovieItem(xElements[i],parent,idPrefix); // we generate the HTML
   }
-  return true;
 }
 
 function displayXFeaturedMovies(data,parent,idPrefix,start = 0,numberElement = 6) { // function to display X new movies in Featured sections
@@ -102,7 +103,6 @@ function displayXFeaturedMovies(data,parent,idPrefix,start = 0,numberElement = 6
   for(let i = start; i < (start + numberElement) && i < data.length; i++) { // we select X elements from position 'start'
     createHTMLMovieItem(data[i],parent,idPrefix); // we generate the HTML
   }
-  return true;
 }
 
 function displayXFeaturedTvShows(data,parent,idPrefix,start = 0,numberElement = 6) { // function to display X new movies in Featured sections
@@ -110,7 +110,13 @@ function displayXFeaturedTvShows(data,parent,idPrefix,start = 0,numberElement = 
   for(let i = start; i < (start + numberElement) && i < data.length; i++) { // we select X elements from position 'start'
     createHTMLTvShowItem(data[i],parent,idPrefix); // we generate the HTML
   }
-  return true;
+}
+
+function displayXItemsMovieInShop(data,parent,idPrefix,start = 0, numberElement = 8) {
+  sortObjectbySpecificKey(data,'Year','DESC'); // we sort by released year descending
+  for(let i = start; i < (start + numberElement) && i < data.length; i++) { // we select X elements from position 'start'
+    createHTMLMovieShopItem(data[i],parent,idPrefix); // we generate the HTML
+  }
 }
 
 function sortObjectbySpecificKey(data, key, order = 'ASC') {
@@ -218,7 +224,7 @@ function createHTMLMovieItem(data,parent,idPrefix) { // we create the item for o
   $( '<h5 class="card-title">' + data['Title'] + '</h5>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
   $( '<h6 class="card-subtitle">' + data['Year'] + '</h6>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
   $( '<div class="card-text">' + data['Genre'][0] + '</div>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
-  $( '<div class="card-footer"></div>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
+  $( '<div class="card-footer"></div>' ).appendTo( $( '#' + HTMLId ) );
   $( '<div class="btn-group btn-group-sm" role="group" aria-label="More function"></div>' ).appendTo( $( '#' + HTMLId + ' .card-footer') ); // we generate the button group
   $( '<button type="button" class="btn btn-secondary btn-information-modal"></button>').appendTo( $( '#' + HTMLId + ' .btn-group') ); // we generate the 1st button
   $( '#' + HTMLId + ' .btn-information-modal' ).attr({ // we add some data-attribute
@@ -233,6 +239,29 @@ function createHTMLMovieItem(data,parent,idPrefix) { // we create the item for o
     'data-id': data['ID'],
   })
   $( '#' + HTMLId + ' .btn-trailer-modal' ).html('<i class="fa fa-youtube-play"></i>');
+}
+
+function createHTMLMovieShopItem(data,parent,idPrefix) {
+  let HTMLId = idPrefix + '-' + data['ID']; // we construct the HTML id of this movie
+  let HTMLContent = '<div class="col-12 col-sm-6 col-md-3 col-lg-3 card movie-item" id="' + HTMLId + '"></div>'; // we open the div, insert class and ID
+  $( HTMLContent ).appendTo( $( parent ) ); // we add our HTML content to the parent
+  $( '#' + HTMLId ).attr({ // we insert some data-attribute
+    'data-id': data['ID']
+  });
+  $( '<img src="img/movies/' + getFilenameForSpecificSize(data['Poster'],350) + '" class="poster card-img-top img-fluid" title="' + data['Title'] + ' (' + data['Year'] + ')" >' ).appendTo( $( '#' + HTMLId) ); // we add the poster
+  $( '<div class="card-body"></div>' ).appendTo( $( '#' + HTMLId) ); // we construct the card
+  $( '<h5 class="card-title">' + data['Title'] + '</h5>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
+  $( '<div class="card-footer"></div>' ).appendTo( $( '#' + HTMLId ) );
+  $( '<div class="row"></div>' ).appendTo( $( '#' + HTMLId + ' .card-footer') );
+  $( '<div class="col-6">' + data['Year'] + '</div>' ).appendTo( $( '#' + HTMLId + ' .card-footer .row') );
+  $( '<div class="col-6">' + data['Price'] + '</div>' ).appendTo( $( '#' + HTMLId + ' .card-footer .row') );
+}
+
+function createHTMLItemInformationInMovieShop(dataItem,parent) {
+  $('<div class="row trailer-row"></div>').appendTo( $(parent) );
+  $('<div class="col-12"></div>').appendTo( $(parent + ' .trailer-row') );
+  $('.trailer-row col-12').html('link to video');
+
 }
 
 function createHTMLItemTrailerModal(data,trailerParent,idData) {
@@ -349,7 +378,7 @@ function createHTMLTvShowItem(data, parent, idPrefix) {
   $('<h5 class="card-title">' + data['Title'] + '</h5>').appendTo($('#' + HTMLId + ' .card-body'));
   $('<h6 class="card-subtitle">' + data['Beginning'] + '-' + data['Ending'] + '</h6>').appendTo($('#' + HTMLId + ' .card-body'));
   $('<div class="card-text">' + data['Genre'][0] + '</div>').appendTo($('#' + HTMLId + ' .card-body'));
-  $('<div class="card-footer"></div>').appendTo($('#' + HTMLId + ' .card-body'));
+  $('<div class="card-footer"></div>').appendTo( $('#' + HTMLId ) );
   $('<div class="btn-group btn-group-sm" role="group" aria-label="More function"></div>').appendTo($('#' + HTMLId + ' .card-footer'));
   $('<button type="button" class="btn btn-secondary btn-information-modal"></button>').appendTo($('#' + HTMLId + ' .btn-group'));
   $( '#' + HTMLId + ' .btn-information-modal' ).attr({
