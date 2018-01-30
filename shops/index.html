@@ -199,8 +199,9 @@
       <h2>Shops</h2>
       <div class="container">
         <aside role="navigation">
-          <button value=""><i class="fa fa-arrow-left"></i></button>
-          <button value=""><i class="fa fa-arrow-right"></i></button>
+          <button data-start="" class="btn btn-dark shop-previous-movies" name="previous"><i class="fa fa-arrow-left"></i></button>
+          <button data-start="" class="btn btn-dark shop-next-movies" name="next"><i class="fa fa-arrow-right"></i></button>
+          <input type="hidden" value="" id="saved-value-preview-information">
         </aside>
         <div class="row">
           <div class="col-8 movie-list">
@@ -208,7 +209,7 @@
 
             </div>
           </div>
-          <div class="col-4 preview-trailer">
+          <div class="col-4 preview-information">
 
           </div>
         </div>
