@@ -233,7 +233,7 @@ function createHTMLMovieItem(data,parent,idPrefix) { // we create the item for o
   $( '#' + HTMLId + ' .btn-trailer-modal' ).html('<i class="fa fa-youtube-play"></i>');
 }
 
-function createHTMLItemTrailerModal(data,trailerParent,trailerIdPrefix) {
+/*function createHTMLItemTrailerModal(data,trailerParent,trailerIdPrefix) {
   let HMTLModalContent = '<div class="modal fade trailer-modal" id="' + trailerIdPrefix + trailerParent + '" tabindex="-1" role="dialog" aria-labelledby="Trailer from ' + data['Title'] + '" aria-hidden="true"></div>';
   $( HMTLModalContent ).appendTo( $( '#' + trailerParent ) ); // we add our HTML content to the parent
   $( '<div class="modal-dialog modal-dialog-centered modal-lg" role="document"></div>' ).appendTo( $( '#' + trailerIdPrefix + trailerParent ) );
@@ -246,9 +246,9 @@ function createHTMLItemTrailerModal(data,trailerParent,trailerIdPrefix) {
   } else {
     $( '#' + trailerIdPrefix + trailerParent + ' .embed-responsive' ).html('<div class="alert alert-secondary" role="alert"><p>Sorry we can\'t generate the preview video.</p><p>You could view it at the following address:<a href="' + data['Trailer'] + '" target="_blank">' + data['Trailer'] + '</a></p></div>');
   }
-}
+}*/
 
-function createHTMLItemTrailerModal_v2(data,trailerParent,idData) {
+function createHTMLItemTrailerModal(data,trailerParent,idData) {
   let currentHTMLID = trailerParent + '-item-' + idData; // construction of the html id of the modal
   let HMTLModalContent = '<div class="modal fade trailer-modal" id="' + currentHTMLID + '" tabindex="-1" role="dialog" aria-labelledby="Trailer from ' + data['Title'] + '" aria-hidden="true"></div>'; // we create the main div of the modal
   $( HMTLModalContent ).appendTo( $( '#' + trailerParent ) ); // we add our HTML content to the parent
@@ -279,7 +279,7 @@ function addEventListenerForTrailer(selector) { // we had the click on trailer b
       });
     }
     if ( $('#' + typeItem + '-trailer-item-'+idItem).length == 0 ) { // we check if the trailer modal already exists or not
-      createHTMLItemTrailerModal_v2(objectItem[0], typeItem + '-trailer',idItem); // if not we create it in the right section
+      createHTMLItemTrailerModal(objectItem[0], typeItem + '-trailer',idItem); // if not we create it in the right section
       $('#' + typeItem + '-trailer-item-'+idItem).modal('show'); // we show it
     } else {
       $('#' + typeItem + '-trailer-item-'+idItem).modal('show'); // if already existe we show it
@@ -287,7 +287,7 @@ function addEventListenerForTrailer(selector) { // we had the click on trailer b
   });
 }
 
-function createHTMLMovieItemInformationModal(data,informationParent,informationIdPrefix) {
+/*function createHTMLMovieItemInformationModal(data,informationParent,informationIdPrefix) {
   let HMTLModalContent = '<div class="modal fade infomation-modal" id="' + informationIdPrefix + informationParent + '" tabindex="-1" role="dialog" aria-labelledby="Information about ' + data['Title'] + '" aria-hidden="true"></div>';
   $( HMTLModalContent ).appendTo( $( '#' + informationParent ) ); // we add our HTML content to the parent
   $( '<div class="modal-dialog modal-dialog-centered modal-lg" role="document"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent ) );
@@ -315,9 +315,9 @@ function createHTMLMovieItemInformationModal(data,informationParent,informationI
   //$( '#' + informationIdPrefix + informationParent + ' .main-information' ).after('<h6>Trailer</h6>');
   //$( '#' + informationIdPrefix + informationParent + ' h6:last-of-type' ).after('<div class="embed-responsive embed-responsive-16by9"></div>');
   //$( '#' + informationIdPrefix + informationParent + ' .embed-responsive' ).html('<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' + getYoutubeID(data['Trailer']) + '" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
-}
+}*/
 
-function createHTMLMovieItemInformationModal_v2(data,informationParent,idData) {
+function createHTMLMovieItemInformationModal(data,informationParent,idData) {
   let currentHTMLID = informationParent + '-item-' + idData;
   let HMTLModalContent = '<div class="modal fade infomation-modal" id="' + currentHTMLID + '" tabindex="-1" role="dialog" aria-labelledby="Information about ' + data['Title'] + '" aria-hidden="true"></div>';
   $( HMTLModalContent ).appendTo( $( '#' + informationParent ) ); // we add our HTML content to the parent
@@ -358,7 +358,7 @@ function addEventListenerForInformation(selector) { // we had the click on infor
       });
     }
     if ( $('#' + typeItem + '-information-item-'+idItem).length == 0 && typeItem == 'movie') { // we check if the information modal already exists or not
-      createHTMLMovieItemInformationModal_v2(itemObject[0], typeItem + '-information',idItem); // if not we create it in the right section
+      createHTMLMovieItemInformationModal(itemObject[0], typeItem + '-information',idItem); // if not we create it in the right section
       $('#' + typeItem + '-information-item-'+idItem).modal('show'); // we show it
     } else if ($('#' + typeItem + '-information-item-'+idItem).length == 0 && typeItem == 'tvShow'){
       createHTMLTvShowItemInformationModal(itemObject[0], typeItem + '-information',idItem); // if not we create it in the right section
