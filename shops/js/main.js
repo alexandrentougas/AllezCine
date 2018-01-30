@@ -9,6 +9,8 @@ let dataRequestTvShow = new XMLHttpRequest();
 let movieObject; // to be sure that object has a global scope
 let tvShowObject;
 
+// When date about movies are loaded
+
 let whenDataLoadedMovies = function() { // callback function
   let dataText = dataRequestMovie.responseText; // we store the text of the response
   movieObject = JSON.parse(dataText); // we convert the text into an object
