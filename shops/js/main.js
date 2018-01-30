@@ -6,14 +6,15 @@ let numberElement = 6;
 let dataRequestMovie = new XMLHttpRequest();
 let dataRequestTvShow = new XMLHttpRequest();
 
-let dataObject; // to be sure that object has a global scope
+let movieObject; // to be sure that object has a global scope
+let tvShowObject;
 
 let whenDataLoadedMovies = function() { // callback function
   let dataText = dataRequestMovie.responseText; // we store the text of the response
-  dataObject = JSON.parse(dataText); // we convert the text into an object
+  movieObject = JSON.parse(dataText); // we convert the text into an object
 
-  displayTopMovie(dataObject,'#top-movie .movie-list > .row','top-movie',numberElement); // we write the Top Movies
-  displayXFeaturedMovies(dataObject,'#featured-movies .movie-list > .row','featured-movie',0,numberElement); // we display the first Feature movies
+  displayTopMovie(movieObject,'#top-movie .movie-list > .row','top-movie',numberElement); // we write the Top Movies
+  displayXFeaturedMovies(movieObject,'#featured-movies .movie-list > .row','featured-movie',0,numberElement); // we display the first Feature movies
 
   // data are loaded, so we could show "options"
   $('#featured-movies .load-more').show();
@@ -25,9 +26,9 @@ let whenDataLoadedMovies = function() { // callback function
 
   // on click, we display the X next movies
   $('#featured-movies .load-more').on('click', function(e) {
-    $startElement = $('#featured-movies .movie-list > .row .movie-item').length; // we check the number of alreay displayed movies
-    displayXFeaturedMovies(dataObject,'#featured-movies .movie-list > .row','featured-movie',$startElement,numberElement); // we display the X next movies
-    if( $('#featured-movies .movie-list > .row .movie-item').length >= dataObject.length ) { // if we have display all movies, we hide the button "load more"
+    startElement = $('#featured-movies .movie-list > .row .movie-item').length; // we check the number of alreay displayed movies
+    displayXFeaturedMovies(movieObject,'#featured-movies .movie-list > .row','featured-movie',startElement,numberElement); // we display the X next movies
+    if( $('#featured-movies .movie-list > .row .movie-item').length >= movieObject.length ) { // if we have display all movies, we hide the button "load more"
       $('#featured-movies .load-more').hide();
     }
     addEventListenerForTrailer( '.movie-list .btn-trailer-modal' ); // we had the new movies to the event listener
@@ -49,12 +50,39 @@ let whenDataLoadedMovies = function() { // callback function
 
 let whenDataLoadedTvShows = function() {
   let dataText = dataRequestTvShow.responseText;
-  let dataObject = JSON.parse(dataText);
-  //console.log(dataObject);
-  for (let i = 0; i < 6; i++) {
-    createHTMLTvShowItem(dataObject[i], '#featured-tvshows .tvshow-list > .row', 'featured-tvshow');
-  };
-};
+  tvShowObject = JSON.parse(dataText);
+
+  displayXFeaturedTvShows(tvShowObject, '#featured-tvshows .tvshow-list > .row', 'featured-tvshow',0,numberElement);
+
+  $('#featured-tvshows .load-more').show();
+  $('#featured-tvshows aside').show();
+
+  addEventListenerForTrailer( '.tvshow-list .btn-trailer-modal' );
+  addEventListenerForInformation( '.tvshow-list .btn-information-modal' );
+
+  $('#featured-tvshows .load-more').on('click', function(e) {
+    startElement = $('#featured-tvshows .tvshow-list > .row .tvshow-item').length; // we check the number of alreay displayed movies
+    displayXFeaturedTvShows(tvShowObject,'#featured-tvshows .tvshow-list > .row','featured-tvshow',startElement,numberElement); // we display the X next movies
+    if( $('#featured-tvshows .tvshow-list > .row .tvshow-item').length >= tvShowObject.length ) { // if we have display all movies, we hide the button "load more"
+      $('#featured-tvshows .load-more').hide();
+    }
+    addEventListenerForTrailer( '.tvshow-list .btn-trailer-modal' ); // we had the new movies to the event listener
+    addEventListenerForInformation( '.tvshow-list .btn-information-modal' ); // we had the new movies to the event listener
+
+    $('#featured-tvshows aside button').on('click', function(e) {
+
+      if ($(this).attr('data-genre') === 'all') {
+          $('#featured-tvshows .tvshow-item').show();
+      } else {
+        $('#featured-tvshows .tvshow-item').hide();
+        $('#featured-tvshows .tvshow-item[data-genre*="' + $(this).attr('data-genre') + '"]').show();
+      }
+
+    });
+
+  });
+
+}
 
 function getFilenameForSpecificSize(imgFilename,size = 350) {
   return imgFilename.split('.')[0] + '_' + size + '.' + imgFilename.split('.')[1]; // we construct the new image name
@@ -72,6 +100,14 @@ function displayXFeaturedMovies(data,parent,idPrefix,start = 0,numberElement = 6
   sortObjectbySpecificKey(data,'Title'); // we sort by 'Title'
   for(let i = start; i < (start + numberElement) && i < data.length; i++) { // we select X elements from position 'start'
     createHTMLMovieItem(data[i],parent,idPrefix); // we generate the HTML
+  }
+  return true;
+}
+
+function displayXFeaturedTvShows(data,parent,idPrefix,start = 0,numberElement = 6) { // function to display X new movies in Featured sections
+  sortObjectbySpecificKey(data,'Title'); // we sort by 'Title'
+  for(let i = start; i < (start + numberElement) && i < data.length; i++) { // we select X elements from position 'start'
+    createHTMLTvShowItem(data[i],parent,idPrefix); // we generate the HTML
   }
   return true;
 }
@@ -233,11 +269,18 @@ function addEventListenerForTrailer(selector) { // we had the click on trailer b
   $(selector).on('click', function(e){ // we select the buttons
     let idItem = Number($(this).attr('data-id')); // we save the ID movie thanks to the data-id attribute
     let typeItem = $(this).attr('data-type');
-    let objectMovie = dataObject.filter(function( obj ) { // we select the right object in all our data
-      return (obj.ID == idItem) ? obj : false; // we return the object
-    });
+    let objectItem;
+    if (typeItem === 'movie') {
+      objectItem = movieObject.filter(function( obj ) { // we select the right object in all our data
+        return (obj.ID == idItem) ? obj : false; // we return the object
+      });
+    } else if (typeItem === 'tvShow') {
+      objectItem = tvShowObject.filter(function( obj ) { // we select the right object in all our data
+        return (obj.ID == idItem) ? obj : false; // we return the object
+      });
+    }
     if ( $('#' + typeItem + '-trailer-item-'+idItem).length == 0 ) { // we check if the trailer modal already exists or not
-      createHTMLItemTrailerModal_v2(objectMovie[0], typeItem + '-trailer',idItem); // if not we create it in the right section
+      createHTMLItemTrailerModal_v2(objectItem[0], typeItem + '-trailer',idItem); // if not we create it in the right section
       $('#' + typeItem + '-trailer-item-'+idItem).modal('show'); // we show it
     } else {
       $('#' + typeItem + '-trailer-item-'+idItem).modal('show'); // if already existe we show it
@@ -305,11 +348,22 @@ function addEventListenerForInformation(selector) { // we had the click on infor
   $(selector).on('click', function(e){ // we select the buttons
     let idItem = Number($(this).attr('data-id')); // we save the ID movie thanks to the data-id attribute
     let typeItem = $(this).attr('data-type');
-    let objectMovie = dataObject.filter(function( obj ) { // we select the right object in all our data
-      return (obj.ID == idItem) ? obj : false; // we return the object
-    });
-    if ( $('#' + typeItem + '-information-item-'+idItem).length == 0 ) { // we check if the information modal already exists or not
-      createHTMLMovieItemInformationModal_v2(objectMovie[0], typeItem + '-information',idItem); // if not we create it in the right section
+    let itemObject;
+    if (typeItem == 'movie') {
+      itemObject = movieObject.filter(function( obj ) { // we select the right object in all our data
+        return (obj.ID == idItem) ? obj : false; // we return the object
+      });
+    } else if (typeItem == 'tvShow') {
+      itemObject = tvShowObject.filter(function( obj ) { // we select the right object in all our data
+        return (obj.ID == idItem) ? obj : false; // we return the object
+      });
+      console.log(itemObject,'coucou je me la pète')
+    }
+    if ( $('#' + typeItem + '-information-item-'+idItem).length == 0 && typeItem == 'movie') { // we check if the information modal already exists or not
+      createHTMLMovieItemInformationModal_v2(itemObject[0], typeItem + '-information',idItem); // if not we create it in the right section
+      $('#' + typeItem + '-information-item-'+idItem).modal('show'); // we show it
+    } else if ($('#' + typeItem + '-information-item-'+idItem).length == 0 && typeItem == 'tvShow'){
+      createHTMLTvShowItemInformationModal(itemObject[0], typeItem + '-information',idItem); // if not we create it in the right section
       $('#' + typeItem + '-information-item-'+idItem).modal('show'); // we show it
     } else {
       $('#' + typeItem + '-information-item-'+idItem).modal('show'); // if already existe we show it
@@ -331,11 +385,11 @@ function createHTMLTvShowItem(data, parent, idPrefix) {
     'data-seasons': data['Seasons'],
     'data-episodes': data['Episodes'],
     'data-duration': data['Duration'],
-    'data-genre': data['Genre'].join(', ').toLowerCase(),
+    'data-genre': data['Genre'].join(' ').toLowerCase(),
     'data-creators': data['Creators'].join(', ').toLowerCase(),
     'data-actors': data['Actors'].join(', ').toLowerCase(),
   });
-  $('<img src="' + data['Poster'] + '" class="poster card-img-top img-fluid" title="' + data['Title'] + '(' + data['Beginning'] + '-' + data['Ending'] + ')" >').appendTo($('#' + HTMLId));
+  $('<img src="img/tvshows/' + getFilenameForSpecificSize(data['Poster'],350) + '" class="poster card-img-top img-fluid" title="' + data['Title'] + '(' + data['Beginning'] + '-' + data['Ending'] + ')" >').appendTo($('#' + HTMLId));
   $('<div class="card-body"></div>').appendTo($('#' + HTMLId));
   $('<h5 class="card-title">' + data['Title'] + '</h5>').appendTo($('#' + HTMLId + ' .card-body'));
   $('<h6 class="card-subtitle">' + data['Beginning'] + '-' + data['Ending'] + '</h6>').appendTo($('#' + HTMLId + ' .card-body'));
@@ -344,49 +398,43 @@ function createHTMLTvShowItem(data, parent, idPrefix) {
   $('<div class="btn-group btn-group-sm" role="group" aria-label="More function"></div>').appendTo($('#' + HTMLId + ' .card-footer'));
   $('<button type="button" class="btn btn-secondary btn-information-modal"></button>').appendTo($('#' + HTMLId + ' .btn-group'));
   $( '#' + HTMLId + ' .btn-information-modal' ).attr({
-    'data-toggle': 'modal',
-    'data-target': '#information-' + HTMLId,
+    'data-id': data['ID'],
+    'data-type': 'tvShow',
   });
   $( '#' + HTMLId + ' .btn-information-modal' ).html('<i class="fa fa-info"></i>');
   $('<button type="button" class="btn btn-secondary btn-trailer-modal"></button>').appendTo($('#' + HTMLId + ' .btn-group'));
   $( '#' + HTMLId + ' .btn-trailer-modal' ).attr({
     'data-trailer': data['Trailer'],
-    'data-toggle': 'modal',
-    'data-target': '#trailer-' + HTMLId,
+    'data-type': 'tvShow',
+    'data-id': data['ID'],
   })
   $( '#' + HTMLId + ' .btn-trailer-modal' ).html('<i class="fa fa-youtube-play"></i>');
-  createHTMLItemTrailerModal(data, HTMLId,'trailer-');
-  createHTMLTvShowItemInformationModal(data,HTMLId,'information-');
 }
 
-function createHTMLTvShowItemInformationModal(data,informationParent,informationIdPrefix) {
-  let HMTLModalContent = '<div class="modal fade infomation-modal" id="' + informationIdPrefix + informationParent + '" tabindex="-1" role="dialog" aria-labelledby="Information about ' + data['Title'] + '" aria-hidden="true"></div>';
+function createHTMLTvShowItemInformationModal(data,informationParent,idData) {
+  let currentHTMLID = informationParent + '-item-' + idData;
+  let HMTLModalContent = '<div class="modal fade infomation-modal" id="' + currentHTMLID + '" tabindex="-1" role="dialog" aria-labelledby="Information about ' + data['Title'] + '" aria-hidden="true"></div>';
   $( HMTLModalContent ).appendTo( $( '#' + informationParent ) ); // we add our HTML content to the parent
-  $( '<div class="modal-dialog modal-dialog-centered modal-lg" role="document"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent ) );
-  $( '<div class="modal-content"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-dialog' ) );
-  $( '<div class="modal-header"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-content' ) );
-  $( '<h5 class="modal-title">' + data['Title'] + ' (' + data['Beginning'] + '-' + data['Ending'] + ')</h5>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-header' ) );
-  $( '#' + informationIdPrefix + informationParent + ' .modal-title' ).after('<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
-  $( '<div class="modal-body"></div>').appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-content' ) );
-  $( '<div class="container-fluid"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-body' ) );
-  //$( '#' + informationIdPrefix + informationParent + ' .modal-body .container-fluid' ).html('<h6>Main information</h6>')
-  //$( '#' + informationIdPrefix + informationParent + ' .modal-body .container-fluid h6' ).after('<div class="row main-information"></div>')
-  $( '#' + informationIdPrefix + informationParent + ' .modal-body .container-fluid' ).html('<div class="row main-information"></div>')
-  $( '<div class="col-12 col-sm-4 poster-modal"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .row' ) );
-  $( '#' + informationIdPrefix + informationParent + ' .poster-modal' ).html('<img src="' + data['Poster'] + '" class="img-fluid">');
-  $( '#' + informationIdPrefix + informationParent + ' .poster-modal' ).after('<div class="col-12 col-sm-8 main-data-modal"></div>');
-  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal' ).html('<p>' + data['Summary'] + '</p>')
-  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > p' ).after('<table class="table table-hover table-sm"></table>');
-  $('<tr><td>Release date</td><td>' + data['Beginning'] + '</td></tr>').appendTo( $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table' ) );
-  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Seasons</td><td>' + data['Seasons'] + ' seasons.</td></tr>');
-  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Episodes</td><td>' + data['Episodes'] + ' episodes.</td></tr>');
-  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Duration</td><td>' + data['Duration'] + ' min.</td></tr>');
-  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Genre</td><td>' + data['Genre'].join(', ') + '</td></tr>');
-  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Director</td><td>' + data['Creators'].join(', ') + '</td></tr>');
-  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Actor</td><td>' + data['Actors'].join(', ') + '</td></tr>');
-  //$( '#' + informationIdPrefix + informationParent + ' .main-information' ).after('<h6>Trailer</h6>');
-  //$( '#' + informationIdPrefix + informationParent + ' h6:last-of-type' ).after('<div class="embed-responsive embed-responsive-16by9"></div>');
-  //$( '#' + informationIdPrefix + informationParent + ' .embed-responsive' ).html('<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' + getYoutubeID(data['Trailer']) + '" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+  $( '<div class="modal-dialog modal-dialog-centered modal-lg" role="document"></div>' ).appendTo( $( '#' + currentHTMLID ) );
+  $( '<div class="modal-content"></div>' ).appendTo( $( '#' + currentHTMLID + ' .modal-dialog' ) );
+  $( '<div class="modal-header"></div>' ).appendTo( $( '#' + currentHTMLID + ' .modal-content' ) );
+  $( '<h5 class="modal-title">' + data['Title'] + ' (' + data['Beginning'] + '-' + data['Ending'] + ')</h5>' ).appendTo( $( '#' + currentHTMLID + ' .modal-header' ) );
+  $( '#' + currentHTMLID + ' .modal-title' ).after('<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
+  $( '<div class="modal-body"></div>').appendTo( $( '#' + currentHTMLID + ' .modal-content' ) );
+  $( '<div class="container-fluid"></div>' ).appendTo( $( '#' + currentHTMLID + ' .modal-body' ) );
+  $( '#' + currentHTMLID + ' .modal-body .container-fluid' ).html('<div class="row main-information"></div>')
+  $( '<div class="col-12 col-sm-4 poster-modal"></div>' ).appendTo( $( '#' + currentHTMLID + ' .row' ) );
+  $( '#' + currentHTMLID + ' .poster-modal' ).html('<img src="' + data['Poster'] + '" class="img-fluid">');
+  $( '#' + currentHTMLID + ' .poster-modal' ).after('<div class="col-12 col-sm-8 main-data-modal"></div>');
+  $( '#' + currentHTMLID + ' .main-data-modal' ).html('<p>' + data['Summary'] + '</p>')
+  $( '#' + currentHTMLID + ' .main-data-modal > p' ).after('<table class="table table-hover table-sm"></table>');
+  $('<tr><td>Release date</td><td>' + data['Beginning'] + '</td></tr>').appendTo( $( '#' + currentHTMLID + ' .main-data-modal > table' ) );
+  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Seasons</td><td>' + data['Seasons'] + ' seasons.</td></tr>');
+  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Episodes</td><td>' + data['Episodes'] + ' episodes.</td></tr>');
+  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Duration</td><td>' + data['Duration'] + ' min.</td></tr>');
+  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Genre</td><td>' + data['Genre'].join(', ') + '</td></tr>');
+  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Director</td><td>' + data['Creators'].join(', ') + '</td></tr>');
+  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Actor</td><td>' + data['Actors'].join(', ') + '</td></tr>');
 }
 
 /**
