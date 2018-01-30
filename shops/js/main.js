@@ -279,7 +279,7 @@ function createHTMLMovieItem(data,parent,idPrefix) { // we create the item for o
 
 function createHTMLMovieShopItem(data,parent,idPrefix) {
   let HTMLId = idPrefix + '-' + data['ID']; // we construct the HTML id of this movie
-  let HTMLContent = '<div class="col-12 col-sm-6 col-md-3 col-lg-3 card movie-item" id="' + HTMLId + '"></div>'; // we open the div, insert class and ID
+  let HTMLContent = '<div class="col-12 col-sm-6 col-md-6 col-lg-3 card movie-item" id="' + HTMLId + '"></div>'; // we open the div, insert class and ID
   $( HTMLContent ).appendTo( $( parent ) ); // we add our HTML content to the parent
   $( '#' + HTMLId ).attr({ // we insert some data-attribute
     'data-id': data['ID']
