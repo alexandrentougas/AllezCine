@@ -517,6 +517,12 @@ function getYoutubeID(url){
   }
 }
 
+function returnArrayWithUniqueValue(arrayItem) {
+  // ES6+ function
+  return Array.from(new Set(arrayItem));
+}
+
+
 // We mask these elements until all the data are loaded
 $('#featured-movies .load-more').hide();
 $('#featured-movies aside').hide();
