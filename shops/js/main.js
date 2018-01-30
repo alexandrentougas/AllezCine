@@ -2,6 +2,7 @@
 let moviesFeed = 'https://laurenthu.github.io/AllezCine/shops/database/movies.json';
 let tvShowsFeed = 'https://laurenthu.github.io/AllezCine/shops/database/tvshows.json';
 let numberElement = 6;
+let numberElementShop = 8;
 
 let dataRequestMovie = new XMLHttpRequest();
 let dataRequestTvShow = new XMLHttpRequest();
@@ -16,9 +17,14 @@ let whenDataLoadedMovies = function() { // callback function
 
   displayTopMovie(movieObject,'#top-movie .movie-list > .row','top-movie',numberElement); // we write the Top Movies
   displayXFeaturedMovies(movieObject,'#featured-movies .movie-list > .row','featured-movie',0,numberElement); // we display the first Feature movies
-  displayXItemsMovieInShop(movieObject,'#shop-movies .movie-list > .row:first-of-type','shop-movie',0,8);
 
-  createHTMLItemInformationInMovieShop( xLastElementsAccordingSpecificKey(movieObject, 'Year', 1), '#shop-movies .preview-trailer' );
+  // display first element in shop
+  displayXItemsMovieInShop(movieObject,'#shop-movies .movie-list > .row:first-of-type','shop-movie',0,numberElementShop);
+  $('#shop-movies aside .btn').attr('data-start',0);
+  checkNavigationButtonInShop(movieObject.length,numberElementShop);
+
+  defaultElement = xLastElementsAccordingSpecificKey(movieObject, 'Year', 1);
+  createHTMLItemInformationInMovieShop( defaultElement[0] , '#shop-movies .preview-information' );
 
   // data are loaded, so we could show "options"
   $('#featured-movies .load-more').show();
@@ -50,6 +56,36 @@ let whenDataLoadedMovies = function() { // callback function
     }
 
   });
+
+  // change movie in information section in movie shop section
+  // mouseover for desktop, click for touch screens
+  addEventListenerForInformationInShop('#shop-movies .movie-item');
+
+  // load next movies in shops
+  $('#shop-movies aside .shop-next-movies').on('click', function(e) {
+    let start = Number( $('#shop-movies aside .btn').attr('data-start') );
+    if (start + numberElementShop < movieObject.length) {
+      $('#shop-movies .movie-list > .row:first-of-type').html('');
+      displayXItemsMovieInShop(movieObject,'#shop-movies .movie-list > .row:first-of-type','shop-movie',(start + numberElementShop),numberElementShop);
+      $('#shop-movies aside .btn').attr( 'data-start' , (start + numberElementShop) );
+      checkNavigationButtonInShop(movieObject.length,numberElementShop);
+      addEventListenerForInformationInShop('#shop-movies .movie-item');
+    }
+
+  });
+  // load next movies in shops
+  $('#shop-movies aside .shop-previous-movies').on('click', function(e) {
+    let start = Number( $('#shop-movies aside .btn').attr('data-start') );
+    if (start - numberElementShop >= 0) {
+      $('#shop-movies .movie-list > .row:first-of-type').html('');
+      displayXItemsMovieInShop(movieObject,'#shop-movies .movie-list > .row:first-of-type','shop-movie',(start - numberElementShop),numberElementShop);
+      $('#shop-movies aside .btn').attr( 'data-start' , (start - numberElementShop) );
+      checkNavigationButtonInShop(movieObject.length,numberElementShop);
+      addEventListenerForInformationInShop('#shop-movies .movie-item');
+    }
+
+  });
+
 }
 
 let whenDataLoadedTvShows = function() {
@@ -258,9 +294,38 @@ function createHTMLMovieShopItem(data,parent,idPrefix) {
 }
 
 function createHTMLItemInformationInMovieShop(dataItem,parent) {
+  $('#saved-value-preview-information').val(dataItem['ID']);
   $('<div class="row trailer-row"></div>').appendTo( $(parent) );
-  $('<div class="col-12"></div>').appendTo( $(parent + ' .trailer-row') );
-  $('.trailer-row col-12').html('link to video');
+  $('<div class="col-12 embed-responsive embed-responsive-16by9"></div>').appendTo( $(parent + ' .trailer-row') );
+  $('.trailer-row .col-12').html('<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' + getYoutubeID(dataItem['Trailer']) + '" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+  $('<div class="row title-row"></div>').appendTo( $(parent) );
+  $('<div class="col-12"></div>').appendTo( $(parent + ' .title-row') );
+  $('.title-row .col-12').html('<h4>' + dataItem['Title'] + '</h4>');
+  $('<div class="row summary-row"></div>').appendTo( $(parent) );
+  $('<div class="col-12 col-md-4">Summary</div><div class="col-12 col-md-8"><p>' + dataItem['Summary'] + '</p></div>').appendTo( $(parent + ' .summary-row') );
+  $('<div class="row release-date-row"></div>').appendTo( $(parent) );
+  $('<div class="col-12 col-md-4">Released date</div><div class="col-12 col-md-8"><p>' + dataItem['Released'] + '</p></div>').appendTo( $(parent + ' .release-date-row') );
+  $('<div class="row genre-row"></div>').appendTo( $(parent) );
+  $('<div class="col-12 col-md-4">Genre(s)</div><div class="col-12 col-md-8"><p>' + dataItem['Genre'].join(', ') + '</p></div>').appendTo( $(parent + ' .genre-row') );
+  $('<div class="row price-row"></div>').appendTo( $(parent) );
+  $('<div class="col-12 col-md-4">Price</div><div class="col-12 col-md-8"><p>' + dataItem['Price'] + '</p></div>').appendTo( $(parent + ' .price-row') );
+}
+
+function addEventListenerForInformationInShop(selector){
+
+  $(selector).on('click', function(e) {
+
+    let idItem = $(this).attr('data-id');
+    let idCurrentDisplayItem = Number($('#saved-value-preview-information').val());
+    objectItem = movieObject.filter(function( obj ) { // we select the right object in all our data
+      return (obj.ID == idItem) ? obj : false; // we return the object
+    });
+    if (idCurrentDisplayItem != idItem) {
+      $('#shop-movies .preview-information').html('');
+      createHTMLItemInformationInMovieShop( objectItem[0] , '#shop-movies .preview-information' );
+    }
+
+  });
 
 }
 
@@ -419,6 +484,22 @@ function createHTMLTvShowItemInformationModal(data,informationParent,idData) {
   $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Genre</td><td>' + data['Genre'].join(', ') + '</td></tr>');
   $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Director</td><td>' + data['Creators'].join(', ') + '</td></tr>');
   $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Actor</td><td>' + data['Actors'].join(', ') + '</td></tr>');
+}
+
+function checkNavigationButtonInShop(dataLength,numberElement) {
+
+  if ( Number($('#shop-movies .shop-previous-movies').attr('data-start')) == 0 ) {
+    $('#shop-movies .shop-previous-movies').prop('disabled', true);
+  } else {
+    $('#shop-movies .shop-previous-movies').prop('disabled', false);
+  }
+
+  if ( Number($('#shop-movies .shop-next-movies').attr('data-start')) + numberElement >= dataLength ) {
+    $('#shop-movies .shop-next-movies').prop('disabled', true);
+  } else {
+    $('#shop-movies .shop-next-movies').prop('disabled', false);
+  }
+
 }
 
 /**
