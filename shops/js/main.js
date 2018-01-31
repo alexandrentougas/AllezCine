@@ -522,6 +522,10 @@ function returnArrayWithUniqueValue(arrayItem) {
   return Array.from(new Set(arrayItem));
 }
 
+function nl2br (str) {
+  return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + '<br>' + '$2');
+}
+
 
 // We mask these elements until all the data are loaded
 $('#featured-movies .less-more-movies').hide();
@@ -621,7 +625,7 @@ $('#contact-us button[type=submit]').on('click',function(e){
   $('<div class="modal-body"></div>').appendTo('#form-response .modal-content');
   $('<table class="table"></table>').appendTo('#form-response .modal-body');
   $('#contact-us .form-control').each(function(index) {
-      $( '<tr><td>' + $(this).attr('placeholder') + '</td><td>' + $(this).val() + '</td></tr>' ).appendTo('#form-response .modal-body table');
+      $( '<tr><td>' + $(this).attr('placeholder') + '</td><td>' + nl2br($(this).val()) + '</td></tr>' ).appendTo('#form-response .modal-body table');
   });
   $('<div class="modal-footer"></div>').appendTo('#form-response .modal-content');
   $('<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>').appendTo('#form-response .modal-footer');
