@@ -490,6 +490,11 @@ $('#newAccount').click(function() {
   $('#registerModal').modal('show');
 });
 
+$('#cookies').click(function (e) {
+  $(this).parent().removeClass('d-flex');
+  $(this).parent().hide();
+});
+
 // Activation of "smooth scroll"
 // Select all links with hashes
 // Remove links that don't actually link to anything thanks to .not()
