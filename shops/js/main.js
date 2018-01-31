@@ -35,11 +35,11 @@ let whenDataLoadedMovies = function() { // callback function
   addEventListenerForInformation( '.movie-list .btn-information-modal' );
 
   // on click, we display the X next movies
-  $('#featured-movies .load-more').on('click', function(e) {
+  $('#featured-movies .more-movies').on('click', function(e) {
     startElement = $('#featured-movies .movie-list > .row .movie-item').length; // we check the number of alreay displayed movies
     displayXFeaturedMovies(movieObject,'#featured-movies .movie-list > .row','featured-movie',startElement,numberElement); // we display the X next movies
     if( $('#featured-movies .movie-list > .row .movie-item').length >= movieObject.length ) { // if we have display all movies, we hide the button "load more"
-      $('#featured-movies .load-more .more-movies').prop('disabled', true);
+      $('#featured-movies .more-movies').prop('disabled', true);
     }
     addEventListenerForTrailer( '.movie-list .btn-trailer-modal' ); // we had the new movies to the event listener
     addEventListenerForInformation( '.movie-list .btn-information-modal' ); // we had the new movies to the event listener
