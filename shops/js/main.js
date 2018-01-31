@@ -100,6 +100,7 @@ let whenDataLoadedMovies = function() { // callback function
 
   // load movie poster in the Footer
   displayXItemsPosterInFooter(movieObject,'#poster-list',numberElement);
+  displayXItemsSliderInFooter(movieObject,'#iframe-list',4);
 
 }
 
@@ -200,13 +201,24 @@ function displayXItemsMovieInShop(data,parent,idPrefix,start = 0, numberElement 
 
 function displayXItemsPosterInFooter(data,parent,numberElement = 6) {
   randomData = sortObjectRamdonly(data); // we sort by released year ascending
-  for(let i = 0; i < numberElement && i < data.length; i++) { // we select X elements from position 'start'
+  for(let i = 0; i < numberElement && i < data.length; i++) { // we select X elements
     createHTMLItemPosterFooter(randomData[i],parent);
   }
 }
 
 function createHTMLItemPosterFooter(data,parent) {
   $( '<div class="col-6 col-md-4"><img class="img-fluid" src="img/movies/' + getFilenameForSpecificSize(data['Poster'],350) + '" alt="' + data['Title'] + '"></div>' ).appendTo( $( parent ) );
+}
+
+function displayXItemsSliderInFooter(data,parent,numberElement = 6) {
+  dataWithSlider = dataWithoutFalseValueOnSpecificKey(data,'Slider');
+  for(let i = 0; i < numberElement && i < data.length; i++) { // we select X elements
+    createHTMLItemsSliderFooter(dataWithSlider[i],parent);
+  }
+}
+
+function createHTMLItemsSliderFooter(data,parent) {
+  $( '<div class="row"><div class="col-6 col-md-6"><img class="img-fluid" src="img/movies/' + getFilenameForSpecificSize(data['Slider'],1280) + '" alt="' + data['Title'] + '"></div><div class="col-6 col-md-6"><h5>' + data['Title'] + '</h5></div></div>' ).appendTo( $( parent ) );
 }
 
 function sortObjectbySpecificKey(data, key, order = 'ASC') {
@@ -579,7 +591,6 @@ function returnArrayWithUniqueValue(arrayItem) {
 function nl2br (str) {
   return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + '<br>' + '$2');
 }
-
 
 // We mask these elements until all the data are loaded
 $('#featured-movies .less-more-movies').hide();
