@@ -116,8 +116,9 @@ let whenDataLoadedTvShows = function() {
     startElement = $('#featured-tvshows .tvshow-list > .row .tvshow-item').length; // we check the number of alreay displayed movies
     displayXFeaturedTvShows(tvShowObject,'#featured-tvshows .tvshow-list > .row','featured-tvshow',startElement,numberElement); // we display the X next movies
     if( $('#featured-tvshows .tvshow-list > .row .tvshow-item').length >= tvShowObject.length ) { // if we have display all movies, we hide the button "load more"
-      $('#featured-tvshows .more-series').hide();
+      $('#featured-tvshows .more-series').prop('disabled', true);
     }
+    $('#featured-tvshows .less-series').prop('disabled', false);
     addEventListenerForTrailer( '.tvshow-list .btn-trailer-modal' ); // we had the new movies to the event listener
     addEventListenerForInformation( '.tvshow-list .btn-information-modal' ); // we had the new movies to the event listener
   });
