@@ -1,0 +1,10 @@
+@mixin transition($properties:$default-transition-properties,$duration:$default-transition-duration,$effect:$default-transition-effect) {
+  transition: $properties $duration $effect;
+}
+
+@mixin background-image($position:$default-bg-position,$size:$default-bg-size,$attachment:$default-bg-attachment,$repeat:$default-bg-repeat) {
+  background-position: $position;
+  background-size: $size;
+  background-attachment: $attachment;
+  background-repeat: $repeat;
+}
