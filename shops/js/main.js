@@ -561,6 +561,10 @@ function returnArrayWithUniqueValue(arrayItem) {
   return Array.from(new Set(arrayItem));
 }
 
+function nl2br (str) {
+  return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + '<br>' + '$2');
+}
+
 
 // We mask these elements until all the data are loaded
 $('#featured-movies .less-more-movies').hide();
@@ -582,13 +586,13 @@ let isItOlderThan18 = function(year, month, day) { // checks if user is older th
   return new Date(year + 18, month - 1, day) <= new Date();
 };
 
-/*$('#ageVerif').click(function() { //
+$('#ageVerif').click(function() { //
   if (isItOlderThan18(Number($('#birthInput').val().split('-')[0]), Number($('#birthInput').val().split('-')[1]), Number($('#birthInput').val().split('-')[2])) === true) {
     $('#ageWarning').modal('hide');
   } else {
-    location.href='http://www.imdb.com/?ref_=nv_home';
+    location.href='http://www.imdb.com/';
   };
-});*/
+});
 
 $('#loginModal').on('shown.bs.modal', function() {
   $('#username').trigger('focus')
@@ -638,3 +642,35 @@ $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').on('click',function(event
     }
   }
 });
+
+// Add detection on scroll action
+$(window).scroll(function() {
+  if ($(document).scrollTop() > 75) {
+    $('#main-nav').addClass('shrink');
+    $('#go-to-top').show();
+  } else {
+    $('#main-nav').removeClass('shrink');
+    $('#go-to-top').hide();
+  }
+});
+
+// Action on Contact us form
+$('#contact-us button[type=submit]').on('click',function(e){
+
+  $('<div class="modal fade" id="form-response" tabindex="-1" role="dialog"></div>').appendTo('#fixed-element');
+  $('<div class="modal-dialog" role="document"><div class="modal-content"></div></div>').appendTo('#form-response');
+  $('<div class="modal-header"></div>').appendTo('#form-response .modal-content');
+  $('<h5 class="modal-title">Your message</h5>').appendTo('#form-response .modal-header');
+  $('<div class="modal-body"></div>').appendTo('#form-response .modal-content');
+  $('<table class="table"></table>').appendTo('#form-response .modal-body');
+  $('#contact-us .form-control').each(function(index) {
+      $( '<tr><td>' + $(this).attr('placeholder') + '</td><td>' + nl2br($(this).val()) + '</td></tr>' ).appendTo('#form-response .modal-body table');
+  });
+  $('<div class="modal-footer"></div>').appendTo('#form-response .modal-content');
+  $('<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>').appendTo('#form-response .modal-footer');
+
+  $('#form-response').modal('show').on('hidden.bs.modal', function (e) {
+    $('#form-response').remove();
+  })
+
+})
