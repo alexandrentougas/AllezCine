@@ -66,6 +66,8 @@ let whenDataLoadedMovies = function() { // callback function
       $('#featured-movies .movie-item').hide();
       $('#featured-movies .movie-item[data-genre*="' + $(this).attr('data-genre') + '"]').show();
     }
+    $( $('#featured-movies aside button') ).removeClass('btn-primary').addClass('btn-secondary');
+    $(this).removeClass('btn-secondary').addClass('btn-primary');
 
   });
 
@@ -146,6 +148,8 @@ let whenDataLoadedTvShows = function() {
       $('#featured-tvshows .tvshow-item').hide();
       $('#featured-tvshows .tvshow-item[data-genre*="' + $(this).attr('data-genre') + '"]').show();
     }
+    $( $('#featured-tvshows aside button') ).removeClass('btn-primary').addClass('btn-secondary');
+    $(this).removeClass('btn-secondary').addClass('btn-primary');
 
   });
 
