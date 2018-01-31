@@ -41,8 +41,20 @@ let whenDataLoadedMovies = function() { // callback function
     if( $('#featured-movies .movie-list > .row .movie-item').length >= movieObject.length ) { // if we have display all movies, we hide the button "load more"
       $('#featured-movies .more-movies').prop('disabled', true);
     }
+    $('#featured-movies .less-movies').prop('disabled', false);
     addEventListenerForTrailer( '.movie-list .btn-trailer-modal' ); // we had the new movies to the event listener
     addEventListenerForInformation( '.movie-list .btn-information-modal' ); // we had the new movies to the event listener
+  });
+
+  // on click, we display X less movies
+  $('#featured-movies .less-movies').prop('disabled', true); // disable less button by default
+  $('#featured-movies .less-movies').on('click', function(e) {
+    itemsDisplayed = $('#featured-movies .movie-list > .row .movie-item'); // we check the number of alreay displayed movies
+    displayXLessMovies(itemsDisplayed,'#featured-movies .movie-list > .row','.movie-item','featured-movie',startElement,numberElement); // we display the X next movies
+    if( $('#featured-movies .movie-list > .row .movie-item').length <= numberElement ) { // if we have display all movies, we hide the button "load more"
+      $('#featured-movies .less-movies').prop('disabled', true);
+    };
+    $('#featured-movies .more-movies').prop('disabled', false);
   });
 
   // filter to select movies by genre
@@ -100,14 +112,25 @@ let whenDataLoadedTvShows = function() {
   addEventListenerForTrailer( '.tvshow-list .btn-trailer-modal' );
   addEventListenerForInformation( '.tvshow-list .btn-information-modal' );
 
-  $('#featured-tvshows .more-movies').on('click', function(e) {
+  $('#featured-tvshows .more-series').on('click', function(e) {
     startElement = $('#featured-tvshows .tvshow-list > .row .tvshow-item').length; // we check the number of alreay displayed movies
     displayXFeaturedTvShows(tvShowObject,'#featured-tvshows .tvshow-list > .row','featured-tvshow',startElement,numberElement); // we display the X next movies
     if( $('#featured-tvshows .tvshow-list > .row .tvshow-item').length >= tvShowObject.length ) { // if we have display all movies, we hide the button "load more"
-      $('#featured-tvshows .more-movies').hide();
+      $('#featured-tvshows .more-series').hide();
     }
     addEventListenerForTrailer( '.tvshow-list .btn-trailer-modal' ); // we had the new movies to the event listener
     addEventListenerForInformation( '.tvshow-list .btn-information-modal' ); // we had the new movies to the event listener
+  });
+
+  // on click, we display X less series
+  $('#featured-tvshows .less-series').prop('disabled', true); // disable less button by default
+  $('#featured-tvshows .less-series').on('click', function(e) {
+    itemsDisplayed = $('#featured-tvshows .tvshow-list > .row .tvshow-item'); // we check the number of alreay displayed movies
+    displayXLessTvShows(itemsDisplayed,'#featured-tvshows .tvshow-list > .row','.tvshow-item','featured-tvshows',startElement,numberElement); // we display the X next movies
+    if( $('#featured-tvshows .tvshow-list > .row .tvshow-item').length <= numberElement ) { // if we have display all movies, we hide the button "load more"
+      $('#featured-tvshows .less-series').prop('disabled', true);
+    };
+    $('#featured-tvshows .more-series').prop('disabled', false);
   });
 
   $('#featured-tvshows aside button').on('click', function(e) {
@@ -141,12 +164,28 @@ function displayXFeaturedMovies(data,parent,idPrefix,start = 0,numberElement = 6
   }
 }
 
+function displayXLessMovies(data,parent,selector,idPrefix,start = 0,numberElement = 6) { // function to display X new movies in Featured sections
+  if (data.length % 6 != 0) {
+    $(parent + ' .movie-item:nth-last-child(-n+' + data.length % 6 + ')').remove()
+  } else {
+    $(parent + ' .movie-item:nth-last-child(-n+' + numberElement + ')').remove();
+  };
+};
+
 function displayXFeaturedTvShows(data,parent,idPrefix,start = 0,numberElement = 6) { // function to display X new movies in Featured sections
   sortObjectbySpecificKey(data,'Title'); // we sort by 'Title'
   for(let i = start; i < (start + numberElement) && i < data.length; i++) { // we select X elements from position 'start'
     createHTMLTvShowItem(data[i],parent,idPrefix); // we generate the HTML
   }
 }
+
+function displayXLessTvShows(data,parent,selector,idPrefix,start = 0,numberElement = 6) { // function to display X new movies in Featured sections
+  if (data.length % 6 != 0) {
+    $(parent + ' .tvshow-item:nth-last-child(-n+' + data.length % 6 + ')').remove()
+  } else {
+    $(parent + ' .tvshow-item:nth-last-child(-n+' + numberElement + ')').remove();
+  };
+};
 
 function displayXItemsMovieInShop(data,parent,idPrefix,start = 0, numberElement = 8) {
   sortObjectbySpecificKey(data,'Year','DESC'); // we sort by released year descending
