@@ -675,7 +675,7 @@ $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').on('click',function(event
 
 // Add detection on scroll action
 $(window).scroll(function() {
-  if ($(document).scrollTop() > 75) {
+  if ($(document).scrollTop() > 200) {
     $('#main-nav').addClass('shrink');
     $('#go-to-top').show();
   } else {
