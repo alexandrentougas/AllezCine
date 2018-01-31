@@ -98,6 +98,9 @@ let whenDataLoadedMovies = function() { // callback function
 
   });
 
+  // load movie poster in the Footer
+  displayXItemsPosterInFooter(movieObject,'#poster-list',numberElement);
+
 }
 
 let whenDataLoadedTvShows = function() {
@@ -193,6 +196,17 @@ function displayXItemsMovieInShop(data,parent,idPrefix,start = 0, numberElement 
   for(let i = start; i < (start + numberElement) && i < data.length; i++) { // we select X elements from position 'start'
     createHTMLMovieShopItem(data[i],parent,idPrefix); // we generate the HTML
   }
+}
+
+function displayXItemsPosterInFooter(data,parent,numberElement = 6) {
+  randomData = sortObjectRamdonly(data); // we sort by released year ascending
+  for(let i = 0; i < numberElement && i < data.length; i++) { // we select X elements from position 'start'
+    createHTMLItemPosterFooter(randomData[i],parent);
+  }
+}
+
+function createHTMLItemPosterFooter(data,parent) {
+  $( '<div class="col-6 col-md-4"><img class="img-fluid" src="img/movies/' + getFilenameForSpecificSize(data['Poster'],350) + '" alt="' + data['Title'] + '"></div>' ).appendTo( $( parent ) );
 }
 
 function sortObjectbySpecificKey(data, key, order = 'ASC') {
