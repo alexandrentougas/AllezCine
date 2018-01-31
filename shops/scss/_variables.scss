@@ -15,3 +15,8 @@ $linkedin-main-color:rgba(0,119,181,1); // #0077B5
 // Fonts
 $main-font: 'Roboto', sans-serif;
 $title-font: 'Lato', sans-serif;
+
+// Transition
+$default-transition-properties: all;
+$default-transition-duration: .2s;
+$default-transition-effect: ease-in-out;
