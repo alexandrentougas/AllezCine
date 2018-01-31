@@ -1,0 +1,43 @@
+.btn {
+  border-radius: 0;
+}
+.btn-primary {
+  background-color:$custom-primary;
+  border-color: $custom-primary;
+  @include transition();
+  &:hover{
+    background-color: $dark-color;
+    border-color: $dark-color;
+    color:$light-color;
+  }
+  &:active {
+    background-color:darken($custom-primary,25%)!important;
+    border-color: darken($custom-primary,25%)!important;
+  }
+  &:disabled{
+    background-color: rgba(lighten($custom-primary,5%),.85);
+    border-color: rgba(lighten($custom-primary,5%),.85);
+    color:rgba($light-color,.8);
+  }
+  &:focus {
+    box-shadow: 0 0 2px .15rem rgba($custom-primary,.5);
+  }
+  &:active:focus {
+    box-shadow: 0 0 2px .15rem rgba(darken($custom-primary,25%),.5)!important;
+  }
+}
+.btn-secondary{
+  background-color:darken($light-color,10%);
+  border-color: darken($light-color,10%);
+  color:lighten($dark-color,25%);
+  @include transition();
+  &:hover{
+    background-color: darken($light-color,25%);
+    border-color: darken($light-color,25%);
+    color:lighten($dark-color,10%);
+  }
+}
+.btn-filter {
+  margin: 2px 1px;
+  font-size:.9em;
+}
