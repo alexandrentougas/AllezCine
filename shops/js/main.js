@@ -610,3 +610,26 @@ $(window).scroll(function() {
     $('#go-to-top').hide();
   }
 });
+
+// Action on Contact us form
+$('#contact-us button[type=submit]').on('click',function(e){
+
+  $('<div class="modal fade" id="form-response" tabindex="-1" role="dialog"></div>').appendTo('#fixed-element');
+  $('<div class="modal-dialog" role="document"><div class="modal-content"></div></div>').appendTo('#form-response');
+  $('<div class="modal-header"></div>').appendTo('#form-response .modal-content');
+  $('<h5 class="modal-title">Your message</h5>').appendTo('#form-response .modal-header');
+  $('<div class="modal-body"></div>').appendTo('#form-response .modal-content');
+  $('<table class="table"></table>').appendTo('#form-response .modal-body');
+  $('#contact-us .form-control').each(function(index) {
+      //console.log($(this).attr('placeholder'),$(this).val(), typeof $(this).val());
+      //console.log( $(this).attr('placeholder') );
+      $( '<tr><td>' + $(this).attr('placeholder') + '</td><td>' + $(this).val() + '</td></tr>' ).appendTo('#form-response .modal-body table');
+  });
+  $('<div class="modal-footer"></div>').appendTo('#form-response .modal-content');
+  $('<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>').appendTo('#form-response .modal-footer');
+  $('#form-response').modal('show');
+  $('#form-response').on('hidden.bs.modal', function (e) {
+    $('#form-response').remove();
+  })
+
+})
