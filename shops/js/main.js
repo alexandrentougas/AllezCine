@@ -2,6 +2,7 @@
 let moviesFeed = 'https://laurenthu.github.io/AllezCine/shops/database/movies.json';
 let tvShowsFeed = 'https://laurenthu.github.io/AllezCine/shops/database/tvshows.json';
 let numberElement = 6;
+let numberElementShop = 8;
 
 let dataRequestMovie = new XMLHttpRequest();
 let dataRequestTvShow = new XMLHttpRequest();
@@ -9,12 +10,21 @@ let dataRequestTvShow = new XMLHttpRequest();
 let movieObject; // to be sure that object has a global scope
 let tvShowObject;
 
+// When date about movies are loaded
 let whenDataLoadedMovies = function() { // callback function
   let dataText = dataRequestMovie.responseText; // we store the text of the response
   movieObject = JSON.parse(dataText); // we convert the text into an object
 
   displayTopMovie(movieObject,'#top-movie .movie-list > .row','top-movie',numberElement); // we write the Top Movies
   displayXFeaturedMovies(movieObject,'#featured-movies .movie-list > .row','featured-movie',0,numberElement); // we display the first Feature movies
+
+  // display first element in shop
+  displayXItemsMovieInShop(movieObject,'#shop-movies .movie-list > .row:first-of-type','shop-movie',0,numberElementShop);
+  $('#shop-movies aside .btn').attr('data-start',0);
+  checkNavigationButtonInShop(movieObject.length,numberElementShop);
+
+  defaultElement = xLastElementsAccordingSpecificKey(movieObject, 'Year', 1);
+  createHTMLItemInformationInMovieShop( defaultElement[0] , '#shop-movies .preview-information' );
 
   // data are loaded, so we could show "options"
   $('#featured-movies .load-more').show();
@@ -46,6 +56,36 @@ let whenDataLoadedMovies = function() { // callback function
     }
 
   });
+
+  // change movie in information section in movie shop section
+  // mouseover for desktop, click for touch screens
+  addEventListenerForInformationInShop('#shop-movies .movie-item');
+
+  // load next movies in shops
+  $('#shop-movies aside .shop-next-movies').on('click', function(e) {
+    let start = Number( $('#shop-movies aside .btn').attr('data-start') );
+    if (start + numberElementShop < movieObject.length) {
+      $('#shop-movies .movie-list > .row:first-of-type').html('');
+      displayXItemsMovieInShop(movieObject,'#shop-movies .movie-list > .row:first-of-type','shop-movie',(start + numberElementShop),numberElementShop);
+      $('#shop-movies aside .btn').attr( 'data-start' , (start + numberElementShop) );
+      checkNavigationButtonInShop(movieObject.length,numberElementShop);
+      addEventListenerForInformationInShop('#shop-movies .movie-item');
+    }
+
+  });
+  // load next movies in shops
+  $('#shop-movies aside .shop-previous-movies').on('click', function(e) {
+    let start = Number( $('#shop-movies aside .btn').attr('data-start') );
+    if (start - numberElementShop >= 0) {
+      $('#shop-movies .movie-list > .row:first-of-type').html('');
+      displayXItemsMovieInShop(movieObject,'#shop-movies .movie-list > .row:first-of-type','shop-movie',(start - numberElementShop),numberElementShop);
+      $('#shop-movies aside .btn').attr( 'data-start' , (start - numberElementShop) );
+      checkNavigationButtonInShop(movieObject.length,numberElementShop);
+      addEventListenerForInformationInShop('#shop-movies .movie-item');
+    }
+
+  });
+
 }
 
 let whenDataLoadedTvShows = function() {
@@ -92,7 +132,6 @@ function displayTopMovie(data,parent,idPrefix,numberElement) { // we display X e
   for(let i = 0; i < xElements.length; i++) {
     createHTMLMovieItem(xElements[i],parent,idPrefix); // we generate the HTML
   }
-  return true;
 }
 
 function displayXFeaturedMovies(data,parent,idPrefix,start = 0,numberElement = 6) { // function to display X new movies in Featured sections
@@ -100,7 +139,6 @@ function displayXFeaturedMovies(data,parent,idPrefix,start = 0,numberElement = 6
   for(let i = start; i < (start + numberElement) && i < data.length; i++) { // we select X elements from position 'start'
     createHTMLMovieItem(data[i],parent,idPrefix); // we generate the HTML
   }
-  return true;
 }
 
 function displayXFeaturedTvShows(data,parent,idPrefix,start = 0,numberElement = 6) { // function to display X new movies in Featured sections
@@ -108,7 +146,13 @@ function displayXFeaturedTvShows(data,parent,idPrefix,start = 0,numberElement = 
   for(let i = start; i < (start + numberElement) && i < data.length; i++) { // we select X elements from position 'start'
     createHTMLTvShowItem(data[i],parent,idPrefix); // we generate the HTML
   }
-  return true;
+}
+
+function displayXItemsMovieInShop(data,parent,idPrefix,start = 0, numberElement = 8) {
+  sortObjectbySpecificKey(data,'Year','DESC'); // we sort by released year descending
+  for(let i = start; i < (start + numberElement) && i < data.length; i++) { // we select X elements from position 'start'
+    createHTMLMovieShopItem(data[i],parent,idPrefix); // we generate the HTML
+  }
 }
 
 function sortObjectbySpecificKey(data, key, order = 'ASC') {
@@ -216,7 +260,7 @@ function createHTMLMovieItem(data,parent,idPrefix) { // we create the item for o
   $( '<h5 class="card-title">' + data['Title'] + '</h5>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
   $( '<h6 class="card-subtitle">' + data['Year'] + '</h6>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
   $( '<div class="card-text">' + data['Genre'][0] + '</div>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
-  $( '<div class="card-footer"></div>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
+  $( '<div class="card-footer"></div>' ).appendTo( $( '#' + HTMLId ) );
   $( '<div class="btn-group btn-group-sm" role="group" aria-label="More function"></div>' ).appendTo( $( '#' + HTMLId + ' .card-footer') ); // we generate the button group
   $( '<button type="button" class="btn btn-secondary btn-information-modal"></button>').appendTo( $( '#' + HTMLId + ' .btn-group') ); // we generate the 1st button
   $( '#' + HTMLId + ' .btn-information-modal' ).attr({ // we add some data-attribute
@@ -233,22 +277,59 @@ function createHTMLMovieItem(data,parent,idPrefix) { // we create the item for o
   $( '#' + HTMLId + ' .btn-trailer-modal' ).html('<i class="fa fa-youtube-play"></i>');
 }
 
-function createHTMLItemTrailerModal(data,trailerParent,trailerIdPrefix) {
-  let HMTLModalContent = '<div class="modal fade trailer-modal" id="' + trailerIdPrefix + trailerParent + '" tabindex="-1" role="dialog" aria-labelledby="Trailer from ' + data['Title'] + '" aria-hidden="true"></div>';
-  $( HMTLModalContent ).appendTo( $( '#' + trailerParent ) ); // we add our HTML content to the parent
-  $( '<div class="modal-dialog modal-dialog-centered modal-lg" role="document"></div>' ).appendTo( $( '#' + trailerIdPrefix + trailerParent ) );
-  $( '<div class="modal-content"></div>' ).appendTo( $( '#' + trailerIdPrefix + trailerParent + ' .modal-dialog' ) );
-  $( '<div class="modal-body"></div>').appendTo( $( '#' + trailerIdPrefix + trailerParent + ' .modal-content' ) );
-  $( '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>').appendTo( $( '#' + trailerIdPrefix + trailerParent + ' .modal-body' ) );
-  $( '#' + trailerIdPrefix + trailerParent + ' .modal-body button' ).after('<div class="embed-responsive embed-responsive-16by9"></div>');
-  if (getYoutubeID(data['Trailer']).length == 11) {
-    $( '#' + trailerIdPrefix + trailerParent + ' .embed-responsive' ).html('<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' + getYoutubeID(data['Trailer']) + '" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
-  } else {
-    $( '#' + trailerIdPrefix + trailerParent + ' .embed-responsive' ).html('<div class="alert alert-secondary" role="alert"><p>Sorry we can\'t generate the preview video.</p><p>You could view it at the following address:<a href="' + data['Trailer'] + '" target="_blank">' + data['Trailer'] + '</a></p></div>');
-  }
+function createHTMLMovieShopItem(data,parent,idPrefix) {
+  let HTMLId = idPrefix + '-' + data['ID']; // we construct the HTML id of this movie
+  let HTMLContent = '<div class="col-12 col-sm-6 col-md-6 col-lg-3 card movie-item" id="' + HTMLId + '"></div>'; // we open the div, insert class and ID
+  $( HTMLContent ).appendTo( $( parent ) ); // we add our HTML content to the parent
+  $( '#' + HTMLId ).attr({ // we insert some data-attribute
+    'data-id': data['ID']
+  });
+  $( '<img src="img/movies/' + getFilenameForSpecificSize(data['Poster'],350) + '" class="poster card-img-top img-fluid" title="' + data['Title'] + ' (' + data['Year'] + ')" >' ).appendTo( $( '#' + HTMLId) ); // we add the poster
+  $( '<div class="card-body"></div>' ).appendTo( $( '#' + HTMLId) ); // we construct the card
+  $( '<h5 class="card-title">' + data['Title'] + '</h5>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
+  $( '<div class="card-footer"></div>' ).appendTo( $( '#' + HTMLId ) );
+  $( '<div class="row"></div>' ).appendTo( $( '#' + HTMLId + ' .card-footer') );
+  $( '<div class="col-6">' + data['Year'] + '</div>' ).appendTo( $( '#' + HTMLId + ' .card-footer .row') );
+  $( '<div class="col-6">' + data['Price'] + '</div>' ).appendTo( $( '#' + HTMLId + ' .card-footer .row') );
 }
 
-function createHTMLItemTrailerModal_v2(data,trailerParent,idData) {
+function createHTMLItemInformationInMovieShop(dataItem,parent) {
+  $('#saved-value-preview-information').val(dataItem['ID']);
+  $('<div class="row trailer-row"></div>').appendTo( $(parent) );
+  $('<div class="col-12 embed-responsive embed-responsive-16by9"></div>').appendTo( $(parent + ' .trailer-row') );
+  $('.trailer-row .col-12').html('<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' + getYoutubeID(dataItem['Trailer']) + '" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+  $('<div class="row title-row"></div>').appendTo( $(parent) );
+  $('<div class="col-12"></div>').appendTo( $(parent + ' .title-row') );
+  $('.title-row .col-12').html('<h4>' + dataItem['Title'] + '</h4>');
+  $('<div class="row summary-row"></div>').appendTo( $(parent) );
+  $('<div class="col-12 col-md-4">Summary</div><div class="col-12 col-md-8"><p>' + dataItem['Summary'] + '</p></div>').appendTo( $(parent + ' .summary-row') );
+  $('<div class="row release-date-row"></div>').appendTo( $(parent) );
+  $('<div class="col-12 col-md-4">Released date</div><div class="col-12 col-md-8"><p>' + dataItem['Released'] + '</p></div>').appendTo( $(parent + ' .release-date-row') );
+  $('<div class="row genre-row"></div>').appendTo( $(parent) );
+  $('<div class="col-12 col-md-4">Genre(s)</div><div class="col-12 col-md-8"><p>' + dataItem['Genre'].join(', ') + '</p></div>').appendTo( $(parent + ' .genre-row') );
+  $('<div class="row price-row"></div>').appendTo( $(parent) );
+  $('<div class="col-12 col-md-4">Price</div><div class="col-12 col-md-8"><p>' + dataItem['Price'] + ' €</p></div>').appendTo( $(parent + ' .price-row') );
+}
+
+function addEventListenerForInformationInShop(selector){
+
+  $(selector).on('click', function(e) {
+
+    let idItem = $(this).attr('data-id');
+    let idCurrentDisplayItem = Number($('#saved-value-preview-information').val());
+    objectItem = movieObject.filter(function( obj ) { // we select the right object in all our data
+      return (obj.ID == idItem) ? obj : false; // we return the object
+    });
+    if (idCurrentDisplayItem != idItem) {
+      $('#shop-movies .preview-information').html('');
+      createHTMLItemInformationInMovieShop( objectItem[0] , '#shop-movies .preview-information' );
+    }
+
+  });
+
+}
+
+function createHTMLItemTrailerModal(data,trailerParent,idData) {
   let currentHTMLID = trailerParent + '-item-' + idData; // construction of the html id of the modal
   let HMTLModalContent = '<div class="modal fade trailer-modal" id="' + currentHTMLID + '" tabindex="-1" role="dialog" aria-labelledby="Trailer from ' + data['Title'] + '" aria-hidden="true"></div>'; // we create the main div of the modal
   $( HMTLModalContent ).appendTo( $( '#' + trailerParent ) ); // we add our HTML content to the parent
@@ -279,7 +360,7 @@ function addEventListenerForTrailer(selector) { // we had the click on trailer b
       });
     }
     if ( $('#' + typeItem + '-trailer-item-'+idItem).length == 0 ) { // we check if the trailer modal already exists or not
-      createHTMLItemTrailerModal_v2(objectItem[0], typeItem + '-trailer',idItem); // if not we create it in the right section
+      createHTMLItemTrailerModal(objectItem[0], typeItem + '-trailer',idItem); // if not we create it in the right section
       $('#' + typeItem + '-trailer-item-'+idItem).modal('show'); // we show it
     } else {
       $('#' + typeItem + '-trailer-item-'+idItem).modal('show'); // if already existe we show it
@@ -287,37 +368,7 @@ function addEventListenerForTrailer(selector) { // we had the click on trailer b
   });
 }
 
-function createHTMLMovieItemInformationModal(data,informationParent,informationIdPrefix) {
-  let HMTLModalContent = '<div class="modal fade infomation-modal" id="' + informationIdPrefix + informationParent + '" tabindex="-1" role="dialog" aria-labelledby="Information about ' + data['Title'] + '" aria-hidden="true"></div>';
-  $( HMTLModalContent ).appendTo( $( '#' + informationParent ) ); // we add our HTML content to the parent
-  $( '<div class="modal-dialog modal-dialog-centered modal-lg" role="document"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent ) );
-  $( '<div class="modal-content"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-dialog' ) );
-  $( '<div class="modal-header"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-content' ) );
-  $( '<h5 class="modal-title">' + data['Title'] + ' (' + data['Year'] + ')</h5>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-header' ) );
-  $( '#' + informationIdPrefix + informationParent + ' .modal-title' ).after('<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
-  $( '<div class="modal-body"></div>').appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-content' ) );
-  $( '<div class="container-fluid"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .modal-body' ) );
-  //$( '#' + informationIdPrefix + informationParent + ' .modal-body .container-fluid' ).html('<h6>Main information</h6>')
-  //$( '#' + informationIdPrefix + informationParent + ' .modal-body .container-fluid h6' ).after('<div class="row main-information"></div>')
-  $( '#' + informationIdPrefix + informationParent + ' .modal-body .container-fluid' ).html('<div class="row main-information"></div>')
-  $( '<div class="col-12 col-sm-4 poster-modal"></div>' ).appendTo( $( '#' + informationIdPrefix + informationParent + ' .row' ) );
-  $( '#' + informationIdPrefix + informationParent + ' .poster-modal' ).html('<img src="img/movies/' + data['Poster'] + '" class="img-fluid">');
-  $( '#' + informationIdPrefix + informationParent + ' .poster-modal' ).after('<div class="col-12 col-sm-8 main-data-modal"></div>');
-  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal' ).html('<p>' + data['Summary'] + '</p>')
-  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > p' ).after('<table class="table table-hover table-sm"></table>');
-  $('<tr><td>Release date</td><td>' + data['Released'] + '</td></tr>').appendTo( $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table' ) );
-  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Country</td><td>' + data['Country'] + ' min.</td></tr>');
-  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Duration</td><td>' + data['Duration'] + ' min.</td></tr>');
-  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Genre</td><td>' + data['Genre'].join(', ') + '</td></tr>');
-  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Director</td><td>' + data['Director'].join(', ') + '</td></tr>');
-  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Writer</td><td>' + data['Writers'].join(', ') + '</td></tr>');
-  $( '#' + informationIdPrefix + informationParent + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Actor</td><td>' + data['Actors'].join(', ') + '</td></tr>');
-  //$( '#' + informationIdPrefix + informationParent + ' .main-information' ).after('<h6>Trailer</h6>');
-  //$( '#' + informationIdPrefix + informationParent + ' h6:last-of-type' ).after('<div class="embed-responsive embed-responsive-16by9"></div>');
-  //$( '#' + informationIdPrefix + informationParent + ' .embed-responsive' ).html('<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' + getYoutubeID(data['Trailer']) + '" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
-}
-
-function createHTMLMovieItemInformationModal_v2(data,informationParent,idData) {
+function createHTMLMovieItemInformationModal(data,informationParent,idData) {
   let currentHTMLID = informationParent + '-item-' + idData;
   let HMTLModalContent = '<div class="modal fade infomation-modal" id="' + currentHTMLID + '" tabindex="-1" role="dialog" aria-labelledby="Information about ' + data['Title'] + '" aria-hidden="true"></div>';
   $( HMTLModalContent ).appendTo( $( '#' + informationParent ) ); // we add our HTML content to the parent
@@ -358,7 +409,7 @@ function addEventListenerForInformation(selector) { // we had the click on infor
       });
     }
     if ( $('#' + typeItem + '-information-item-'+idItem).length == 0 && typeItem == 'movie') { // we check if the information modal already exists or not
-      createHTMLMovieItemInformationModal_v2(itemObject[0], typeItem + '-information',idItem); // if not we create it in the right section
+      createHTMLMovieItemInformationModal(itemObject[0], typeItem + '-information',idItem); // if not we create it in the right section
       $('#' + typeItem + '-information-item-'+idItem).modal('show'); // we show it
     } else if ($('#' + typeItem + '-information-item-'+idItem).length == 0 && typeItem == 'tvShow'){
       createHTMLTvShowItemInformationModal(itemObject[0], typeItem + '-information',idItem); // if not we create it in the right section
@@ -392,7 +443,7 @@ function createHTMLTvShowItem(data, parent, idPrefix) {
   $('<h5 class="card-title">' + data['Title'] + '</h5>').appendTo($('#' + HTMLId + ' .card-body'));
   $('<h6 class="card-subtitle">' + data['Beginning'] + '-' + data['Ending'] + '</h6>').appendTo($('#' + HTMLId + ' .card-body'));
   $('<div class="card-text">' + data['Genre'][0] + '</div>').appendTo($('#' + HTMLId + ' .card-body'));
-  $('<div class="card-footer"></div>').appendTo($('#' + HTMLId + ' .card-body'));
+  $('<div class="card-footer"></div>').appendTo( $('#' + HTMLId ) );
   $('<div class="btn-group btn-group-sm" role="group" aria-label="More function"></div>').appendTo($('#' + HTMLId + ' .card-footer'));
   $('<button type="button" class="btn btn-secondary btn-information-modal"></button>').appendTo($('#' + HTMLId + ' .btn-group'));
   $( '#' + HTMLId + ' .btn-information-modal' ).attr({
@@ -435,6 +486,22 @@ function createHTMLTvShowItemInformationModal(data,informationParent,idData) {
   $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Actor</td><td>' + data['Actors'].join(', ') + '</td></tr>');
 }
 
+function checkNavigationButtonInShop(dataLength,numberElement) {
+
+  if ( Number($('#shop-movies .shop-previous-movies').attr('data-start')) == 0 ) {
+    $('#shop-movies .shop-previous-movies').prop('disabled', true);
+  } else {
+    $('#shop-movies .shop-previous-movies').prop('disabled', false);
+  }
+
+  if ( Number($('#shop-movies .shop-next-movies').attr('data-start')) + numberElement >= dataLength ) {
+    $('#shop-movies .shop-next-movies').prop('disabled', true);
+  } else {
+    $('#shop-movies .shop-next-movies').prop('disabled', false);
+  }
+
+}
+
 /**
 * Get YouTube ID from various YouTube URL
 * author: takien (http://takien.com)
@@ -449,6 +516,12 @@ function getYoutubeID(url){
     return url;
   }
 }
+
+function returnArrayWithUniqueValue(arrayItem) {
+  // ES6+ function
+  return Array.from(new Set(arrayItem));
+}
+
 
 // We mask these elements until all the data are loaded
 $('#featured-movies .load-more').hide();
