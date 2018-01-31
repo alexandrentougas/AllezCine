@@ -551,7 +551,7 @@ $('#ageVerif').click(function() { //
   if (isItOlderThan18(Number($('#birthInput').val().split('-')[0]), Number($('#birthInput').val().split('-')[1]), Number($('#birthInput').val().split('-')[2])) === true) {
     $('#ageWarning').modal('hide');
   } else {
-    location.href='http://www.imdb.com/?ref_=nv_home';
+    location.href='http://www.imdb.com/';
   };
 });
 
