@@ -27,7 +27,7 @@ let whenDataLoadedMovies = function() { // callback function
   createHTMLItemInformationInMovieShop( defaultElement[0] , '#shop-movies .preview-information' );
 
   // data are loaded, so we could show "options"
-  $('#featured-movies .load-more').show();
+  $('#featured-movies .less-more-movies').show();
   $('#featured-movies aside').show();
 
   // add addEventListenerForTrailer for movie-list
@@ -35,11 +35,11 @@ let whenDataLoadedMovies = function() { // callback function
   addEventListenerForInformation( '.movie-list .btn-information-modal' );
 
   // on click, we display the X next movies
-  $('#featured-movies .load-more').on('click', function(e) {
+  $('#featured-movies .more-movies').on('click', function(e) {
     startElement = $('#featured-movies .movie-list > .row .movie-item').length; // we check the number of alreay displayed movies
     displayXFeaturedMovies(movieObject,'#featured-movies .movie-list > .row','featured-movie',startElement,numberElement); // we display the X next movies
     if( $('#featured-movies .movie-list > .row .movie-item').length >= movieObject.length ) { // if we have display all movies, we hide the button "load more"
-      $('#featured-movies .load-more .more-movies').prop('disabled', true);
+      $('#featured-movies .more-movies').prop('disabled', true);
     }
     addEventListenerForTrailer( '.movie-list .btn-trailer-modal' ); // we had the new movies to the event listener
     addEventListenerForInformation( '.movie-list .btn-information-modal' ); // we had the new movies to the event listener
@@ -94,17 +94,17 @@ let whenDataLoadedTvShows = function() {
 
   displayXFeaturedTvShows(tvShowObject, '#featured-tvshows .tvshow-list > .row', 'featured-tvshow',0,numberElement);
 
-  $('#featured-tvshows .load-more').show();
+  $('#featured-tvshows .less-more-movies').show();
   $('#featured-tvshows aside').show();
 
   addEventListenerForTrailer( '.tvshow-list .btn-trailer-modal' );
   addEventListenerForInformation( '.tvshow-list .btn-information-modal' );
 
-  $('#featured-tvshows .load-more').on('click', function(e) {
+  $('#featured-tvshows .more-movies').on('click', function(e) {
     startElement = $('#featured-tvshows .tvshow-list > .row .tvshow-item').length; // we check the number of alreay displayed movies
     displayXFeaturedTvShows(tvShowObject,'#featured-tvshows .tvshow-list > .row','featured-tvshow',startElement,numberElement); // we display the X next movies
     if( $('#featured-tvshows .tvshow-list > .row .tvshow-item').length >= tvShowObject.length ) { // if we have display all movies, we hide the button "load more"
-      $('#featured-tvshows .load-more').hide();
+      $('#featured-tvshows .more-movies').hide();
     }
     addEventListenerForTrailer( '.tvshow-list .btn-trailer-modal' ); // we had the new movies to the event listener
     addEventListenerForInformation( '.tvshow-list .btn-information-modal' ); // we had the new movies to the event listener
@@ -524,7 +524,7 @@ function returnArrayWithUniqueValue(arrayItem) {
 
 
 // We mask these elements until all the data are loaded
-$('#featured-movies .load-more').hide();
+$('#featured-movies .less-more-movies').hide();
 $('#featured-movies aside').hide();
 
 // We load the data
