@@ -621,8 +621,6 @@ $('#contact-us button[type=submit]').on('click',function(e){
   $('<div class="modal-body"></div>').appendTo('#form-response .modal-content');
   $('<table class="table"></table>').appendTo('#form-response .modal-body');
   $('#contact-us .form-control').each(function(index) {
-      //console.log($(this).attr('placeholder'),$(this).val(), typeof $(this).val());
-      //console.log( $(this).attr('placeholder') );
       $( '<tr><td>' + $(this).attr('placeholder') + '</td><td>' + $(this).val() + '</td></tr>' ).appendTo('#form-response .modal-body table');
   });
   $('<div class="modal-footer"></div>').appendTo('#form-response .modal-content');
