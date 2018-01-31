@@ -627,8 +627,8 @@ $('#contact-us button[type=submit]').on('click',function(e){
   });
   $('<div class="modal-footer"></div>').appendTo('#form-response .modal-content');
   $('<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>').appendTo('#form-response .modal-footer');
-  $('#form-response').modal('show');
-  $('#form-response').on('hidden.bs.modal', function (e) {
+
+  $('#form-response').modal('show').on('hidden.bs.modal', function (e) {
     $('#form-response').remove();
   })
 
