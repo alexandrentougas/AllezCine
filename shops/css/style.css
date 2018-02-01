@@ -108,16 +108,41 @@ footer {
     .navbar .nav-link[href*="contact-us"] {
       margin-left: 5vw; }
   .navbar .form-control {
+    padding-left: 0px;
+    padding-right: 0px;
+    color: #f2f2f2;
     background-color: rgba(13, 13, 13, 0.7);
-    border-color: rgba(13, 13, 13, 0.8);
-    border-right: 0px; }
+    border: 0px; }
     .navbar .form-control:focus {
       box-shadow: none; }
-  .navbar .btn {
-    outline: 0px;
+    .navbar .form-control::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      color: #bfbfbf; }
+    .navbar .form-control::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #bfbfbf; }
+    .navbar .form-control:-ms-input-placeholder {
+      /* IE 10+ */
+      color: #bfbfbf; }
+    .navbar .form-control:-moz-placeholder {
+      /* Firefox 18- */
+      color: #bfbfbf; }
+  .navbar .input-group-text, .navbar .btn {
     background-color: rgba(13, 13, 13, 0.7);
-    border-color: rgba(13, 13, 13, 0.8);
-    border-left: 0px; }
+    /*border-color:rgba($dark-color,.8);*/
+    border: 0px; }
+  .navbar .btn {
+    color: #d9d9d9;
+    border-left: 0px;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%; }
+  .navbar .input-group-text {
+    min-width: 38px;
+    border-right: 0px;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%; }
+  .navbar .input-group-prepend {
+    margin-right: 0px; }
   .navbar .input-group-append {
     margin-left: 0px; }
 
@@ -141,6 +166,12 @@ header.jumbotron {
       color: white;
       margin-right: 35px; }
 
+#cookieWarning {
+  padding: 2vh 0vw; }
+  #cookieWarning .fa {
+    cursor: pointer;
+    font-size: 1.5rem; }
+
 /*** Generic classes ***/
 .less-more-movies {
   display: -webkit-box;
@@ -155,12 +186,5 @@ header.jumbotron {
 .movie-list aside,
 .tvshow-list aside {
   margin: 2vh 0vw; }
-
-/*** Specific element ***/
-#cookieWarning {
-  padding: 2vh 0vw; }
-  #cookieWarning .fa {
-    cursor: pointer;
-    font-size: 1.5rem; }
 
 /*# sourceMappingURL=style.css.map */
