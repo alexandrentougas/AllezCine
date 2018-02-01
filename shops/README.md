@@ -17,7 +17,7 @@
 * [Preview](#preview)
 
 ## Briefing
-ou will realize, as a group, a website for renting and selling films. WARNING, this is a **one-page** site!
+You will realize, as a group, a website for renting and selling films. WARNING, this is a **one-page** site!
 
 - [Click here to see the layout](img/layout-one-v2.jpg)
 - We also put at your disposal some movie posters, just to save you some time (titles, years and genre are in the names of the pictures.
