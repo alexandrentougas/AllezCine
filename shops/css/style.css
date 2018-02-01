@@ -1,10 +1,12 @@
 .btn {
-  border-radius: 0; }
+  border-radius: 0;
+  transition: all 0.2s ease-in-out; }
+  .btn:hover {
+    transition: all 0.2s ease-in-out; }
 
 .btn-primary {
   background-color: #ff4240;
-  border-color: #ff4240;
-  transition: all 0.2s ease-in-out; }
+  border-color: #ff4240; }
   .btn-primary:hover {
     background-color: #0d0d0d;
     border-color: #0d0d0d;
@@ -24,8 +26,7 @@
 .btn-secondary {
   background-color: #e6e6e6;
   border-color: #e6e6e6;
-  color: #4d4d4d;
-  transition: all 0.2s ease-in-out; }
+  color: #4d4d4d; }
   .btn-secondary:hover {
     background-color: #bfbfbf;
     border-color: #bfbfbf;
@@ -94,10 +95,16 @@ footer {
     padding: 15px !important;
     color: white;
     text-transform: uppercase;
-    font-size: .85em; }
+    font-size: .85em;
+    transition: all 0.2s ease-in-out; }
+    .navbar .nav-link:hover {
+      transition: all 0.2s ease-in-out; }
     .navbar .nav-link:not([href*="top-page"]):not([href*="contact-us"]) {
-      color: #f2f2f2;
+      color: #e6e6e6;
       background-color: rgba(255, 255, 255, 0.25); }
+      .navbar .nav-link:not([href*="top-page"]):not([href*="contact-us"]):hover {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.45); }
     .navbar .nav-link[href*="top-page"] {
       color: #ff4240;
       margin-right: 2vw; }
