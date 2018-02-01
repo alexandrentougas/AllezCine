@@ -44,10 +44,27 @@
       margin-right: 2vw;
     }
     &[href*="contact-us"] {
-      margin-left: 10vw;
+      margin-left: 5vw;
     }
 
+  }
 
+  .form-control {
+    background-color: rgba($dark-color,.7);
+    border-color:rgba($dark-color,.8);
+    border-right: 0px;
+    &:focus{
+      box-shadow:none;
+    }
+  }
+  .btn {
+    outline:0px;
+    background-color: rgba($dark-color,.7);
+    border-color:rgba($dark-color,.8);
+    border-left: 0px;
+  }
+  .input-group-append {
+    margin-left:0px;
   }
 
 }
