@@ -216,7 +216,7 @@ function displayXItemsMovieInShop(data,parent,idPrefix,start = 0, numberElement 
 }
 
 function displayXItemsPosterInFooter(data,parent,numberElement = 6) {
-  randomData = sortObjectRamdonly(data); // we sort by released year ascending
+  randomData = sortObjectRamdonly(data); // we sort data randomly
   for(let i = 0; i < numberElement && i < data.length; i++) { // we select X elements
     createHTMLItemPosterFooter(randomData[i],parent);
   }
