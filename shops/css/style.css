@@ -1,0 +1,31 @@
+/*** General Properties ***/
+* {
+  box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%; }
+
+body {
+  font-family: "Roboto", sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Lato", sans-serif;
+  word-break: normal; }
+
+a {
+  color: #ff4240; }
+  a:hover {
+    color: #0d0d0d; }
+
+/*** Restyling ***/
+.btn-primary {
+  background-color: #ff4240;
+  border-color: #ff4240;
+  transition: all 0.2s ease-in-out; }
+  .btn-primary:hover {
+    background-color: #0d0d0d;
+    border-color: #0d0d0d;
+    color: white; }
+
+/*# sourceMappingURL=style.css.map */
