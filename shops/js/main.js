@@ -698,14 +698,14 @@ $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').on('click',function(event
 $(window).scroll(function() {
   if ($(document).scrollTop() > 200) {
     $('#main-nav').addClass('shrink');
-    $('#go-to-top').show();/*.animate({
+    $('#go-to-top').show().animate({
       opacity:1,
-    },500, function(){});*/
+    },500, function(){});
   } else {
     $('#main-nav').removeClass('shrink');
-    $('#go-to-top').hide();/*.animate({
+    $('#go-to-top').hide().animate({
       opacity:0,
-    },500, function(){});*/
+    },500, function(){});
   }
 });
 
