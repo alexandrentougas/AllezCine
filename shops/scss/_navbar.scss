@@ -25,10 +25,19 @@
     color:$light-color;
     text-transform: uppercase;
     font-size: .85em;
+    @include transition();
+
+    &:hover{
+      @include transition();
+    }
 
     &:not([href*="top-page"]):not([href*="contact-us"]) {
-      color:darken($light-color,5%);
+      color:darken($light-color,10%);
       background-color: rgba($light-color,.25);
+      &:hover {
+        color:$light-color;
+        background-color: rgba($light-color,.45);
+      }
     }
     &[href*="top-page"] {
       color:$custom-primary;
