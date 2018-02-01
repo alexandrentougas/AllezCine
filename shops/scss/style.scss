@@ -3,40 +3,45 @@
 
 // Variables
 @import "variables";
+
+// Buttons
+@import "button";
+
+// HTML tag
+@import "html-tag";
+
+// Main nav bar
+@import "navbar";
+
+// jumbotron
+@import "jumbotron"; 
+
 // Main CSS
 
-/*** General Properties ***/
+/*** Generic classes ***/
 
-* {
-  box-sizing: border-box;
-}
-html, body {
-  width:100%;
-  height: 100%;
-}
-body {
-  font-family:$main-font;
-}
-h1,h2,h3,h4,h5,h6 {
-  font-family: $title-font;
-  word-break: normal;
-}
-a {
-  color:$custom-primary;
-  &:hover{
-    color:$dark-color;
+.less-more-movies {
+  display: flex;
+  justify-content: center;
+  margin: 2.5vh 0vw;
+  button {
+    margin:0vh 1vw;
   }
 }
 
-/*** Restyling ***/
+/*** General CSS ***/
 
-.btn-primary {
-  background-color:$custom-primary;
-  border-color: $custom-primary;
-  @include transition();
-  &:hover{
-    background-color: $dark-color;
-    border-color: $dark-color;
-    color:$light-color;
+.movie-list aside,
+.tvshow-list aside {
+  margin:2vh 0vw;
+}
+
+/*** Specific element ***/
+
+#cookieWarning {
+  padding:2vh 0vw;
+  .fa {
+    cursor:pointer;
+    font-size:1.5rem;
   }
 }

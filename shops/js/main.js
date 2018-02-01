@@ -66,6 +66,8 @@ let whenDataLoadedMovies = function() { // callback function
       $('#featured-movies .movie-item').hide();
       $('#featured-movies .movie-item[data-genre*="' + $(this).attr('data-genre') + '"]').show();
     }
+    $( $('#featured-movies aside button') ).removeClass('btn-primary').addClass('btn-secondary');
+    $(this).removeClass('btn-secondary').addClass('btn-primary');
 
   });
 
@@ -146,6 +148,8 @@ let whenDataLoadedTvShows = function() {
       $('#featured-tvshows .tvshow-item').hide();
       $('#featured-tvshows .tvshow-item[data-genre*="' + $(this).attr('data-genre') + '"]').show();
     }
+    $( $('#featured-tvshows aside button') ).removeClass('btn-primary').addClass('btn-secondary');
+    $(this).removeClass('btn-secondary').addClass('btn-primary');
 
   });
 
@@ -652,7 +656,7 @@ $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').on('click',function(event
       // Only prevent default if animation is actually gonna happen
       event.preventDefault();
       $('html, body').animate({
-        scrollTop: target.offset().top
+        scrollTop: target.offset().top - 150
       }, 1000, function() {
         // Callback after animation
         // Must change focus!
@@ -671,7 +675,7 @@ $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').on('click',function(event
 
 // Add detection on scroll action
 $(window).scroll(function() {
-  if ($(document).scrollTop() > 75) {
+  if ($(document).scrollTop() > 200) {
     $('#main-nav').addClass('shrink');
     $('#go-to-top').show();
   } else {
