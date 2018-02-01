@@ -3,6 +3,7 @@ let moviesFeed = 'https://laurenthu.github.io/AllezCine/shops/database/movies.js
 let tvShowsFeed = 'https://laurenthu.github.io/AllezCine/shops/database/tvshows.json';
 let numberElement = 6;
 let numberElementShop = 8;
+let numberSlides = 4;
 
 let dataRequestMovie = new XMLHttpRequest();
 let dataRequestTvShow = new XMLHttpRequest();
@@ -14,6 +15,8 @@ let tvShowObject;
 let whenDataLoadedMovies = function() { // callback function
   let dataText = dataRequestMovie.responseText; // we store the text of the response
   movieObject = JSON.parse(dataText); // we convert the text into an object
+
+  displaySliderItems(movieObject,'.carousel-inner','slide-movie',numberSlides);
 
   displayTopMovie(movieObject,'#top-movie .movie-list > .row','top-movie',numberElement); // we write the Top Movies
   displayXFeaturedMovies(movieObject,'#featured-movies .movie-list > .row','featured-movie',0,numberElement); // we display the first Feature movies
@@ -158,6 +161,15 @@ let whenDataLoadedTvShows = function() {
 function getFilenameForSpecificSize(imgFilename,size = 350) {
   return imgFilename.split('.')[0] + '_' + size + '.' + imgFilename.split('.')[1]; // we construct the new image name
 }
+
+function displaySliderItems(data,parent,idPrefix,numberSlides = 4) {
+  let itemWithSlider = dataWithoutFalseValueOnSpecificKey(data,"Slider");
+  let itemWithSliderRandom = sortObjectRamdonly(itemWithSlider);
+  for (let i = 0; i < numberSlides; i++) {
+    createSliderItem(itemWithSliderRandom[i],parent,idPrefix);
+  };
+  $('#' + idPrefix + '-' + itemWithSliderRandom[0]['ID']).addClass('active');
+};
 
 function displayTopMovie(data,parent,idPrefix,numberElement) { // we display X elements in TopMovie section
   let xElements = xLastElementsAccordingSpecificKey(data,'Year',numberElement); // we select X latest elements sort by a specific key
@@ -310,6 +322,13 @@ function xLastElementsAccordingSpecificKey(data, key, numberElement) {
 function copyObject(data) { // function to copy an object without any reference
   return data.slice(0); // we return the copy
 }
+
+function createSliderItem(data,parent,idPrefix) {
+    let HTMLId = idPrefix + '-' + data['ID'];
+    let HTMLContent = '<div id="' + HTMLId + '" class="carousel-item"><div class="container"><div class="carousel-caption"><h1>Latest Online Movies</h1><p>In space no one can hear you scream</p><p><a class="btn btn-lg btn-primary" href="#" role="button">Watch Trailer</a></p></div></div></div>'
+    $(HTMLContent).appendTo($(parent));
+    $('#' + HTMLId).css('background-image', 'url(img/movies/' + data['Slider'] + ')')
+};
 
 function createHTMLMovieItem(data,parent,idPrefix) { // we create the item for one movie
   let HTMLId = idPrefix + '-' + data['ID']; // we construct the HTML id of this movie
