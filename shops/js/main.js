@@ -167,8 +167,10 @@ function displaySliderItems(data,parent,idPrefix,numberSlides = 4) {
   let itemWithSliderRandom = sortObjectRamdonly(itemWithSlider);
   for (let i = 0; i < numberSlides; i++) {
     createSliderItem(itemWithSliderRandom[i],parent,idPrefix);
+    $('<li data-target="#myCarousel" data-slide-to="' + i + '"></li>').appendTo('.carousel-indicators');
   };
   $('#' + idPrefix + '-' + itemWithSliderRandom[0]['ID']).addClass('active');
+  $('li').first().addClass('active');
 };
 
 function displayTopMovie(data,parent,idPrefix,numberElement) { // we display X elements in TopMovie section
