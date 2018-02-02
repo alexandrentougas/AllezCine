@@ -1,7 +1,9 @@
 .btn {
   border-radius: 0;
+  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out; }
   .btn:hover {
+    -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out; }
 
 .btn-primary {
@@ -19,9 +21,11 @@
     border-color: rgba(255, 91, 90, 0.85);
     color: rgba(255, 255, 255, 0.8); }
   .btn-primary:focus {
-    box-shadow: 0 0 2px 0.15rem rgba(255, 66, 64, 0.5); }
+    -webkit-box-shadow: 0 0 2px 0.15rem rgba(255, 66, 64, 0.5);
+            box-shadow: 0 0 2px 0.15rem rgba(255, 66, 64, 0.5); }
   .btn-primary:active:focus {
-    box-shadow: 0 0 2px 0.15rem rgba(192, 2, 0, 0.5) !important; }
+    -webkit-box-shadow: 0 0 2px 0.15rem rgba(192, 2, 0, 0.5) !important;
+            box-shadow: 0 0 2px 0.15rem rgba(192, 2, 0, 0.5) !important; }
 
 .btn-secondary {
   background-color: #e6e6e6;
@@ -76,6 +80,7 @@ footer {
 
 .navbar {
   height: 120px;
+  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out; }
   .navbar.shrink {
     height: 80px;
@@ -93,8 +98,10 @@ footer {
     color: white;
     text-transform: uppercase;
     font-size: .85em;
+    -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out; }
     .navbar .nav-link:hover {
+      -webkit-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out; }
     .navbar .nav-link:not([href*="top-page"]):not([href*="contact-us"]) {
       color: #e6e6e6;
@@ -114,7 +121,8 @@ footer {
     background-color: rgba(13, 13, 13, 0.7);
     border: 0px; }
     .navbar .form-control:focus {
-      box-shadow: none; }
+      -webkit-box-shadow: none;
+              box-shadow: none; }
     .navbar .form-control::-webkit-input-placeholder {
       /* Chrome/Opera/Safari */
       color: #bfbfbf; }
@@ -191,6 +199,7 @@ header.jumbotron {
 .card {
   border: 0px;
   -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
           justify-content: space-between; }
   .card .card-footer {
     padding: 0px;
@@ -205,16 +214,20 @@ header.jumbotron {
     .card .card-footer .card-subtitle {
       color: #272727;
       display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
       -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
               justify-content: space-between;
       font-size: .8em; }
     .card .card-footer .btn-group {
       margin-top: 5px;
       width: 100%;
       -webkit-box-pack: center;
+          -ms-flex-pack: center;
               justify-content: center;
       -webkit-box-align: center;
+          -ms-flex-align: center;
               align-items: center; }
       .card .card-footer .btn-group .btn {
         width: 50%;
@@ -235,8 +248,10 @@ header.jumbotron {
 /*** Generic classes ***/
 .less-more-movies {
   display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
+      -ms-flex-pack: center;
           justify-content: center;
   margin: 2.5vh 0vw; }
   .less-more-movies button {
@@ -246,4 +261,5 @@ header.jumbotron {
 .movie-list aside,
 .tvshow-list aside {
   margin: 2vh 0vw; }
+
 /*# sourceMappingURL=style.css.map */
