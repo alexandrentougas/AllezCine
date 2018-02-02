@@ -19,7 +19,67 @@
 // import unique element
 @import "unique-element";
 
-// Main CSS
+/***********
+* Main CSS *
+***********/
+
+/*** Rewriting ***/
+.card {
+  border:0px;
+  justify-content: space-between;
+
+  .card-body {}
+
+  .card-footer {
+    padding:0px;
+    margin-top: 1vh;
+    background-color:transparent;
+    border-top: 0px;
+    text-align: center;
+
+    .card-title {
+      text-align: center;
+      font-size: .9em;
+      margin-top: 1vh;
+    }
+    .card-subtitle {
+      color:lighten($dark-color,10%);
+      display:flex;
+      justify-content: space-between;
+      font-size:.8em;
+    }
+    .btn-group {
+      margin-top: 5px;
+      width:100%;
+      justify-content: center;
+      align-items: center;
+      .btn {
+        width: 50%;
+        border-radius: 0px;
+      }
+      .btn-information-modal {
+        &:hover{
+          color:$light-color;
+          background-color: $linkedin-main-color;
+          border-top:1px solid darken($linkedin-main-color,5%);
+          border-left:1px solid darken($linkedin-main-color,5%);
+          border-bottom:1px solid darken($linkedin-main-color,5%);
+        }
+      }
+      .btn-trailer-modal {
+        &:hover {
+          color:$light-color;
+          background-color: $youtube-main-color;
+          border-top:1px solid darken($youtube-main-color,5%);
+          border-right:1px solid darken($youtube-main-color,5%);
+          border-bottom:1px solid darken($youtube-main-color,5%);
+        }
+      }
+    }
+
+  }
+
+}
 
 /*** Generic classes ***/
 
