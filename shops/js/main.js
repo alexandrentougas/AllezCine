@@ -347,11 +347,11 @@ function createHTMLMovieItem(data,parent,idPrefix) { // we create the item for o
     'data-country': data['Country'].toLowerCase(),
   });
   $( '<img src="img/movies/' + getFilenameForSpecificSize(data['Poster'],350) + '" class="poster card-img-top img-fluid" title="' + data['Title'] + ' (' + data['Year'] + ')" >' ).appendTo( $( '#' + HTMLId) ); // we add the poster
-  $( '<div class="card-body"></div>' ).appendTo( $( '#' + HTMLId) ); // we construct the card
-  $( '<h5 class="card-title">' + data['Title'] + '</h5>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
-  $( '<h6 class="card-subtitle">' + data['Year'] + '</h6>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
-  $( '<div class="card-text">' + data['Genre'][0] + '</div>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
+  //$( '<div class="card-body"></div>' ).appendTo( $( '#' + HTMLId) ); // we construct the card
   $( '<div class="card-footer"></div>' ).appendTo( $( '#' + HTMLId ) );
+  $( '<h5 class="card-title">' + data['Title'] + '</h5>' ).appendTo( $( '#' + HTMLId + ' .card-footer') );
+  $( '<div class="card-subtitle"></div>' ).appendTo( $( '#' + HTMLId + ' .card-footer') );
+  $( '<div class="card-subtitle-item">' + data['Year'] + '</div><div class="card-subtitle-item">' + data['Genre'][0] + '</div>' ).appendTo( $( '#' + HTMLId + ' .card-subtitle') );
   $( '<div class="btn-group btn-group-sm" role="group" aria-label="More function"></div>' ).appendTo( $( '#' + HTMLId + ' .card-footer') ); // we generate the button group
   $( '<button type="button" class="btn btn-secondary btn-information-modal"></button>').appendTo( $( '#' + HTMLId + ' .btn-group') ); // we generate the 1st button
   $( '#' + HTMLId + ' .btn-information-modal' ).attr({ // we add some data-attribute
