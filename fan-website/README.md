@@ -34,13 +34,13 @@ The special feature of this page is that it will contain a submenu with tabs. On
 ## Biography
 It will be necessary that the life of the personage is "chapter" (example: "childhood, adolescence, adult life, end of life" OR "season 1, season 2, ..."). We will have to click on the title of the chapter to unwind the text. This will prevent spoilers. (for example with a toggle method with maybe a speed parameter)
 
-##Gallery
+## Gallery
 Make a photo gallery of the character. Use jQuery to make it pretty. A carousel, a lighbox, ... Make the code yourself or use a plugin, do whatever you want.
 
-##Goodies
+## Goodies
 A page with a list of derivatives with the amount per piece, a field for the user to indicate how many items he wants to buy. By clicking the [Preview Before Purchase] button, the user sees the total of his purchase. The display is done either in a pop-up (alert) or in the HTML page (plan a location for the display). BONUS: If the amount is less than 15 €, the user will have to pay 10 € delivery costs. If the amount is between € 16 and € 30, the fee is only € 7. If the amount of the order is more than 31 €, shipping costs are free.
 
-##Contact
+## Contact
 Make a contact form that will verify that all the fields are filled. If the fields are empty, give them a background of color to highlight them and indicate below **Advice**
 
 Make the HTML first, put the content in it, then write the necessary scripts.
