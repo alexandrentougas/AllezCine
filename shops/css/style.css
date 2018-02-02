@@ -180,6 +180,58 @@ header.jumbotron {
   /*font-weight: 700;
   font-size:2em;*/ }
 
+#top-movie .movie-list {
+  padding: 15px;
+  border: 1px solid #e6e6e6; }
+
+/***********
+* Main CSS *
+***********/
+/*** Rewriting ***/
+.card {
+  border: 0px;
+  -webkit-box-pack: justify;
+          justify-content: space-between; }
+  .card .card-footer {
+    padding: 0px;
+    margin-top: 1vh;
+    background-color: transparent;
+    border-top: 0px;
+    text-align: center; }
+    .card .card-footer .card-title {
+      text-align: center;
+      font-size: .9em;
+      margin-top: 1vh; }
+    .card .card-footer .card-subtitle {
+      color: #272727;
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-pack: justify;
+              justify-content: space-between;
+      font-size: .8em; }
+    .card .card-footer .btn-group {
+      margin-top: 5px;
+      width: 100%;
+      -webkit-box-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+              align-items: center; }
+      .card .card-footer .btn-group .btn {
+        width: 50%;
+        border-radius: 0px; }
+      .card .card-footer .btn-group .btn-information-modal:hover {
+        color: white;
+        background-color: #0077b5;
+        border-top: 1px solid #00669c;
+        border-left: 1px solid #00669c;
+        border-bottom: 1px solid #00669c; }
+      .card .card-footer .btn-group .btn-trailer-modal:hover {
+        color: white;
+        background-color: #cc181e;
+        border-top: 1px solid #b5151b;
+        border-right: 1px solid #b5151b;
+        border-bottom: 1px solid #b5151b; }
+
 /*** Generic classes ***/
 .less-more-movies {
   display: -webkit-box;
