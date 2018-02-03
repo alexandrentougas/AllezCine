@@ -1,0 +1,68 @@
+.modal {
+
+  &.trailer-modal {
+    .close {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5em;
+      color:$custom-primary;
+      background-color: $light-color;
+      border-radius: 50px;
+      border:1px solid $custom-primary;
+      width:25px;
+      height:25px;
+      margin-bottom: 5px;
+    }
+    .modal-content {
+      background: rgba($light-color,0);
+      border:0px;
+      border-radius: 0px;
+    }
+    .modal-body {
+      padding:0px;
+    }
+  }
+
+  .modal-header {
+    border-radius: 0px;
+    background-color: $custom-primary;
+    color:$light-color;
+    font-weight: bold;
+  }
+  .close {
+    color:$light-color;
+  }
+
+  .modal-body {
+
+    padding:1.5rem 1rem;
+
+    label {
+      display: block;
+      margin-bottom: 0px;
+    }
+
+    .inline-label {
+      margin-bottom: 0px;
+
+      label {
+        display: inline-block;
+      }
+
+    }
+
+    .forgot-password {
+      margin-top: 1rem;
+    }
+
+  }
+
+  .modal-footer {
+    .fotget-password {
+      margin: auto;
+    }
+  }
+
+
+}
