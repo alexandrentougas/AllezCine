@@ -530,11 +530,10 @@ function createHTMLTvShowItem(data, parent, idPrefix) {
     'data-actors': data['Actors'].join(', ').toLowerCase(),
   });
   $('<img src="img/tvshows/' + getFilenameForSpecificSize(data['Poster'],350) + '" class="poster card-img-top img-fluid" title="' + data['Title'] + '(' + data['Beginning'] + '-' + data['Ending'] + ')" >').appendTo($('#' + HTMLId));
-  $('<div class="card-body"></div>').appendTo($('#' + HTMLId));
-  $('<h5 class="card-title">' + data['Title'] + '</h5>').appendTo($('#' + HTMLId + ' .card-body'));
-  $('<h6 class="card-subtitle">' + data['Beginning'] + '-' + data['Ending'] + '</h6>').appendTo($('#' + HTMLId + ' .card-body'));
-  $('<div class="card-text">' + data['Genre'][0] + '</div>').appendTo($('#' + HTMLId + ' .card-body'));
   $('<div class="card-footer"></div>').appendTo( $('#' + HTMLId ) );
+  $('<h5 class="card-title">' + data['Title'] + '</h5>').appendTo($('#' + HTMLId + ' .card-footer'));
+  $( '<div class="card-subtitle"></div>' ).appendTo( $( '#' + HTMLId + ' .card-footer') );
+  $( '<div class="card-subtitle-item">' + data['Beginning'] + '-' + data['Ending'] + '</div><div class="card-subtitle-item">' + data['Genre'][0] + '</div>' ).appendTo( $( '#' + HTMLId + ' .card-subtitle') );
   $('<div class="btn-group btn-group-sm" role="group" aria-label="More function"></div>').appendTo($('#' + HTMLId + ' .card-footer'));
   $('<button type="button" class="btn btn-secondary btn-information-modal"></button>').appendTo($('#' + HTMLId + ' .btn-group'));
   $( '#' + HTMLId + ' .btn-information-modal' ).attr({
