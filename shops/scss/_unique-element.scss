@@ -11,7 +11,6 @@
   position:fixed;
   bottom:2.5vh;
   right:2vw;
-  opacity: 0;
 
   a {
     display:flex;
@@ -35,4 +34,95 @@
 #top-movie .movie-list {
   padding:15px;
   border:1px solid darken($light-color,10%);
+}
+
+#social-networks {
+  display: none;
+  position: fixed;
+  top:200px;
+  left:0px;
+  ul {
+    list-style-type:none;
+    padding: 0px;
+    li {
+      margin-bottom: 10px;
+    }
+    a {
+      padding:10px;
+      padding-right: 20px;
+      border-top-right-radius:50px;
+      border-bottom-right-radius:50px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width:200px;
+      color:$light-color;
+      background-color: $dark-color;
+      font-weight: bold;
+      @include transition();
+      margin-left: -130px;
+      &:hover {
+        margin-left: 0px;
+        text-decoration: none;
+        .fa {
+          color:$dark-color;
+        }
+      }
+      &[href*="twitter"]{
+        background-color: $twitter-main-color;
+        &:hover {
+          color: $twitter-main-color;
+          background-color: $light-color;
+          .fa {
+            background-color: $twitter-main-color;
+            color: $light-color;
+          }
+        }
+      }
+      &[href*="facebook"]{
+        background-color: $facebook-main-color;
+        &:hover {
+          color: $facebook-main-color;
+          background-color: $light-color;
+          .fa {
+            background-color: $facebook-main-color;
+            color: $light-color;
+          }
+        }
+      }
+      &[href*="instagram"]{
+        background-color: $instagram-main-color;
+        &:hover {
+          color: $instagram-main-color;
+          background-color: $light-color;
+          .fa {
+            background-color: $instagram-main-color;
+            color: $light-color;
+          }
+        }
+      }
+      &[href*="google"]{
+        background-color: $google-plus-main-color;
+        &:hover {
+          color: $google-plus-main-color;
+          background-color: $light-color;
+          .fa {
+            background-color: $google-plus-main-color;
+            color: $light-color;
+          }
+        }
+      }
+      .fa {
+        color:$dark-color;
+        margin-left: 25px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $light-color;
+        width:40px;
+        height:40px;
+        border-radius:50%;
+      }
+    }
+  }
 }
