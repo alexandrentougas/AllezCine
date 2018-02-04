@@ -108,12 +108,15 @@ footer {
     .navbar .nav-link[href*="contact-us"] {
       margin-left: 5vw; }
   .navbar .form-control {
+    width: 70px;
     padding-left: 0px;
     padding-right: 0px;
     color: #f2f2f2;
     background-color: rgba(13, 13, 13, 0.7);
-    border: 0px; }
+    border: 0px;
+    transition: all 1s ease-in-out; }
     .navbar .form-control:focus {
+      width: 200px;
       box-shadow: none; }
     .navbar .form-control::-webkit-input-placeholder {
       /* Chrome/Opera/Safari */
