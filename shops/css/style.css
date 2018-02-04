@@ -1,9 +1,7 @@
 .btn {
   border-radius: 0;
-  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out; }
   .btn:hover {
-    -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out; }
 
 .btn-primary {
@@ -21,11 +19,9 @@
     border-color: rgba(255, 91, 90, 0.85);
     color: rgba(255, 255, 255, 0.8); }
   .btn-primary:focus {
-    -webkit-box-shadow: 0 0 2px 0.15rem rgba(255, 66, 64, 0.5);
-            box-shadow: 0 0 2px 0.15rem rgba(255, 66, 64, 0.5); }
+    box-shadow: 0 0 2px 0.15rem rgba(255, 66, 64, 0.5); }
   .btn-primary:active:focus {
-    -webkit-box-shadow: 0 0 2px 0.15rem rgba(192, 2, 0, 0.5) !important;
-            box-shadow: 0 0 2px 0.15rem rgba(192, 2, 0, 0.5) !important; }
+    box-shadow: 0 0 2px 0.15rem rgba(192, 2, 0, 0.5) !important; }
 
 .btn-secondary {
   background-color: #e6e6e6;
@@ -80,7 +76,6 @@ footer {
 
 .navbar {
   height: 120px;
-  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out; }
   .navbar.shrink {
     height: 80px;
@@ -98,10 +93,8 @@ footer {
     color: white;
     text-transform: uppercase;
     font-size: .85em;
-    -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out; }
     .navbar .nav-link:hover {
-      -webkit-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out; }
     .navbar .nav-link:not([href*="top-page"]):not([href*="contact-us"]) {
       color: #e6e6e6;
@@ -121,8 +114,7 @@ footer {
     background-color: rgba(13, 13, 13, 0.7);
     border: 0px; }
     .navbar .form-control:focus {
-      -webkit-box-shadow: none;
-              box-shadow: none; }
+      box-shadow: none; }
     .navbar .form-control::-webkit-input-placeholder {
       /* Chrome/Opera/Safari */
       color: #bfbfbf; }
@@ -176,22 +168,24 @@ header.jumbotron {
 
 .modal.trailer-modal .close {
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
           align-items: center;
   font-size: 1.5em;
-  color: #ff4240;
+  color: rgba(255, 66, 64, 0.5);
   background-color: white;
   border-radius: 50px;
-  border: 1px solid #ff4240;
+  border: 1px solid rgba(255, 66, 64, 0.5);
   width: 25px;
   height: 25px;
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+  opacity: 1;
+  transition: all 0.2s ease-in-out; }
+  .modal.trailer-modal .close:hover {
+    color: #d90200;
+    border-color: rgba(255, 66, 64, 0.5); }
 .modal.trailer-modal .modal-content {
   background: rgba(255, 255, 255, 0);
   border: 0px;
@@ -218,6 +212,15 @@ header.jumbotron {
     margin-top: 1rem; }
 .modal .modal-footer .fotget-password {
   margin: auto; }
+.modal table {
+  font-size: .9em; }
+  .modal table tr td {
+    border-top-color: #ececec; }
+  .modal table tr td:first-child {
+    width: 30%;
+    min-width: 100px; }
+  .modal table tr:first-child td {
+    border-top: 0px; }
 
 #cookieWarning {
   padding: 2vh 0vw; }
@@ -226,12 +229,28 @@ header.jumbotron {
     font-size: 1.5rem; }
 
 #go-to-top {
-  opacity: 0;
   position: fixed;
-  bottom: 5vh;
-  right: 5vw;
-  /*font-weight: 700;
-  font-size:2em;*/ }
+  bottom: 2.5vh;
+  right: 2vw;
+  opacity: 0; }
+  #go-to-top a {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 1.8em;
+    color: white;
+    background-color: #ff4240;
+    transition: all 0.2s ease-in-out; }
+    #go-to-top a:hover {
+      text-decoration: none;
+      background-color: #c00200; }
 
 #top-movie .movie-list {
   padding: 15px;
@@ -244,8 +263,12 @@ header.jumbotron {
 .card {
   border: 0px;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between; }
+          justify-content: space-between;
+  margin-bottom: 20px; }
+  .card:hover img {
+    box-shadow: 5px 5px 10px 0px rgba(13, 13, 13, 0.3); }
+  .card:hover .card-title, .card:hover .card-subtitle {
+    text-shadow: 2.5px 2.5px 5px rgba(13, 13, 13, 0.3); }
   .card .card-footer {
     padding: 0px;
     margin-top: 1vh;
@@ -257,22 +280,18 @@ header.jumbotron {
       font-size: .9em;
       margin-top: 1vh; }
     .card .card-footer .card-subtitle {
-      color: #272727;
+      color: #4d4d4d;
       display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
       -webkit-box-pack: justify;
-          -ms-flex-pack: justify;
               justify-content: space-between;
       font-size: .8em; }
     .card .card-footer .btn-group {
       margin-top: 5px;
       width: 100%;
       -webkit-box-pack: center;
-          -ms-flex-pack: center;
               justify-content: center;
       -webkit-box-align: center;
-          -ms-flex-align: center;
               align-items: center; }
       .card .card-footer .btn-group .btn {
         width: 50%;
@@ -293,10 +312,8 @@ header.jumbotron {
 /*** Generic classes ***/
 .less-more-movies {
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
           justify-content: center;
   margin: 2.5vh 0vw; }
   .less-more-movies button {
