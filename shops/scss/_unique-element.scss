@@ -60,6 +60,8 @@
       background-color: $dark-color;
       font-weight: bold;
       @include transition();
+      border:2px solid rgba($dark-color,0);
+      border-left: 0px;
       margin-left: -130px;
       &:hover {
         margin-left: 0px;
@@ -72,6 +74,7 @@
         background-color: $twitter-main-color;
         &:hover {
           color: $twitter-main-color;
+          border-color: $twitter-main-color;
           background-color: $light-color;
           .fa {
             background-color: $twitter-main-color;
@@ -83,6 +86,7 @@
         background-color: $facebook-main-color;
         &:hover {
           color: $facebook-main-color;
+          border-color: $facebook-main-color;
           background-color: $light-color;
           .fa {
             background-color: $facebook-main-color;
@@ -94,6 +98,7 @@
         background-color: $instagram-main-color;
         &:hover {
           color: $instagram-main-color;
+          border-color: $instagram-main-color;
           background-color: $light-color;
           .fa {
             background-color: $instagram-main-color;
@@ -105,6 +110,7 @@
         background-color: $google-plus-main-color;
         &:hover {
           color: $google-plus-main-color;
+          border-color: $google-plus-main-color;
           background-color: $light-color;
           .fa {
             background-color: $google-plus-main-color;
