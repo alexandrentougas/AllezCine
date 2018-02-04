@@ -281,6 +281,8 @@ header.jumbotron {
       background-color: #0d0d0d;
       font-weight: bold;
       transition: all 0.2s ease-in-out;
+      border: 2px solid rgba(13, 13, 13, 0);
+      border-left: 0px;
       margin-left: -130px; }
       #social-networks ul a:hover {
         margin-left: 0px;
@@ -291,6 +293,7 @@ header.jumbotron {
         background-color: #1da1f2; }
         #social-networks ul a[href*="twitter"]:hover {
           color: #1da1f2;
+          border-color: #1da1f2;
           background-color: white; }
           #social-networks ul a[href*="twitter"]:hover .fa {
             background-color: #1da1f2;
@@ -299,6 +302,7 @@ header.jumbotron {
         background-color: #3b5998; }
         #social-networks ul a[href*="facebook"]:hover {
           color: #3b5998;
+          border-color: #3b5998;
           background-color: white; }
           #social-networks ul a[href*="facebook"]:hover .fa {
             background-color: #3b5998;
@@ -307,6 +311,7 @@ header.jumbotron {
         background-color: #4c4c4c; }
         #social-networks ul a[href*="instagram"]:hover {
           color: #4c4c4c;
+          border-color: #4c4c4c;
           background-color: white; }
           #social-networks ul a[href*="instagram"]:hover .fa {
             background-color: #4c4c4c;
@@ -315,6 +320,7 @@ header.jumbotron {
         background-color: #db4437; }
         #social-networks ul a[href*="google"]:hover {
           color: #db4437;
+          border-color: #db4437;
           background-color: white; }
           #social-networks ul a[href*="google"]:hover .fa {
             background-color: #db4437;
