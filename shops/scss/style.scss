@@ -30,6 +30,22 @@
 .card {
   border:0px;
   justify-content: space-between;
+  margin-bottom: 20px;
+
+  &:hover {
+    img {
+      box-shadow: 5px 5px 10px 0px rgba($dark-color,.3);
+    }
+    .card-title {
+      font-weight: bolder;
+    }
+    .card-title, .card-subtitle {
+      text-shadow: 2.5px 2.5px 5px rgba($dark-color,.3);
+    }
+    /*btn-group {
+      box-shadow: 5px 5px 10px 0px rgba($dark-color,.3);
+    }*/
+  }
 
   .card-body {}
 
@@ -46,7 +62,7 @@
       margin-top: 1vh;
     }
     .card-subtitle {
-      color:lighten($dark-color,10%);
+      color:lighten($dark-color,25%);
       display:flex;
       justify-content: space-between;
       font-size:.8em;
