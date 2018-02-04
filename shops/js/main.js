@@ -477,7 +477,7 @@ function createHTMLMovieItemInformationModal(data,informationParent,idData) {
   $( '#' + currentHTMLID + ' .main-data-modal' ).html('<p>' + data['Summary'] + '</p>')
   $( '#' + currentHTMLID + ' .main-data-modal > p' ).after('<table class="table table-hover table-sm"></table>');
   $('<tr><td>Release date</td><td>' + data['Released'] + '</td></tr>').appendTo( $( '#' + currentHTMLID + ' .main-data-modal > table' ) );
-  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Country</td><td>' + data['Country'] + ' min.</td></tr>');
+  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Country</td><td>' + data['Country'] + '</td></tr>');
   $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Duration</td><td>' + data['Duration'] + ' min.</td></tr>');
   $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Genre</td><td>' + data['Genre'].join(', ') + '</td></tr>');
   $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Director</td><td>' + data['Director'].join(', ') + '</td></tr>');
@@ -569,8 +569,8 @@ function createHTMLTvShowItemInformationModal(data,informationParent,idData) {
   $( '#' + currentHTMLID + ' .main-data-modal' ).html('<p>' + data['Summary'] + '</p>')
   $( '#' + currentHTMLID + ' .main-data-modal > p' ).after('<table class="table table-hover table-sm"></table>');
   $('<tr><td>Release date</td><td>' + data['Beginning'] + '</td></tr>').appendTo( $( '#' + currentHTMLID + ' .main-data-modal > table' ) );
-  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Seasons</td><td>' + data['Seasons'] + ' seasons.</td></tr>');
-  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Episodes</td><td>' + data['Episodes'] + ' episodes.</td></tr>');
+  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Seasons</td><td>' + data['Seasons'] + '</td></tr>');
+  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Episodes (total)</td><td>' + data['Episodes'] + '</td></tr>');
   $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Duration</td><td>' + data['Duration'] + ' min.</td></tr>');
   $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Genre</td><td>' + data['Genre'].join(', ') + '</td></tr>');
   $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Director</td><td>' + data['Creators'].join(', ') + '</td></tr>');
