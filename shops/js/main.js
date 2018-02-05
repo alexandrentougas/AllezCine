@@ -327,9 +327,9 @@ function copyObject(data) { // function to copy an object without any reference
 
 function createSliderItem(data,parent,idPrefix) {
     let HTMLId = idPrefix + '-' + data['ID'];
-    let HTMLContent = '<div id="' + HTMLId + '" class="carousel-item"><div class="container"><div class="carousel-caption"><h1>Latest Online Movies</h1><p>In space no one can hear you scream</p><p><a class="btn btn-lg btn-primary" href="#" role="button">Watch Trailer</a></p></div></div></div>'
+    let HTMLContent = '<div id="' + HTMLId + '" class="carousel-item"><div class="container"><div class="carousel-caption"><h1>Latest <span class="color-primary">On</span>line <span class="color-primary">Mo</span>vies</h1><p>In space no one can hear you scream</p><btn class="btn btn-lg btn-primary" href="#" role="button">Watch Trailer</btn></div></div></div>'
     $(HTMLContent).appendTo($(parent));
-    $('#' + HTMLId).css('background-image', 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 100%), url(img/movies/' + data['Slider'] + ')')
+    $('#' + HTMLId).css('background-image', 'linear-gradient(to bottom, rgba(0,0,0,.5) 0%,rgba(0,0,0,.5) 100%), url(img/movies/' + data['Slider'] + ')')
 };
 
 function createHTMLMovieItem(data,parent,idPrefix) { // we create the item for one movie
@@ -627,9 +627,9 @@ dataRequestTvShow.onload = whenDataLoadedTvShows;
 dataRequestTvShow.open("GET", tvShowsFeed, true);
 dataRequestTvShow.send(null);
 
-/*$(window).on('load', function() { // age check modal on page load
+$(window).on('load', function() { // age check modal on page load
   $('#ageWarning').modal('show');
-});*/
+});
 
 let isItOlderThan18 = function(year, month, day) { // checks if user is older than 18 years old and returns true/false
   return new Date(year + 18, month - 1, day) <= new Date();

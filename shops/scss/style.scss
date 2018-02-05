@@ -184,6 +184,10 @@
   textarea {
     min-height:150px;
   }
+  .form-control:focus {
+    border-color: rgba($custom-primary,.3);
+    box-shadow: 0 0 0 0.2rem rgba($custom-primary,.25);
+  }
 }
 
 footer {
@@ -214,6 +218,10 @@ footer {
       display: inline-block;
       width: auto;
       border-radius: 0px;
+      &:focus {
+        border-color: rgba($custom-primary,.3);
+        box-shadow: 0 0 0 0.2rem rgba($custom-primary,.25);
+      }
     }
 
   } /* end subscribe */

@@ -7,6 +7,12 @@
   &.shrink {
     height: 80px;
     background-color: rgba($dark-color,.7);
+    .navbar-collapse {
+      &.show, &.collapsing {
+        position: absolute;
+        top: 80px;
+      }
+    }
   }
 
   .navbar-brand {
@@ -17,6 +23,10 @@
     span {
       color:$custom-primary;
     }
+    @media (max-width: $bs-breakpoint-sm) {
+      font-size: 2em;
+    }
+
   }
 
   .nav-link {
@@ -76,7 +86,6 @@
   }
   .input-group-text, .btn {
     background-color: rgba($dark-color,.7);
-    /*border-color:rgba($dark-color,.8);*/
     border:0px;
   }
   .btn {
@@ -97,5 +106,50 @@
   .input-group-append {
     margin-left:0px;
   }
+
+  .navbar-toggler {
+    border-color: rgba(255,255,255,.5);
+  }
+
+  .navbar-collapse {
+    transition: none;
+    &.collapsing {}
+    &.show, &.collapsing {
+      position: absolute;
+      top: 90px;
+      width: calc(100% - 32px);
+      background-color: rgba($light-color,.85);
+
+      .nav-link[href*="top-page"] {
+        margin-right: 0vw;
+        &:hover{
+          color:$dark-color;
+          background-color: rgba($dark-color,.3);
+        }
+      }
+      .nav-link:not([href*="top-page"]):not([href*="contact-us"]) {
+        color: $custom-primary;
+        background-color: transparent;
+        &:hover{
+          color:$dark-color;
+          background-color: rgba($dark-color,.3);
+        }
+      }
+      .nav-link[href*="contact-us"] {
+        color: $custom-primary;
+        margin-left: 0vw;
+        &:hover {
+          color:$dark-color;
+          background-color: rgba($dark-color,.3);
+        }
+      }
+      .input-group {
+        margin:10px;
+      }
+    }
+
+
+  }
+
 
 }

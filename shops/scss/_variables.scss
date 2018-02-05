@@ -21,3 +21,10 @@ $title-font: 'Lato', sans-serif;
 $default-transition-properties: all;
 $default-transition-duration: .2s;
 $default-transition-effect: ease-in-out;
+
+// Bootstrap Breakpoint
+$bs-breakpoint-xs: 0;
+$bs-breakpoint-sm: 576px;
+$bs-breakpoint-md: 768px;
+$bs-breakpoint-lg: 992px;
+$bs-breakpoint-xl: 1200px;

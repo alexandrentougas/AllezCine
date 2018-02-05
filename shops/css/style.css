@@ -85,6 +85,9 @@ footer {
   .navbar.shrink {
     height: 80px;
     background-color: rgba(13, 13, 13, 0.7); }
+    .navbar.shrink .navbar-collapse.show, .navbar.shrink .navbar-collapse.collapsing {
+      position: absolute;
+      top: 80px; }
   .navbar .navbar-brand {
     font-size: 3em;
     font-weight: 700;
@@ -92,6 +95,9 @@ footer {
     color: white; }
     .navbar .navbar-brand span {
       color: #ff4240; }
+    @media (max-width: 576px) {
+      .navbar .navbar-brand {
+        font-size: 2em; } }
   .navbar .nav-link {
     margin: 0vh .5vw;
     padding: 15px !important;
@@ -141,7 +147,6 @@ footer {
       color: #bfbfbf; }
   .navbar .input-group-text, .navbar .btn {
     background-color: rgba(13, 13, 13, 0.7);
-    /*border-color:rgba($dark-color,.8);*/
     border: 0px; }
   .navbar .btn {
     color: #d9d9d9;
@@ -157,6 +162,35 @@ footer {
     margin-right: 0px; }
   .navbar .input-group-append {
     margin-left: 0px; }
+  .navbar .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5); }
+  .navbar .navbar-collapse {
+    -webkit-transition: none;
+    transition: none; }
+    .navbar .navbar-collapse.show, .navbar .navbar-collapse.collapsing {
+      position: absolute;
+      top: 90px;
+      width: calc(100% - 32px);
+      background-color: rgba(255, 255, 255, 0.85); }
+      .navbar .navbar-collapse.show .nav-link[href*="top-page"], .navbar .navbar-collapse.collapsing .nav-link[href*="top-page"] {
+        margin-right: 0vw; }
+        .navbar .navbar-collapse.show .nav-link[href*="top-page"]:hover, .navbar .navbar-collapse.collapsing .nav-link[href*="top-page"]:hover {
+          color: #0d0d0d;
+          background-color: rgba(13, 13, 13, 0.3); }
+      .navbar .navbar-collapse.show .nav-link:not([href*="top-page"]):not([href*="contact-us"]), .navbar .navbar-collapse.collapsing .nav-link:not([href*="top-page"]):not([href*="contact-us"]) {
+        color: #ff4240;
+        background-color: transparent; }
+        .navbar .navbar-collapse.show .nav-link:not([href*="top-page"]):not([href*="contact-us"]):hover, .navbar .navbar-collapse.collapsing .nav-link:not([href*="top-page"]):not([href*="contact-us"]):hover {
+          color: #0d0d0d;
+          background-color: rgba(13, 13, 13, 0.3); }
+      .navbar .navbar-collapse.show .nav-link[href*="contact-us"], .navbar .navbar-collapse.collapsing .nav-link[href*="contact-us"] {
+        color: #ff4240;
+        margin-left: 0vw; }
+        .navbar .navbar-collapse.show .nav-link[href*="contact-us"]:hover, .navbar .navbar-collapse.collapsing .nav-link[href*="contact-us"]:hover {
+          color: #0d0d0d;
+          background-color: rgba(13, 13, 13, 0.3); }
+      .navbar .navbar-collapse.show .input-group, .navbar .navbar-collapse.collapsing .input-group {
+        margin: 10px; }
 
 header.jumbotron {
   width: 100%;
@@ -168,6 +202,49 @@ header.jumbotron {
     header.jumbotron .carousel img {
       width: 100%;
       height: auto; }
+  header.jumbotron .carousel-item {
+    height: calc(100vh - 55px);
+    background: #0d0d0d;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover; }
+    header.jumbotron .carousel-item h1 {
+      text-transform: uppercase;
+      font-size: 3rem;
+      font-weight: bold; }
+      header.jumbotron .carousel-item h1 .color-primary {
+        font-size: 110%;
+        color: #ff4240; }
+      @media (max-width: 576px) {
+        header.jumbotron .carousel-item h1 {
+          font-size: 2rem; } }
+    header.jumbotron .carousel-item p {
+      text-transform: uppercase;
+      font-weight: 300;
+      letter-spacing: 5px;
+      word-spacing: 5px;
+      margin-top: 1.5rem;
+      margin-bottom: 2.5rem; }
+      @media (max-width: 576px) {
+        header.jumbotron .carousel-item p {
+          font-size: 90%; } }
+    header.jumbotron .carousel-item .btn {
+      text-transform: uppercase; }
+      @media (max-width: 576px) {
+        header.jumbotron .carousel-item .btn {
+          font-size: 90%; } }
+  header.jumbotron .carousel-caption {
+    margin-bottom: 15vh; }
+  header.jumbotron .carousel-indicators {
+    bottom: 10vh; }
+    header.jumbotron .carousel-indicators li {
+      cursor: pointer;
+      width: 36px;
+      height: 6px;
+      background-color: white;
+      margin: 0px 6px; }
+      header.jumbotron .carousel-indicators li.active {
+        background-color: #ff4240; }
   header.jumbotron .sub-header {
     height: 55px;
     padding: 0 15px;
@@ -177,6 +254,10 @@ header.jumbotron {
     header.jumbotron .sub-header a {
       color: white;
       margin-right: 35px; }
+      @media (max-width: 576px) {
+        header.jumbotron .sub-header a {
+          font-size: 90%;
+          margin-right: 10px; } }
 
 .modal.trailer-modal .close {
   display: -webkit-box;
@@ -239,7 +320,7 @@ header.jumbotron {
     border-top: 0px; }
 
 #cookieWarning {
-  padding: 2vh 0vw; }
+  padding: 2vh 2vw; }
   #cookieWarning .fa {
     cursor: pointer;
     font-size: 1.5rem; }
@@ -485,6 +566,10 @@ header.jumbotron {
     margin-bottom: 20px; }
   #contact-us textarea {
     min-height: 150px; }
+  #contact-us .form-control:focus {
+    border-color: rgba(255, 66, 64, 0.3);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 66, 64, 0.25);
+            box-shadow: 0 0 0 0.2rem rgba(255, 66, 64, 0.25); }
 
 footer {
   /* end subscribe */
@@ -518,6 +603,10 @@ footer {
       display: inline-block;
       width: auto;
       border-radius: 0px; }
+      footer .subscribe .form-control:focus {
+        border-color: rgba(255, 66, 64, 0.3);
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 66, 64, 0.25);
+                box-shadow: 0 0 0 0.2rem rgba(255, 66, 64, 0.25); }
   footer .box-list {
     padding-bottom: 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);

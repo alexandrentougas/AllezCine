@@ -13,6 +13,61 @@ header.jumbotron {
     }
 
   }
+  .carousel-item {
+    height: calc(100vh - 55px);
+    background: $dark-color;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    h1 {
+      text-transform: uppercase;
+      font-size: 3rem;
+      font-weight: bold;
+      .color-primary {
+        font-size: 110%;
+        color:$custom-primary;
+      }
+      @media (max-width: $bs-breakpoint-sm) {
+        font-size: 2rem;
+      }
+    }
+    p {
+      text-transform: uppercase;
+      font-weight: 300;
+      letter-spacing:5px;
+      word-spacing:5px;
+      margin-top: 1.5rem;
+      margin-bottom: 2.5rem;
+      @media (max-width: $bs-breakpoint-sm) {
+        font-size: 90%;
+      }
+    }
+    .btn {
+      text-transform: uppercase;
+      @media (max-width: $bs-breakpoint-sm) {
+        font-size: 90%;
+      }
+    }
+
+  }
+  .carousel-caption {
+    margin-bottom: 15vh;
+  }
+  .carousel-indicators {
+    bottom:10vh;
+    li {
+      cursor: pointer;
+      width:36px;
+      height:6px;
+      background-color: $light-color;
+      margin:0px 6px;
+      &.active {
+        background-color: $custom-primary;
+      }
+    }
+  }
+
 
   .sub-header {
     height: 55px;
@@ -26,6 +81,10 @@ header.jumbotron {
     a {
       color:$light-color;
       margin-right: 35px;
+      @media (max-width: $bs-breakpoint-sm) {
+        font-size: 90%;
+        margin-right: 10px;
+      }
     }
 
   }
