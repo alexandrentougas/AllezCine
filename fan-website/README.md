@@ -10,6 +10,7 @@
   - [Contact](#contact)
   - [Footer](#footer)
 * [Technologies](#technologies)
+* [Sources](#sources)
 * [Contributors](#contributors)
 * [Preview](#preview)
 
@@ -58,6 +59,11 @@ correctly name your IDs. Use names that make sense, easy to locate on your page.
 * [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [HTML5](https://www.w3.org/html/)
 * [CSS3](https://www.w3.org/Style/CSS/)
+
+## Sources
+
+* [Square Enix Store](https://store.eu.square-enix.com/eu/)
+* [Final Fantasy XV Official Site](https://www.finalfantasyxv.com/uk)
 
 ## Contributors
 
