@@ -90,7 +90,7 @@ let whenDataLoadedMovies = function() { // callback function
     }
 
   });
-  // load next movies in shops
+  // load previous movies in shops
   $('#shop-movies aside .shop-previous-movies').on('click', function(e) {
     let start = Number( $('#shop-movies aside .btn').attr('data-start') );
     if (start - numberElementShop >= 0) {
@@ -170,7 +170,7 @@ function displaySliderItems(data,parent,idPrefix,numberSlides = 4) {
     $('<li data-target="#myCarousel" data-slide-to="' + i + '"></li>').appendTo('.carousel-indicators');
   };
   $('#' + idPrefix + '-' + itemWithSliderRandom[0]['ID']).addClass('active');
-  $('li').first().addClass('active');
+  $('#myCarousel .carousel-indicators li').first().addClass('active');
 };
 
 function displayTopMovie(data,parent,idPrefix,numberElement) { // we display X elements in TopMovie section
@@ -329,7 +329,7 @@ function createSliderItem(data,parent,idPrefix) {
     let HTMLId = idPrefix + '-' + data['ID'];
     let HTMLContent = '<div id="' + HTMLId + '" class="carousel-item"><div class="container"><div class="carousel-caption"><h1>Latest Online Movies</h1><p>In space no one can hear you scream</p><p><a class="btn btn-lg btn-primary" href="#" role="button">Watch Trailer</a></p></div></div></div>'
     $(HTMLContent).appendTo($(parent));
-    $('#' + HTMLId).css('background-image', 'url(img/movies/' + data['Slider'] + ')')
+    $('#' + HTMLId).css('background-image', 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 100%), url(img/movies/' + data['Slider'] + ')')
 };
 
 function createHTMLMovieItem(data,parent,idPrefix) { // we create the item for one movie
