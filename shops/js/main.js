@@ -627,9 +627,9 @@ dataRequestTvShow.onload = whenDataLoadedTvShows;
 dataRequestTvShow.open("GET", tvShowsFeed, true);
 dataRequestTvShow.send(null);
 
-/*$(window).on('load', function() { // age check modal on page load
+$(window).on('load', function() { // age check modal on page load
   $('#ageWarning').modal('show');
-});*/
+});
 
 let isItOlderThan18 = function(year, month, day) { // checks if user is older than 18 years old and returns true/false
   return new Date(year + 18, month - 1, day) <= new Date();
