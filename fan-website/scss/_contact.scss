@@ -1,0 +1,41 @@
+.general-footer {
+
+  .contact-icon {
+
+    .btn {
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      width:75px;
+      height: 75px;
+      font-size:2.5em;
+      padding:0px;
+      margin-top: calc(75px / -2);
+      margin-bottom: calc(75px / 4);
+      border-radius: 50%;
+      z-index:20;
+      color:$custom-primary;
+      border-color: $dark-color;
+      background-color: $dark-color;
+      .fa {
+        z-index: 20;
+      }
+      &::after {
+        content:' ';
+        position: absolute;
+        top:0;
+        left:0;
+        width:75px;
+        height: 75px;
+        z-index:1;
+        border-radius: 50%;
+        animation: pulsar 1s ease-out;
+        animation-iteration-count: infinite;
+        background-color: $dark-color;
+      }
+    }
+
+  }
+
+}
