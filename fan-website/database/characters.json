@@ -1,0 +1,26 @@
+[
+  {
+    "ID": 1,
+    "Name": "Noctis Lucis Caelum",
+    "Biography": "Heir apparent to the Lucian throne, Noctis's trials begin when he sets forth from the crown city in order to wed the Lady Lunafreya Nox Fleuret. In combat, he wields spectral weapons which he forges from thin air, a power possessed by those of his royal line.",
+    "Picture": "noctis.png"
+  },
+  {
+    "ID": 2,
+    "Name": "Gladiolus Amicitia",
+    "Biography": "The Amicitia family has long served as the shield protecting the kings of Lucis and their household, and Gladiolus is its eldest son. The bond he shares with Noctis transcends that of a bodyguard and his liege. With his prodigious strength, he stands ever ready to keep his companions from harm.",
+    "Picture": "gladiolus.png"
+  },
+  {
+    "ID": 3,
+    "Name": "Ignis Scientia",
+    "Biography": "Ignis was raised alongside Prince Noctis to be adviser to the heir apparent. An intensive education instilled in him the resourcefulness and composure required for the role, his tactical acumen proving invaluable over the course of the prince's journey.",
+    "Picture": "ignis.png"
+  },
+  {
+    "ID": 4,
+    "Name": "Prompto Argentum",
+    "Biography": "Fast friends with Noctis since they met as teenagers, Prompto is a young man of common birth who finds himself out of his depth when tragedy befalls Lucis. Nevertheless, he strives to carry more than his own weight, lightening his companions' burdens as well as their spirits.",
+    "Picture": "prompto.png"
+  }
+]
