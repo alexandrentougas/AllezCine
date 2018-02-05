@@ -63,12 +63,11 @@
     </section>
     <section class="tab-pane fade" id="nav-gallery" role="tabpanel" aria-labelledby="nav-gallery-tab"> <!-- Gallery -->
       <div class="container">
-        f
       </div>
     </section>
     <section class="tab-pane fade" id="nav-goodies" role="tabpanel" aria-labelledby="nav-goodies-tab"> <!-- Shops Gogdies -->
       <div class="container">
-        <button id="cart-button" type="button">Cart Preview</button>
+        <button id="cart-button" type="button" data-toggle="modal" data-target="#cartModal">Cart Preview</button>
       </div>
     </section>
   </main>
@@ -111,6 +110,27 @@
     <h2 id="character-name"></h2>
     <p id="character-bio"></p>
   </aside>
+
+  <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Pre-purchase preview</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="img/Logos/chocoMog.png" alt="">
+        <p>Hey ! You didn't put anything in your cart yet !</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Checkout</button>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- Insertion of JS librairies/frameworks -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
