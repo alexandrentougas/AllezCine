@@ -90,7 +90,7 @@ let whenDataLoadedMovies = function() { // callback function
     }
 
   });
-  // load next movies in shops
+  // load previous movies in shops
   $('#shop-movies aside .shop-previous-movies').on('click', function(e) {
     let start = Number( $('#shop-movies aside .btn').attr('data-start') );
     if (start - numberElementShop >= 0) {
@@ -170,7 +170,7 @@ function displaySliderItems(data,parent,idPrefix,numberSlides = 4) {
     $('<li data-target="#myCarousel" data-slide-to="' + i + '"></li>').appendTo('.carousel-indicators');
   };
   $('#' + idPrefix + '-' + itemWithSliderRandom[0]['ID']).addClass('active');
-  $('li').first().addClass('active');
+  $('#myCarousel .carousel-indicators li').first().addClass('active');
 };
 
 function displayTopMovie(data,parent,idPrefix,numberElement) { // we display X elements in TopMovie section
