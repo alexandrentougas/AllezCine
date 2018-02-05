@@ -105,7 +105,7 @@ let whenDataLoadedMovies = function() { // callback function
 
   // load movie poster in the Footer
   displayXItemsPosterInFooter(movieObject,'#poster-list',numberElement);
-  displayXItemsSliderInFooter(movieObject,'#iframe-list',4);
+  displayXItemsSliderInFooter(movieObject,'#slider-list',3);
 
 }
 
@@ -236,7 +236,7 @@ function displayXItemsSliderInFooter(data,parent,numberElement = 6) {
 }
 
 function createHTMLItemsSliderFooter(data,parent) {
-  $( '<div class="row"><div class="col-6 col-md-6"><img class="img-fluid" src="img/movies/' + getFilenameForSpecificSize(data['Slider'],1280) + '" alt="' + data['Title'] + '"></div><div class="col-6 col-md-6"><h5>' + data['Title'] + '</h5></div></div>' ).appendTo( $( parent ) );
+  $( '<div class="container"><div class="row"><div class="col-12 col-md-7"><img class="img-fluid" src="img/movies/' + getFilenameForSpecificSize(data['Slider'],1280) + '" alt="' + data['Title'] + '"></div><div class="col-12 col-md-5"><h5>' + data['Title'] + '</h5></div></div></div>' ).appendTo( $( parent ) );
 }
 
 function sortObjectbySpecificKey(data, key, order = 'ASC') {
@@ -370,18 +370,17 @@ function createHTMLMovieItem(data,parent,idPrefix) { // we create the item for o
 
 function createHTMLMovieShopItem(data,parent,idPrefix) {
   let HTMLId = idPrefix + '-' + data['ID']; // we construct the HTML id of this movie
-  let HTMLContent = '<div class="col-12 col-sm-6 col-md-6 col-lg-3 card movie-item" id="' + HTMLId + '"></div>'; // we open the div, insert class and ID
+  let HTMLContent = '<div class="col-12 col-sm-6 col-md-6 col-lg-3 card movie-item" id="' + HTMLId + '"><div class="container-item"></div></div>'; // we open the div, insert class and ID
   $( HTMLContent ).appendTo( $( parent ) ); // we add our HTML content to the parent
   $( '#' + HTMLId ).attr({ // we insert some data-attribute
     'data-id': data['ID']
   });
-  $( '<img src="img/movies/' + getFilenameForSpecificSize(data['Poster'],350) + '" class="poster card-img-top img-fluid" title="' + data['Title'] + ' (' + data['Year'] + ')" >' ).appendTo( $( '#' + HTMLId) ); // we add the poster
-  $( '<div class="card-body"></div>' ).appendTo( $( '#' + HTMLId) ); // we construct the card
-  $( '<h5 class="card-title">' + data['Title'] + '</h5>' ).appendTo( $( '#' + HTMLId + ' .card-body') );
-  $( '<div class="card-footer"></div>' ).appendTo( $( '#' + HTMLId ) );
-  $( '<div class="row"></div>' ).appendTo( $( '#' + HTMLId + ' .card-footer') );
-  $( '<div class="col-6">' + data['Year'] + '</div>' ).appendTo( $( '#' + HTMLId + ' .card-footer .row') );
-  $( '<div class="col-6">' + data['Price'] + '</div>' ).appendTo( $( '#' + HTMLId + ' .card-footer .row') );
+  $( '<img src="img/movies/' + getFilenameForSpecificSize(data['Poster'],350) + '" class="poster card-img-top img-fluid" title="' + data['Title'] + ' (' + data['Year'] + ')" >' ).appendTo( $( '#' + HTMLId + ' .container-item') ); // we add the poster
+  //$( '<div class="card-body"></div>' ).appendTo( $( '#' + HTMLId) ); // we construct the card
+  $( '<div class="card-footer"></div>' ).appendTo( $( '#' + HTMLId + ' .container-item' ) );
+  $( '<h5 class="card-title">' + data['Title'] + '</h5>' ).appendTo( $( '#' + HTMLId + ' .card-footer') );
+  $( '<div class="card-subtitle"></div>' ).appendTo( $( '#' + HTMLId + ' .card-footer') );
+  $( '<div class="card-subtitle-item year-item">' + data['Year'] + '</div><div class="card-subtitle-item price-item">' +data['Price'] + ' €</div>' ).appendTo( $( '#' + HTMLId + ' .card-subtitle') );
 }
 
 function createHTMLItemInformationInMovieShop(dataItem,parent) {
@@ -477,7 +476,7 @@ function createHTMLMovieItemInformationModal(data,informationParent,idData) {
   $( '#' + currentHTMLID + ' .main-data-modal' ).html('<p>' + data['Summary'] + '</p>')
   $( '#' + currentHTMLID + ' .main-data-modal > p' ).after('<table class="table table-hover table-sm"></table>');
   $('<tr><td>Release date</td><td>' + data['Released'] + '</td></tr>').appendTo( $( '#' + currentHTMLID + ' .main-data-modal > table' ) );
-  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Country</td><td>' + data['Country'] + ' min.</td></tr>');
+  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Country</td><td>' + data['Country'] + '</td></tr>');
   $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Duration</td><td>' + data['Duration'] + ' min.</td></tr>');
   $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Genre</td><td>' + data['Genre'].join(', ') + '</td></tr>');
   $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Director</td><td>' + data['Director'].join(', ') + '</td></tr>');
@@ -530,11 +529,10 @@ function createHTMLTvShowItem(data, parent, idPrefix) {
     'data-actors': data['Actors'].join(', ').toLowerCase(),
   });
   $('<img src="img/tvshows/' + getFilenameForSpecificSize(data['Poster'],350) + '" class="poster card-img-top img-fluid" title="' + data['Title'] + '(' + data['Beginning'] + '-' + data['Ending'] + ')" >').appendTo($('#' + HTMLId));
-  $('<div class="card-body"></div>').appendTo($('#' + HTMLId));
-  $('<h5 class="card-title">' + data['Title'] + '</h5>').appendTo($('#' + HTMLId + ' .card-body'));
-  $('<h6 class="card-subtitle">' + data['Beginning'] + '-' + data['Ending'] + '</h6>').appendTo($('#' + HTMLId + ' .card-body'));
-  $('<div class="card-text">' + data['Genre'][0] + '</div>').appendTo($('#' + HTMLId + ' .card-body'));
   $('<div class="card-footer"></div>').appendTo( $('#' + HTMLId ) );
+  $('<h5 class="card-title">' + data['Title'] + '</h5>').appendTo($('#' + HTMLId + ' .card-footer'));
+  $( '<div class="card-subtitle"></div>' ).appendTo( $( '#' + HTMLId + ' .card-footer') );
+  $( '<div class="card-subtitle-item">' + data['Beginning'] + '-' + data['Ending'] + '</div><div class="card-subtitle-item">' + data['Genre'][0] + '</div>' ).appendTo( $( '#' + HTMLId + ' .card-subtitle') );
   $('<div class="btn-group btn-group-sm" role="group" aria-label="More function"></div>').appendTo($('#' + HTMLId + ' .card-footer'));
   $('<button type="button" class="btn btn-secondary btn-information-modal"></button>').appendTo($('#' + HTMLId + ' .btn-group'));
   $( '#' + HTMLId + ' .btn-information-modal' ).attr({
@@ -569,8 +567,8 @@ function createHTMLTvShowItemInformationModal(data,informationParent,idData) {
   $( '#' + currentHTMLID + ' .main-data-modal' ).html('<p>' + data['Summary'] + '</p>')
   $( '#' + currentHTMLID + ' .main-data-modal > p' ).after('<table class="table table-hover table-sm"></table>');
   $('<tr><td>Release date</td><td>' + data['Beginning'] + '</td></tr>').appendTo( $( '#' + currentHTMLID + ' .main-data-modal > table' ) );
-  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Seasons</td><td>' + data['Seasons'] + ' seasons.</td></tr>');
-  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Episodes</td><td>' + data['Episodes'] + ' episodes.</td></tr>');
+  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Seasons</td><td>' + data['Seasons'] + '</td></tr>');
+  $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Episodes (total)</td><td>' + data['Episodes'] + '</td></tr>');
   $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Duration</td><td>' + data['Duration'] + ' min.</td></tr>');
   $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Genre</td><td>' + data['Genre'].join(', ') + '</td></tr>');
   $( '#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type' ).after('<tr><td>Director</td><td>' + data['Creators'].join(', ') + '</td></tr>');
@@ -698,14 +696,17 @@ $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').on('click',function(event
 $(window).scroll(function() {
   if ($(document).scrollTop() > 200) {
     $('#main-nav').addClass('shrink');
-    $('#go-to-top').show().animate({
-      opacity:1,
-    },500, function(){});
+    $('#go-to-top').fadeIn(700);
+    //$('#social-networks').fadeIn(700);
   } else {
     $('#main-nav').removeClass('shrink');
-    $('#go-to-top').hide().animate({
-      opacity:0,
-    },500, function(){});
+    $('#go-to-top').fadeOut(700);
+    //$('#social-networks').fadeOut(700);
+  }
+  if ( $(document).scrollTop() > ($('header').height() * .7) ) {
+    $('#social-networks').fadeIn(700);
+  } else {
+     $('#social-networks').fadeOut(700);
   }
 });
 

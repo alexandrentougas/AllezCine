@@ -1,0 +1,252 @@
+[
+    {
+        "ID": 1,
+        "Type": "Figure",
+        "Name": "PLAY ARTS KAI - ARANEA HIGHWIND",
+        "Price": 134.99,
+        "Description": "Captain of the Niflheim Empire's Third Army Corps 86th Airborne Unit, Aranea Highwind is a supremely skilled aerial combatant, who has earned the name “Dragoon” for her prowess. This awesome figure fully recreates Aranea’s gallant appearance down to the last detail, clad in sleek black armour and wielding a deadly magitek spear as the flits across the battlefield. The fine sculpting brings out Aranea’s sharp silhouette, combined with an unmistakeable femininity, while the colouring on her pearlescent skin gives her a slightly otherworldly appearance. The textures on the accessories have been worked to the highest quality finish for a striking visual impact, while the use of soft materials on the joints and a link-ball connector on the cloak allow for a wealth of characterful poses. Her trusty spear has an imposing presence and the figure also includes two variant heads, one wearing her distinctive helmet and the other bare, allowing you to recreate her famous scenes from the story of FINAL FANTASY XV.",
+        "Height": 265,
+        "Width": 115,
+        "Depth": 80,
+        "Weight": 319,
+        "Picture": "araneaFigure.jpg"
+    },
+    {
+        "ID": 2,
+        "Type": "Figure",
+        "Name": "PLAY ARTS KAI - CINDY AURUM",
+        "Price": 124.99,
+        "Description": "An awesome action figure of the hugely popular Cindy Aurum, bright and cheery mechanic girl from FINAL FANTASY XV. Great care has been taken to perfectly reproduce the shape and colouring her distinctive costume which emphasises her exceptional figure. The texturing on her work jacket and cap have been finely rendered and they proudly bear the logo of the Hammerhead garage that Cindy runs. Her toolbox has also been expertly sculpted and coloured to give a feeling of heavy use. All of Cindy’s distinctive details seen in the game have been included on this figure, right down to the tan lines peeking through the gaps in her clothing.",
+        "Height": 280,
+        "Width": 118,
+        "Depth": 58,
+        "Weight": 236,
+        "Picture": "cindyFigure.jpg"
+    },
+    {
+        "ID": 3,
+        "Type": "Figure",
+        "Name": "PLAY ARTS KAI - GLADIOLUS",
+        "Price": 119.99,
+        "Description": "Gladiolus Amicitia, trained as the protector of the Lucian royal family. This figure recreates Gladiolus’ imposingly muscled body in full detail, taking special care with the articulation to allow posing that fits with the character perfectly. The figure has also been meticulously coloured to thoroughly capture even the finest details, such as the face, the stitching and details of his clothing and his tattoos. Gladio’s signature weapon, an imposing greatsword, is also included, perfect for recreating his heroic image from the game.",
+        "Height": 295,
+        "Width": 105,
+        "Depth": 55,
+        "Weight": 450,
+        "Picture": "gladiolusFigure.jpg"
+    },
+    {
+        "ID": 4,
+        "Type": "Figure",
+        "Name": "PLAY ARTS KAI - IGNIS",
+        "Price": 109.99,
+        "Description": "Ignis Scientia, raised from birth to become an aide to Prince Noctis, the hero of FINAL FANTASY XV, and given the kingdom’s most elite education. This amazing figure captures Ignis’ collected, intellectual bearing and smart appearance, with a coolness visible in the determined expression behind his stylish eyeglasses. In addition to a perfect recreation of his form, all the fine details of Ignis outfit, from his belt and buttons to the soles of his shoes and the meticulously reproduced leopard print shirt, are individually coloured, making this a figure of immense quality. Consideration has been put into not just the figure’s appearance, but also its articulation, with numerous alternative hand pieces making it possible to reproduce Ignis unique gestures and poses. This wonderful action figure lets you really enjoy the epic world of FINAL FANTASY XV.",
+        "Height": 280,
+        "Width": 90,
+        "Depth": 50,
+        "Weight": 260,
+        "Picture": "ignisFigure.jpg"
+    },
+    {
+        "ID": 5,
+        "Type": "Soundtrack",
+        "Name": "ORIGINAL SOUNDTRACK LIMITED EDITION (BLU-RAY DISC MUSIC)",
+        "Price": 89.99,
+        "Description": "Experience the ultimate musical journey with the FINAL FANTASY XV Original Soundtrack – Limited Edition Blu-Ray!* (*Includes MP3 files) This deluxe box set includes many bonuses for the collectors: ◆ Bonus 1: Bonus tracks only available in the limited edition! Theme song “Stand by Me” (Florence + the Machine) / Behind-the-scenes of the Boston recording session, among others. ◆ Bonus 2: Bonus Disc /　Car Stereo (Blu-ray disc). Another Blu-ray disc soundtrack containing all the music the main characters listen to on the stereo of their beloved car, the Regalia. Contains over 250 masterpieces from the FF series! Historically, this will be the biggest Blu-ray soundtrack the company has ever released in terms of total runtime and track number! ◆ Bonus 3: Bonus Disc / Piano Arrangement (CD). Several tracks from the game rearranged for piano in this special CD. ◆ Bonus 4: Special Booklet. A beautiful booklet featuring Yoshitaka Amano’s “BIG BANG” artwork on the cover and including liner notes as well as a round table discussion with main composer Yoko Shimomura and members of the music production team! (Japanese text only). * Please note that this soundtrack is not a CD. A Blu-Ray disc player is required. * Owners of a Blu-Ray-compatible drive will be able to retrieve mp3 versions of all the tracks. (FFXV soundtrack only)",
+        "Picture": "limitedSoundtrack.jpg"
+    },
+    {
+        "ID": 6,
+        "Type": "Figure",
+        "Name": "PLAY ARTS KAI - LUNAFREYA NOX FLEURET",
+        "Price": 114.99,
+        "Description": "Lunafreya Nox Fleuret, the heroine of FINAL FANTASY XV and betrothed of Noctis. Her courageous and determined visage speaks of her great personal gravitas as an oracle capable of conversing with the gods, and also as head of house Fleuret, the ruling dynasty of the nation of Tenebrae. The mermaid line on the figure’s dress further emphasises Lunafreya’s beauty, while great care has been paid to recreating and colouring the fine details, such as her elegant hair style and the Trident of the Oracle she carries. The shoulder joints use a new kind of articulated component, allowing for smoother, more realistic movement. The set also includes a number of alternative hands, allowing for a wide variety of expressive poses to recreate situations from the game.",
+        "Height": 260,
+        "Width": 78,
+        "Depth": 80,
+        "Weight": 212,
+        "Picture": "lunaFigure.jpg"
+    },
+    {
+        "ID": 7,
+        "Type": "Accessory",
+        "Name": "SILVER PENDANT - LUNAFREYA NOX FLEURET",
+        "Price": 218.49,
+        "Description": "Lunafreya’s silver pendant is now available from the world of FINAL FANTASY XV!",
+        "Height": 20.5,
+        "Width": 13.5,
+        "Depth": 1.7,
+        "Length": 460,
+        "Picture": "lunaPendant.jpg"
+    },
+    {
+        "ID": 8,
+        "Type": "Figure",
+        "Name": "PLAY ARTS KAI – NOCTIS",
+        "Price": 119.99,
+        "Description": "Noctis, protagonist of FINAL FANTASY XV, and the rightful heir to the throne of the Kingdom of Lucis, now makes his appearance as a PLAY ARTS KAI action figure. Our sculptors have spared no effort in the creation of this action figure, and their meticulous attention to detail is evident: his clean-cut features, his dignified face, the detailed texture of the embroidery on his clothing, the delicate sculpting on his two swords.... This figure is a masterpiece, embodying the unique allure of the hero of the latest installment in the FINAL FANTASY series. Figure includes display stand and interchangeable hand parts.",
+        "Height": 270,
+        "Width": 90,
+        "Depth": 50,
+        "Weight": 290,
+        "Picture": "noctisFigure.jpg"
+    },
+    {
+        "ID": 9,
+        "Type": "Accessory",
+        "Name": "SILVER COIN PENDANT - NOCTIS LUCIS CAELUM",
+        "Price": 179.99,
+        "Description": "We have created this coin-shaped necklace in honor of the FINAL FANTASY 30th ANNIVERSARY. The laser engraving on the pendant faithfully recreates the likeness of NOCTIS LUCIS CAELUM and the clasp connecting the pendant to the chain is inset with a gemstone.",
+        "Height": 25,
+        "Width": 25,
+        "Depth": 1.5,
+        "Length": 550,
+        "Picture": "noctisPendant.jpg"
+    },
+    {
+        "ID": 10,
+        "Type": "Figure",
+        "Name": "PLAY ARTS -KAI- NYX ULRIC",
+        "Price": 134.99,
+        "Description": "King Regis of Lucis commands an elite force of soldiers called the Kingsglaive. Wielding their king’s magic, Nyx and his fellow soldiers fight to protect Lucis. Saved by King Regis as a child, Nyx repays the debt by serving the Kingsglaive with distinction. His unique ability to wield the King’s magic and his epic exploits in combat have earned him the moniker of “hero” among his peers.",
+        "Height": 270,
+        "Width": 90,
+        "Depth": 50,
+        "Weight": 320,
+        "Picture": "nyxFigure.jpg"
+    },
+    {
+        "ID": 11,
+        "Type": "Game",
+        "Platform": "PC",
+        "Name": "FINAL FANTASY XV WINDOWS EDITION [PC]",
+        "Price": 49.99,
+        "Description": "Get ready to be at the centre of the ultimate fantasy adventure, now for Windows PC. Joined by your closest friends on the roadtrip of a lifetime through a breathtaking open world, witness stunning landscapes and encounter larger-than-life beasts on your journey to reclaim your homeland from an unimaginable foe. In an action-packed battle system, channel the power of your ancestors to warp effortlessly through the air in thrilling combat, and together with your comrades, master the skills of weaponry, magic and team-based attacks. Now realised with the power of cutting-edge technology for Windows PCs, including support for high-resolution displays and HDR10, the beautiful and carefully-crafted experience of FINAL FANTASY XV can be explored like never before.",
+        "Picture": "pcEdition.jpg"
+    },
+    {
+        "ID": 12,
+        "Type": "Figure",
+        "Name": "PLAY ARTS KAI - PROMPTO",
+        "Price": 109.99,
+        "Description": "Best friend to Prince Noctis, the hero of FINAL FANTASY XV, gunman Prompto is recreated perfectly as an action figure, completely capturing his image form the game with meticulous colouring and textures. All the details of his costume, such as the patches, studs and embroidery, have been carefully reproduced, with an eye to playfulness seen in features such as the articulation on the bandanna tied to his arm. By using pliable materials for specific parts, the figure’s great articulation is not impeded, making it the very embodiment of what an action figure should be!",
+        "Height": 280,
+        "Width": 90,
+        "Depth": 50,
+        "Weight": 240,
+        "Picture": "promptoFigure.jpg"
+    },
+    {
+        "ID": 13,
+        "Type": "Game",
+        "Platform": "PS4",
+        "Name": "FINAL FANTASY XV ULTIMATE COLLECTOR'S EDITION [PS4]",
+        "Price": 269.99,
+        "Description": "Get ready to be at the centre of the ultimate fantasy adventure. Enter the world of FINAL FANTASY XV, and experience epic action-packed battles along your journey of discovery. You are Noctis, the Crown Prince of the Kingdom of Lucis, and your quest is to reclaim your homeland from the clutches of the imperial army. Joined by your closest friends, you will take the wheel and experience a voyage like no other, travelling through the breathtaking world of Eos encountering larger-than-life beasts and unforgiving enemies. You will learn to master the skills of weaponry and magic, channelling the power of your ancestors allowing you to effortlessly warp through the air in thrilling combat. Fresh faces and long-time fans, fulfil your destiny and experience a brand new kind of fantasy.",
+        "Picture": "ps4Collector.jpg"
+    },
+    {
+        "ID": 14,
+        "Type": "Game",
+        "Platform": "PS4",
+        "Name": "FINAL FANTASY XV DAY ONE EDITION [PS4]",
+        "Price": 39.99,
+        "Description": "FINAL FANTASY® XV Day One Edition includes the following additional digital content: Weapon: Masamune (FFXV) - The legendary sword Masamune is back, specially redesigned for FINAL FANTASY XV. Add it to your arsenal and cut your enemies down to size.",
+        "Picture": "ps4DayOne.jpg"
+    },
+    {
+        "ID": 15,
+        "Type": "Game",
+        "Platform": "PS4",
+        "Name": "FINAL FANTASY XV DELUXE EDITION [PS4]",
+        "Price": 89.99,
+        "Description": "FINAL FANTASY® XV DELUXE EDITION includes the following additional content: Exclusive SteelBook® design unique to this edition of the game, featuring artwork by legendary series artist, Yoshitaka Amano. Kingsglaive: FINAL FANTASY XV Blu-ray Disc – Experience the action-packed full-length CG motion picture! Kingsglaive is told through the eyes of King Regis, while FINAL FANTASY XV follows the journey of Prince Noctis. The two tales entwine to weave a stirring story of father and son. As well as the following additional digital content: Outfit: Royal Raiment - Dress Noctis in Lucian formalwear fit for a king! Weapon: Masamune (FFXV) - Add the legendary Masamune to your arsenal and cut foes down to size! Recolor: Platinum Leviathan - Make waves wherever you go with this sleek serpentine finish!",
+        "Picture": "ps4DeluxeEdition.jpg"
+    },
+    {
+        "ID": 16,
+        "Type": "Game",
+        "Platform": "PS4",
+        "Name": "FINAL FANTASY XV ROYAL EDITION [PS4]",
+        "Price": 49.99,
+        "Description": "FINAL FANTASY XV ROYAL EDITION brings the acclaimed epic to new heights, packed with add-on content and new features. Join Prince Noctis and his closest friends as they fight against the empire in an effort to take back their fallen kingdom. FINAL FANTASY XV ROYAL EDITION includes all of the exciting content released as part of continuous game updates (Chapter 13 alternate route, off-road Regalia customisation, character swap feature and more!). And comes with all of content released in the Season Pass - Episode Gladiolus, Episode Prompto, Multiplayer Expansion: Comrades, and Episode Ignis.",
+        "Picture": "ps4RoyalEdition.jpg"
+    },
+    {
+        "ID": 17,
+        "Type": "Figure",
+        "Name": "STATIC ARTS BUST - REGIS LUCIS CAELUM",
+        "Price": 46.99,
+        "Description": "Regis majesty as a sovereign and his kindness as a man are enthroned deep within his wise expression. This bust is given class and gravitas through its design that exhaustively captures all the fine details of the king’s attire from the film, combined with refined colouring techniques that aim for a highly detailed and accurate reproduction of the character.",
+        "Height": 107,
+        "Width": 85,
+        "Depth": 40,
+        "Weight": 130,
+        "Picture": "regisFigure.jpg"
+    },
+    {
+        "ID": 18,
+        "Type": "Accessory",
+        "Subtype": "Ring",
+        "Name": "SILVER PENDANT - RING OF THE LUCII",
+        "Price": 249.99,
+        "Description": "This beautiful pendant features a silver chain with a Ring of the Lucii. This exclusive item is a must have for every true FINAL FANTASY XV fan!",
+        "Height": 22.85,
+        "Width": 26.87,
+        "Length": 470,
+        "Size": 18,
+        "Picture": "luciiRing.jpg"
+    },
+    {
+        "ID": 19,
+        "Type": "Game",
+        "Platform": "PC",
+        "Name": "FINAL FANTASY® XV: WINDOWS EDITION [PC DOWNLOAD]",
+        "Price": 49.99,
+        "Description": "Get ready to be at the centre of the ultimate fantasy adventure, now for Windows PC. Joined by your closest friends on the roadtrip of a lifetime through a breathtaking open world, witness stunning landscapes and encounter larger-than-life beasts on your journey to reclaim your homeland from an unimaginable foe. In an action-packed battle system, channel the power of your ancestors to warp effortlessly through the air in thrilling combat, and together with your comrades, master the skills of weaponry, magic and team-based attacks. Now realised with the power of cutting-edge technology for Windows PCs, including support for high-resolution displays and HDR10, the beautiful and carefully-crafted experience of FINAL FANTASY XV can be explored like never before.",
+        "Picture": "steamEdition.png"
+    },
+    {
+        "ID": 20,
+        "Type": "Wall Scroll",
+        "Name": "FINAL FANTASY XV WALL SCROLL VOL.2",
+        "Price": 22.99,
+        "Description": "Presenting Unbreakable Bonds of FINAL FANTASY XV characters in this highly quality wall scroll, bringing together Noctis, Gladiolus, Ignis and Prompto!",
+        "Picture": "wallScroll.jpg"
+    },
+    {
+        "ID": 21,
+        "Type": "Game",
+        "Platform": "XBOX ONE",
+        "Name": "FINAL FANTASY XV ULTIMATE COLLECTOR'S EDITION [XBOX ONE]",
+        "Price": 269.99,
+        "Description": "Get ready to be at the centre of the ultimate fantasy adventure. Enter the world of FINAL FANTASY XV, and experience epic action-packed battles along your journey of discovery. You are Noctis, the Crown Prince of the Kingdom of Lucis, and your quest is to reclaim your homeland from the clutches of the imperial army. Joined by your closest friends, you will take the wheel and experience a voyage like no other, travelling through the breathtaking world of Eos encountering larger-than-life beasts and unforgiving enemies. You will learn to master the skills of weaponry and magic, channelling the power of your ancestors allowing you to effortlessly warp through the air in thrilling combat. Fresh faces and long-time fans, fulfil your destiny and experience a brand new kind of fantasy.",
+        "Picture": "xboxCollector.jpg"
+    },
+    {
+        "ID": 22,
+        "Type": "Game",
+        "Platform": "XBOX ONE",
+        "Name": "FINAL FANTASY XV DAY ONE EDITION [XBOX ONE]",
+        "Price": 49.99,
+        "Description": "FINAL FANTASY® XV Day One Edition includes the following additional digital content: Weapon: Masamune (FFXV) - The legendary sword Masamune is back, specially redesigned for FINAL FANTASY XV. Add it to your arsenal and cut your enemies down to size.",
+        "Picture": "xboxDayOne.jpg"
+    },
+    {
+        "ID": 23,
+        "Type": "Game",
+        "Platform": "XBOX ONE",
+        "Name": "FINAL FANTASY XV DELUXE EDITION [XBOX ONE]",
+        "Price": 89.99,
+        "Description": "FINAL FANTASY® XV DELUXE EDITION includes the following additional content: Exclusive SteelBook® design unique to this edition of the game, featuring artwork by legendary series artist, Yoshitaka Amano. Kingsglaive: FINAL FANTASY XV Blu-ray Disc – Experience the action-packed full-length CG motion picture! Kingsglaive is told through the eyes of King Regis, while FINAL FANTASY XV follows the journey of Prince Noctis. The two tales entwine to weave a stirring story of father and son. As well as the following additional digital content: Outfit: Royal Raiment - Dress Noctis in Lucian formalwear fit for a king! Weapon: Masamune (FFXV) - Add the legendary Masamune to your arsenal and cut foes down to size! Recolor: Platinum Leviathan - Make waves wherever you go with this sleek serpentine finish!",
+        "Picture": "xboxDeluxeEdition.jpg"
+    },{
+        "ID": 24,
+        "Type": "Game",
+        "Platform": "XBOX ONE",
+        "Name": "FINAL FANTASY XV ROYAL EDITION [XBOX ONE]",
+        "Price": 49.99,
+        "Description": "FINAL FANTASY XV ROYAL EDITION brings the acclaimed epic to new heights, packed with add-on content and new features. Join Prince Noctis and his closest friends as they fight against the empire in an effort to take back their fallen kingdom. FINAL FANTASY XV ROYAL EDITION includes all of the exciting content released as part of continuous game updates (Chapter 13 alternate route, off-road Regalia customisation, character swap feature and more!). And comes with all of content released in the Season Pass - Episode Gladiolus, Episode Prompto, Multiplayer Expansion: Comrades, and Episode Ignis.",
+        "Picture": "xboxRoyalEdition.jpg"
+    }
+]

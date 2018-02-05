@@ -16,6 +16,9 @@
 // jumbotron
 @import "jumbotron";
 
+// modal
+@import "modal";
+
 // import unique element
 @import "unique-element";
 
@@ -27,8 +30,20 @@
 .card {
   border:0px;
   justify-content: space-between;
+  margin-bottom: 20px;
 
-  .card-body {}
+  &:hover {
+    img {
+      box-shadow: 5px 5px 10px 0px rgba($dark-color,.3);
+    }
+    .card-title, .card-subtitle {
+      text-shadow: 2.5px 2.5px 5px rgba($dark-color,.3);
+    }
+  }
+
+  .card-img-top {
+    border-radius: 0px;
+  }
 
   .card-footer {
     padding:0px;
@@ -43,7 +58,7 @@
       margin-top: 1vh;
     }
     .card-subtitle {
-      color:lighten($dark-color,10%);
+      color:lighten($dark-color,25%);
       display:flex;
       justify-content: space-between;
       font-size:.8em;
@@ -98,3 +113,209 @@
 .tvshow-list aside {
   margin:2vh 0vw;
 }
+
+/*** Specific CSS **/
+
+#shop-movies {
+
+  aside {
+    margin-bottom: 10px;
+    .btn {
+      font-size:.8rem;
+    }
+  }
+
+  .card {
+
+    cursor: pointer;
+
+    &:hover {
+      img {
+        box-shadow:none;
+      }
+      .card-title, .card-subtitle {
+        text-shadow:none;
+      }
+      .container-item {
+        box-shadow: 5px 5px 10px 0px rgba($dark-color,.3);
+      }
+    }
+
+    .container-item {
+      background-color: darken($light-color,10%);
+    }
+
+    .card-footer {
+      padding:0px 15px;
+      .price-item {
+        color:$custom-primary;
+      }
+    }
+
+  }
+
+  .preview-information {
+    color:darken($light-color,20%);
+    background-color: $dark-color;
+
+    h4 {
+      font-size: 1.3rem;
+      margin: 20px 0px 15px 0px;
+      color:$custom-primary;
+      text-transform:uppercase;
+    }
+    .row {
+      font-size:.9em;
+      div:first-child {
+        color:$custom-primary;
+        min-width: 125px;
+      }
+    }
+
+  }
+
+}
+
+#contact-us {
+  margin-bottom: 50px;
+  .form-row {
+    margin-bottom:20px;
+  }
+  textarea {
+    min-height:150px;
+  }
+}
+
+footer {
+
+  &.container-fluid {
+    padding:0px 30px;
+    .row {
+      padding-right:0px;
+      padding-left:0px;
+    }
+  }
+
+  .subscribe {
+
+    padding:30px 0px 50px;
+    .col-12 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    h3 {
+      color:$custom-primary;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+    }
+    .form-control {
+      display: inline-block;
+      width: auto;
+      border-radius: 0px;
+    }
+
+  } /* end subscribe */
+
+  .box-list {
+
+    padding-bottom:20px;
+    border-bottom: 1px solid rgba($light-color,.15);
+    margin-bottom:30px;
+
+    h4 {
+      font-size:1.2rem;
+      color:darken($light-color,10%);
+      text-transform: uppercase;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba($light-color,.15);
+    }
+    ul {
+      list-style-type:none;
+      padding: 0px;
+      li {
+        margin-bottom: 8px;
+      }
+      a {
+        font-size: .9em;
+        text-transform:uppercase;
+        color:darken($light-color,50%);
+        margin-bottom: 10px;
+        &:hover {
+          text-decoration: none;
+          color:$light-color;
+        }
+      }
+    }
+
+    .genre-tag {
+      .btn {
+        font-size: .85em;
+        margin:0px 2px 6px;
+        border:0px;
+        color:$light-color;
+        background-color: lighten($dark-color,15%);
+        &:hover {
+          color:$dark-color;
+          background-color: $light-color;
+        }
+      }
+    }
+
+    #slider-list {
+      .container {
+        margin-bottom: 10px;
+      }
+      h5 {
+        color:darken($light-color,50%);
+        font-size: 1rem;
+      }
+    }
+
+    #poster-list {
+      div {
+        padding:0px!important;
+      }
+    }
+
+  } /* end box-list */
+
+  .connect-us {
+    padding:20px 0px;
+    border-top: 1px solid rgba($light-color,.15);
+    margin-top:30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h5 {
+      color: darken($light-color,25%);
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+    a {
+      margin: 0px 5px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 35px;
+      height: 35px;
+      color:darken($light-color,35%);
+      border:2px solid rgba(darken($light-color,35%),.5);
+      @include transition();
+      &:hover{
+        color:$light-color;
+        background-color:$custom-primary;
+        border-color:$custom-primary;
+        text-decoration: none;
+      }
+    }
+
+  }
+
+} /* end footer */

@@ -220,8 +220,7 @@
 
           </div>
           <div class="col-12 col-md-6">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2519.233765842255!2d4.355091250984198!3d50.845355279431374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3c47fce0ba71d%3A0x2f634768a374d3b0!2sCantersteen+10%2C+1000+Bruxelles!5e0!3m2!1sfr!2sbe!4v1517314227922"
-              width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2519.233765842255!2d4.355091250984198!3d50.845355279431374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3c47fce0ba71d%3A0x2f634768a374d3b0!2sCantersteen+10%2C+1000+Bruxelles!5e0!3m2!1sfr!2sbe!4v1517314227922" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -244,19 +243,19 @@
 
   <!-- Footer -->
   <footer class="container-fluid">
-    <div class="row">
+    <div class="row subscribe">
       <div class="col-12">
         <h3>Subscribe to us</h3>
         <!--<form method="post">-->
-        <div class="form-group">
-          <input type="email">
-          <button type="button">Subscribe</button>
+        <div>
+          <input type="email" class="form-control" placeholder="Enter your email...">
+          <button type="button" class="btn btn-primary">Subscribe</button>
         </div>
         <!--</form>-->
       </div>
     </div>
-    <div class="row">
-      <div class="col-12 col-md-2">
+    <div class="row box-list">
+      <div class="col-12 col-md-2 year-list">
         <h4>Release</h4>
         <ul>
           <li><a href="">2016</a></li>
@@ -267,7 +266,7 @@
           <li><a href="">2011</a></li>
         </ul>
       </div>
-      <div class="col-12 col-md-2">
+      <div class="col-12 col-md-2 genre-list">
         <h4>Movies</h4>
         <ul>
           <li><a href="">Adventure</a></li>
@@ -284,7 +283,7 @@
           <li><a href="">Drama</a></li>
         </ul>
       </div>
-      <div class="col-12 col-md-2">
+      <div class="col-12 col-md-2 genre-tag">
         <h4>Review Movies</h4>
         <button class="btn btn-secondary">Comedy</button>
         <button class="btn btn-secondary">Horror</button>
@@ -301,23 +300,27 @@
         <button class="btn btn-secondary">Western</button>
         <button class="btn btn-secondary">Drama</button>
       </div>
-      <div class="col-12 col-md-2">
+      <div class="col-12 col-md-3">
         <h4>Latest Movies</h4>
-        <div class="row" id="iframe-list"></div>
+        <div class="row" id="slider-list"></div>
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-3">
         <h4><span class="color-primary">Allez</span>Cine!</h4>
-        <div class="row" id="poster-list"></div>
+        <div class="container">
+          <div class="row" id="poster-list"></div>
+        </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 connect-us">
         <h5>Connect Us</h5>
-        <a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-        <a href="https://www.twitter.com" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-        <a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-        <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a>
-        <a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+        <div>
+          <a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+          <a href="https://www.twitter.com" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          <a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+          <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+          <a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+        </div>
       </div>
     </div>
   </footer>
@@ -325,10 +328,12 @@
   <!-- For Elements Outside the continuous DOM like fixed elements -->
   <aside class="container-fluid" id="fixed-element">
 
+    <!-- Cookies alert -->
     <div class="fixed-bottom text-light bg-dark d-flex justify-content-around align-items-center" id="cookieWarning">
       <span>We use cookies on our website. By using AllezCine, you consent to the use of cookies.</span><i class="fa fa-times" aria-hidden="true" id="cookies"></i>
     </div>
 
+    <!-- Social networks -->
     <div class="social-networks-links" id="social-networks">
       <ul>
         <li><a href="https://www.twitter.com/" target="_blank">Twitter <i class="fa fa-twitter"></i></a></li>
@@ -338,10 +343,12 @@
       </ul>
     </div>
 
+    <!-- Go to top -->
     <div class="scroll-top" id="go-to-top" style="display: none;">
       <a href="#top-page"><i class="fa fa-arrow-up"></i></a>
     </div>
 
+    <!-- Age Warning -->
     <div class="modal fade" id="ageWarning" tabindex="-1" role="dialog" aria-labelledby="Checking the age" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -367,8 +374,9 @@
       </div>
     </div>
 
+    <!-- Login -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="Connexion on AllezCine" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="connectTitle">Connexion</h5>
@@ -386,11 +394,11 @@
               <label for="password">Password</label>
               <input type="text" name="password" id="password">
             </div>
-            <div class="form-group">
+            <div class="form-group inline-label">
               <input type="checkbox" name="staylogged" id="staylogged"> <label for="staylogged">Stay logged in.</label>
             </div>
             <!--</form>-->
-            <div>
+            <div class="forgot-password">
               <a href="#">Forgot your password?</a>
             </div>
           </div>
@@ -403,8 +411,9 @@
       </div>
     </div>
 
+    <!-- Register -->
     <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="Create a new account" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="registerTitle">New Account</h5>
@@ -430,7 +439,7 @@
               <label for="confirmPass">Confirm Password</label>
               <input type="password" name="confirmPass" id="confirmPass">
             </div>
-            <div class="form-group">
+            <div class="form-group inline-label">
               <input type="checkbox" name="termsofuse" id="termsofuse"> <label for="termsofuse">Accept the terms of use.</label>
             </div>
             <!-- </form> -->

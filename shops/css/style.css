@@ -115,12 +115,16 @@ footer {
     .navbar .nav-link[href*="contact-us"] {
       margin-left: 5vw; }
   .navbar .form-control {
+    width: 70px;
     padding-left: 0px;
     padding-right: 0px;
     color: #f2f2f2;
     background-color: rgba(13, 13, 13, 0.7);
-    border: 0px; }
+    border: 0px;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out; }
     .navbar .form-control:focus {
+      width: 200px;
       -webkit-box-shadow: none;
               box-shadow: none; }
     .navbar .form-control::-webkit-input-placeholder {
@@ -174,6 +178,66 @@ header.jumbotron {
       color: white;
       margin-right: 35px; }
 
+.modal.trailer-modal .close {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.5em;
+  color: rgba(255, 66, 64, 0.5);
+  background-color: white;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 66, 64, 0.5);
+  width: 25px;
+  height: 25px;
+  margin-bottom: 5px;
+  opacity: 1;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out; }
+  .modal.trailer-modal .close:hover {
+    color: #d90200;
+    border-color: rgba(255, 66, 64, 0.5); }
+.modal.trailer-modal .modal-content {
+  background: rgba(255, 255, 255, 0);
+  border: 0px;
+  border-radius: 0px; }
+.modal.trailer-modal .modal-body {
+  padding: 0px; }
+.modal .modal-header {
+  border-radius: 0px;
+  background-color: #ff4240;
+  color: white;
+  font-weight: bold; }
+.modal .close {
+  color: white; }
+.modal .modal-body {
+  padding: 1.5rem 1rem; }
+  .modal .modal-body label {
+    display: block;
+    margin-bottom: 0px; }
+  .modal .modal-body .inline-label {
+    margin-bottom: 0px; }
+    .modal .modal-body .inline-label label {
+      display: inline-block; }
+  .modal .modal-body .forgot-password {
+    margin-top: 1rem; }
+.modal .modal-footer .fotget-password {
+  margin: auto; }
+.modal table {
+  font-size: .9em; }
+  .modal table tr td {
+    border-top-color: #ececec; }
+  .modal table tr td:first-child {
+    width: 30%;
+    min-width: 100px; }
+  .modal table tr:first-child td {
+    border-top: 0px; }
+
 #cookieWarning {
   padding: 2vh 0vw; }
   #cookieWarning .fa {
@@ -181,16 +245,126 @@ header.jumbotron {
     font-size: 1.5rem; }
 
 #go-to-top {
-  opacity: 0;
   position: fixed;
-  bottom: 5vh;
-  right: 5vw;
-  /*font-weight: 700;
-  font-size:2em;*/ }
+  bottom: 2.5vh;
+  right: 2vw; }
+  #go-to-top a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 1.8em;
+    color: white;
+    background-color: #ff4240;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out; }
+    #go-to-top a:hover {
+      text-decoration: none;
+      background-color: #c00200; }
 
 #top-movie .movie-list {
   padding: 15px;
   border: 1px solid #e6e6e6; }
+
+#social-networks {
+  display: none;
+  position: fixed;
+  top: 200px;
+  left: 0px; }
+  #social-networks ul {
+    list-style-type: none;
+    padding: 0px; }
+    #social-networks ul li {
+      margin-bottom: 10px; }
+    #social-networks ul a {
+      padding: 7.5px;
+      padding-right: 10px;
+      border-top-right-radius: 50px;
+      border-bottom-right-radius: 50px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: end;
+          -ms-flex-pack: end;
+              justify-content: flex-end;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      width: 175px;
+      color: white;
+      background-color: #0d0d0d;
+      font-weight: bold;
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      border: 2px solid rgba(13, 13, 13, 0);
+      border-left: 0px;
+      margin-left: -115px; }
+      #social-networks ul a:hover {
+        margin-left: 0px;
+        text-decoration: none; }
+        #social-networks ul a:hover .fa {
+          color: #0d0d0d; }
+      #social-networks ul a[href*="twitter"] {
+        background-color: #1da1f2; }
+        #social-networks ul a[href*="twitter"]:hover {
+          color: #1da1f2;
+          border-color: #1da1f2;
+          background-color: white; }
+          #social-networks ul a[href*="twitter"]:hover .fa {
+            background-color: #1da1f2;
+            color: white; }
+      #social-networks ul a[href*="facebook"] {
+        background-color: #3b5998; }
+        #social-networks ul a[href*="facebook"]:hover {
+          color: #3b5998;
+          border-color: #3b5998;
+          background-color: white; }
+          #social-networks ul a[href*="facebook"]:hover .fa {
+            background-color: #3b5998;
+            color: white; }
+      #social-networks ul a[href*="instagram"] {
+        background-color: #4c4c4c; }
+        #social-networks ul a[href*="instagram"]:hover {
+          color: #4c4c4c;
+          border-color: #4c4c4c;
+          background-color: white; }
+          #social-networks ul a[href*="instagram"]:hover .fa {
+            background-color: #4c4c4c;
+            color: white; }
+      #social-networks ul a[href*="google"] {
+        background-color: #db4437; }
+        #social-networks ul a[href*="google"]:hover {
+          color: #db4437;
+          border-color: #db4437;
+          background-color: white; }
+          #social-networks ul a[href*="google"]:hover .fa {
+            background-color: #db4437;
+            color: white; }
+      #social-networks ul a .fa {
+        color: #0d0d0d;
+        margin-left: 25px;
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        background-color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%; }
 
 /***********
 * Main CSS *
@@ -200,7 +374,15 @@ header.jumbotron {
   border: 0px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
-          justify-content: space-between; }
+          justify-content: space-between;
+  margin-bottom: 20px; }
+  .card:hover img {
+    -webkit-box-shadow: 5px 5px 10px 0px rgba(13, 13, 13, 0.3);
+            box-shadow: 5px 5px 10px 0px rgba(13, 13, 13, 0.3); }
+  .card:hover .card-title, .card:hover .card-subtitle {
+    text-shadow: 2.5px 2.5px 5px rgba(13, 13, 13, 0.3); }
+  .card .card-img-top {
+    border-radius: 0px; }
   .card .card-footer {
     padding: 0px;
     margin-top: 1vh;
@@ -212,7 +394,7 @@ header.jumbotron {
       font-size: .9em;
       margin-top: 1vh; }
     .card .card-footer .card-subtitle {
-      color: #272727;
+      color: #4d4d4d;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -261,5 +443,166 @@ header.jumbotron {
 .movie-list aside,
 .tvshow-list aside {
   margin: 2vh 0vw; }
+
+/*** Specific CSS **/
+#shop-movies aside {
+  margin-bottom: 10px; }
+  #shop-movies aside .btn {
+    font-size: .8rem; }
+#shop-movies .card {
+  cursor: pointer; }
+  #shop-movies .card:hover img {
+    -webkit-box-shadow: none;
+            box-shadow: none; }
+  #shop-movies .card:hover .card-title, #shop-movies .card:hover .card-subtitle {
+    text-shadow: none; }
+  #shop-movies .card:hover .container-item {
+    -webkit-box-shadow: 5px 5px 10px 0px rgba(13, 13, 13, 0.3);
+            box-shadow: 5px 5px 10px 0px rgba(13, 13, 13, 0.3); }
+  #shop-movies .card .container-item {
+    background-color: #e6e6e6; }
+  #shop-movies .card .card-footer {
+    padding: 0px 15px; }
+    #shop-movies .card .card-footer .price-item {
+      color: #ff4240; }
+#shop-movies .preview-information {
+  color: #cccccc;
+  background-color: #0d0d0d; }
+  #shop-movies .preview-information h4 {
+    font-size: 1.3rem;
+    margin: 20px 0px 15px 0px;
+    color: #ff4240;
+    text-transform: uppercase; }
+  #shop-movies .preview-information .row {
+    font-size: .9em; }
+    #shop-movies .preview-information .row div:first-child {
+      color: #ff4240;
+      min-width: 125px; }
+
+#contact-us {
+  margin-bottom: 50px; }
+  #contact-us .form-row {
+    margin-bottom: 20px; }
+  #contact-us textarea {
+    min-height: 150px; }
+
+footer {
+  /* end subscribe */
+  /* end box-list */ }
+  footer.container-fluid {
+    padding: 0px 30px; }
+    footer.container-fluid .row {
+      padding-right: 0px;
+      padding-left: 0px; }
+  footer .subscribe {
+    padding: 30px 0px 50px; }
+    footer .subscribe .col-12 {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
+    footer .subscribe h3 {
+      color: #ff4240;
+      font-size: 1.5rem;
+      text-transform: uppercase; }
+    footer .subscribe .form-control {
+      display: inline-block;
+      width: auto;
+      border-radius: 0px; }
+  footer .box-list {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    margin-bottom: 30px; }
+    footer .box-list h4 {
+      font-size: 1.2rem;
+      color: #e6e6e6;
+      text-transform: uppercase;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15); }
+    footer .box-list ul {
+      list-style-type: none;
+      padding: 0px; }
+      footer .box-list ul li {
+        margin-bottom: 8px; }
+      footer .box-list ul a {
+        font-size: .9em;
+        text-transform: uppercase;
+        color: gray;
+        margin-bottom: 10px; }
+        footer .box-list ul a:hover {
+          text-decoration: none;
+          color: white; }
+    footer .box-list .genre-tag .btn {
+      font-size: .85em;
+      margin: 0px 2px 6px;
+      border: 0px;
+      color: white;
+      background-color: #333333; }
+      footer .box-list .genre-tag .btn:hover {
+        color: #0d0d0d;
+        background-color: white; }
+    footer .box-list #slider-list .container {
+      margin-bottom: 10px; }
+    footer .box-list #slider-list h5 {
+      color: gray;
+      font-size: 1rem; }
+    footer .box-list #poster-list div {
+      padding: 0px !important; }
+  footer .connect-us {
+    padding: 20px 0px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin-top: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    footer .connect-us h5 {
+      color: #bfbfbf;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 15px; }
+    footer .connect-us a {
+      margin: 0px 5px;
+      display: -webkit-inline-box;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      width: 35px;
+      height: 35px;
+      color: #a6a6a6;
+      border: 2px solid rgba(166, 166, 166, 0.5);
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out; }
+      footer .connect-us a:hover {
+        color: white;
+        background-color: #ff4240;
+        border-color: #ff4240;
+        text-decoration: none; }
+
+/* end footer */
 
 /*# sourceMappingURL=style.css.map */
