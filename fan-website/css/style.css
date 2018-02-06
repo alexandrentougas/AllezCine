@@ -156,16 +156,24 @@ a {
         -ms-flex-align: center;
             align-items: center;
     width: calc(100% / 5);
-    height: 80px; }
+    height: 100px; }
     #nav-main .nav-link.active {
       background-color: rgba(13, 13, 13, 0.6); }
 
-img {
-  max-width: 100px; }
-
 #nav-media {
   position: absolute;
-  top: 0px; }
+  top: 0px;
+  z-index: 50; }
+
+.nav-tabs {
+  border-bottom: 0px; }
+  .nav-tabs .nav-link {
+    border-radius: 0px; }
+    .nav-tabs .nav-link:hover {
+      border: 0px; }
+
+img {
+  max-width: 100px; }
 
 #nav-biography-content {
   width: 100%;
@@ -214,6 +222,7 @@ img {
 
 main {
   height: 100%;
-  padding-top: 80px; }
+  padding-top: 100px;
+  /* top = navbar height */ }
 
 /*# sourceMappingURL=style.css.map */
