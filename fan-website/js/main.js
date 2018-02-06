@@ -65,7 +65,17 @@ $('.contact-icon .btn').on('click',function(e) {
       top: $(window).height(),
     },800, function(){});
   }
-
+});
+$(document).on('keydown', function(e){
+  if($('.general-footer').hasClass('active') && e.key == 'Escape') {
+    $('.general-footer').toggleClass('active');
+    $('.general-footer').animate({
+      top: $(window).height() - $('.contact-icon .btn').height() / 2,
+    } ,1000, function(){});
+    $('.general-footer .credits').animate({
+      top: $(window).height(),
+    },800, function(){});
+  }
 });
 
 $('#nav-main .nav-link').not('#nav-presentation').click(function () {
