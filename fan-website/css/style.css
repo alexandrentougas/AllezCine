@@ -42,6 +42,11 @@ a {
   a:hover {
     color: #0d0d0d; }
 
+main {
+  height: 100%;
+  padding-top: 100px;
+  /* top = navbar height */ }
+
 .general-footer {
   top: calc(100% - 37.5px);
   bottom: auto;
@@ -163,7 +168,21 @@ a {
 #nav-media {
   position: absolute;
   top: 0px;
-  z-index: 50; }
+  z-index: 50;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 5px;
+  /* temp */
+  background-color: white; }
+  #nav-media img {
+    max-width: 110px; }
 
 .nav-tabs {
   border-bottom: 0px; }
@@ -172,13 +191,42 @@ a {
     .nav-tabs .nav-link:hover {
       border: 0px; }
 
-img {
-  max-width: 100px; }
+#nav-logo-content {
+  height: 100%;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url("../img/Backgrounds/cristal2.jpg");
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url("../img/Backgrounds/cristal2.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat; }
+  #nav-logo-content .container {
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 20px; }
+  #nav-logo-content img {
+    margin-bottom: 7.5vh; }
 
 #nav-biography-content {
   width: 100%;
   height: 100%;
-  background: black; }
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.85)), to(rgba(0, 0, 0, 0.85))), url("../img/Backgrounds/altissiaArtwork.png");
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.85) 100%), url("../img/Backgrounds/altissiaArtwork.png");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat; }
   #nav-biography-content .container, #nav-biography-content .container-fluid {
     height: 100%; }
     #nav-biography-content .container .row, #nav-biography-content .container-fluid .row {
@@ -212,7 +260,8 @@ img {
           margin-bottom: 5vh;
           font-size: 1.9rem;
           letter-spacing: 1px;
-          color: #c6c8c9; }
+          color: white;
+          text-shadow: 2px 2px 4px rgba(13, 13, 13, 0.7); }
         #nav-biography-content .container .row .col img, #nav-biography-content .container-fluid .row .col img {
           min-width: 20vw;
           height: auto; }
@@ -220,9 +269,94 @@ img {
 #biography {
   display: none; }
 
-main {
-  height: 100%;
-  padding-top: 100px;
-  /* top = navbar height */ }
+.media-content {
+  height: 100%; }
+  .media-content .container-fluid {
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-top: 12vh;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat; }
+    .media-content .container-fluid .container {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      padding: 20px;
+      background-color: rgba(13, 13, 13, 0.85);
+      -webkit-box-shadow: 0px 0px 20px 2px rgba(13, 13, 13, 0.5);
+              box-shadow: 0px 0px 20px 2px rgba(13, 13, 13, 0.5);
+      color: white; }
+      .media-content .container-fluid .container img {
+        width: 300px;
+        height: auto; }
+      .media-content .container-fluid .container p {
+        margin: 3vh 1vw; }
+
+#nav-goodies-content {
+  position: relative;
+  height: 100%; }
+  #nav-goodies-content #cart-button {
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    right: 2.5vw;
+    bottom: 7.5vh;
+    height: 70px;
+    width: 70px;
+    font-size: 2rem;
+    border-radius: 50%;
+    z-index: 10; }
+    #nav-goodies-content #cart-button .badge {
+      position: absolute;
+      display: inline-block;
+      background-color: red;
+      border-radius: 50%;
+      padding: 3px 6px;
+      font-size: .7rem;
+      top: 12px;
+      left: 38px; }
+    #nav-goodies-content #cart-button::after {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 70px;
+      height: 70px;
+      z-index: 1;
+      border-radius: 50%;
+      -webkit-animation: pulsar 1s ease-out;
+              animation: pulsar 1s ease-out;
+      -webkit-animation-iteration-count: infinite;
+              animation-iteration-count: infinite;
+      background-color: #0d0d0d;
+      z-index: -1; }
 
 /*# sourceMappingURL=style.css.map */
