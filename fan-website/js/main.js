@@ -11,6 +11,9 @@ let dataRequestMedia = new XMLHttpRequest();
 let whenDataLoadedCharacters = function() {
   let dataText = dataRequestCharacters.responseText; // we store the text of the response
   charactersObject = JSON.parse(dataText);
+
+  displayCharacterItem(charactersObject, '#nav-biography .container .row', 'character');
+  displayBiography(charactersObject);
 };
 
 let whenDataLoadedGallery = function() {
@@ -115,16 +118,39 @@ function createHTMLMediaNavItem(data, parent, idPrefix) {
   $(HTMLContent).appendTo($(parent));
 };
 
+function createCharacterItem(data, parent, idPrefix) {
+  let HTMLId = idPrefix + '-' + data['ID'];
+  let HTMLContent = '<div class="col" id="' + HTMLId + '"></div>';
+  $(HTMLContent).appendTo($(parent));
+  $('<h2>' + data['Name'] + '</h2>').appendTo('#' + HTMLId);
+  $('#' + HTMLId).css('background-image', 'url(img/Characters/' + data['Picture'] + ')');
+};
+
 function displayMediaItem(data, parent, idPrefix) {
   for (i = 0; i < data.length; i++) {
-    createHTMLMediaItem(data[i], '#nav-tabContent', 'media');
+    createHTMLMediaItem(data[i], parent, idPrefix);
   };
 };
 
 function displayMediaNavItem(data, parent, idPrefix) {
   for (i = 0; i < data.length; i++) {
-    createHTMLMediaNavItem(data[i], '#nav-media', 'mediaNav');
+    createHTMLMediaNavItem(data[i], parent, idPrefix);
   };
+};
+
+function displayCharacterItem(data, parent, idPrefix) {
+  for (i = 0; i < data.length; i++) {
+    createCharacterItem(data[i], parent, idPrefix);
+  };
+};
+
+function displayBiography(data) {
+  $('#nav-biography .container .row .col').each( function (index) {
+    $(this).click(function () {
+      $('#character-name').Text(data[index]['Name']);
+      $('#character-bio').Text(data[index]['Biography']);
+    });
+  });
 };
 
 dataRequestCharacters.onload = whenDataLoadedCharacters;
