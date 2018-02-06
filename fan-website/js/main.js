@@ -30,7 +30,7 @@ let whenDataLoadedMedia = function() {
 
 $('#nav-presentation').click(function () {
   $('#nav-media').animate({
-    top: $('#nav-main').height(),
+    top: '200px',
   }, 1000, function() {
     // End of animation
   });
