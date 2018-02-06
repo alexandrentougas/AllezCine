@@ -112,7 +112,7 @@ function createHTMLMediaItem(data, parent, idPrefix) {
   $('#' + HTMLId + ' .container-fluid').css('background-image', 'url(img/Backgrounds/' + data['Background'] + ')');
   $('<img src="img/Logos/' + data['Logo'] + '">').appendTo('#' + HTMLId + ' .container');
   $('<p>' + data['Presentation'] + '</p>').appendTo('#' + HTMLId + ' .container');
-  $('<button type="button" id="trailer-' + data['ID'] + '">Watch Trailer</button>').appendTo('#' + HTMLId + ' .container');
+  $('<button type="button" class="btn btn-secondary" id="trailer-' + data['ID'] + '">Watch Trailer</button>').appendTo('#' + HTMLId + ' .container');
 };
 
 function createHTMLMediaNavItem(data, parent, idPrefix) {
