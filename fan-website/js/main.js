@@ -1,7 +1,7 @@
-let characters = 'https://github.com/laurenthu/AllezCine/blob/master/fan-website/database/characters.json';
-let gallery = 'https://github.com/laurenthu/AllezCine/blob/master/fan-website/database/gallery.json';
-let goodies = 'https://github.com/laurenthu/AllezCine/blob/master/fan-website/database/goodies.json';
-let media = 'https://github.com/laurenthu/AllezCine/blob/master/fan-website/database/media.json';
+let characters = 'https://laurenthu.github.io/AllezCine/blob/master/fan-website/database/characters.json';
+let gallery = 'https://laurenthu.github.io/AllezCine/blob/master/fan-website/database/gallery.json';
+let goodies = 'https://laurenthu.github.io/AllezCine/blob/master/fan-website/database/goodies.json';
+let media = 'https://laurenthu.github.io/AllezCine/blob/master/fan-website/database/media.json';
 
 let dataRequestCharacters = new XMLHttpRequest();
 let dataRequestGallery = new XMLHttpRequest();
