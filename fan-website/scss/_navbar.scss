@@ -9,11 +9,26 @@
     justify-content: center;
     align-items: center;
     width:calc(100% / 5);
-    height:80px;
+    height:100px;
 
     &.active {
       background-color:rgba($dark-color,.6);
     }
   }
 
+}
+#nav-media {
+  position: absolute;
+  top:0px;
+  z-index: 50;
+}
+
+.nav-tabs {
+  border-bottom: 0px;
+  .nav-link {
+    border-radius: 0px;
+    &:hover {
+      border:0px;
+    }
+  }
 }

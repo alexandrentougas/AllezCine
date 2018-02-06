@@ -24,10 +24,7 @@
 img {
   max-width:100px;
 }
-#nav-media {
-  position: absolute;
-  top:0px;
-}
+
 
 #nav-biography-content {
   width:100%;
@@ -69,5 +66,5 @@ img {
 
 main {
   height: 100%;
-  padding-top:80px;
+  padding-top:100px; /* top = navbar height */
 }
