@@ -3,18 +3,21 @@
     "ID": 1,
     "Type": "game",
     "Logo": "gameLogo.png",
+    "Background": "ff15EpicBackground.jpg",
     "Presentation": "Enroute to wed his fiancée Luna on a road trip with his best friends, Prince Noctis is advised by news reports that his homeland has been invaded and taken over under the false pretense of a peace treaty – and that he, his loved one and his father King Regis, have been slain at the hands of the enemy.<br> To gather the strength needed to uncover the truth and reclaim his homeland, Noctis and his loyal companions must overcome a series of challenges in a spectacular open world - that is filled with larger-than-life creatures, amazing wonders, diverse cultures and treacherous foes."
   },
   {
     "ID": 2,
     "Type": "movie",
     "Logo": "kingsglaiveLogo.png",
+    "Background": "kingsglaiveBackground.jpg",
     "Presentation": "The magical kingdom of Lucis is home to the sacred Crystal, and the menacing empire of Niflheim is determined to steal it. King Regis of Lucis (Sean Bean) commands an elite force of soldiers called the Kingsglaive. Wielding their king’s magic, Nyx (Aaron Paul) and his fellow soldiers fight to protect Lucis. As the overwhelming military might of the empire bears down, King Regis is faced with an impossible ultimatum – to marry his son, Prince Noctis to Princess Lunafreya of Tenebrae (Lena Headey), captive of Niflheim, and surrender his lands to the empire’s rule. Although the king concedes, it becomes clear that the empire will stop at nothing to achieve their devious goals, with only the Kingsglaive standing between them and world domination."
   },
   {
     "ID": 3,
     "Type": "anime",
     "Logo": "brotherhoodLogo.png",
+    "Background": "brotherhoodNoctis.jpg",
     "Presentation": "BROTHERHOOD FINAL FANTASY XV delves into the extraordinary friendships between Crown Prince Noctis and his three comrades, setting the stage for the adventure players will set out upon in the action-packed RPG. Subsequent episodes in this five-part animated series will be released before the game's launch. All episodes can be streamed for free."
   }
 ]
