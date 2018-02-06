@@ -26,6 +26,22 @@
     -webkit-transform: scale(1.3, 1.3);
             transform: scale(1.3, 1.3);
     opacity: 0; } }
+html, body {
+  width: 100%;
+  height: 100%; }
+
+body {
+  font-family: "Roboto", sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Ferrum", sans-serif;
+  word-break: normal; }
+
+a {
+  color: #c6c8c9; }
+  a:hover {
+    color: #0d0d0d; }
+
 .general-footer {
   top: calc(100% - 37.5px);
   bottom: auto;
@@ -151,20 +167,53 @@ img {
   position: absolute;
   top: 0px; }
 
-#nav-biography {
+#nav-biography-content {
   width: 100%;
-  height: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end; }
+  height: 100%;
+  background: black; }
+  #nav-biography-content .container, #nav-biography-content .container-fluid {
+    height: 100%; }
+    #nav-biography-content .container .row, #nav-biography-content .container-fluid .row {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+      -webkit-box-align: end;
+          -ms-flex-align: end;
+              align-items: flex-end;
+      height: 100%; }
+      #nav-biography-content .container .row .col, #nav-biography-content .container-fluid .row .col {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: flex-end;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        height: 100%;
+        position: relative; }
+        #nav-biography-content .container .row .col h2, #nav-biography-content .container-fluid .row .col h2 {
+          margin-bottom: 5vh;
+          font-size: 1.9rem;
+          letter-spacing: 1px;
+          color: #c6c8c9; }
+        #nav-biography-content .container .row .col img, #nav-biography-content .container-fluid .row .col img {
+          min-width: 20vw;
+          height: auto; }
+
+#biography {
+  display: none; }
 
 main {
-  margin-top: 80px; }
+  height: 100%;
+  padding-top: 80px; }
 
 /*# sourceMappingURL=style.css.map */

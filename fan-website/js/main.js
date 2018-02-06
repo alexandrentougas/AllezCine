@@ -12,7 +12,7 @@ let whenDataLoadedCharacters = function() {
   let dataText = dataRequestCharacters.responseText; // we store the text of the response
   charactersObject = JSON.parse(dataText);
 
-  displayCharacterItem(charactersObject, '#nav-biography .container .row', 'character');
+  displayCharacterItem(charactersObject, '#nav-biography-content .container-fluid .row', 'character');
   displayBiography(charactersObject);
 };
 
@@ -126,7 +126,8 @@ function createCharacterItem(data, parent, idPrefix) {
   let HTMLContent = '<div class="col" id="' + HTMLId + '"></div>';
   $(HTMLContent).appendTo($(parent));
   $('<h2>' + data['Name'] + '</h2>').appendTo('#' + HTMLId);
-  $('#' + HTMLId).css('background-image', 'url(img/Characters/' + data['Picture'] + ')');
+  $('<img src="img/Characters/' + data['Picture'] + '" alt ="' + data['Name'] + '" class="img-fluid">').appendTo('#' + HTMLId);
+  //$('#' + HTMLId).css('background-image', 'url(img/Characters/' + data['Picture'] + ')');
 };
 
 function displayMediaItem(data, parent, idPrefix) {
@@ -148,7 +149,7 @@ function displayCharacterItem(data, parent, idPrefix) {
 };
 
 function displayBiography(data) {
-  $('#nav-biography .container .row .col').each( function (index) {
+  $('#nav-biography-content .container-fluid .row .col').each( function (index) {
     $(this).click(function () {
       $('#character-name').text(data[index]['Name']);
       $('#character-bio').text(data[index]['Biography']);
