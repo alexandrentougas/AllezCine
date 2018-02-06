@@ -1,10 +1,13 @@
 .general-footer {
 
+  top:calc(100% - 37.5px);
+  bottom: auto;
   background-color: $dark-color;
 
   .contact-icon {
 
     .btn {
+
       display: flex;
       position: relative;
       justify-content: center;
@@ -20,9 +23,11 @@
       color:$custom-primary;
       border-color: $dark-color;
       background-color: $dark-color;
+
       .fa {
         z-index: 20;
       }
+
       &::after {
         content:' ';
         position: absolute;
@@ -36,6 +41,44 @@
         animation-iteration-count: infinite;
         background-color: $dark-color;
       }
+
+      &:active, &:hover {
+        border-color: darken($dark-color,10%);
+        background-color: darken($dark-color,10%);
+        &::after {
+          background-color: darken($dark-color,10%);
+        }
+      }
+      &:focus, &:active:focus {
+        box-shadow: 0 0 0 0.2rem rgba($dark-color,.5);
+      }
+
+    }
+
+  } // end .contact-icon
+
+  .contact-form {
+
+    margin-bottom: 10px;
+
+    .form-row {
+      margin-bottom: 10px
+    }
+    .form-control:focus {
+      border-color: rgba($custom-primary,.3);
+      box-shadow: 0 0 0 0.2rem rgba($custom-primary,.25);
+    }
+
+  } // end .contact-form
+
+  .credits {
+    width:100%;
+    background-color: darken($dark-color,1%);
+    padding:3px;
+    text-align: center;
+
+    a {
+      color:darken($custom-primary,10%);
     }
 
   }
