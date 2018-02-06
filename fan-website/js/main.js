@@ -32,6 +32,7 @@ let whenDataLoadedMedia = function() {
 
   displayMediaItem(mediaObject, '#nav-tabContent', 'media');
   displayMediaNavItem(mediaObject, '#nav-media', 'mediaNav');
+  hideMediaMenuOnMediaSelection();
 };
 
 $('#nav-presentation').click(function () {
@@ -44,7 +45,7 @@ $('#nav-presentation').click(function () {
     });
   } else {
     $('#nav-media').animate({
-      top: 0,
+      top: $('#nav-main').height() * (-1),
     }, 1000, function() {
       // End of animation
     });
@@ -92,14 +93,16 @@ $('#nav-main .nav-link').not('#nav-presentation').click(function () {
   }
 });
 
-$('#nav-media .nav-link').click(function () {
-  $('#nav-media').removeClass('active');
-  $('#nav-media').animate({
-    top: 0,
-  }, 1000, function() {
-    // End of animation
+function hideMediaMenuOnMediaSelection() {
+  $('#nav-media .nav-link').click(function () {
+    $('#nav-media').removeClass('active');
+    $('#nav-media').animate({
+      top: 0,
+    }, 1000, function() {
+      // End of animation
+    });
   });
-});
+};
 
 function createHTMLMediaItem(data, parent, idPrefix) {
   let HTMLId = idPrefix + '-' + data['ID'];
@@ -147,8 +150,8 @@ function displayCharacterItem(data, parent, idPrefix) {
 function displayBiography(data) {
   $('#nav-biography .container .row .col').each( function (index) {
     $(this).click(function () {
-      $('#character-name').Text(data[index]['Name']);
-      $('#character-bio').Text(data[index]['Biography']);
+      $('#character-name').text(data[index]['Name']);
+      $('#character-bio').text(data[index]['Biography']);
     });
   });
 };
