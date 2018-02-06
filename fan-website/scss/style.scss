@@ -64,7 +64,13 @@ img {
   display: none;
 }
 
-main {
+.media-content {
   height: 100%;
-  padding-top:100px; /* top = navbar height */
+  .container-fluid {
+    height: 100%;
+    @include background-image();
+    .container {
+      height: 100%;
+    }
+  }
 }
