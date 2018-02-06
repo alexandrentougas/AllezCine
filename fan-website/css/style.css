@@ -27,6 +27,8 @@
             transform: scale(1.3, 1.3);
     opacity: 0; } }
 .general-footer {
+  top: calc(100% - 37.5px);
+  bottom: auto;
   background-color: #0d0d0d; }
   .general-footer .contact-icon .btn {
     display: -webkit-box;
@@ -66,8 +68,34 @@
       -webkit-animation-iteration-count: infinite;
               animation-iteration-count: infinite;
       background-color: #0d0d0d; }
+    .general-footer .contact-icon .btn:active, .general-footer .contact-icon .btn:hover {
+      border-color: black;
+      background-color: black; }
+      .general-footer .contact-icon .btn:active::after, .general-footer .contact-icon .btn:hover::after {
+        background-color: black; }
+    .general-footer .contact-icon .btn:focus, .general-footer .contact-icon .btn:active:focus {
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(13, 13, 13, 0.5);
+              box-shadow: 0 0 0 0.2rem rgba(13, 13, 13, 0.5); }
+  .general-footer .contact-form {
+    margin-bottom: 10px; }
+    .general-footer .contact-form .form-row {
+      margin-bottom: 10px; }
+    .general-footer .contact-form .form-control:focus {
+      border-color: rgba(198, 200, 201, 0.3);
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(198, 200, 201, 0.25);
+              box-shadow: 0 0 0 0.2rem rgba(198, 200, 201, 0.25); }
+  .general-footer .credits {
+    width: 100%;
+    background-color: #0a0a0a;
+    padding: 3px;
+    text-align: center; }
+    .general-footer .credits a {
+      color: #acafb0; }
 
 img {
   max-width: 100px; }
+
+#nav-media {
+  position: absolute; }
 
 /*# sourceMappingURL=style.css.map */
