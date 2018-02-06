@@ -45,7 +45,7 @@ $('#nav-presentation').click(function () {
     });
   } else {
     $('#nav-media').animate({
-      top: $('#nav-main').height() * (-1),
+      top: 0,
     }, 1000, function() {
       // End of animation
     });
