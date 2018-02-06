@@ -10,10 +10,14 @@
 ## Requirements
 
 * One page
-* Respect of the initial design
-* Responsive design
-* Age checking
-* Cookie information
+  * dedicated to movies and series with a "shop" section
+  * Respect of the initial design
+  * Responsive design
+  * Age checking
+  * Cookie information
+
+* A website dedicated to a fictional character
+  * layout creation
 
 ## Contributors
 
@@ -23,3 +27,4 @@
 ## Projects
 
 * [Movie shops](https://laurenthu.github.io/AllezCine/shops/)
+* [Fan website](https://laurenthu.github.io/AllezCine/fan-website/)
