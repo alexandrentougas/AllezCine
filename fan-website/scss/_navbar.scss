@@ -2,6 +2,7 @@
   display:flex;
   justify-content: space-around;
   align-items: center;
+  @include background-gradient-ffxv(right);
 
   .nav-link {
     display: flex;
@@ -9,7 +10,10 @@
     align-items: center;
     width:calc(100% / 5);
     height:80px;
-    @include background-gradient-ffxv(right);
+
+    &.active {
+      background-color:rgba($dark-color,.6);
+    }
   }
 
 }
