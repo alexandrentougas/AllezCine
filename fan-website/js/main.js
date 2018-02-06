@@ -26,6 +26,9 @@ let whenDataLoadedGoodies = function() {
 let whenDataLoadedMedia = function() {
   let dataText = dataRequestMedia.responseText; // we store the text of the response
   mediaObject = JSON.parse(dataText);
+
+  createHTMLMediaItem(mediaObject, '#nav-tabContent', 'media');
+  createHTMLMediaNavItem(mediaObject, '#nav-media', 'mediaNav');
 };
 
 $('#nav-presentation').click(function () {
@@ -44,6 +47,43 @@ $('#nav-presentation').click(function () {
     });
   }
 });
+
+$('#nav-main .nav-link').not('#nav-presentation').click(function () {
+  if ($('#nav-media').hasClass('active') === true) {
+    $('#nav-media').removeClass('active');
+    $('#nav-media').animate({
+      top: 0,
+    }, 1000, function() {
+      // End of animation
+    });
+  }
+});
+
+$('#nav-media .nav-link').click(function () {
+  $('#nav-media').removeClass('active');
+  $('#nav-media').animate({
+    top: 0,
+  }, 1000, function() {
+    // End of animation
+  });
+});
+
+$('#intro').click(function () {
+
+});
+
+function createHTMLMediaItem(data, parent, idPrefix) {
+  let HTMLId = idPrefix + '-' + data['ID'];
+  let HTMLContent = '<section class="tab-pane fade" id="' + HTMLId + '" role="tabpanel" aria-labelledby="mediaNav-' + data['ID'] + '"><div class="container"></div></section>';
+  $(HTMLContent).appendTo($(parent));
+};
+
+function createHTMLMediaNavItem(data, parent, idPrefix) {
+  let HTMLId = idPrefix + '-' + data['ID'];
+  let HTMLContent = '<a class="nav-item nav-link" data-toggle="tab" href="#media-' + data['ID'] + '" role="tab" aria-controls="#media-' + data['ID'] + '" aria-selected="false" id="' + HTMLId + '"><img src="img/Logos/' + data['Logo'] + '"></a>';
+  $(HTMLContent).appendTo($(parent));
+};
+
 
 dataRequestCharacters.onload = whenDataLoadedCharacters;
 dataRequestCharacters.open("GET", characters, true);
