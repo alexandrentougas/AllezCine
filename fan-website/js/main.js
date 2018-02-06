@@ -29,11 +29,20 @@ let whenDataLoadedMedia = function() {
 };
 
 $('#nav-presentation').click(function () {
-  $('#nav-media').animate({
-    top: '200px',
-  }, 1000, function() {
-    // End of animation
-  });
+  $('#nav-media').toggleClass('active');
+  if ($('#nav-media').hasClass('active') === true) {
+    $('#nav-media').animate({
+      top: $('#nav-main').height(),
+    }, 1000, function() {
+      // End of animation
+    });
+  } else {
+    $('#nav-media').animate({
+      top: 0,
+    }, 1000, function() {
+      // End of animation
+    });
+  }
 });
 
 dataRequestCharacters.onload = whenDataLoadedCharacters;
