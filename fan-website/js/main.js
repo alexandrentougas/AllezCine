@@ -106,10 +106,10 @@ function hideMediaMenuOnMediaSelection() {
 
 function createHTMLMediaItem(data, parent, idPrefix) {
   let HTMLId = idPrefix + '-' + data['ID'];
-  let HTMLContent = '<section class="tab-pane fade" id="' + HTMLId + '" role="tabpanel" aria-labelledby="mediaNav-' + data['ID'] + '"></section>';
+  let HTMLContent = '<section class="tab-pane fade media-content" id="' + HTMLId + '" role="tabpanel" aria-labelledby="mediaNav-' + data['ID'] + '"></section>';
   $(HTMLContent).appendTo($(parent));
-  $('<div class="container"></div>').appendTo('#' + HTMLId);
-  $('#' + HTMLId + ' .container').css('background-image', 'url(img/Backgrounds/' + data['Background'] + ')');
+  $('<div class="container-fluid"><div class="container"></div></div>').appendTo('#' + HTMLId);
+  $('#' + HTMLId + ' .container-fluid').css('background-image', 'url(img/Backgrounds/' + data['Background'] + ')');
   $('<img src="img/Logos/' + data['Logo'] + '">').appendTo('#' + HTMLId + ' .container');
   $('<p>' + data['Presentation'] + '</p>').appendTo('#' + HTMLId + ' .container');
   $('<button type="button" id="trailer-' + data['ID'] + '">Watch Trailer</button>').appendTo('#' + HTMLId + ' .container');
