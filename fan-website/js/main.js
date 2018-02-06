@@ -9,22 +9,22 @@ let dataRequestGoodies = new XMLHttpRequest();
 let dataRequestMedia = new XMLHttpRequest();
 
 let whenDataLoadedCharacters = function() {
-  let dataText = dataRequestMovie.responseText; // we store the text of the response
+  let dataText = dataRequestCharacters.responseText; // we store the text of the response
   charactersObject = JSON.parse(dataText);
 };
 
 let whenDataLoadedGallery = function() {
-  let dataText = dataRequestMovie.responseText; // we store the text of the response
+  let dataText = dataRequestGallery.responseText; // we store the text of the response
   galleryObject = JSON.parse(dataText);
 };
 
 let whenDataLoadedGoodies = function() {
-  let dataText = dataRequestMovie.responseText; // we store the text of the response
+  let dataText = dataRequestGoodies.responseText; // we store the text of the response
   goodiesObject = JSON.parse(dataText);
 };
 
 let whenDataLoadedMedia = function() {
-  let dataText = dataRequestMovie.responseText; // we store the text of the response
+  let dataText = dataRequestMedia.responseText; // we store the text of the response
   mediaObject = JSON.parse(dataText);
 };
 
