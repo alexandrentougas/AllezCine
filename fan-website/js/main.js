@@ -48,6 +48,26 @@ $('#nav-presentation').click(function () {
   }
 });
 
+$('.contact-icon .btn').on('click',function(e) {
+  $('.general-footer').toggleClass('active');
+  if($('.general-footer').hasClass('active')) {
+    $('.general-footer').animate({
+      top: ( $(window).height() - $('.general-footer').height() + $('#nav-main').height() - $('.contact-icon .btn').height() ) / 2,
+    } ,1000, function(){});
+    $('.general-footer .credits').animate({
+      top: $(window).height() - $('.general-footer .credits').height(),
+    },1000, function(){});
+  } else {
+    $('.general-footer').animate({
+      top: $(window).height() - $('.contact-icon .btn').height() / 2,
+    } ,1000, function(){});
+    $('.general-footer .credits').animate({
+      top: $(window).height(),
+    },800, function(){});
+  }
+
+});
+
 $('#nav-main .nav-link').not('#nav-presentation').click(function () {
   if ($('#nav-media').hasClass('active') === true) {
     $('#nav-media').removeClass('active');
@@ -75,11 +95,11 @@ $('#intro').click(function () {
 function createHTMLMediaItem(data, parent, idPrefix) {
   let HTMLId = idPrefix + '-' + data['ID'];
   let HTMLContent = '<section class="tab-pane fade" id="' + HTMLId + '" role="tabpanel" aria-labelledby="mediaNav-' + data['ID'] + '"></section>';
-  $('<div class="container"></div>').appendTo(HTMLContent);
-  $('<img src="img/Logos/' + data['Logo'] + '">').appendTo('#' + HTMLId + ' .container');
-  $('<p>'data['Presentation']'</p>').appendTo('#' + HTMLId + ' .container');
-  $('<button type="button" id="trailer-' + data['ID'] + '">Watch Trailer</button>').appendTo('#' + HTMLId + ' .container');
   $(HTMLContent).appendTo($(parent));
+  $('<div class="container"></div>').appendTo('#' + HTMLId);
+  $('<img src="img/Logos/' + data['Logo'] + '">').appendTo('#' + HTMLId + ' .container');
+  $('<p>' + data['Presentation'] + '</p>').appendTo('#' + HTMLId + ' .container');
+  $('<button type="button" id="trailer-' + data['ID'] + '">Watch Trailer</button>').appendTo('#' + HTMLId + ' .container');
 };
 
 function createHTMLMediaNavItem(data, parent, idPrefix) {
