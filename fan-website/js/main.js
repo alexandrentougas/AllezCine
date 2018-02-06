@@ -27,8 +27,8 @@ let whenDataLoadedMedia = function() {
   let dataText = dataRequestMedia.responseText; // we store the text of the response
   mediaObject = JSON.parse(dataText);
 
-  createHTMLMediaItem(mediaObject, '#nav-tabContent', 'media');
-  createHTMLMediaNavItem(mediaObject, '#nav-media', 'mediaNav');
+  displayMediaItem(mediaObject, '#nav-tabContent', 'media');
+  displayMediaNavItem(mediaObject, '#nav-media', 'mediaNav');
 };
 
 $('#nav-presentation').click(function () {
@@ -74,7 +74,11 @@ $('#intro').click(function () {
 
 function createHTMLMediaItem(data, parent, idPrefix) {
   let HTMLId = idPrefix + '-' + data['ID'];
-  let HTMLContent = '<section class="tab-pane fade" id="' + HTMLId + '" role="tabpanel" aria-labelledby="mediaNav-' + data['ID'] + '"><div class="container"></div></section>';
+  let HTMLContent = '<section class="tab-pane fade" id="' + HTMLId + '" role="tabpanel" aria-labelledby="mediaNav-' + data['ID'] + '"></section>';
+  $('<div class="container"></div>').appendTo(HTMLContent);
+  $('<img src="img/Logos/' + data['Logo'] + '">').appendTo('#' + HTMLId + ' .container');
+  $('<p>'data['Presentation']'</p>').appendTo('#' + HTMLId + ' .container');
+  $('<button type="button" id="trailer-' + data['ID'] + '">Watch Trailer</button>').appendTo('#' + HTMLId + ' .container');
   $(HTMLContent).appendTo($(parent));
 };
 
@@ -84,6 +88,17 @@ function createHTMLMediaNavItem(data, parent, idPrefix) {
   $(HTMLContent).appendTo($(parent));
 };
 
+function displayMediaItem(data, parent, idPrefix) {
+  for (i = 0; i < data.length; i++) {
+    createHTMLMediaItem(data[i], '#nav-tabContent', 'media');
+  };
+};
+
+function displayMediaNavItem(data, parent, idPrefix) {
+  for (i = 0; i < data.length; i++) {
+    createHTMLMediaNavItem(data[i], '#nav-media', 'mediaNav');
+  };
+};
 
 dataRequestCharacters.onload = whenDataLoadedCharacters;
 dataRequestCharacters.open("GET", characters, true);
