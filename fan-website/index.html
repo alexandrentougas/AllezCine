@@ -24,7 +24,7 @@
   <nav class="nav nav-tabs fixed-top" id="nav-main" role="tablist">
     <a class="nav-item nav-link" id="nav-presentation" data-toggle="tab" href="#nav-presentation">Presentation</a>
     <a class="nav-item nav-link" id="nav-biography-tab" data-toggle="tab" href="#nav-biography-content" role="tab" aria-controls="nav-biography" aria-selected="false">Biography</a>
-    <a class="nav-item nav-link active" id="nav-logo-tab" data-toggle="tab" href="#nav-logo-content" role="tab" aria-controls="nav-logo" aria-selected="true"><img class="img-fluid" src="img/Logos/ffxvWhite.png" alt=""></a>
+    <a class="nav-item nav-link active" id="nav-logo-tab" data-toggle="tab" href="#nav-logo-content" role="tab" aria-controls="nav-logo" aria-selected="true"><img class="img-fluid" src="img/Logos/ffxvWhite.png" alt="Final Fantasy 15"><h1 class="sr-only">Final Fantasy XV</h1></a>
     <a class="nav-item nav-link" id="nav-gallery-tab" data-toggle="tab" href="#nav-gallery-content" role="tab" aria-controls="nav-gallery" aria-selected="false">Gallery</a>
     <a class="nav-item nav-link" id="nav-goodies-tab" data-toggle="tab" href="#nav-goodies-content" role="tab" aria-controls="nav-goodies" aria-selected="false">Goodies</a>
   </nav>
@@ -58,8 +58,8 @@
     </section>
     <section class="tab-pane fade show active" id="nav-logo-content" role="tabpanel" aria-labelledby="nav-logo-tab"> <!-- Home -->
       <div class="container">
-        <img src="img/Logos/ffxvUniverseTran.png" alt="">
-        <button type="button" id="intro">Watch Trailer</button>
+        <img src="img/Logos/ffxvUniverseTran.png" class="img-fluid" alt="Final Fantasy XV Universe">
+        <button type="button" class="btn btn-secondary" id="intro">Watch Trailer</button>
       </div>
     </section>
     <section class="tab-pane fade" id="nav-gallery-content" role="tabpanel" aria-labelledby="nav-gallery-tab"> <!-- Gallery -->
@@ -68,7 +68,7 @@
     </section>
     <section class="tab-pane fade" id="nav-goodies-content" role="tabpanel" aria-labelledby="nav-goodies-tab"> <!-- Shops Gogdies -->
       <div class="container">
-        <button id="cart-button" type="button" data-toggle="modal" data-target="#cartModal">Cart Preview</button>
+        <button class="btn btn-primary" id="cart-button" type="button" data-toggle="modal" data-target="#cartModal"><i class="fa fa-shopping-cart"></i><span class="sr-only">Cart Preview</span><span class="badge">2</span></button>
       </div>
     </section>
   </main>
@@ -126,7 +126,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <img src="img/Logos/chocoMog.png" alt="">
+        <img src="img/Logos/chocoMog.png" class="img-fluid" alt="Choco Mog">
         <p>Hey ! You didn't put anything in your cart yet !</p>
       </div>
       <div class="modal-footer">
