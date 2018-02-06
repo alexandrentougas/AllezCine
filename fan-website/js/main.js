@@ -45,8 +45,24 @@ $('#nav-presentation').click(function () {
   }
 });
 
-$('.contact-icon').on('click',function(e) {
-  
+$('.contact-icon .btn').on('click',function(e) {
+  $('.general-footer').toggleClass('active');
+  if($('.general-footer').hasClass('active')) {
+    $('.general-footer').animate({
+      top: ( $(window).height() - $('.general-footer').height() + $('#nav-main').height() - $('.contact-icon .btn').height() ) / 2,
+    } ,1000, function(){});
+    $('.general-footer .credits').animate({
+      top: $(window).height() - $('.general-footer .credits').height(),
+    },1000, function(){});
+  } else {
+    $('.general-footer').animate({
+      top: $(window).height() - $('.contact-icon .btn').height() / 2,
+    } ,1000, function(){});
+    $('.general-footer .credits').animate({
+      top: $(window).height(),
+    },800, function(){});
+  }
+
 });
 
 dataRequestCharacters.onload = whenDataLoadedCharacters;
