@@ -47,6 +47,7 @@
         $node.css({position: 'relative', 'z-index': options.wrapperZIndex});
 
         // set up iframe player, use global scope so YT api can talk
+        // Documentation https://developers.google.com/youtube/player_parameters?hl=fr#cc_load_policy
         window.player;
         window.onYouTubeIframeAPIReady = function() {
             player = new YT.Player('tubular-player', {
@@ -57,6 +58,10 @@
                     controls: 0,
                     showinfo: 0,
                     modestbranding: 1,
+                    disablekb: 1,
+                    enablejsapi: 1,
+                    loop: 1,
+                    rel: 0,
                     wmode: 'transparent'
                 },
                 events: {
