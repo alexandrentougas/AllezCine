@@ -18,3 +18,8 @@ a {
     color:$dark-color;
   }
 }
+
+main {
+  height: 100%;
+  padding-top:100px; /* top = navbar height */
+}
