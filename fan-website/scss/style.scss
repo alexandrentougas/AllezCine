@@ -20,16 +20,28 @@
 @import "navbar";
 
 
-// Temporary CSS
-img {
-  max-width:100px;
+#nav-logo-content {
+  height: 100%;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,.5) 0%,rgba(0,0,0,.5) 100%), url('../img/Backgrounds/cristal2.jpg');
+  @include background-image();
+  .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:20px;
+  }
+  img {
+    margin-bottom: 7.5vh;
+  }
 }
-
 
 #nav-biography-content {
   width:100%;
   height:100%;
-  background: black;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,.85) 0%,rgba(0,0,0,.85) 100%), url('../img/Backgrounds/altissiaArtwork.png');
+  @include background-image();
   .container, .container-fluid {
     height:100%;
     .row {
@@ -48,7 +60,8 @@ img {
           margin-bottom: 5vh;
           font-size: 1.9rem;
           letter-spacing: 1px;
-          color:$custom-primary;
+          color:$light-color;
+          text-shadow: 2px 2px 4px rgba($dark-color,.7);
         }
         img {
           min-width: 20vw;
@@ -68,9 +81,72 @@ img {
   height: 100%;
   .container-fluid {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 12vh;
     @include background-image();
     .container {
-      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding:20px;
+      background-color: rgba($dark-color,.85);
+      box-shadow: 0px 0px 20px 2px rgba($dark-color,.5);
+      color:$light-color;
+      img {
+        width:300px;
+        height:auto;
+      }
+      p {
+        margin:3vh 1vw;
+      }
     }
+  }
+}
+
+#nav-goodies-content {
+  position: relative;
+  height: 100%;
+  #cart-button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right:2.5vw;
+    bottom:7.5vh;
+    height: 70px;
+    width: 70px;
+    font-size: 2rem;
+    border-radius: 50%;
+    z-index:10;
+
+    .badge {
+      position: absolute;
+      display: inline-block;
+      background-color: red;
+      border-radius: 50%;
+      padding:3px 6px;
+      font-size: .7rem;
+      top:12px;
+      left:38px;
+    }
+
+    &::after {
+      content:' ';
+      position: absolute;
+      top:0;
+      left:0;
+      width:70px;
+      height: 70px;
+      z-index:1;
+      border-radius: 50%;
+      animation: pulsar 1s ease-out;
+      animation-iteration-count: infinite;
+      background-color: $dark-color;
+      z-index: -1;
+    }
+
   }
 }
