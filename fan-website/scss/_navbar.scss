@@ -1,0 +1,15 @@
+#nav-main {
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .nav-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:calc(100% / 5);
+    height:80px;
+    @include background-gradient-ffxv(right);
+  }
+
+}
