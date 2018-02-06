@@ -36,6 +36,10 @@ $('#nav-presentation').click(function () {
   });
 });
 
+$('.contact-icon').on('click',function(e) {
+  
+});
+
 dataRequestCharacters.onload = whenDataLoadedCharacters;
 dataRequestCharacters.open("GET", characters, true);
 dataRequestCharacters.send(null);
