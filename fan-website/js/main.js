@@ -295,9 +295,7 @@ function displayCart(data, parent) {
       $('<td class="quantity">' + data[i]['Quantity'] + '</td>').appendTo(parent + ' tbody' + ' #product-id-' + data[i]['ID']);
       $('<td class="price">' + data[i]['Price'] + ' €</td>').appendTo(parent + ' tbody' + ' #product-id-' + data[i]['ID']);
       $('<td class="subtotal">' + Math.round(data[i]['Quantity'] * data[i]['Price'] * 100) / 100 + ' €</td>').appendTo(parent + ' tbody' + ' #product-id-' + data[i]['ID']);
-      $('<td class="option"><button class="btn btn-dark" data-id="' + data[i]['ID'] + '" class="remove-from-cart"><i class="fa fa-minus"></i></button></td>').appendTo(parent + ' tbody' + ' #product-id-' + data[i]['ID']);
-      //$('<tr><td class="product"><img class="img-fluid" src="img/Goodies/' + data[i]['Picture'] + '"></td><td class="name">' + data[i]['Name'] + '</td><td class="quantity">' + data[i]['Quantity'] + '</td><td class="price">' + data[i]['Price'] + ' €</td><td class="subtotal">' + Math.round(data[i]['Quantity'] * data[i]['Price'] * 100) / 100 + ' €</td><td class="option"><button class="btn btn-dark" data-id="' + data[i]['ID'] + '" class="remove-from-cart"><i class="fa fa-minus"></i></button></td></tr>').appendTo(parent + ' tbody');
-      ;
+      $('<td class="option"><button class="btn btn-dark remove-from-cart" data-id="' + data[i]['ID'] + '"><i class="fa fa-minus"></i></button></td>').appendTo(parent + ' tbody' + ' #product-id-' + data[i]['ID']);
       grandTotal += (data[i]['Quantity'] * data[i]['Price']);
     };
     $('#grandTotal').text(Math.round(grandTotal * 100) / 100 + ' €');
