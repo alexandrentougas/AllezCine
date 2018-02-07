@@ -3,6 +3,8 @@ let gallery = 'https://laurenthu.github.io/AllezCine/fan-website/database/galler
 let goodies = 'https://laurenthu.github.io/AllezCine/fan-website/database/goodies.json';
 let media = 'https://laurenthu.github.io/AllezCine/fan-website/database/media.json';
 
+let cartObject = [];
+
 let dataRequestCharacters = new XMLHttpRequest();
 let dataRequestGallery = new XMLHttpRequest();
 let dataRequestGoodies = new XMLHttpRequest();
@@ -25,10 +27,10 @@ let whenDataLoadedGallery = function() {
   });
 
   $('#nav-gallery-tab').on('shown.bs.tab', function(e) {
-    $('#nav-gallery-content .image-set .image-set-item').each( function(index) {
+    $('#nav-gallery-content .image-set .image-set-item').each(function(index) {
       //console.log($(this).css('width'));
-      $(this).css('width', $(this).css('width') );
-      $(this).css('height', $(this).css('width') );
+      $(this).css('width', $(this).css('width'));
+      $(this).css('height', $(this).css('width'));
       //console.log( $(this).attr('href') );
       $(this).css({
         'background-image': 'linear-gradient(to bottom, rgba(0,0,0,.5) 0%,rgba(0,0,0,.5) 100%), url(./' + $(this).attr('href') + ')',
@@ -37,12 +39,12 @@ let whenDataLoadedGallery = function() {
         'background-repeat': 'no-repeat',
         'background-clip': 'padding-box'
       });
-      $(this).children('img').css('display','none');
-      $(this).on('mouseover',function(e){
+      $(this).children('img').css('display', 'none');
+      $(this).on('mouseover', function(e) {
         $(this).css({
           'background-image': 'url(./' + $(this).attr('href') + ')',
         });
-      }).on('mouseleave',function(e){
+      }).on('mouseleave', function(e) {
         $(this).css({
           'background-image': 'linear-gradient(to bottom, rgba(0,0,0,.5) 0%,rgba(0,0,0,.5) 100%), url(./' + $(this).attr('href') + ')',
         });
@@ -58,6 +60,7 @@ let whenDataLoadedGoodies = function() {
   $('#nav-goodies-tab').on('show.bs.tab', function(e) {
     displayGoodieItem(goodiesObject, '#nav-goodies-content .container .goodie-list', 'goodie');
     addEventListenerForInformation('#nav-goodies-content .goodie-item');
+    addEventListenerForAddToCart(goodiesObject);
   });
 };
 
@@ -70,7 +73,7 @@ let whenDataLoadedMedia = function() {
   hideMediaMenuOnMediaSelection();
 };
 
-$('#nav-presentation').click(function () {
+$('#nav-presentation').click(function() {
   $('#nav-media').toggleClass('active');
   if ($('#nav-media').hasClass('active') === true) {
     $('#nav-media').animate({
@@ -87,37 +90,37 @@ $('#nav-presentation').click(function () {
   }
 });
 
-$('.contact-icon .btn').on('click',function(e) {
+$('.contact-icon .btn').on('click', function(e) {
   $('.general-footer').toggleClass('active');
-  if($('.general-footer').hasClass('active')) {
+  if ($('.general-footer').hasClass('active')) {
     $('.general-footer').animate({
-      top: ( $(window).height() - $('.general-footer').height() + $('#nav-main').height() - $('.contact-icon .btn').height() ) / 2,
-    } ,1000, function(){});
+      top: ($(window).height() - $('.general-footer').height() + $('#nav-main').height() - $('.contact-icon .btn').height()) / 2,
+    }, 1000, function() {});
     $('.general-footer .credits').animate({
       top: $(window).height() - $('.general-footer .credits').height(),
-    },1000, function(){});
+    }, 1000, function() {});
   } else {
     $('.general-footer').animate({
       top: $(window).height() - $('.contact-icon .btn').height() / 2,
-    } ,1000, function(){});
+    }, 1000, function() {});
     $('.general-footer .credits').animate({
       top: $(window).height(),
-    },800, function(){});
+    }, 800, function() {});
   }
 });
-$(document).on('keydown', function(e){
-  if($('.general-footer').hasClass('active') && e.key == 'Escape') {
+$(document).on('keydown', function(e) {
+  if ($('.general-footer').hasClass('active') && e.key == 'Escape') {
     $('.general-footer').toggleClass('active');
     $('.general-footer').animate({
       top: $(window).height() - $('.contact-icon .btn').height() / 2,
-    } ,1000, function(){});
+    }, 1000, function() {});
     $('.general-footer .credits').animate({
       top: $(window).height(),
-    },800, function(){});
+    }, 800, function() {});
   }
 });
 
-$('#nav-main .nav-link').not('#nav-presentation').click(function () {
+$('#nav-main .nav-link').not('#nav-presentation').click(function() {
   if ($('#nav-media').hasClass('active') === true) {
     $('#nav-media').removeClass('active');
     $('#nav-media').animate({
@@ -129,7 +132,7 @@ $('#nav-main .nav-link').not('#nav-presentation').click(function () {
 });
 
 function hideMediaMenuOnMediaSelection() {
-  $('#nav-media .nav-link').click(function () {
+  $('#nav-media .nav-link').click(function() {
     $('#nav-media').removeClass('active');
     $('#nav-media').animate({
       top: 0,
@@ -224,7 +227,7 @@ function createHTMLGoodieItemInformationModal(data, informationParent, idData) {
   $('#' + currentHTMLID + ' .main-data-modal').after('<p>' + nl2br(data['Description']) + '</p>');
   $('<div class="modal-footer"></div>').appendTo($('#' + currentHTMLID + ' .modal-content'));
   $('<div class="container-fluid"></div>').appendTo($('#' + currentHTMLID + ' .modal-footer'));
-  $('#' + currentHTMLID + ' .modal-footer .container-fluid').html('<input type="number" min="1"></input><button type="button" class="btn">Add to cart</button>');
+  $('#' + currentHTMLID + ' .modal-footer .container-fluid').html('<input type="number" min="1" id="quantity-' + data['ID'] + '"></input><button type="button" class="btn" id="addCart-' + data['ID'] + '">Add to cart</button>');
 };
 
 function addEventListenerForInformation(selector) { // we had the click on information button to the event listener
@@ -240,6 +243,29 @@ function addEventListenerForInformation(selector) { // we had the click on infor
       $('#' + 'goodie-information-item-' + idItem).modal('show'); // if already existe we show it
     }
   });
+};
+
+function addEventListenerForAddToCart(data) {
+  for (i = 0; i < data.length; i++) {
+    $('#addCart-' + i).on('click', function(e) {
+        for (let key in cartObject) { // we loop our object
+          if (cartObject[key]['ID'] == data[i]['ID']) { // if the value is not false
+            cartObject[key]['Quantity'] = cartObject[key]['Quantity'] + Number($('#quantity-' + i).attr('value'));
+            console.log(cartObject);
+          } else {
+            cartObject.push({
+              'ID': data[i]['ID'],
+              'Picture': data[i]['Picture'],
+              'Name': data[i]['Name'],
+              'Quantity': Number($('#quantity-' + i).attr('value')),
+              'Prix/u': data[i]['Prix']
+              // 'Total': Number($('#quantity-' + i).attr('value')) * data[i]['Prix']
+            });
+            console.log(cartObject);
+          };
+        };
+    });
+  };
 };
 
 function displayMediaItem(data, parent, idPrefix) {
@@ -261,8 +287,8 @@ function displayCharacterItem(data, parent, idPrefix) {
 };
 
 function displayBiography(data) {
-  $('#nav-biography-content .container-fluid .row .col').each( function (index) {
-    $(this).click(function () {
+  $('#nav-biography-content .container-fluid .row .col').each(function(index) {
+    $(this).click(function() {
       $('#character-name').text(data[index]['Name']);
       $('#character-bio').text(data[index]['Biography']);
     });
