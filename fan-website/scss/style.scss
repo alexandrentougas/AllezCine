@@ -78,7 +78,8 @@
 }
 
 #biography {
-  display: none;
+  //display: none;
+  position: fixed;
 }
 
 .media-content {
@@ -168,7 +169,6 @@
     .badge {
       display: none;
       position: absolute;
-      display: inline-block;
       /* temp */ background-color: red;
       border-radius: 50%;
       padding:3px 6px;
