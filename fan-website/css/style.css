@@ -257,6 +257,60 @@ main {
     border-color: #0086a8;
     color: #0d0d0d; }
 
+#cartModal .modal-header {
+  border-radius: 0px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  background-color: #000c0f;
+  color: white; }
+  #cartModal .modal-header .close {
+    color: white; }
+#cartModal .empty-message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  #cartModal .empty-message img {
+    max-width: 150px;
+    height: auto; }
+  #cartModal .empty-message p {
+    margin: 15px 0px;
+    font-style: italic; }
+#cartModal .modal-footer {
+  border-radius: 0px; }
+#cartModal table {
+  font-size: .8em; }
+  #cartModal table .thead-dark th {
+    background-color: #000c0f;
+    color: #c6c8c9; }
+  #cartModal table tr .product {
+    width: 20%; }
+  #cartModal table tr .name {
+    width: 30%;
+    text-transform: capitalize; }
+  #cartModal table tr .subtotal {
+    font-weight: bold; }
+  #cartModal table tfoot tr {
+    background-color: #000c0f;
+    color: #c6c8c9; }
+    #cartModal table tfoot tr .total-text {
+      text-align: right;
+      padding-right: 10px;
+      font-weight: bold; }
+    #cartModal table tfoot tr .total {
+      font-weight: bold;
+      text-decoration: underline; }
+
 #nav-logo-content {
   height: 100%;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url("../img/Backgrounds/cristal2.jpg");
