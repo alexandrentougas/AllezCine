@@ -20,7 +20,9 @@ let whenDataLoadedGallery = function() {
   let dataText = dataRequestGallery.responseText; // we store the text of the response
   galleryObject = JSON.parse(dataText);
 
-  displayGalleryItem(galleryObject, '.image-set', 'picture');
+  $('#nav-gallery-tab').on('show.bs.tab', function(e) {
+    displayGalleryItem(galleryObject, '.image-set', 'picture');
+  });
 
   $('#nav-gallery-tab').on('shown.bs.tab', function(e) {
     $('#nav-gallery-content .image-set .image-set-item').each( function(index) {
@@ -53,8 +55,10 @@ let whenDataLoadedGoodies = function() {
   let dataText = dataRequestGoodies.responseText; // we store the text of the response
   goodiesObject = JSON.parse(dataText);
 
-  displayGoodieItem(goodiesObject, '#nav-goodies-content', 'goodie');
-  addEventListenerForInformation('#nav-goodies-content .goodie-item');
+  $('#nav-goodies-tab').on('show.bs.tab', function(e) {
+    displayGoodieItem(goodiesObject, '#nav-goodies-content .container .goodie-list', 'goodie');
+    addEventListenerForInformation('#nav-goodies-content .goodie-item');
+  });
 };
 
 let whenDataLoadedMedia = function() {
@@ -170,7 +174,7 @@ function createHTMLGalleryItem(data, parent, idPrefix) {
 
 function createHTMLGoodieItem(data, parent, idPrefix) {
   let HTMLId = idPrefix + '-' + data['ID']; // we construct the HTML id of this goodie
-  let HTMLContent = '<div class="col-12 col-sm-6 col-md-4 col-lg-2 card goodie-item" id="' + HTMLId + '"></div>'; // we open the div, insert class and ID
+  let HTMLContent = '<div class="col-12 col-sm-6 col-md-4 col-lg-3 card goodie-item" id="' + HTMLId + '"></div>'; // we open the div, insert class and ID
   $(HTMLContent).appendTo($(parent)); // we add our HTML content to the parent
   $('#' + HTMLId).attr({ // we insert some data-attribute
     'data-id': data['ID'],
