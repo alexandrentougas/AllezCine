@@ -62,7 +62,10 @@ let whenDataLoadedGoodies = function() {
     $('#nav-goodies-content .container .goodie-list').html('');
     displayGoodieItem(goodiesObject, '#nav-goodies-content .container .goodie-list', 'goodie');
     addEventListenerForInformation('#nav-goodies-content .goodie-item');
-    // addEventListenerForAddToCart(goodiesObject);
+    $('#cartModal').on('show.bs.modal', function(e) {
+      $('#cartModal .modal-body').html('');
+      displayCart(cartObject, '#cartModal .modal-body');
+    });
   });
 };
 
@@ -194,7 +197,7 @@ function createHTMLGoodieItem(data, parent, idPrefix) {
 
 function createHTMLGoodieItemInformationModal(data, informationParent, idData) {
   let currentHTMLID = informationParent + '-item-' + idData;
-  let HMTLModalContent = '<div class="modal fade infomation-modal" id="' + currentHTMLID + '" tabindex="-1" role="dialog" aria-labelledby="Information about ' + data['Name'] + '" aria-hidden="true"></div>';
+  let HMTLModalContent = '<div class="modal fade information-modal" id="' + currentHTMLID + '" tabindex="-1" role="dialog" aria-labelledby="Information about ' + data['Name'] + '" aria-hidden="true"></div>';
   $(HMTLModalContent).appendTo($('#' + informationParent)); // we add our HTML content to the parent
   $('<div class="modal-dialog modal-dialog-centered modal-lg" role="document"></div>').appendTo($('#' + currentHTMLID));
   $('<div class="modal-content"></div>').appendTo($('#' + currentHTMLID + ' .modal-dialog'));
@@ -251,36 +254,44 @@ function addEventListenerForInformation(selector) { // we had the click on infor
 function addEventListenerForAddToCart(data) {
   $('.addCart').on('click', function(e) {
     let idItem = $(this).attr('data-id');
-    if (cartObject.length > 0) {
-      for (let key in cartObject) { // we loop our object
-        if (cartObject[key]['ID'] == data[idItem - 1]['ID']) { // if the value is not false
-          cartObject[key]['Quantity'] = cartObject[key]['Quantity'] + Number($('#quantity-' + idItem).val());
-          console.log(cartObject);
-        } else {
-          cartObject.push({
-            'ID': data[idItem - 1]['ID'],
-            'Picture': data[idItem - 1]['Picture'],
-            'Name': data[idItem - 1]['Name'],
-            'Quantity': Number($('#quantity-' + idItem).val()),
-            'Price': data[idItem - 1]['Price']
-            // 'Total': Number($('#quantity-' + i).attr('value')) * data[i]['Prix']
-          });
-          console.log(cartObject);
-        };
+    let alreadyIn = false;
+    for (let key in cartObject) { // we loop our object
+      if (cartObject[key]['ID'] == data[idItem - 1]['ID']) { // if the value is not false
+        cartObject[key]['Quantity'] = cartObject[key]['Quantity'] + Number($('#quantity-' + idItem).val());
+        alreadyIn = true;
       };
-    } else {
-      console.log(idItem);
+    };
+    if (!alreadyIn) {
       cartObject.push({
         'ID': data[idItem - 1]['ID'],
         'Picture': data[idItem - 1]['Picture'],
         'Name': data[idItem - 1]['Name'],
         'Quantity': Number($('#quantity-' + idItem).val()),
         'Price': data[idItem - 1]['Price']
-        // 'Total': Number($('#quantity-' + i).attr('value')) * data[i]['Prix']
       });
-      console.log(cartObject);
+    };
+    $('#goodie-information-item-' + idItem).modal('hide');
+    $('#cart-button .badge').text(cartObject.length).fadeIn();
+    if ($('#cart-button .badge').text() == 0) {
+      $('#cart-button .badge').fadeOut();
     };
   });
+};
+
+function displayCart(data, parent) {
+  if (data.length == 0) {
+    $('<img src="img/Logos/chocoMog.png" class="img-fluid" alt="Choco Mog">').appendTo($(parent));
+    $("<p>Hey ! You didn't put anything in your cart yet !</p>").appendTo($(parent));
+  } else {
+    let grandTotal = 0;
+    let HTMLContent = '<table class="table"><thead class="thead-dark"><tr><th scope="col">Product</th><th scope="col">Name</th><th scope="col">Quantity</th><th scope="col">Price</th><th scope="col">Total</th></tr></thead><tbody></tbody><tfoot><tr><td colspan="4">Total</td><td id="grandTotal"></td></tr></tfoot></table>';
+    $(HTMLContent).appendTo(parent);
+    for (i = 0; i < data.length; i++) {
+      $('<tr><td><img class="img-fluid" src="img/Goodies/' + data[i]['Picture'] + '"></td><td>' + data[i]['Name'] + '</td><td>' + data[i]['Quantity'] + '</td><td>' + data[i]['Price'] + ' €</td><td>' + Math.round(data[i]['Quantity'] * data[i]['Price'] * 100) / 100 + '</td></tr>').appendTo(parent + ' tbody');
+      grandTotal += (data[i]['Quantity'] * data[i]['Price']);
+    };
+    $('#grandTotal').text(Math.round(grandTotal * 100) / 100 + ' €');
+  };
 };
 
 function displayMediaItem(data, parent, idPrefix) {
