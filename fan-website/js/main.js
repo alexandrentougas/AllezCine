@@ -281,14 +281,15 @@ function addEventListenerForAddToCart(data) {
 
 function displayCart(data, parent) {
   if (data.length == 0) {
-    $('<img src="img/Logos/chocoMog.png" class="img-fluid" alt="Choco Mog">').appendTo($(parent));
-    $("<p>Hey ! You didn't put anything in your cart yet !</p>").appendTo($(parent));
+    $('<div class="empty-message"><img src="img/Logos/chocoMog.png" class="img-fluid" alt="Choco Mog"><p>Hey ! You didn\'t put anything in your cart yet !</p></div>').appendTo($(parent));
+    $(parent).parent().find('.checkout').hide();
   } else {
+    $(parent).parent().find('.checkout').show();
     let grandTotal = 0;
-    let HTMLContent = '<table class="table"><thead class="thead-dark"><tr><th scope="col">Product</th><th scope="col">Name</th><th scope="col">Quantity</th><th scope="col">Price</th><th scope="col">Total</th><th></th></tr></thead><tbody></tbody><tfoot><tr><td colspan="4">Total</td><td id="grandTotal"></td><td></td></tr></tfoot></table>';
+    let HTMLContent = '<table class="table"><thead class="thead-dark"><tr><th class="product" scope="col">Product</th><th class="name" scope="col">Name</th><th class="quantity" scope="col">Quantity</th><th class="price" scope="col">Price</th><th class="subtotal" scope="col">Total</th><th class="option"></th></tr></thead><tbody></tbody><tfoot><tr><td class="total-text" colspan="4">Total</td><td class="total" id="grandTotal"></td><td></td></tr></tfoot></table>';
     $(HTMLContent).appendTo(parent);
     for (i = 0; i < data.length; i++) {
-      $('<tr><td><img class="img-fluid" src="img/Goodies/' + data[i]['Picture'] + '"></td><td>' + data[i]['Name'] + '</td><td>' + data[i]['Quantity'] + '</td><td>' + data[i]['Price'] + ' €</td><td>' + Math.round(data[i]['Quantity'] * data[i]['Price'] * 100) / 100 + '</td><td><button data-id="' + data[i]['ID'] + '" class="remove-from-cart"><i class="fa fa-cart-arrow-down"></i></button></td></tr>').appendTo(parent + ' tbody');
+      $('<tr><td class="product"><img class="img-fluid" src="img/Goodies/' + data[i]['Picture'] + '"></td><td class="name">' + data[i]['Name'] + '</td><td class="quantity">' + data[i]['Quantity'] + '</td><td class="price">' + data[i]['Price'] + ' €</td><td class="subtotal">' + Math.round(data[i]['Quantity'] * data[i]['Price'] * 100) / 100 + ' €</td><td class="option"><button class="btn btn-dark" data-id="' + data[i]['ID'] + '" class="remove-from-cart"><i class="fa fa-minus"></i></button></td></tr>').appendTo(parent + ' tbody');
       grandTotal += (data[i]['Quantity'] * data[i]['Price']);
     };
     $('#grandTotal').text(Math.round(grandTotal * 100) / 100 + ' €');
@@ -383,4 +384,12 @@ lightbox.option({
   'disableScrolling': true
 });
 
-/*** Application ***/
+/* jValidate */
+$("#contact-form-tag").validate({
+  errorClass: 'text-danger',
+  validClass: 'text-success',
+  submitHandler: function(form) {
+    // do other things for a valid form
+    alert('Message sent!');
+  }
+});
