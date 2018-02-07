@@ -29,7 +29,7 @@ let whenDataLoadedGallery = function() {
       $(this).css('height', $(this).css('width') );
       //console.log( $(this).attr('href') );
       $(this).css({
-        'background-image': 'linear-gradient(to bottom, rgba(0,0,0,.7) 0%,rgba(0,0,0,.7) 100%), url(./' + $(this).attr('href') + ')',
+        'background-image': 'linear-gradient(to bottom, rgba(0,0,0,.5) 0%,rgba(0,0,0,.5) 100%), url(./' + $(this).attr('href') + ')',
         'background-position': 'center center',
         'background-size': 'cover',
         'background-repeat': 'no-repeat',
@@ -42,7 +42,7 @@ let whenDataLoadedGallery = function() {
         });
       }).on('mouseleave',function(e){
         $(this).css({
-          'background-image': 'linear-gradient(to bottom, rgba(0,0,0,.7) 0%,rgba(0,0,0,.7) 100%), url(./' + $(this).attr('href') + ')',
+          'background-image': 'linear-gradient(to bottom, rgba(0,0,0,.5) 0%,rgba(0,0,0,.5) 100%), url(./' + $(this).attr('href') + ')',
         });
       });
     });
