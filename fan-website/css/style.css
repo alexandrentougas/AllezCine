@@ -405,7 +405,7 @@ main {
               animation: pulsar 1s ease-out;
       -webkit-animation-iteration-count: infinite;
               animation-iteration-count: infinite;
-      background-color: #0d0d0d;
+      background-color: #007bff;
       z-index: -1; }
 
 #nav-gallery-content {
