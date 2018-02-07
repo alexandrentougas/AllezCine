@@ -225,11 +225,11 @@ function createHTMLGoodieItemInformationModal(data, informationParent, idData) {
     $('#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type').after('<tr><td>Depth</td><td>' + data['Depth'] + ' mm</td></tr>');
     $('#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type').after('<tr><td>Length</td><td>' + data['Length'] + ' mm</td></tr>');
   };
-  $('#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type').after('<tr><td>Price</td><td>' + data['Price'] + ' €</td></tr>');
+  $('#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type').after('<tr class="price"><td>Price</td><td>' + data['Price'] + ' €</td></tr>');
   $('#' + currentHTMLID + ' .main-data-modal').after('<p>' + nl2br(data['Description']) + '</p>');
   $('<div class="modal-footer"></div>').appendTo($('#' + currentHTMLID + ' .modal-content'));
   $('<div class="container-fluid"></div>').appendTo($('#' + currentHTMLID + ' .modal-footer'));
-  $('#' + currentHTMLID + ' .modal-footer .container-fluid').html('<input type="number" value="1" min="1" id="quantity-' + data['ID'] + '"></input><button type="button" class="btn btn-primary addCart" data-id="' + data['ID'] + '" id="addCart-' + data['ID'] + '">Add to cart</button>');
+  $('#' + currentHTMLID + ' .modal-footer .container-fluid').html('<input type="number" class="form-control" value="1" min="1" id="quantity-' + data['ID'] + '"></input><button type="button" class="btn btn-light addCart" data-id="' + data['ID'] + '" id="addCart-' + data['ID'] + '"><span class="sr-only">Add to cart</span><i class="fa fa-cart-plus"</button>');
 };
 
 function addEventListenerForInformation(selector) { // we had the click on information button to the event listener
