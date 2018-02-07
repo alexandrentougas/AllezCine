@@ -48,6 +48,7 @@
       display: flex;
       justify-content:flex-start;
       align-items:flex-end;
+      flex-wrap: nowrap;
       height:100%;
       .col {
         display: flex;
@@ -149,4 +150,15 @@
     }
 
   }
+}
+
+#nav-gallery-content {
+
+  .image-set-item {
+    border:3px solid rgba($light-color,0);
+    img {
+      width: 100%;
+    }
+  }
+
 }
