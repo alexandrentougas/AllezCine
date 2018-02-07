@@ -62,7 +62,7 @@ let whenDataLoadedGoodies = function() {
     $('#nav-goodies-content .container .goodie-list').html('');
     displayGoodieItem(goodiesObject, '#nav-goodies-content .container .goodie-list', 'goodie');
     addEventListenerForInformation('#nav-goodies-content .goodie-item');
-    addEventListenerForAddToCart(goodiesObject);
+    // addEventListenerForAddToCart(goodiesObject);
   });
 };
 
@@ -229,7 +229,7 @@ function createHTMLGoodieItemInformationModal(data, informationParent, idData) {
   $('#' + currentHTMLID + ' .main-data-modal').after('<p>' + nl2br(data['Description']) + '</p>');
   $('<div class="modal-footer"></div>').appendTo($('#' + currentHTMLID + ' .modal-content'));
   $('<div class="container-fluid"></div>').appendTo($('#' + currentHTMLID + ' .modal-footer'));
-  $('#' + currentHTMLID + ' .modal-footer .container-fluid').html('<input type="number" value="1" min="1" id="quantity-' + data['ID'] + '"></input><button type="button" class="btn" id="addCart-' + data['ID'] + '">Add to cart</button>');
+  $('#' + currentHTMLID + ' .modal-footer .container-fluid').html('<input type="number" value="1" min="1" id="quantity-' + data['ID'] + '"></input><button type="button" class="btn btn-primary addCart" data-id="' + data['ID'] + '" id="addCart-' + data['ID'] + '">Add to cart</button>');
 };
 
 function addEventListenerForInformation(selector) { // we had the click on information button to the event listener
@@ -241,6 +241,7 @@ function addEventListenerForInformation(selector) { // we had the click on infor
     if ($('#' + 'goodie-information-item-' + idItem).length == 0) { // we check if the information modal already exists or not
       createHTMLGoodieItemInformationModal(itemObject[0], 'goodie-information', idItem); // if not we create it in the right section
       $('#' + 'goodie-information-item-' + idItem).modal('show'); // we show it
+      addEventListenerForAddToCart(goodiesObject);
     } else {
       $('#' + 'goodie-information-item-' + idItem).modal('show'); // if already existe we show it
     }
@@ -248,26 +249,38 @@ function addEventListenerForInformation(selector) { // we had the click on infor
 };
 
 function addEventListenerForAddToCart(data) {
-  for (i = 0; i < data.length; i++) {
-    $('#addCart-' + i).on('click', function(e) {
-        for (let key in cartObject) { // we loop our object
-          if (cartObject[key]['ID'] == data[i]['ID']) { // if the value is not false
-            cartObject[key]['Quantity'] = cartObject[key]['Quantity'] + Number($('#quantity-' + i).attr('value'));
-            console.log(cartObject);
-          } else {
-            cartObject.push({
-              'ID': data[i]['ID'],
-              'Picture': data[i]['Picture'],
-              'Name': data[i]['Name'],
-              'Quantity': Number($('#quantity-' + i).attr('value')),
-              'Prix/u': data[i]['Prix']
-              // 'Total': Number($('#quantity-' + i).attr('value')) * data[i]['Prix']
-            });
-            console.log(cartObject);
-          };
+  $('.addCart').on('click', function(e) {
+    let idItem = $(this).attr('data-id');
+    if (cartObject.length > 0) {
+      for (let key in cartObject) { // we loop our object
+        if (cartObject[key]['ID'] == data[idItem - 1]['ID']) { // if the value is not false
+          cartObject[key]['Quantity'] = cartObject[key]['Quantity'] + Number($('#quantity-' + idItem).val());
+          console.log(cartObject);
+        } else {
+          cartObject.push({
+            'ID': data[idItem - 1]['ID'],
+            'Picture': data[idItem - 1]['Picture'],
+            'Name': data[idItem - 1]['Name'],
+            'Quantity': Number($('#quantity-' + idItem).val()),
+            'Price': data[idItem - 1]['Price']
+            // 'Total': Number($('#quantity-' + i).attr('value')) * data[i]['Prix']
+          });
+          console.log(cartObject);
         };
-    });
-  };
+      };
+    } else {
+      console.log(idItem);
+      cartObject.push({
+        'ID': data[idItem - 1]['ID'],
+        'Picture': data[idItem - 1]['Picture'],
+        'Name': data[idItem - 1]['Name'],
+        'Quantity': Number($('#quantity-' + idItem).val()),
+        'Price': data[idItem - 1]['Price']
+        // 'Total': Number($('#quantity-' + i).attr('value')) * data[i]['Prix']
+      });
+      console.log(cartObject);
+    };
+  });
 };
 
 function displayMediaItem(data, parent, idPrefix) {
