@@ -21,6 +21,7 @@ let whenDataLoadedGallery = function() {
   galleryObject = JSON.parse(dataText);
 
   $('#nav-gallery-tab').on('show.bs.tab', function(e) {
+    $('.image-set').html('');
     displayGalleryItem(galleryObject, '.image-set', 'picture');
   });
 
@@ -56,6 +57,7 @@ let whenDataLoadedGoodies = function() {
   goodiesObject = JSON.parse(dataText);
 
   $('#nav-goodies-tab').on('show.bs.tab', function(e) {
+    $('#nav-goodies-content .container .goodie-list').html('');
     displayGoodieItem(goodiesObject, '#nav-goodies-content .container .goodie-list', 'goodie');
     addEventListenerForInformation('#nav-goodies-content .goodie-item');
   });
@@ -224,7 +226,7 @@ function createHTMLGoodieItemInformationModal(data, informationParent, idData) {
   $('#' + currentHTMLID + ' .main-data-modal').after('<p>' + nl2br(data['Description']) + '</p>');
   $('<div class="modal-footer"></div>').appendTo($('#' + currentHTMLID + ' .modal-content'));
   $('<div class="container-fluid"></div>').appendTo($('#' + currentHTMLID + ' .modal-footer'));
-  $('#' + currentHTMLID + ' .modal-footer .container-fluid').html('<input type="number" min="1"></input><button type="button" class="btn">Add to cart</button>');
+  $('#' + currentHTMLID + ' .modal-footer .container-fluid').html('<input type="number" min="1" value="1"></input><button type="button" class="btn">Add to cart</button>');
 };
 
 function addEventListenerForInformation(selector) { // we had the click on information button to the event listener
