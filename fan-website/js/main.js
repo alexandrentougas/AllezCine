@@ -19,6 +19,8 @@ let whenDataLoadedCharacters = function() {
 let whenDataLoadedGallery = function() {
   let dataText = dataRequestGallery.responseText; // we store the text of the response
   galleryObject = JSON.parse(dataText);
+    
+  displayGalleryItem(galleryObject, '.image-set', 'picture');
 };
 
 let whenDataLoadedGoodies = function() {
@@ -121,13 +123,20 @@ function createHTMLMediaNavItem(data, parent, idPrefix) {
   $(HTMLContent).appendTo($(parent));
 };
 
-function createCharacterItem(data, parent, idPrefix) {
+function createHTMLCharacterItem(data, parent, idPrefix) {
   let HTMLId = idPrefix + '-' + data['ID'];
   let HTMLContent = '<div class="col" id="' + HTMLId + '"></div>';
   $(HTMLContent).appendTo($(parent));
   $('<h2>' + data['Name'] + '</h2>').appendTo('#' + HTMLId);
   $('<img src="img/Characters/' + data['Picture'] + '" alt ="' + data['Name'] + '" class="img-fluid">').appendTo('#' + HTMLId);
   //$('#' + HTMLId).css('background-image', 'url(img/Characters/' + data['Picture'] + ')');
+};
+
+function createHTMLGalleryItem(data, parent, idPrefix) {
+  let HTMLId = idPrefix + '-' + data['ID'];
+  let HTMLContent = '<a href="img/Gallery/' + data['Picture'] + '" data-lightbox="FFGallery" data-title="' + data['Alt'] + '" id="' + HTMLId + '"></a>';
+  $(HTMLContent).appendTo($(parent));
+  $('<img src="img/Gallery/' + data['Picture'] + '" alt="' + data['Alt'] + '">').appendTo('#' + HTMLId);
 };
 
 function displayMediaItem(data, parent, idPrefix) {
@@ -144,7 +153,7 @@ function displayMediaNavItem(data, parent, idPrefix) {
 
 function displayCharacterItem(data, parent, idPrefix) {
   for (i = 0; i < data.length; i++) {
-    createCharacterItem(data[i], parent, idPrefix);
+    createHTMLCharacterItem(data[i], parent, idPrefix);
   };
 };
 
@@ -156,6 +165,18 @@ function displayBiography(data) {
     });
   });
 };
+
+function displayGalleryItem(data, parent, idPrefix) {
+  for (i = 0; i < data.length; i++) {
+    createHTMLGalleryItem(data[i], parent, idPrefix); 
+  }; 
+};
+
+lightbox.option({
+    'wrapAround': true,
+    'showImageNumberLabel': false,
+    'disableScrolling': true
+});
 
 dataRequestCharacters.onload = whenDataLoadedCharacters;
 dataRequestCharacters.open("GET", characters, true);
