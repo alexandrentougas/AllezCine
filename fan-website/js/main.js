@@ -217,7 +217,10 @@ function createHTMLGoodieItemInformationModal(data, informationParent, idData) {
     $('#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type').after('<tr><td>Length</td><td>' + data['Length'] + ' mm</td></tr>');
   };
   $('#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type').after('<tr><td>Price</td><td>' + data['Price'] + ' €</td></tr>');
-  $('#' + currentHTMLID + ' .main-data-modal').after('<p>' + data['Description'] + '</p>');
+  $('#' + currentHTMLID + ' .main-data-modal').after('<p>' + nl2br(data['Description']) + '</p>');
+  $('<div class="modal-footer"></div>').appendTo($('#' + currentHTMLID + ' .modal-content'));
+  $('<div class="container-fluid"></div>').appendTo($('#' + currentHTMLID + ' .modal-footer'));
+  $('#' + currentHTMLID + ' .modal-footer .container-fluid').html('<input type="number" min="1"></input><button type="button" class="btn">Add to cart</button>');
 };
 
 function addEventListenerForInformation(selector) { // we had the click on information button to the event listener
