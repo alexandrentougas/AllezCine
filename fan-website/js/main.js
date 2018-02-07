@@ -337,6 +337,9 @@ function displayBiography(data) {
     $(this).click(function() {
       $('#character-name').text(data[index]['Name']);
       $('#character-bio').text(data[index]['Biography']);
+      $('#nav-biography-content .container-fluid .row .col').fadeOut();
+      $(this).fadeIn();
+      $('#biography').fadeIn();
     });
   });
 };
