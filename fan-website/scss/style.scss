@@ -114,9 +114,36 @@
     padding:50px 0px 100px;
   }
   .card {
-    border-radius: none;
+    border-radius: 0px;
     border:0px;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
+    .content {
+      background-color: darken($light-color,5%);
+      cursor: pointer;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .card-footer {
+      background-color: transparent;
+      border: 0px;
+      width: 100%;
+      //padding:.75rem 0rem;
+    }
+    .card-title {
+      font-size: 1.35rem;
+      text-align: center;
+    }
+    .card-subtitle {
+      display: flex;
+      justify-content: space-between;
+    }
+    .card-subtitle-item {
+      color:lighten($dark-color,15%);
+      font-size: .9rem;
+    }
   }
 
   //background-image: url('../img/Backgrounds/backgroundGallery.jpg');
