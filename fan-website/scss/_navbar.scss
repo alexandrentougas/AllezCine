@@ -6,16 +6,26 @@
   background-color: $custom-secondary;
   box-shadow: 0px 0px 20px 2px rgba($custom-secondary,.6);
 
-
+  a {
+    color:$light-color;
+    font-weight: bold;
+    text-transform: uppercase;
+    &.active {
+      color:darken($light-color,15%);
+    }
+  }
   .nav-link {
     display: flex;
     justify-content: center;
     align-items: center;
     width:calc(100% / 5);
     height:100px;
+    border:0px;
+    margin-bottom: 0px;
 
     &.active {
-      background-color:rgba($dark-color,.6);
+      background-color:rgba($light-color,.2);
+      border:0px;
     }
   }
 
@@ -30,6 +40,7 @@
   flex-wrap: nowrap;
   width: 100%;
   padding:5px;
+  box-shadow: 0px 0px 20px 2px rgba($custom-secondary,.6);
   /* temp */ background-color: white;
   img {
     max-width: 110px;
