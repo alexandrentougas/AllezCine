@@ -339,6 +339,7 @@ main {
     margin-bottom: 7.5vh; }
 
 #nav-biography-content {
+  position: relative;
   width: 100%;
   height: 100%;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.85)), to(rgba(0, 0, 0, 0.85))), url("../img/Backgrounds/altissiaArtwork.png");
@@ -350,22 +351,13 @@ main {
   #nav-biography-content .container, #nav-biography-content .container-fluid {
     height: 100%; }
     #nav-biography-content .container .row, #nav-biography-content .container-fluid .row {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: start;
-          -ms-flex-pack: start;
-              justify-content: flex-start;
-      -webkit-box-align: end;
-          -ms-flex-align: end;
-              align-items: flex-end;
-      -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap;
+      display: block;
       height: 100%; }
       #nav-biography-content .container .row .col, #nav-biography-content .container-fluid .row .col {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
+        width: 24%;
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
             -ms-flex-direction: column;
@@ -386,10 +378,20 @@ main {
           text-shadow: 2px 2px 4px rgba(13, 13, 13, 0.7); }
         #nav-biography-content .container .row .col img, #nav-biography-content .container-fluid .row .col img {
           min-width: 20vw;
+          /*max-height: 30vh;*/
+          width: auto;
           height: auto; }
-
-#biography {
-  position: fixed; }
+  #nav-biography-content #biography {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 15vh; }
+    #nav-biography-content #biography .container {
+      width: 50vw;
+      max-width: 500px;
+      padding: 15px 20px;
+      background-color: rgba(255, 255, 255, 0.5);
+      color: #0d0d0d; }
 
 .media-content {
   height: 100%; }
