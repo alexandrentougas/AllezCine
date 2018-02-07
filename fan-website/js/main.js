@@ -248,6 +248,7 @@ function addEventListenerForInformation(selector) { // we had the click on infor
       addEventListenerForAddToCart(goodiesObject);
     } else {
       $('#' + 'goodie-information-item-' + idItem).modal('show'); // if already existe we show it
+      $('#quantity-' + idItem).val('1');
     }
   });
 };
