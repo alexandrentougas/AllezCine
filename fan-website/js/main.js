@@ -289,7 +289,15 @@ function displayCart(data, parent) {
     let HTMLContent = '<table class="table"><thead class="thead-dark"><tr><th class="product" scope="col">Product</th><th class="name" scope="col">Name</th><th class="quantity" scope="col">Quantity</th><th class="price" scope="col">Price</th><th class="subtotal" scope="col">Total</th><th class="option"></th></tr></thead><tbody></tbody><tfoot><tr><td class="total-text" colspan="4">Total</td><td class="total" id="grandTotal"></td><td></td></tr></tfoot></table>';
     $(HTMLContent).appendTo(parent);
     for (i = 0; i < data.length; i++) {
-      $('<tr><td class="product"><img class="img-fluid" src="img/Goodies/' + data[i]['Picture'] + '"></td><td class="name">' + data[i]['Name'] + '</td><td class="quantity">' + data[i]['Quantity'] + '</td><td class="price">' + data[i]['Price'] + ' €</td><td class="subtotal">' + Math.round(data[i]['Quantity'] * data[i]['Price'] * 100) / 100 + ' €</td><td class="option"><button class="btn btn-dark" data-id="' + data[i]['ID'] + '" class="remove-from-cart"><i class="fa fa-minus"></i></button></td></tr>').appendTo(parent + ' tbody');
+      $('<tr id="product-id-' + data[i]['ID'] + '"></tr>').appendTo(parent + ' tbody');
+      $('<td class="product"><img class="img-fluid" src="img/Goodies/' + data[i]['Picture'] + '"></td>').appendTo(parent + ' tbody' + ' #product-id-' + data[i]['ID']);
+      $('<td class="name">' + data[i]['Name'] + '</td>').appendTo(parent + ' tbody' + ' #product-id-' + data[i]['ID']);
+      $('<td class="quantity">' + data[i]['Quantity'] + '</td>').appendTo(parent + ' tbody' + ' #product-id-' + data[i]['ID']);
+      $('<td class="price">' + data[i]['Price'] + ' €</td>').appendTo(parent + ' tbody' + ' #product-id-' + data[i]['ID']);
+      $('<td class="subtotal">' + Math.round(data[i]['Quantity'] * data[i]['Price'] * 100) / 100 + ' €</td>').appendTo(parent + ' tbody' + ' #product-id-' + data[i]['ID']);
+      $('<td class="option"><button class="btn btn-dark" data-id="' + data[i]['ID'] + '" class="remove-from-cart"><i class="fa fa-minus"></i></button></td>').appendTo(parent + ' tbody' + ' #product-id-' + data[i]['ID']);
+      //$('<tr><td class="product"><img class="img-fluid" src="img/Goodies/' + data[i]['Picture'] + '"></td><td class="name">' + data[i]['Name'] + '</td><td class="quantity">' + data[i]['Quantity'] + '</td><td class="price">' + data[i]['Price'] + ' €</td><td class="subtotal">' + Math.round(data[i]['Quantity'] * data[i]['Price'] * 100) / 100 + ' €</td><td class="option"><button class="btn btn-dark" data-id="' + data[i]['ID'] + '" class="remove-from-cart"><i class="fa fa-minus"></i></button></td></tr>').appendTo(parent + ' tbody');
+      ;
       grandTotal += (data[i]['Quantity'] * data[i]['Price']);
     };
     $('#grandTotal').text(Math.round(grandTotal * 100) / 100 + ' €');
