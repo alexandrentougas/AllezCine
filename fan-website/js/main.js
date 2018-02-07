@@ -52,6 +52,9 @@ let whenDataLoadedGallery = function() {
 let whenDataLoadedGoodies = function() {
   let dataText = dataRequestGoodies.responseText; // we store the text of the response
   goodiesObject = JSON.parse(dataText);
+
+  displayGoodieItem(goodiesObject, '#nav-goodies-content', 'goodie');
+  addEventListenerForInformation('#nav-goodies-content .goodie-item');
 };
 
 let whenDataLoadedMedia = function() {
@@ -165,6 +168,73 @@ function createHTMLGalleryItem(data, parent, idPrefix) {
   $('<img src="img/Gallery/' + data['Picture'] + '" alt="' + data['Alt'] + '" class="">').appendTo('#' + HTMLId);
 };
 
+function createHTMLGoodieItem(data, parent, idPrefix) {
+  let HTMLId = idPrefix + '-' + data['ID']; // we construct the HTML id of this goodie
+  let HTMLContent = '<div class="col-12 col-sm-6 col-md-4 col-lg-2 card goodie-item" id="' + HTMLId + '"></div>'; // we open the div, insert class and ID
+  $(HTMLContent).appendTo($(parent)); // we add our HTML content to the parent
+  $('#' + HTMLId).attr({ // we insert some data-attribute
+    'data-id': data['ID'],
+    'data-type': data['Type'].toLowerCase(),
+  });
+  $('<img src="img/Goodies/' + data['Picture'] + '" class="goodie-image card-img-top img-fluid" alt="' + data['Name'] + ' (' + data['Type'] + ')" >').appendTo($('#' + HTMLId)); // we add the picture
+  $('<div class="card-footer"></div>').appendTo($('#' + HTMLId));
+  $('<h5 class="card-title">' + data['Name'] + '</h5>').appendTo($('#' + HTMLId + ' .card-footer'));
+  $('<div class="card-subtitle"></div>').appendTo($('#' + HTMLId + ' .card-footer'));
+  $('<div class="card-subtitle-item">' + data['Type'] + '</div><div class="card-subtitle-item">' + data['Price'] + ' €</div>').appendTo($('#' + HTMLId + ' .card-subtitle'));
+};
+
+function createHTMLGoodieItemInformationModal(data, informationParent, idData) {
+  let currentHTMLID = informationParent + '-item-' + idData;
+  let HMTLModalContent = '<div class="modal fade infomation-modal" id="' + currentHTMLID + '" tabindex="-1" role="dialog" aria-labelledby="Information about ' + data['Name'] + '" aria-hidden="true"></div>';
+  $(HMTLModalContent).appendTo($('#' + informationParent)); // we add our HTML content to the parent
+  $('<div class="modal-dialog modal-dialog-centered modal-lg" role="document"></div>').appendTo($('#' + currentHTMLID));
+  $('<div class="modal-content"></div>').appendTo($('#' + currentHTMLID + ' .modal-dialog'));
+  $('<div class="modal-header"></div>').appendTo($('#' + currentHTMLID + ' .modal-content'));
+  $('<h5 class="modal-title">' + data['Name'] + ')</h5>').appendTo($('#' + currentHTMLID + ' .modal-header'));
+  $('#' + currentHTMLID + ' .modal-title').after('<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
+  $('<div class="modal-body"></div>').appendTo($('#' + currentHTMLID + ' .modal-content'));
+  $('<div class="container-fluid"></div>').appendTo($('#' + currentHTMLID + ' .modal-body'));
+  $('#' + currentHTMLID + ' .modal-body .container-fluid').html('<div class="row main-information"></div>')
+  $('<div class="col-12 col-sm-4 poster-modal"></div>').appendTo($('#' + currentHTMLID + ' .row'));
+  $('#' + currentHTMLID + ' .poster-modal').html('<img src="img/Goodies/' + data['Picture'] + '" class="img-fluid">');
+  $('#' + currentHTMLID + ' .poster-modal').after('<div class="col-12 col-sm-8 main-data-modal"></div>');
+  $('#' + currentHTMLID + ' .main-data-modal').html('<p>' + data['Description'] + '</p>')
+  $('#' + currentHTMLID + ' .main-data-modal > p').after('<table class="table table-hover table-sm"></table>');
+  $('<tr><td>Type</td><td>' + data['Type'] + '</td></tr>').appendTo($('#' + currentHTMLID + ' .main-data-modal > table'));
+  if (data['Type'] === 'Figure') {
+    $('#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type').after('<tr><td>Height</td><td>' + data['Height'] + ' mm</td></tr>');
+    $('#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type').after('<tr><td>Width</td><td>' + data['Width'] + ' mm</td></tr>');
+    $('#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type').after('<tr><td>Depth</td><td>' + data['Depth'] + ' mm</td></tr>');
+    $('#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type').after('<tr><td>Weight</td><td>' + data['Weight'] + ' gr</td></tr>');
+  } else if (data['Type'] === 'Accessory' && data['Subtype'] === 'Ring') {
+    $('#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type').after('<tr><td>Height</td><td>' + data['Height'] + ' mm</td></tr>');
+    $('#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type').after('<tr><td>Width</td><td>' + data['Width'] + ' mm</td></tr>');
+    $('#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type').after('<tr><td>Depth</td><td>' + data['Depth'] + ' mm</td></tr>');
+    $('#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type').after('<tr><td>Size</td><td>' + data['Size'] + '</td></tr>');
+  } else if (data['Type'] === 'Accessory') {
+    $('#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type').after('<tr><td>Height</td><td>' + data['Height'] + ' mm</td></tr>');
+    $('#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type').after('<tr><td>Width</td><td>' + data['Width'] + ' mm</td></tr>');
+    $('#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type').after('<tr><td>Depth</td><td>' + data['Depth'] + ' mm</td></tr>');
+    $('#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type').after('<tr><td>Length</td><td>' + data['Length'] + ' mm</td></tr>');
+  };
+  $('#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type').after('<tr><td>Price</td><td>' + data['Price'] + ' €</td></tr>');
+};
+
+function addEventListenerForInformation(selector) { // we had the click on information button to the event listener
+  $(selector).on('click', function(e) { // we select the buttons
+    let idItem = Number($(this).attr('data-id')); // we save the ID goodie thanks to the data-id attribute
+    let itemObject = goodiesObject.filter(function(obj) { // we select the right object in all our data
+      return (obj.ID == idItem) ? obj : false; // we return the object
+    });
+    if ($('#' + 'goodie-information-item-' + idItem).length == 0) { // we check if the information modal already exists or not
+      createHTMLGoodieItemInformationModal(itemObject[0], 'goodie-information', idItem); // if not we create it in the right section
+      $('#' + 'goodie-information-item-' + idItem).modal('show'); // we show it
+    } else {
+      $('#' + 'goodie-information-item-' + idItem).modal('show'); // if already existe we show it
+    }
+  });
+};
+
 function displayMediaItem(data, parent, idPrefix) {
   for (i = 0; i < data.length; i++) {
     createHTMLMediaItem(data[i], parent, idPrefix);
@@ -196,6 +266,12 @@ function displayGalleryItem(data, parent, idPrefix) {
   for (i = 0; i < data.length; i++) {
     createHTMLGalleryItem(data[i], parent, idPrefix);
   };
+};
+
+function displayGoodieItem(data, parent, idPrefix) {
+  for (i = 0; i < data.length; i++) {
+    createHTMLGoodieItem(data[i], parent, idPrefix);
+  }
 };
 
 /*** DATA LOADED ***/
