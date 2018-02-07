@@ -319,7 +319,17 @@ main {
 
 #nav-goodies-content {
   position: relative;
-  height: 100%; }
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat; }
+  #nav-goodies-content .container {
+    padding: 50px 0px 100px; }
+  #nav-goodies-content .card {
+    border-radius: none;
+    border: 0px;
+    margin-bottom: 15px; }
   #nav-goodies-content #cart-button {
     position: fixed;
     display: -webkit-box;

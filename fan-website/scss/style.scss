@@ -110,6 +110,18 @@
 #nav-goodies-content {
   position: relative;
   height: 100%;
+  .container {
+    padding:50px 0px 100px;
+  }
+  .card {
+    border-radius: none;
+    border:0px;
+    margin-bottom: 15px;
+  }
+
+  //background-image: url('../img/Backgrounds/backgroundGallery.jpg');
+  @include background-image();
+
   #cart-button {
     position: fixed;
     display: flex;
