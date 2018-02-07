@@ -174,14 +174,14 @@ function createHTMLGalleryItem(data, parent, idPrefix) {
 
 function createHTMLGoodieItem(data, parent, idPrefix) {
   let HTMLId = idPrefix + '-' + data['ID']; // we construct the HTML id of this goodie
-  let HTMLContent = '<div class="col-12 col-sm-6 col-md-4 col-lg-3 card goodie-item" id="' + HTMLId + '"></div>'; // we open the div, insert class and ID
+  let HTMLContent = '<div class="col-12 col-sm-6 col-md-4 col-lg-3 card goodie-item" id="' + HTMLId + '"><div class="content"></div></div>'; // we open the div, insert class and ID
   $(HTMLContent).appendTo($(parent)); // we add our HTML content to the parent
   $('#' + HTMLId).attr({ // we insert some data-attribute
     'data-id': data['ID'],
     'data-type': data['Type'].toLowerCase(),
   });
-  $('<img src="img/Goodies/' + data['Picture'] + '" class="goodie-image card-img-top img-fluid" alt="' + data['Name'] + ' (' + data['Type'] + ')" >').appendTo($('#' + HTMLId)); // we add the picture
-  $('<div class="card-footer"></div>').appendTo($('#' + HTMLId));
+  $('<img src="img/Goodies/' + data['Picture'] + '" class="goodie-image card-img-top img-fluid" alt="' + data['Name'] + ' (' + data['Type'] + ')" >').appendTo($('#' + HTMLId + ' .content')); // we add the picture
+  $('<div class="card-footer"></div>').appendTo($('#' + HTMLId + ' .content'));
   $('<h5 class="card-title">' + data['Name'] + '</h5>').appendTo($('#' + HTMLId + ' .card-footer'));
   $('<div class="card-subtitle"></div>').appendTo($('#' + HTMLId + ' .card-footer'));
   $('<div class="card-subtitle-item">' + data['Type'] + '</div><div class="card-subtitle-item">' + data['Price'] + ' €</div>').appendTo($('#' + HTMLId + ' .card-subtitle'));
