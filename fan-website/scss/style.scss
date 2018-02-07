@@ -163,6 +163,7 @@
     z-index:10;
 
     .badge {
+      display: none;
       position: absolute;
       display: inline-block;
       /* temp */ background-color: red;
@@ -184,7 +185,8 @@
       border-radius: 50%;
       animation: pulsar 1s ease-out;
       animation-iteration-count: infinite;
-      background-color: $dark-color;
+      //background-color: $dark-color;
+      background-color:rgba($bs-secondary,1);
       z-index: -1;
     }
 

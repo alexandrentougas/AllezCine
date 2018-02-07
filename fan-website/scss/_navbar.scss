@@ -2,7 +2,10 @@
   display:flex;
   justify-content: space-around;
   align-items: center;
-  @include background-gradient-ffxv(right);
+  //@include background-gradient-ffxv(right);
+  background-color: $custom-secondary;
+  box-shadow: 0px 0px 20px 2px rgba($custom-secondary,.6);
+
 
   .nav-link {
     display: flex;
