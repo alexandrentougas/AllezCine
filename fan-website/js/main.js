@@ -198,8 +198,7 @@ function createHTMLGoodieItemInformationModal(data, informationParent, idData) {
   $('<div class="col-12 col-sm-4 poster-modal"></div>').appendTo($('#' + currentHTMLID + ' .row'));
   $('#' + currentHTMLID + ' .poster-modal').html('<img src="img/Goodies/' + data['Picture'] + '" class="img-fluid">');
   $('#' + currentHTMLID + ' .poster-modal').after('<div class="col-12 col-sm-8 main-data-modal"></div>');
-  $('#' + currentHTMLID + ' .main-data-modal').html('<p>' + data['Description'] + '</p>')
-  $('#' + currentHTMLID + ' .main-data-modal > p').after('<table class="table table-hover table-sm"></table>');
+  $('#' + currentHTMLID + ' .main-data-modal').html('<table class="table table-hover table-sm"></table>');
   $('<tr><td>Type</td><td>' + data['Type'] + '</td></tr>').appendTo($('#' + currentHTMLID + ' .main-data-modal > table'));
   if (data['Type'] === 'Figure') {
     $('#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type').after('<tr><td>Height</td><td>' + data['Height'] + ' mm</td></tr>');
@@ -218,6 +217,7 @@ function createHTMLGoodieItemInformationModal(data, informationParent, idData) {
     $('#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type').after('<tr><td>Length</td><td>' + data['Length'] + ' mm</td></tr>');
   };
   $('#' + currentHTMLID + ' .main-data-modal > table tr:last-of-type').after('<tr><td>Price</td><td>' + data['Price'] + ' €</td></tr>');
+  $('#' + currentHTMLID + ' .main-data-modal').after('<p>' + data['Description'] + '</p>');
 };
 
 function addEventListenerForInformation(selector) { // we had the click on information button to the event listener
@@ -273,6 +273,10 @@ function displayGoodieItem(data, parent, idPrefix) {
     createHTMLGoodieItem(data[i], parent, idPrefix);
   }
 };
+
+function nl2br(str) {
+  return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + '<br>' + '$2');
+}
 
 /*** DATA LOADED ***/
 
