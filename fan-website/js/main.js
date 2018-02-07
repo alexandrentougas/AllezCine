@@ -276,7 +276,7 @@ function displayGoodieItem(data, parent, idPrefix) {
 
 function nl2br(str) {
   return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + '<br>' + '$2');
-}
+};
 
 /*** DATA LOADED ***/
 
