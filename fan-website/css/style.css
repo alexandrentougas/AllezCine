@@ -177,6 +177,8 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   width: 100%;
   padding: 5px;
   /* temp */
@@ -239,6 +241,8 @@ main {
       -webkit-box-align: end;
           -ms-flex-align: end;
               align-items: flex-end;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
       height: 100%; }
       #nav-biography-content .container .row .col, #nav-biography-content .container-fluid .row .col {
         display: -webkit-box;
@@ -359,5 +363,10 @@ main {
               animation-iteration-count: infinite;
       background-color: #0d0d0d;
       z-index: -1; }
+
+#nav-gallery-content .image-set-item {
+  border: 3px solid rgba(255, 255, 255, 0); }
+  #nav-gallery-content .image-set-item img {
+    width: 100%; }
 
 /*# sourceMappingURL=style.css.map */
