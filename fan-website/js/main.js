@@ -65,6 +65,7 @@ let whenDataLoadedGoodies = function() {
     $('#cartModal').on('show.bs.modal', function(e) {
       $('#cartModal .modal-body').html('');
       displayCart(cartObject, '#cartModal .modal-body');
+      addEventListenerForRemovingFromCart();
     });
   });
 };
@@ -284,14 +285,32 @@ function displayCart(data, parent) {
     $("<p>Hey ! You didn't put anything in your cart yet !</p>").appendTo($(parent));
   } else {
     let grandTotal = 0;
-    let HTMLContent = '<table class="table"><thead class="thead-dark"><tr><th scope="col">Product</th><th scope="col">Name</th><th scope="col">Quantity</th><th scope="col">Price</th><th scope="col">Total</th></tr></thead><tbody></tbody><tfoot><tr><td colspan="4">Total</td><td id="grandTotal"></td></tr></tfoot></table>';
+    let HTMLContent = '<table class="table"><thead class="thead-dark"><tr><th scope="col">Product</th><th scope="col">Name</th><th scope="col">Quantity</th><th scope="col">Price</th><th scope="col">Total</th><th></th></tr></thead><tbody></tbody><tfoot><tr><td colspan="4">Total</td><td id="grandTotal"></td><td></td></tr></tfoot></table>';
     $(HTMLContent).appendTo(parent);
     for (i = 0; i < data.length; i++) {
-      $('<tr><td><img class="img-fluid" src="img/Goodies/' + data[i]['Picture'] + '"></td><td>' + data[i]['Name'] + '</td><td>' + data[i]['Quantity'] + '</td><td>' + data[i]['Price'] + ' €</td><td>' + Math.round(data[i]['Quantity'] * data[i]['Price'] * 100) / 100 + '</td></tr>').appendTo(parent + ' tbody');
+      $('<tr><td><img class="img-fluid" src="img/Goodies/' + data[i]['Picture'] + '"></td><td>' + data[i]['Name'] + '</td><td>' + data[i]['Quantity'] + '</td><td>' + data[i]['Price'] + ' €</td><td>' + Math.round(data[i]['Quantity'] * data[i]['Price'] * 100) / 100 + '</td><td><button data-id="' + data[i]['ID'] + '" class="remove-from-cart"><i class="fa fa-cart-arrow-down"></i></button></td></tr>').appendTo(parent + ' tbody');
       grandTotal += (data[i]['Quantity'] * data[i]['Price']);
     };
     $('#grandTotal').text(Math.round(grandTotal * 100) / 100 + ' €');
   };
+};
+
+function addEventListenerForRemovingFromCart() {
+  $('.remove-from-cart').on('click', function(e) {
+    let idItem = $(this).attr('data-id');
+    for (let key in cartObject) { // we loop our object
+      if (cartObject[key]['ID'] == idItem) { // if the value is not false
+        cartObject.splice(key, 1);
+        $('#cartModal .modal-body').html('');
+        displayCart(cartObject, '#cartModal .modal-body');
+        addEventListenerForRemovingFromCart();
+        $('#cart-button .badge').text(cartObject.length).fadeIn();
+        if ($('#cart-button .badge').text() == 0) {
+          $('#cart-button .badge').fadeOut();
+        };
+      };
+    };
+  });
 };
 
 function displayMediaItem(data, parent, idPrefix) {
