@@ -28,7 +28,8 @@
         volumeUpClass: 'tubular-volume-up',
         volumeDownClass: 'tubular-volume-down',
         increaseVolumeBy: 10,
-        start: 0
+        start: 0,
+        autoplay: 0
     };
 
     // methods
@@ -62,6 +63,7 @@
                     enablejsapi: 1,
                     loop: 1,
                     rel: 0,
+                    autoplay:0,
                     wmode: 'transparent'
                 },
                 events: {
