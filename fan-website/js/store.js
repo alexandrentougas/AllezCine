@@ -158,11 +158,13 @@ function addEventListenerForAddToCart(dataDB, dataCart) { // data = goodiesObjec
 
 function displayCart(data, parent) {
   if (data.length == 0) {
+    $('#cartModal').modal('hide');
     $('<div class="empty-message"><img src="img/Logos/chocoMog.png" class="img-fluid" alt="Choco Mog"><p>Hey ! You didn\'t put anything in your cart yet !</p></div>').appendTo($(parent));
     $(parent).parent().find('.checkout').hide();
   } else {
     $(parent).parent().find('.checkout').show();
     let grandTotal = 0;
+    let shippingCost = 0;
     let HTMLContent = '<table class="table"><thead class="thead-dark"><tr><th class="product" scope="col">Product</th><th class="name" scope="col">Name</th><th class="quantity" scope="col">Quantity</th><th class="price" scope="col">Price</th><th class="subtotal" scope="col">Total</th><th class="option"></th></tr></thead><tbody></tbody><tfoot><tr><td class="total-text" colspan="4">Total</td><td class="total" id="grandTotal"></td><td></td></tr></tfoot></table>';
     $(HTMLContent).appendTo(parent);
     for (i = 0; i < data.length; i++) {
@@ -175,6 +177,13 @@ function displayCart(data, parent) {
       $('<td class="option"><button class="btn btn-dark remove-from-cart" data-id="' + data[i]['ID'] + '"><i class="fa fa-minus"></i></button></td>').appendTo(parent + ' tbody' + ' #product-id-' + data[i]['ID']);
       grandTotal += (data[i]['Quantity'] * data[i]['Price']);
     };
+    if (grandTotal <= 15) {
+      shippingCost = 10;
+    } else if (grandTotal > 15 && grandTotal <= 30 ) {
+      shippingCost = 7;
+    }
+    $('<tr><td class="product"></td><td class="name">Shipping cost</td><td class="quantity"></td><td class="price"></td><td class="subtotal">' + shippingCost + ' €</td><td class="option"></td></tr>').appendTo(parent + ' tbody')
+    grandTotal += shippingCost;
     $('#grandTotal').text(Math.round(grandTotal * 100) / 100 + ' €');
   };
 };
