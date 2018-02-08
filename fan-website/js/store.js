@@ -24,7 +24,7 @@ let whenDataLoadedGoodies = function() {
   });
 
 };
-
+ 
 function displayGoodieItem(data, parent, idPrefix) {
   for (i = 0; i < data.length; i++) {
     createHTMLGoodieItem(data[i], parent, idPrefix);
