@@ -24,7 +24,7 @@ let whenDataLoadedGoodies = function() {
   });
 
 };
- 
+
 function displayGoodieItem(data, parent, idPrefix) {
   for (i = 0; i < data.length; i++) {
     createHTMLGoodieItem(data[i], parent, idPrefix);
@@ -113,8 +113,6 @@ function addEventListenerForAddToCart(dataDB, dataCart) { // data = goodiesObjec
       alreadyIn.push(dataCart[i]['ID']);
     }
 
-    console.log(alreadyIn);
-
     if (alreadyIn.length == 0) { // if first add
 
       dataCart.push({
@@ -148,7 +146,6 @@ function addEventListenerForAddToCart(dataDB, dataCart) { // data = goodiesObjec
 
       }
     }
-    console.log(dataCart);
 
     $('#goodie-information-item').modal('hide'); // we close the modal
 
