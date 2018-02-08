@@ -65,11 +65,11 @@ $('#intro').click(function() {
   $('#nav-logo-content').addClass('video-background');
   $('#nav-logo-content #background-intro').addClass('video-foreground');
   $('<iframe id="iframe-intro" src="https://www.youtube.com/embed/VeWqC0SIJt4?controls=0&showinfo=0&rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>').appendTo('#background-intro');
-  $('<button id="close-trailer-intro" type="button">Close</button>').appendTo('#background-intro');
-  $('#close-trailer-intro').css({
-      'position': 'fixed',
-      'top': $('#nav-main').height()
-  });
+  // $('<button id="close-trailer-intro" type="button">Close</button>').appendTo('#background-intro');
+  // $('#close-trailer-intro').css({
+  //     'position': 'fixed',
+  //     'top': $('#nav-main').height()
+  // });
 });
 
 $('#nav-presentation').click(function() {
@@ -157,11 +157,11 @@ function createHTMLMediaItem(data, parent, idPrefix) {
     $('#' + HTMLId).addClass('video-background');
     $('#' + HTMLId + ' #background-trailer-' + data['ID']).addClass('video-foreground');
     $('<iframe src="' + data['Trailer'] + '" frameborder="0" allowfullscreen></iframe>').appendTo('#background-trailer-' + data['ID']);
-    $('<button id="close-trailer-media-' + data['ID'] + '" type="button">Close</button>').appendTo('#background-trailer-' + data['ID']);
-    $('#close-trailer-media-' + data['ID']).css({
-        'position': 'fixed',
-        'top': $('#nav-main').height()
-    });
+    // $('<button id="close-trailer-media-' + data['ID'] + '" type="button">Close</button>').appendTo('#background-trailer-' + data['ID']);
+    // $('#close-trailer-media-' + data['ID']).css({
+    //     'position': 'fixed',
+    //     'top': $('#nav-main').height()
+    // });
   });
 };
 
