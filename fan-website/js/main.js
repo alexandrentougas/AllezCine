@@ -64,7 +64,12 @@ $('#intro').click(function() {
   $('#nav-logo-content .container').fadeOut();
   $('#nav-logo-content').addClass('video-background');
   $('#nav-logo-content #background-intro').addClass('video-foreground');
-  $('<iframe src="https://www.youtube.com/embed/VeWqC0SIJt4?controls=0&showinfo=0&rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>').appendTo('#background-intro');
+  $('<iframe id="iframe-intro" src="https://www.youtube.com/embed/VeWqC0SIJt4?controls=0&showinfo=0&rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>').appendTo('#background-intro');
+  $('<button id="close-trailer-intro" type="button">Close</button>').appendTo('#background-intro');
+  $('#close-trailer-intro').css({
+      'position': 'fixed',
+      'top': $('#nav-main').height()
+  });
 });
 
 $('#nav-presentation').click(function() {
