@@ -157,6 +157,11 @@ function createHTMLMediaItem(data, parent, idPrefix) {
     $('#' + HTMLId).addClass('video-background');
     $('#' + HTMLId + ' #background-trailer-' + data['ID']).addClass('video-foreground');
     $('<iframe src="' + data['Trailer'] + '" frameborder="0" allowfullscreen></iframe>').appendTo('#background-trailer-' + data['ID']);
+    $('<button id="close-trailer-media-' + data['ID'] + '" type="button">Close</button>').appendTo('#background-trailer-' + data['ID']);
+    $('#close-trailer-media-' + data['ID']).css({
+        'position': 'fixed',
+        'top': $('#nav-main').height()
+    });
   });
 };
 
