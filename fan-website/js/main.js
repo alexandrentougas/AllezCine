@@ -60,12 +60,20 @@ let whenDataLoadedMedia = function() {
   hideMediaMenuOnMediaSelection();
 };
 
+// $('#intro').click(function() {
+//   $('#nav-logo-content .container').fadeOut();
+//   $('#nav-logo-content').addClass('video-background');
+//   $('#nav-logo-content #background-intro').addClass('video-foreground');
+//   $('<iframe src="https://www.youtube.com/embed/VeWqC0SIJt4?controls=0&showinfo=0&rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>').appendTo('#background-intro');
+// });
+
+$('#wrapper').tubular({
+  videoId: 'VeWqC0SIJt4',
+  mute: false
+});
+
 $('#intro').click(function() {
-  $('#nav-logo-content img, #nav-logo-content button').fadeOut();
-  $('#nav-logo-content').css('background', 'transparent')
-  $('#nav-logo-content').addClass('video-background');
-  $('#nav-logo-content .container').addClass('video-foreground');
-  $('<iframe src="https://www.youtube.com/embed/VeWqC0SIJt4?controls=0&showinfo=0&rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>').appendTo('#nav-logo-content .container');
+  $('#nav-logo-content .container').fadeOut();
 });
 
 $('#nav-presentation').click(function() {
