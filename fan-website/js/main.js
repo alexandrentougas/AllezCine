@@ -146,11 +146,11 @@ function createHTMLMediaItem(data, parent, idPrefix) {
   $('<img src="img/Logos/' + data['Logo'] + '">').appendTo('#' + HTMLId + ' .container');
   $('<p>' + data['Presentation'] + '</p>').appendTo('#' + HTMLId + ' .container');
   $('<button type="button" class="btn btn-secondary" id="trailer-' + data['ID'] + '">Watch Trailer</button>').appendTo('#' + HTMLId + ' .container');
-  $('<div id="background-trailer-' + data['ID'] + '"></div>')
+  $('<div id="background-trailer-' + data['ID'] + '"></div>').appendTo('#' + HTMLId);
   $('#trailer-' + data['ID']).click(function() {
     $('#' + HTMLId + ' .container').fadeOut();
-    $(HTMLContent).addClass('video-background');
-    $(HTMLContent + ' #background-trailer-' + data['ID']).addClass('video-foreground');
+    $('#' + HTMLId).addClass('video-background');
+    $('#' + HTMLId + ' #background-trailer-' + data['ID']).addClass('video-foreground');
     $('<iframe src="' + data['Trailer'] + '" frameborder="0" allowfullscreen></iframe>').appendTo('#background-trailer-' + data['ID']);
   });
 };
