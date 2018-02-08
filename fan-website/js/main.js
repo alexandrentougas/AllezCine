@@ -16,6 +16,7 @@ let whenDataLoadedCharacters = function() {
 
   displayCharacterItem(charactersObject, '#nav-biography-content .container-fluid .row', 'character');
   displayBiography(charactersObject);
+  closeBiography();
 };
 
 let whenDataLoadedGallery = function() {
@@ -78,6 +79,14 @@ let whenDataLoadedMedia = function() {
   displayMediaNavItem(mediaObject, '#nav-media', 'mediaNav');
   hideMediaMenuOnMediaSelection();
 };
+
+$('#intro').click(function() {
+  $('#nav-logo-content img, #nav-logo-content button').fadeOut();
+  $('#nav-logo-content').css('background', 'transparent')
+  $('#nav-logo-content').addClass('video-background');
+  $('#nav-logo-content .container').addClass('video-foreground');
+  $('<iframe src="https://www.youtube.com/embed/VeWqC0SIJt4?controls=0&showinfo=0&rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>').appendTo('#nav-logo-content .container');
+});
 
 $('#nav-presentation').click(function() {
   $('#nav-media').toggleClass('active');
@@ -349,6 +358,13 @@ function displayBiography(data) {
       $(this).fadeIn();
       $('#biography').fadeIn();
     });
+  });
+};
+
+function closeBiography(data) {
+  $('#closeBio').click(function() {
+    $('#biography').fadeOut();
+    $('#nav-biography-content .container-fluid .row .col').fadeIn();
   });
 };
 
