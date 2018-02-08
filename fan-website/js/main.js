@@ -256,14 +256,14 @@ function addEventListenerForInformation(selector) { // we had the click on infor
 function addEventListenerForAddToCart(data) {
   $('.addCart').on('click', function(e) {
     let idItem = $(this).attr('data-id');
-    let alreadyIn = false;
+    let alreadyIn = {idItem:false};
     for (let key in cartObject) { // we loop our object
       if (cartObject[key]['ID'] == data[idItem - 1]['ID']) { // if the value is not false
         cartObject[key]['Quantity'] = cartObject[key]['Quantity'] + Number($('#quantity-' + idItem).val());
-        alreadyIn = true;
+        alreadyIn[idItem] = true;
       };
     };
-    if (!alreadyIn) {
+    if (!alreadyIn[idItem]) {
       cartObject.push({
         'ID': data[idItem - 1]['ID'],
         'Picture': data[idItem - 1]['Picture'],
@@ -271,6 +271,7 @@ function addEventListenerForAddToCart(data) {
         'Quantity': Number($('#quantity-' + idItem).val()),
         'Price': data[idItem - 1]['Price']
       });
+      alreadyIn[idItem] = true;
     };
     $('#goodie-information-item-' + idItem).modal('hide');
     $('#cart-button .badge').text(cartObject.length).fadeIn();
