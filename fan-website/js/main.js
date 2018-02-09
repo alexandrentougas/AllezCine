@@ -26,10 +26,8 @@ let whenDataLoadedGallery = function() {
 
   $('#nav-gallery-tab').on('shown.bs.tab', function(e) {
     $('#nav-gallery-content .image-set .image-set-item').each(function(index) {
-      //console.log($(this).css('width'));
       $(this).css('width', $(this).css('width'));
       $(this).css('height', $(this).css('width'));
-      //console.log( $(this).attr('href') );
       $(this).css({
         'background-image': 'linear-gradient(to bottom, rgba(0,0,0,.5) 0%,rgba(0,0,0,.5) 100%), url(./' + $(this).attr('href') + ')',
         'background-position': 'center center',
@@ -65,11 +63,17 @@ $('#intro').click(function() {
   $('#nav-logo-content').addClass('video-background');
   $('#nav-logo-content #background-intro').addClass('video-foreground');
   $('<iframe id="iframe-intro" src="https://www.youtube.com/embed/VeWqC0SIJt4?controls=0&showinfo=0&rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>').appendTo('#background-intro');
-  // $('<button id="close-trailer-intro" type="button">Close</button>').appendTo('#background-intro');
-  // $('#close-trailer-intro').css({
-  //     'position': 'fixed',
-  //     'top': $('#nav-main').height()
-  // });
+  $('<button id="close-trailer-intro" type="button">Close</button>').appendTo('#background-intro');
+  $('#close-trailer-intro').css({
+      'position': 'fixed',
+      'top': $('#nav-main').height()
+  });
+  $('#close-trailer-intro').click(function() {
+    $('#background-intro').hide();
+    $('#nav-logo-content .container').fadeIn();
+  });
+  $('#intro').remove();
+  $('<button type="button" class="btn btn-secondary" id="continue-intro">Continue Watching</button>')
 });
 
 $('#nav-presentation').click(function() {
@@ -157,11 +161,11 @@ function createHTMLMediaItem(data, parent, idPrefix) {
     $('#' + HTMLId).addClass('video-background');
     $('#' + HTMLId + ' #background-trailer-' + data['ID']).addClass('video-foreground');
     $('<iframe src="' + data['Trailer'] + '" frameborder="0" allowfullscreen></iframe>').appendTo('#background-trailer-' + data['ID']);
-    // $('<button id="close-trailer-media-' + data['ID'] + '" type="button">Close</button>').appendTo('#background-trailer-' + data['ID']);
-    // $('#close-trailer-media-' + data['ID']).css({
-    //     'position': 'fixed',
-    //     'top': $('#nav-main').height()
-    // });
+    $('<button id="close-trailer-media-' + data['ID'] + '" type="button">Close</button>').appendTo('#background-trailer-' + data['ID']);
+    $('#close-trailer-media-' + data['ID']).css({
+        'position': 'fixed',
+        'top': $('#nav-main').height()
+    });
   });
 };
 
@@ -177,7 +181,6 @@ function createHTMLCharacterItem(data, parent, idPrefix) {
   $(HTMLContent).appendTo($(parent));
   $('<h2>' + data['Name'] + '</h2>').appendTo('#' + HTMLId);
   $('<img src="img/Characters/' + data['Picture'] + '" alt ="' + data['Name'] + '" class="img-fluid">').appendTo('#' + HTMLId);
-  //$('#' + HTMLId).css('background-image', 'url(img/Characters/' + data['Picture'] + ')');
 };
 
 function createHTMLGalleryItem(data, parent, idPrefix) {

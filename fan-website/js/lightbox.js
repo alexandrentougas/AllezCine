@@ -255,9 +255,9 @@
     }).fadeIn(this.options.fadeDuration);
 
     // Disable scrolling of the page while open
-    if (this.options.disableScrolling) {
-      $('html').addClass('lb-disable-scrolling');
-    }
+    // if (this.options.disableScrolling) {
+    //   $('html').addClass('lb-disable-scrolling');
+    // }
 
     this.changeImage(imageNumber);
   };
