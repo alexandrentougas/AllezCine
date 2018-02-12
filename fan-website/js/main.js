@@ -62,18 +62,25 @@ $('#intro').click(function() {
   $('#nav-logo-content .container').fadeOut();
   $('#nav-logo-content').addClass('video-background');
   $('#nav-logo-content #background-intro').addClass('video-foreground');
-  $('<iframe id="iframe-intro" src="https://www.youtube.com/embed/VeWqC0SIJt4?controls=0&showinfo=0&rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>').appendTo('#background-intro');
+  $('<iframe id="iframe-intro" src="https://www.youtube.com/embed/VeWqC0SIJt4?controls=0&showinfo=0&rel=0&autoplay=1&enablejsapi=1&version=3&playerapiid=ytplayer" frameborder="0" allowfullscreen></iframe>').appendTo('#background-intro');
   $('<button id="close-trailer-intro" type="button">Close</button>').appendTo('#background-intro');
   $('#close-trailer-intro').css({
       'position': 'fixed',
       'top': $('#nav-main').height()
   });
   $('#close-trailer-intro').click(function() {
+    $('#iframe-intro')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+    $('#nav-logo-content').removeClass('video-background');
     $('#background-intro').hide();
     $('#nav-logo-content .container').fadeIn();
   });
+  $('<button type="button" class="btn btn-secondary" id="continue-intro">Continue Watching</button>').appendTo('#nav-logo-content .container');
+  $('#continue-intro').click(function() {
+    $('#nav-logo-content').addClass('video-background');
+    $('#background-intro').show();
+    $('#iframe-intro')[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+  });
   $('#intro').remove();
-  $('<button type="button" class="btn btn-secondary" id="continue-intro">Continue Watching</button>')
 });
 
 $('#nav-presentation').click(function() {
@@ -160,12 +167,25 @@ function createHTMLMediaItem(data, parent, idPrefix) {
     $('#' + HTMLId + ' .container').fadeOut();
     $('#' + HTMLId).addClass('video-background');
     $('#' + HTMLId + ' #background-trailer-' + data['ID']).addClass('video-foreground');
-    $('<iframe src="' + data['Trailer'] + '" frameborder="0" allowfullscreen></iframe>').appendTo('#background-trailer-' + data['ID']);
+    $('<iframe src="' + data['Trailer'] + '&enablejsapi=1&version=3&playerapiid=ytplayer" frameborder="0" allowfullscreen></iframe>').appendTo('#background-trailer-' + data['ID']);
     $('<button id="close-trailer-media-' + data['ID'] + '" type="button">Close</button>').appendTo('#background-trailer-' + data['ID']);
     $('#close-trailer-media-' + data['ID']).css({
         'position': 'fixed',
         'top': $('#nav-main').height()
     });
+    $('#close-trailer-media-' + data['ID']).click(function() {
+      $('#background-trailer-' + data['ID'] + ' iframe')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+      $('#' + HTMLId).removeClass('video-background');
+      $('#background-trailer-' + data['ID']).hide();
+      $('#' + HTMLId + ' .container').fadeIn();
+    });
+    $('<button type="button" class="btn btn-secondary" id="continue-trailer-' + data['ID'] + '">Continue Watching</button>').appendTo('#' + HTMLId + ' .container');
+    $('#continue-trailer-' + data['ID']).click(function() {
+      $('#' + HTMLId).addClass('video-background');
+      $('#background-trailer-' + data['ID']).show();
+      $('#background-trailer-' + data['ID'] + ' iframe')[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+    });
+    $('#trailer-' + data['ID']).remove();
   });
 };
 
@@ -174,6 +194,46 @@ function createHTMLMediaNavItem(data, parent, idPrefix) {
   let HTMLContent = '<a class="nav-item nav-link" data-toggle="tab" href="#media-' + data['ID'] + '" role="tab" aria-controls="#media-' + data['ID'] + '" aria-selected="false" id="' + HTMLId + '"><img src="img/Logos/' + data['Logo'] + '"></a>';
   $(HTMLContent).appendTo($(parent));
 };
+
+$('#nav-main .nav-item').not('#nav-presentation').click(function() { // Handles trailers closing on menu navigation
+  if ($('#nav-logo-content').hasClass('active')) {
+    console.log('coucou1');
+    $('#iframe-intro')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+    $('#nav-logo-content').removeClass('video-background');
+    $('#background-intro').hide();
+    $('#nav-logo-content .container').fadeIn();
+  } else {
+    $('#nav-tabContent .media-content iframe')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+    setTimeout(function() {
+      console.log('coucou2');
+      $('#nav-media .nav-item').removeClass('active show');
+      $('.video-background').removeClass('video-background');
+      $('.video-foreground').hide();
+      $('#nav-logo-content .container').fadeIn();
+      $('.tab-pane .container-fluid .container').fadeIn();
+    }, 1000);
+  };
+});
+
+$('#nav-media a').click(function() {
+  if ($('#nav-logo-content').hasClass('active')) {
+    console.log('coucou1');
+    $('#iframe-intro')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+    $('#nav-logo-content').removeClass('video-background');
+    $('#background-intro').hide();
+    $('#nav-logo-content .container').fadeIn();
+  } else {
+    $('#nav-tabContent .media-content iframe')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+    setTimeout(function() {
+      console.log('coucou2');
+      $('#nav-media .nav-item').removeClass('active show');
+      $('.video-background').removeClass('video-background');
+      $('.video-foreground').hide();
+      $('#nav-logo-content .container').fadeIn();
+      $('.tab-pane .container-fluid .container').fadeIn();
+    }, 1000);
+  };
+});
 
 function createHTMLCharacterItem(data, parent, idPrefix) {
   let HTMLId = idPrefix + '-' + data['ID'];
