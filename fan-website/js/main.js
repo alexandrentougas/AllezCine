@@ -215,7 +215,7 @@ $('#nav-main .nav-item').not('#nav-presentation').click(function() { // Handles 
   };
 });
 
-$('#nav-media a').click(function() {
+$('#nav-media .nav-item').click(function() {
   if ($('#nav-logo-content').hasClass('active')) {
     console.log('coucou1');
     $('#iframe-intro')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
