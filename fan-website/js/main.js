@@ -193,7 +193,7 @@ function createHTMLMediaNavItem(data, parent, idPrefix) {
   let HTMLId = idPrefix + '-' + data['ID'];
   let HTMLContent = '<a class="nav-item nav-link" data-toggle="tab" href="#media-' + data['ID'] + '" role="tab" aria-controls="#media-' + data['ID'] + '" aria-selected="false" id="' + HTMLId + '"><img src="img/Logos/' + data['Logo'] + '"></a>';
   $(HTMLContent).appendTo($(parent));
-  $('#nav-media .nav-item').click(function() {
+  $('#nav-media .nav-item').click(function() { // Handles trailers closing on menu navigation
     if ($('#nav-logo-content').hasClass('active')) {
       if ($('#nav-logo-content').hasClass('video-background')) {
         $('#iframe-intro')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
