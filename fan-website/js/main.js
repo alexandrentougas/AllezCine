@@ -67,7 +67,7 @@ $('#intro').click(function() {
   $('#close-trailer-intro').css({
     'position': 'fixed',
     'top': 'calc(100% - 130px)',
-    'left': 'calc(50% - 47.5px)'
+    'left': 'calc(50% - 42.5px)'
   });
   $('#close-trailer-intro').click(function() {
     $('#iframe-intro')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
@@ -174,7 +174,7 @@ function createHTMLMediaItem(data, parent, idPrefix) {
       'position': 'fixed',
       //'top': $('#nav-main').height()
       'top': 'calc(100% - 135px)',
-      'left': 'calc(50% - 47.5px)'
+      'left': 'calc(50% - 42.5px)'
     });
     $('#close-trailer-media-' + data['ID']).click(function() {
       $('#background-trailer-' + data['ID'] + ' iframe')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
