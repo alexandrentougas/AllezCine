@@ -66,7 +66,8 @@ $('#intro').click(function() {
   $('<button id="close-trailer-intro" type="button">Close</button>').appendTo('#background-intro');
   $('#close-trailer-intro').css({
     'position': 'fixed',
-    'top': $('#nav-main').height()
+    'top': 'calc(100% - 130px)',
+    'left': 'calc(50% - 47.5px)'
   });
   $('#close-trailer-intro').click(function() {
     $('#iframe-intro')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
@@ -171,7 +172,9 @@ function createHTMLMediaItem(data, parent, idPrefix) {
     $('<button id="close-trailer-media-' + data['ID'] + '" type="button">Close</button>').appendTo('#background-trailer-' + data['ID']);
     $('#close-trailer-media-' + data['ID']).css({
       'position': 'fixed',
-      'top': $('#nav-main').height()
+      //'top': $('#nav-main').height()
+      'top': 'calc(100% - 135px)',
+      'left': 'calc(50% - 47.5px)'
     });
     $('#close-trailer-media-' + data['ID']).click(function() {
       $('#background-trailer-' + data['ID'] + ' iframe')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');

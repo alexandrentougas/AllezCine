@@ -546,4 +546,16 @@ main {
     #nav-gallery-content .image-set-item img {
       width: 100%; }
 
+#close-trailer-intro {
+  cursor: pointer;
+  padding: 7px 20px;
+  border: 1px solid #272727;
+  border-radius: 20px;
+  background-color: #0d0d0d;
+  font-weight: bold;
+  color: #e6e6e6; }
+  #close-trailer-intro:hover {
+    color: #0d0d0d;
+    background-color: #e6e6e6; }
+
 /*# sourceMappingURL=style.css.map */

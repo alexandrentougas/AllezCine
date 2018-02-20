@@ -230,3 +230,17 @@
   }
 
 }
+
+#close-trailer-intro {
+  cursor: pointer;
+  padding:7px 20px;
+  border:1px solid lighten($dark-color,10%);
+  border-radius: 20px;
+  background-color: $dark-color;
+  font-weight: bold;
+  color:darken($light-color,10%);
+  &:hover {
+    color: $dark-color;
+    background-color: darken($light-color,10%);
+  }
+}
