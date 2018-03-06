@@ -546,7 +546,7 @@ main {
     #nav-gallery-content .image-set-item img {
       width: 100%; }
 
-#close-trailer-intro {
+#close-trailer-intro, .video-foreground button {
   cursor: pointer;
   padding: 7px 20px;
   border: 1px solid #272727;
@@ -554,7 +554,7 @@ main {
   background-color: #0d0d0d;
   font-weight: bold;
   color: #e6e6e6; }
-  #close-trailer-intro:hover {
+  #close-trailer-intro:hover, .video-foreground button:hover {
     color: #0d0d0d;
     background-color: #e6e6e6; }
 
