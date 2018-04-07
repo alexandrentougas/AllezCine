@@ -6,6 +6,10 @@
 * [jQuery Validate](https://jqueryvalidation.org/)
 * [Bootstrap](https://getbootstrap.com/)
 * [Font Awesome Icons](https://fontawesome.com/)
+* [Json](https://www.json.org/)
+* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [HTML5](https://www.w3.org/html/)
+* [CSS3](https://www.w3.org/Style/CSS/)
 
 ## Requirements
 
