@@ -72,4 +72,4 @@ correctly name your IDs. Use names that make sense, easy to locate on your page.
 
 ## Preview
 
-[https://laurenthu.github.io/AllezCine/fan-website/](https://laurenthu.github.io/AllezCine/fan-website/)
+[https://alexandrentougas.github.io/AllezCine/fan-website/](https://alexandrentougas.github.io/AllezCine/fan-website/)
