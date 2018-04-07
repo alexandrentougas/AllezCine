@@ -30,5 +30,5 @@
 
 ## Projects
 
-* [Movie shops](https://laurenthu.github.io/AllezCine/shops/)
-* [Fan website](https://laurenthu.github.io/AllezCine/fan-website/)
+* [Movie shops](https://alexandrentougas.github.io/AllezCine/shops/)
+* [Fan website](https://alexandrentougas.github.io/AllezCine/fan-website/)
