@@ -106,4 +106,4 @@ MAKE THE SITE RESPONSIVE (Bootstrap + Media queries)
 
 ## Preview
 
-[https://laurenthu.github.io/AllezCine/shops/](https://laurenthu.github.io/AllezCine/shops/)
+[https://alexandrentougas.github.io/AllezCine/shops/](https://alexandrentougas.github.io/AllezCine/shops/)
