@@ -627,7 +627,7 @@ dataRequestTvShow.onload = whenDataLoadedTvShows;
 dataRequestTvShow.open("GET", tvShowsFeed, true);
 dataRequestTvShow.send(null);
 
-$(window).on('load', function() { // age check modal on page load
+/* $(window).on('load', function() { // age check modal on page load
   $('#ageWarning').modal('show');
 });
 
@@ -649,7 +649,7 @@ $('#ageWarning').on('hidden.bs.modal', function() {
   } else {
     location.href = 'http://www.imdb.com/';
   }
-})
+}) */
 
 $('#loginModal').on('shown.bs.modal', function() {
   $('#username').trigger('focus')
