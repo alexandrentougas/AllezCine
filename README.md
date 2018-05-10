@@ -1,6 +1,6 @@
 # AllezCine
 
-## Technologies
+## Technologies 
 
 * [jQuery](http://jquery.com/)
 * [jQuery Validate](https://jqueryvalidation.org/)
